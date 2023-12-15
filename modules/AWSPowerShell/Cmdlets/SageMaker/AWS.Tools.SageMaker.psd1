@@ -302,6 +302,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-SMAssociation', 
         'Remove-SMCluster', 
         'Remove-SMCodeRepository', 
+        'Remove-SMCompilationJob', 
         'Remove-SMContext', 
         'Remove-SMDataQualityJobDefinition', 
         'Remove-SMDevice', 

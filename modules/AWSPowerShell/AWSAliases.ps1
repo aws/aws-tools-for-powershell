@@ -6239,12 +6239,18 @@ Set-Alias -Name CONN-ListViewVersions -Value Get-CONNViewVersionList
 Set-Alias -Name Monitor-CONNContact -Value Start-CONNContactMonitoring
 Set-Alias -Name Monitor-CONNContactMonitoring -Value Start-CONNContactMonitoring
 Set-Alias -Name CONN-MonitorContact -Value Start-CONNContactMonitoring
+Set-Alias -Name Pause-CONNContact -Value Invoke-CONNPauseContact
+Set-Alias -Name Pause-CONNPauseContact -Value Invoke-CONNPauseContact
+Set-Alias -Name CONN-PauseContact -Value Invoke-CONNPauseContact
 Set-Alias -Name Put-CONNUserStatus -Value Write-CONNUserStatus
 Set-Alias -Name CONN-PutUserStatus -Value Write-CONNUserStatus
 Set-Alias -Name Release-CONNPhoneNumber -Value Remove-CONNPhoneNumber
 Set-Alias -Name CONN-ReleasePhoneNumber -Value Remove-CONNPhoneNumber
 Set-Alias -Name Replicate-CONNInstance -Value Copy-CONNInstance
 Set-Alias -Name CONN-ReplicateInstance -Value Copy-CONNInstance
+Set-Alias -Name Resume-CONNContact -Value Invoke-CONNResumeContact
+Set-Alias -Name Resume-CONNResumeContact -Value Invoke-CONNResumeContact
+Set-Alias -Name CONN-ResumeContact -Value Invoke-CONNResumeContact
 Set-Alias -Name CONN-ResumeContactRecording -Value Resume-CONNContactRecording
 Set-Alias -Name Search-CONNAvailablePhoneNumbers -Value Search-CONNAvailablePhoneNumber
 Set-Alias -Name CONN-SearchAvailablePhoneNumbers -Value Search-CONNAvailablePhoneNumber
@@ -23999,6 +24005,8 @@ Set-Alias -Name Delete-SMCluster -Value Remove-SMCluster
 Set-Alias -Name SM-DeleteCluster -Value Remove-SMCluster
 Set-Alias -Name Delete-SMCodeRepository -Value Remove-SMCodeRepository
 Set-Alias -Name SM-DeleteCodeRepository -Value Remove-SMCodeRepository
+Set-Alias -Name Delete-SMCompilationJob -Value Remove-SMCompilationJob
+Set-Alias -Name SM-DeleteCompilationJob -Value Remove-SMCompilationJob
 Set-Alias -Name Delete-SMContext -Value Remove-SMContext
 Set-Alias -Name SM-DeleteContext -Value Remove-SMContext
 Set-Alias -Name Delete-SMDataQualityJobDefinition -Value Remove-SMDataQualityJobDefinition

@@ -640,6 +640,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PauseContact" Verb="Invoke" Noun="PauseContact" AnonymousShouldProcessTarget="true" PipelineParameter="ContactId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutUserStatus" Verb="Write" Noun="UserStatus" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="UserId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -649,6 +653,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ReplicateInstance" OutputProperty="*" Verb="Copy" Noun="Instance" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResumeContact" Verb="Invoke" Noun="ResumeContact" AnonymousShouldProcessTarget="true" PipelineParameter="ContactId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -797,7 +805,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagContact" Verb="Add" Noun="ContactTag" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagContact" Verb="Add" Noun="ContactTag" AnonymousShouldProcessTarget="true" PipelineParameter="ContactId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -809,7 +817,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagContact" Verb="Remove" Noun="ContactTag" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagContact" Verb="Remove" Noun="ContactTag" AnonymousShouldProcessTarget="true" PipelineParameter="ContactId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

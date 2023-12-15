@@ -68,10 +68,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK. Use the <code>Recipient</code>
     /// parameter to provide the attestation document for the enclave. Instead of the plaintext
     /// data, the response includes the plaintext data encrypted with the public key from
-    /// the attestation document (<code>CiphertextForRecipient</code>).For information about
+    /// the attestation document (<code>CiphertextForRecipient</code>). For information about
     /// the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How
     /// Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer
-    /// Guide</i>..
+    /// Guide</i>.
     /// </para><para>
     /// The KMS key that you use for this operation must be in a compatible key state. For
     /// details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
@@ -81,7 +81,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// ARN of the KMS key.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:Decrypt</a>
     /// (key policy)
-    /// </para><para><b>Related operations:</b></para><ul><li><para><a>Encrypt</a></para></li><li><para><a>GenerateDataKey</a></para></li><li><para><a>GenerateDataKeyPair</a></para></li><li><para><a>ReEncrypt</a></para></li></ul>
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a>Encrypt</a></para></li><li><para><a>GenerateDataKey</a></para></li><li><para><a>GenerateDataKeyPair</a></para></li><li><para><a>ReEncrypt</a></para></li></ul><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
+    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS
+    /// eventual consistency</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Invoke", "KMSDecrypt")]
     [OutputType("Amazon.KeyManagementService.Model.DecryptResponse")]

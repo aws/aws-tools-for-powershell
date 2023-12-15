@@ -180,6 +180,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CONNViewVersionList', 
         'Get-CONNVocabulary', 
         'Import-CONNPhoneNumber', 
+        'Invoke-CONNPauseContact', 
+        'Invoke-CONNResumeContact', 
         'Join-CONNRoutingProfileQueue', 
         'Move-CONNContact', 
         'New-CONNAgentStatus', 

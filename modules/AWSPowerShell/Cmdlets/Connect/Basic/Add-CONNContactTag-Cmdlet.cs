@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ContactId), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = string.Empty;
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-CONNContactTag (TagContact)"))
             {
                 return;

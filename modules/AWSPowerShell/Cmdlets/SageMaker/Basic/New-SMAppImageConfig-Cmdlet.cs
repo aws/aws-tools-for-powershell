@@ -94,6 +94,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Collections.Hashtable ContainerConfig_ContainerEnvironmentVariable { get; set; }
         #endregion
         
+        #region Parameter JupyterLabAppImageConfig_FileSystemConfig_DefaultGid
+        /// <summary>
+        /// <para>
+        /// <para>The default POSIX group ID (GID). If not specified, defaults to <code>100</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? JupyterLabAppImageConfig_FileSystemConfig_DefaultGid { get; set; }
+        #endregion
+        
         #region Parameter FileSystemConfig_DefaultGid
         /// <summary>
         /// <para>
@@ -103,6 +113,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("KernelGatewayImageConfig_FileSystemConfig_DefaultGid")]
         public System.Int32? FileSystemConfig_DefaultGid { get; set; }
+        #endregion
+        
+        #region Parameter JupyterLabAppImageConfig_FileSystemConfig_DefaultUid
+        /// <summary>
+        /// <para>
+        /// <para>The default POSIX user ID (UID). If not specified, defaults to <code>1000</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? JupyterLabAppImageConfig_FileSystemConfig_DefaultUid { get; set; }
         #endregion
         
         #region Parameter FileSystemConfig_DefaultUid
@@ -125,6 +145,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("KernelGatewayImageConfig_KernelSpecs")]
         public Amazon.SageMaker.Model.KernelSpec[] KernelGatewayImageConfig_KernelSpec { get; set; }
+        #endregion
+        
+        #region Parameter JupyterLabAppImageConfig_FileSystemConfig_MountPath
+        /// <summary>
+        /// <para>
+        /// <para>The path within the image to mount the user's EFS home directory. The directory should
+        /// be empty. If not specified, defaults to <i>/home/sagemaker-user</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String JupyterLabAppImageConfig_FileSystemConfig_MountPath { get; set; }
         #endregion
         
         #region Parameter FileSystemConfig_MountPath
@@ -235,6 +266,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
                     context.ContainerConfig_ContainerEnvironmentVariable.Add((String)hashKey, (String)(this.ContainerConfig_ContainerEnvironmentVariable[hashKey]));
                 }
             }
+            context.JupyterLabAppImageConfig_FileSystemConfig_DefaultGid = this.JupyterLabAppImageConfig_FileSystemConfig_DefaultGid;
+            context.JupyterLabAppImageConfig_FileSystemConfig_DefaultUid = this.JupyterLabAppImageConfig_FileSystemConfig_DefaultUid;
+            context.JupyterLabAppImageConfig_FileSystemConfig_MountPath = this.JupyterLabAppImageConfig_FileSystemConfig_MountPath;
             context.FileSystemConfig_DefaultGid = this.FileSystemConfig_DefaultGid;
             context.FileSystemConfig_DefaultUid = this.FileSystemConfig_DefaultUid;
             context.FileSystemConfig_MountPath = this.FileSystemConfig_MountPath;
@@ -313,6 +347,51 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_ContainerConfig != null)
             {
                 request.JupyterLabAppImageConfig.ContainerConfig = requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_ContainerConfig;
+                requestJupyterLabAppImageConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.FileSystemConfig requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_FileSystemConfig = null;
+            
+             // populate FileSystemConfig
+            var requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_FileSystemConfigIsNull = true;
+            requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_FileSystemConfig = new Amazon.SageMaker.Model.FileSystemConfig();
+            System.Int32? requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_FileSystemConfig_jupyterLabAppImageConfig_FileSystemConfig_DefaultGid = null;
+            if (cmdletContext.JupyterLabAppImageConfig_FileSystemConfig_DefaultGid != null)
+            {
+                requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_FileSystemConfig_jupyterLabAppImageConfig_FileSystemConfig_DefaultGid = cmdletContext.JupyterLabAppImageConfig_FileSystemConfig_DefaultGid.Value;
+            }
+            if (requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_FileSystemConfig_jupyterLabAppImageConfig_FileSystemConfig_DefaultGid != null)
+            {
+                requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_FileSystemConfig.DefaultGid = requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_FileSystemConfig_jupyterLabAppImageConfig_FileSystemConfig_DefaultGid.Value;
+                requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_FileSystemConfigIsNull = false;
+            }
+            System.Int32? requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_FileSystemConfig_jupyterLabAppImageConfig_FileSystemConfig_DefaultUid = null;
+            if (cmdletContext.JupyterLabAppImageConfig_FileSystemConfig_DefaultUid != null)
+            {
+                requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_FileSystemConfig_jupyterLabAppImageConfig_FileSystemConfig_DefaultUid = cmdletContext.JupyterLabAppImageConfig_FileSystemConfig_DefaultUid.Value;
+            }
+            if (requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_FileSystemConfig_jupyterLabAppImageConfig_FileSystemConfig_DefaultUid != null)
+            {
+                requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_FileSystemConfig.DefaultUid = requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_FileSystemConfig_jupyterLabAppImageConfig_FileSystemConfig_DefaultUid.Value;
+                requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_FileSystemConfigIsNull = false;
+            }
+            System.String requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_FileSystemConfig_jupyterLabAppImageConfig_FileSystemConfig_MountPath = null;
+            if (cmdletContext.JupyterLabAppImageConfig_FileSystemConfig_MountPath != null)
+            {
+                requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_FileSystemConfig_jupyterLabAppImageConfig_FileSystemConfig_MountPath = cmdletContext.JupyterLabAppImageConfig_FileSystemConfig_MountPath;
+            }
+            if (requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_FileSystemConfig_jupyterLabAppImageConfig_FileSystemConfig_MountPath != null)
+            {
+                requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_FileSystemConfig.MountPath = requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_FileSystemConfig_jupyterLabAppImageConfig_FileSystemConfig_MountPath;
+                requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_FileSystemConfigIsNull = false;
+            }
+             // determine if requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_FileSystemConfig should be set to null
+            if (requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_FileSystemConfigIsNull)
+            {
+                requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_FileSystemConfig = null;
+            }
+            if (requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_FileSystemConfig != null)
+            {
+                request.JupyterLabAppImageConfig.FileSystemConfig = requestJupyterLabAppImageConfig_jupyterLabAppImageConfig_FileSystemConfig;
                 requestJupyterLabAppImageConfigIsNull = false;
             }
              // determine if request.JupyterLabAppImageConfig should be set to null
@@ -453,6 +532,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public List<System.String> ContainerConfig_ContainerArgument { get; set; }
             public List<System.String> ContainerConfig_ContainerEntrypoint { get; set; }
             public Dictionary<System.String, System.String> ContainerConfig_ContainerEnvironmentVariable { get; set; }
+            public System.Int32? JupyterLabAppImageConfig_FileSystemConfig_DefaultGid { get; set; }
+            public System.Int32? JupyterLabAppImageConfig_FileSystemConfig_DefaultUid { get; set; }
+            public System.String JupyterLabAppImageConfig_FileSystemConfig_MountPath { get; set; }
             public System.Int32? FileSystemConfig_DefaultGid { get; set; }
             public System.Int32? FileSystemConfig_DefaultUid { get; set; }
             public System.String FileSystemConfig_MountPath { get; set; }

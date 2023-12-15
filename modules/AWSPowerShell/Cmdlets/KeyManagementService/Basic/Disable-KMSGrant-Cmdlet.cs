@@ -48,10 +48,13 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// grants</a>. 
     /// </para><para><b>Cross-account use</b>: Yes. You can retire a grant on a KMS key in a different
     /// Amazon Web Services account.
-    /// </para><para><b>Required permissions:</b>:Permission to retire a grant is determined primarily
+    /// </para><para><b>Required permissions</b>: Permission to retire a grant is determined primarily
     /// by the grant. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#grant-delete">Retiring
     /// and revoking grants</a> in the <i>Key Management Service Developer Guide</i>.
-    /// </para><para><b>Related operations:</b></para><ul><li><para><a>CreateGrant</a></para></li><li><para><a>ListGrants</a></para></li><li><para><a>ListRetirableGrants</a></para></li><li><para><a>RevokeGrant</a></para></li></ul>
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a>CreateGrant</a></para></li><li><para><a>ListGrants</a></para></li><li><para><a>ListRetirableGrants</a></para></li><li><para><a>RevokeGrant</a></para></li></ul><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
+    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS
+    /// eventual consistency</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Disable", "KMSGrant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

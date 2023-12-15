@@ -15397,7 +15397,7 @@ $CONN_Completers = {
             ($_ -eq "New-CONNRule/TriggerEventSource_EventSourceName")
         }
         {
-            $v = "OnContactEvaluationSubmit","OnMetricDataUpdate","OnPostCallAnalysisAvailable","OnPostChatAnalysisAvailable","OnRealTimeCallAnalysisAvailable","OnRealTimeChatAnalysisAvailable","OnSalesforceCaseCreate","OnZendeskTicketCreate","OnZendeskTicketStatusUpdate"
+            $v = "OnCaseCreate","OnCaseUpdate","OnContactEvaluationSubmit","OnMetricDataUpdate","OnPostCallAnalysisAvailable","OnPostChatAnalysisAvailable","OnRealTimeCallAnalysisAvailable","OnRealTimeChatAnalysisAvailable","OnSalesforceCaseCreate","OnZendeskTicketCreate","OnZendeskTicketStatusUpdate"
             break
         }
 
@@ -15552,7 +15552,7 @@ $CONN_Completers = {
         # Amazon.Connect.SourceType
         "New-CONNIntegrationAssociation/SourceType"
         {
-            $v = "SALESFORCE","ZENDESK"
+            $v = "CASES","SALESFORCE","ZENDESK"
             break
         }
 
@@ -15916,9 +15916,11 @@ $CONN_SelectMap = @{
                "Get-CONNViewList",
                "Get-CONNViewVersionList",
                "Start-CONNContactMonitoring",
+               "Invoke-CONNPauseContact",
                "Write-CONNUserStatus",
                "Remove-CONNPhoneNumber",
                "Copy-CONNInstance",
+               "Invoke-CONNResumeContact",
                "Resume-CONNContactRecording",
                "Search-CONNAvailablePhoneNumber",
                "Search-CONNHoursOfOperation",
@@ -56788,7 +56790,7 @@ $SM_Completers = {
             ($_ -eq "Update-SMSpace/SpaceSettings_AppType")
         }
         {
-            $v = "CodeEditor","JupyterLab","JupyterServer","KernelGateway","RSessionGateway","RStudioServerPro","TensorBoard"
+            $v = "Canvas","CodeEditor","DatasetManager","DetailedProfiler","JupyterLab","JupyterServer","KernelGateway","Local","RSession","RSessionGateway","RStudioServerPro","SageMakerLite","Savitur","TensorBoard","VSCode"
             break
         }
 
@@ -56805,7 +56807,7 @@ $SM_Completers = {
             ($_ -eq "Get-SMAssociationList/AssociationType")
         }
         {
-            $v = "AssociatedWith","ContributedTo","DerivedFrom","Produced"
+            $v = "AssociatedWith","ContributedTo","DerivedFrom","Produced","SameAs"
             break
         }
 
@@ -56870,7 +56872,7 @@ $SM_Completers = {
         # Amazon.SageMaker.AwsManagedHumanLoopRequestSource
         "New-SMFlowDefinition/HumanLoopRequestSource_AwsManagedHumanLoopRequestSource"
         {
-            $v = "AWS/Rekognition/DetectModerationLabels/Image/V3","AWS/Textract/AnalyzeDocument/Forms/V1"
+            $v = "AWS/Bedrock/ModelEvaluation","AWS/Handshake/VerifyIdentity","AWS/Rekognition/DetectModerationLabels/Image/V3","AWS/Textract/AnalyzeDocument/Forms/V1","AWS/Textract/AnalyzeExpense"
             break
         }
 
@@ -57149,7 +57151,7 @@ $SM_Completers = {
         # Amazon.SageMaker.HyperParameterTuningJobStatus
         "Get-SMHyperParameterTuningJobList/StatusEquals"
         {
-            $v = "Completed","Failed","InProgress","Stopped","Stopping"
+            $v = "Completed","DeleteFailed","Deleting","Failed","InProgress","Stopped","Stopping"
             break
         }
 
@@ -57629,7 +57631,7 @@ $SM_Completers = {
             ($_ -eq "Get-SMInferenceRecommendationsJobList/StatusEquals")
         }
         {
-            $v = "COMPLETED","FAILED","IN_PROGRESS","PENDING","STOPPED","STOPPING"
+            $v = "COMPLETED","DELETED","DELETING","FAILED","IN_PROGRESS","PENDING","STOPPED","STOPPING"
             break
         }
 
@@ -57674,7 +57676,7 @@ $SM_Completers = {
             ($_ -eq "Search-SMResource/Resource")
         }
         {
-            $v = "Endpoint","Experiment","ExperimentTrial","ExperimentTrialComponent","FeatureGroup","FeatureMetadata","HyperParameterTuningJob","Model","ModelCard","ModelPackage","ModelPackageGroup","Pipeline","PipelineExecution","Project","TrainingJob"
+            $v = "Endpoint","Experiment","ExperimentTrial","ExperimentTrialComponent","FeatureGroup","FeatureMetadata","HyperParameterTuningJob","Image","ImageVersion","Model","ModelCard","ModelPackage","ModelPackageGroup","Pipeline","PipelineExecution","Project","TrainingJob"
             break
         }
 
@@ -57902,7 +57904,7 @@ $SM_Completers = {
             ($_ -eq "New-SMStudioLifecycleConfig/StudioLifecycleConfigAppType")
         }
         {
-            $v = "CodeEditor","JupyterLab","JupyterServer","KernelGateway"
+            $v = "CodeEditor","JupyterLab","JupyterServer","KernelGateway","Savitur","VSCode"
             break
         }
 
@@ -57916,14 +57918,14 @@ $SM_Completers = {
         # Amazon.SageMaker.TableFormat
         "New-SMFeatureGroup/OfflineStoreConfig_TableFormat"
         {
-            $v = "Glue","Iceberg"
+            $v = "Default","Glue","Iceberg"
             break
         }
 
         # Amazon.SageMaker.TargetDevice
         "New-SMCompilationJob/OutputConfig_TargetDevice"
         {
-            $v = "aisage","amba_cv2","amba_cv22","amba_cv25","coreml","deeplens","imx8mplus","imx8qm","jacinto_tda4vm","jetson_nano","jetson_tx1","jetson_tx2","jetson_xavier","lambda","ml_c4","ml_c5","ml_eia2","ml_g4dn","ml_inf1","ml_inf2","ml_m4","ml_m5","ml_p2","ml_p3","ml_trn1","qcs603","qcs605","rasp3b","rk3288","rk3399","sbe_c","sitara_am57x","x86_win32","x86_win64"
+            $v = "aisage","amba_cv2","amba_cv22","amba_cv25","coreml","deeplens","imx8mplus","imx8qm","jacinto_tda4vm","jetson_nano","jetson_tx1","jetson_tx2","jetson_xavier","lambda","ml_c4","ml_c5","ml_c6g","ml_eia2","ml_g4dn","ml_inf1","ml_inf2","ml_m4","ml_m5","ml_m6g","ml_p2","ml_p3","ml_trn1","qcs603","qcs605","rasp3b","rasp4b","rk3288","rk3399","sbe_c","sitara_am57x","x86_win32","x86_win64"
             break
         }
 
@@ -57975,7 +57977,7 @@ $SM_Completers = {
         # Amazon.SageMaker.TrainingInstanceType
         "New-SMHyperParameterTuningJob/TrainingJobDefinition_HyperParameterTuningResourceConfig_InstanceType"
         {
-            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c5n.18xlarge","ml.c5n.2xlarge","ml.c5n.4xlarge","ml.c5n.9xlarge","ml.c5n.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p5.48xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge"
+            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c5n.18xlarge","ml.c5n.2xlarge","ml.c5n.4xlarge","ml.c5n.9xlarge","ml.c5n.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge"
             break
         }
 
@@ -58302,6 +58304,7 @@ $SM_SelectMap = @{
                "Remove-SMAssociation",
                "Remove-SMCluster",
                "Remove-SMCodeRepository",
+               "Remove-SMCompilationJob",
                "Remove-SMContext",
                "Remove-SMDataQualityJobDefinition",
                "Remove-SMDeviceFleet",

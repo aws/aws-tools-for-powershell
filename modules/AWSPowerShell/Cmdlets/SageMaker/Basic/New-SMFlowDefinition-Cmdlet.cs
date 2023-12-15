@@ -120,14 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// and Delete a Worker Task Templates</a>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String HumanLoopConfig_HumanTaskUiArn { get; set; }
         #endregion
         
@@ -209,13 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// can improve label accuracy.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Int32? HumanLoopConfig_TaskCount { get; set; }
         #endregion
         
@@ -225,14 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>A description for the human worker task.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String HumanLoopConfig_TaskDescription { get; set; }
         #endregion
         
@@ -265,14 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>A title for the human worker task.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String HumanLoopConfig_TaskTitle { get; set; }
         #endregion
         
@@ -295,14 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// and Manage Workforces</a>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String HumanLoopConfig_WorkteamArn { get; set; }
         #endregion
         
@@ -377,49 +343,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
             #endif
             context.HumanLoopActivationConditionsConfig_HumanLoopActivationCondition = this.HumanLoopActivationConditionsConfig_HumanLoopActivationCondition;
             context.HumanLoopConfig_HumanTaskUiArn = this.HumanLoopConfig_HumanTaskUiArn;
-            #if MODULAR
-            if (this.HumanLoopConfig_HumanTaskUiArn == null && ParameterWasBound(nameof(this.HumanLoopConfig_HumanTaskUiArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter HumanLoopConfig_HumanTaskUiArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.AmountInUsd_Cent = this.AmountInUsd_Cent;
             context.AmountInUsd_Dollar = this.AmountInUsd_Dollar;
             context.AmountInUsd_TenthFractionsOfACent = this.AmountInUsd_TenthFractionsOfACent;
             context.HumanLoopConfig_TaskAvailabilityLifetimeInSecond = this.HumanLoopConfig_TaskAvailabilityLifetimeInSecond;
             context.HumanLoopConfig_TaskCount = this.HumanLoopConfig_TaskCount;
-            #if MODULAR
-            if (this.HumanLoopConfig_TaskCount == null && ParameterWasBound(nameof(this.HumanLoopConfig_TaskCount)))
-            {
-                WriteWarning("You are passing $null as a value for parameter HumanLoopConfig_TaskCount which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.HumanLoopConfig_TaskDescription = this.HumanLoopConfig_TaskDescription;
-            #if MODULAR
-            if (this.HumanLoopConfig_TaskDescription == null && ParameterWasBound(nameof(this.HumanLoopConfig_TaskDescription)))
-            {
-                WriteWarning("You are passing $null as a value for parameter HumanLoopConfig_TaskDescription which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.HumanLoopConfig_TaskKeyword != null)
             {
                 context.HumanLoopConfig_TaskKeyword = new List<System.String>(this.HumanLoopConfig_TaskKeyword);
             }
             context.HumanLoopConfig_TaskTimeLimitInSecond = this.HumanLoopConfig_TaskTimeLimitInSecond;
             context.HumanLoopConfig_TaskTitle = this.HumanLoopConfig_TaskTitle;
-            #if MODULAR
-            if (this.HumanLoopConfig_TaskTitle == null && ParameterWasBound(nameof(this.HumanLoopConfig_TaskTitle)))
-            {
-                WriteWarning("You are passing $null as a value for parameter HumanLoopConfig_TaskTitle which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.HumanLoopConfig_WorkteamArn = this.HumanLoopConfig_WorkteamArn;
-            #if MODULAR
-            if (this.HumanLoopConfig_WorkteamArn == null && ParameterWasBound(nameof(this.HumanLoopConfig_WorkteamArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter HumanLoopConfig_WorkteamArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.HumanLoopRequestSource_AwsManagedHumanLoopRequestSource = this.HumanLoopRequestSource_AwsManagedHumanLoopRequestSource;
             context.OutputConfig_KmsKeyId = this.OutputConfig_KmsKeyId;
             context.OutputConfig_S3OutputPath = this.OutputConfig_S3OutputPath;

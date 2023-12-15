@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// (LLMs fine-tuning).
     /// </para><para>
     /// Find guidelines about how to migrate a <code>CreateAutoMLJob</code> to <code>CreateAutoMLJobV2</code>
-    /// in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment-api.html#autopilot-create-experiment-api-migrate-v1-v2">Migrate
+    /// in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment.html#autopilot-create-experiment-api-migrate-v1-v2">Migrate
     /// a CreateAutoMLJob to CreateAutoMLJobV2</a>.
     /// </para></note><para>
     /// For the list of available problem types supported by <code>CreateAutoMLJobV2</code>,
@@ -61,6 +61,21 @@ namespace Amazon.PowerShell.Cmdlets.SM
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter ModelAccessConfig_AcceptEula
+        /// <summary>
+        /// <para>
+        /// <para>Specifies agreement to the model end-user license agreement (EULA). The <code>AcceptEula</code>
+        /// value must be explicitly defined as <code>True</code> in order to accept the EULA
+        /// that this model requires. You are responsible for reviewing and complying with any
+        /// applicable license terms and making sure they are acceptable for your use case before
+        /// downloading or using a model.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoMLProblemTypeConfig_TextGenerationJobConfig_ModelAccessConfig_AcceptEula")]
+        public System.Boolean? ModelAccessConfig_AcceptEula { get; set; }
+        #endregion
         
         #region Parameter Transformations_Aggregation
         /// <summary>
@@ -935,6 +950,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond = this.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond;
             context.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxCandidate = this.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxCandidate;
             context.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond = this.AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond;
+            context.ModelAccessConfig_AcceptEula = this.ModelAccessConfig_AcceptEula;
             if (this.TextGenerationJobConfig_TextGenerationHyperParameter != null)
             {
                 context.TextGenerationJobConfig_TextGenerationHyperParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -1222,6 +1238,31 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_textGenerationJobConfig_TextGenerationHyperParameter != null)
             {
                 requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig.TextGenerationHyperParameters = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_textGenerationJobConfig_TextGenerationHyperParameter;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.ModelAccessConfig requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_ModelAccessConfig = null;
+            
+             // populate ModelAccessConfig
+            var requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_ModelAccessConfigIsNull = true;
+            requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_ModelAccessConfig = new Amazon.SageMaker.Model.ModelAccessConfig();
+            System.Boolean? requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_ModelAccessConfig_modelAccessConfig_AcceptEula = null;
+            if (cmdletContext.ModelAccessConfig_AcceptEula != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_ModelAccessConfig_modelAccessConfig_AcceptEula = cmdletContext.ModelAccessConfig_AcceptEula.Value;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_ModelAccessConfig_modelAccessConfig_AcceptEula != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_ModelAccessConfig.AcceptEula = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_ModelAccessConfig_modelAccessConfig_AcceptEula.Value;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_ModelAccessConfigIsNull = false;
+            }
+             // determine if requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_ModelAccessConfig should be set to null
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_ModelAccessConfigIsNull)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_ModelAccessConfig = null;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_ModelAccessConfig != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig.ModelAccessConfig = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_ModelAccessConfig;
                 requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfigIsNull = false;
             }
             Amazon.SageMaker.Model.AutoMLJobCompletionCriteria requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_autoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria = null;
@@ -1864,6 +1905,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Int32? AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond { get; set; }
             public System.Int32? AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxCandidate { get; set; }
             public System.Int32? AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond { get; set; }
+            public System.Boolean? ModelAccessConfig_AcceptEula { get; set; }
             public Dictionary<System.String, System.String> TextGenerationJobConfig_TextGenerationHyperParameter { get; set; }
             public System.Int32? AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond { get; set; }
             public System.Int32? AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxCandidate { get; set; }

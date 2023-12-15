@@ -100,7 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// experience for the domain. The supported values are:</para><ul><li><para><code>studio::relative/path</code>: Directs users to the relative path in Studio.</para></li><li><para><code>app:JupyterServer:relative/path</code>: Directs users to the relative path
         /// in the Studio Classic application.</para></li><li><para><code>app:JupyterLab:relative/path</code>: Directs users to the relative path in
         /// the JupyterLab application.</para></li><li><para><code>app:RStudioServerPro:relative/path</code>: Directs users to the relative path
-        /// in the RStudio application.</para></li><li><para><code>app:Canvas:relative/path</code>: Directs users to the relative path in the
+        /// in the RStudio application.</para></li><li><para><code>app:CodeEditor:relative/path</code>: Directs users to the relative path in
+        /// the Code Editor, based on Code-OSS, Visual Studio Code - Open Source application.</para></li><li><para><code>app:Canvas:relative/path</code>: Directs users to the relative path in the
         /// Canvas application.</para></li></ul>
         /// </para>
         /// </summary>

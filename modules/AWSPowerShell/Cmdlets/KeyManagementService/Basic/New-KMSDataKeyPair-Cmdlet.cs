@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// a plaintext public key, a plaintext private key, and a copy of the private key that
     /// is encrypted under the symmetric encryption KMS key you specify. You can use the data
     /// key pair to perform asymmetric cryptography and implement digital signatures outside
-    /// of KMS. The bytes in the keys are random; they not related to the caller or to the
-    /// KMS key that is used to encrypt the private key. 
+    /// of KMS. The bytes in the keys are random; they are not related to the caller or to
+    /// the KMS key that is used to encrypt the private key. 
     /// 
     ///  
     /// <para>
@@ -96,7 +96,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// <code>KeyId</code> parameter.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GenerateDataKeyPair</a>
     /// (key policy)
-    /// </para><para><b>Related operations:</b></para><ul><li><para><a>Decrypt</a></para></li><li><para><a>Encrypt</a></para></li><li><para><a>GenerateDataKey</a></para></li><li><para><a>GenerateDataKeyPairWithoutPlaintext</a></para></li><li><para><a>GenerateDataKeyWithoutPlaintext</a></para></li></ul>
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a>Decrypt</a></para></li><li><para><a>Encrypt</a></para></li><li><para><a>GenerateDataKey</a></para></li><li><para><a>GenerateDataKeyPairWithoutPlaintext</a></para></li><li><para><a>GenerateDataKeyWithoutPlaintext</a></para></li></ul><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
+    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS
+    /// eventual consistency</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "KMSDataKeyPair", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.KeyManagementService.Model.GenerateDataKeyPairResponse")]

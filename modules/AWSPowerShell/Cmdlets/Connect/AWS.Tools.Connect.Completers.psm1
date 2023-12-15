@@ -176,7 +176,7 @@ $CONN_Completers = {
             ($_ -eq "New-CONNRule/TriggerEventSource_EventSourceName")
         }
         {
-            $v = "OnContactEvaluationSubmit","OnMetricDataUpdate","OnPostCallAnalysisAvailable","OnPostChatAnalysisAvailable","OnRealTimeCallAnalysisAvailable","OnRealTimeChatAnalysisAvailable","OnSalesforceCaseCreate","OnZendeskTicketCreate","OnZendeskTicketStatusUpdate"
+            $v = "OnCaseCreate","OnCaseUpdate","OnContactEvaluationSubmit","OnMetricDataUpdate","OnPostCallAnalysisAvailable","OnPostChatAnalysisAvailable","OnRealTimeCallAnalysisAvailable","OnRealTimeChatAnalysisAvailable","OnSalesforceCaseCreate","OnZendeskTicketCreate","OnZendeskTicketStatusUpdate"
             break
         }
 
@@ -331,7 +331,7 @@ $CONN_Completers = {
         # Amazon.Connect.SourceType
         "New-CONNIntegrationAssociation/SourceType"
         {
-            $v = "SALESFORCE","ZENDESK"
+            $v = "CASES","SALESFORCE","ZENDESK"
             break
         }
 
@@ -695,9 +695,11 @@ $CONN_SelectMap = @{
                "Get-CONNViewList",
                "Get-CONNViewVersionList",
                "Start-CONNContactMonitoring",
+               "Invoke-CONNPauseContact",
                "Write-CONNUserStatus",
                "Remove-CONNPhoneNumber",
                "Copy-CONNInstance",
+               "Invoke-CONNResumeContact",
                "Resume-CONNContactRecording",
                "Search-CONNAvailablePhoneNumber",
                "Search-CONNHoursOfOperation",

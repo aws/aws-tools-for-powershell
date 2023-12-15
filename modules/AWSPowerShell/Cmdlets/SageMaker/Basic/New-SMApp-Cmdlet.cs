@@ -130,7 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ResourceSpec_SageMakerImageVersionAlias
         /// <summary>
         /// <para>
-        /// <para>The SageMakerImageVersionAlias.</para>
+        /// <para>The SageMakerImageVersionAlias of the image to launch with. This value is in SemVer
+        /// 2.0.0 versioning format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

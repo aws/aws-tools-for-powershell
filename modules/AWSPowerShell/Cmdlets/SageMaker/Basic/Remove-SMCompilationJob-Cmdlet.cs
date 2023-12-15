@@ -22,32 +22,41 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Connect;
-using Amazon.Connect.Model;
+using Amazon.SageMaker;
+using Amazon.SageMaker.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CONN
+namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Removes the specified tags from the contact resource. For more information about this
-    /// API is used, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/granular-billing.html">Set
-    /// up granular billing for a detailed view of your Amazon Connect usage</a>.
+    /// Deletes the specified compilation job. This action deletes only the compilation job
+    /// resource in Amazon SageMaker. It doesn't delete other resources that are related to
+    /// that job, such as the model artifacts that the job creates, the compilation logs in
+    /// CloudWatch, the compiled model, or the IAM role.
+    /// 
+    ///  
+    /// <para>
+    /// You can delete a compilation job only if its current status is <code>COMPLETED</code>,
+    /// <code>FAILED</code>, or <code>STOPPED</code>. If the job status is <code>STARTING</code>
+    /// or <code>INPROGRESS</code>, stop the job, and then delete it after its status becomes
+    /// <code>STOPPED</code>.
+    /// </para>
     /// </summary>
-    [Cmdlet("Remove", "CONNContactTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "SMCompilationJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Connect Service UntagContact API operation.", Operation = new[] {"UntagContact"}, SelectReturnType = typeof(Amazon.Connect.Model.UntagContactResponse))]
-    [AWSCmdletOutput("None or Amazon.Connect.Model.UntagContactResponse",
+    [AWSCmdlet("Calls the Amazon SageMaker Service DeleteCompilationJob API operation.", Operation = new[] {"DeleteCompilationJob"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DeleteCompilationJobResponse))]
+    [AWSCmdletOutput("None or Amazon.SageMaker.Model.DeleteCompilationJobResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.UntagContactResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SageMaker.Model.DeleteCompilationJobResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveCONNContactTagCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class RemoveSMCompilationJobCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ContactId
+        #region Parameter CompilationJobName
         /// <summary>
         /// <para>
-        /// <para>The identifier of the contact in this instance of Amazon Connect. </para>
+        /// <para>The name of the compilation job to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -58,50 +67,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ContactId { get; set; }
-        #endregion
-        
-        #region Parameter InstanceId
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
-        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InstanceId { get; set; }
-        #endregion
-        
-        #region Parameter TagKey
-        /// <summary>
-        /// <para>
-        /// <para>A list of tag keys. Existing tags on the contact whose keys are members of this list
-        /// will be removed.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("TagKeys")]
-        public System.String[] TagKey { get; set; }
+        public System.String CompilationJobName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.UntagContactResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.DeleteCompilationJobResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,10 +82,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ContactId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ContactId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the CompilationJobName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^CompilationJobName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ContactId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^CompilationJobName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -133,8 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CONNContactTag (UntagContact)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.CompilationJobName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SMCompilationJob (DeleteCompilationJob)"))
             {
                 return;
             }
@@ -147,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.UntagContactResponse, RemoveCONNContactTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.DeleteCompilationJobResponse, RemoveSMCompilationJobCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -156,31 +128,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ContactId;
+                context.Select = (response, cmdlet) => this.CompilationJobName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ContactId = this.ContactId;
+            context.CompilationJobName = this.CompilationJobName;
             #if MODULAR
-            if (this.ContactId == null && ParameterWasBound(nameof(this.ContactId)))
+            if (this.CompilationJobName == null && ParameterWasBound(nameof(this.CompilationJobName)))
             {
-                WriteWarning("You are passing $null as a value for parameter ContactId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.InstanceId = this.InstanceId;
-            #if MODULAR
-            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            if (this.TagKey != null)
-            {
-                context.TagKey = new List<System.String>(this.TagKey);
-            }
-            #if MODULAR
-            if (this.TagKey == null && ParameterWasBound(nameof(this.TagKey)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TagKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter CompilationJobName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -197,19 +152,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Connect.Model.UntagContactRequest();
+            var request = new Amazon.SageMaker.Model.DeleteCompilationJobRequest();
             
-            if (cmdletContext.ContactId != null)
+            if (cmdletContext.CompilationJobName != null)
             {
-                request.ContactId = cmdletContext.ContactId;
-            }
-            if (cmdletContext.InstanceId != null)
-            {
-                request.InstanceId = cmdletContext.InstanceId;
-            }
-            if (cmdletContext.TagKey != null)
-            {
-                request.TagKeys = cmdletContext.TagKey;
+                request.CompilationJobName = cmdletContext.CompilationJobName;
             }
             
             CmdletOutput output;
@@ -244,15 +191,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.UntagContactResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.UntagContactRequest request)
+        private Amazon.SageMaker.Model.DeleteCompilationJobResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.DeleteCompilationJobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "UntagContact");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "DeleteCompilationJob");
             try
             {
                 #if DESKTOP
-                return client.UntagContact(request);
+                return client.DeleteCompilationJob(request);
                 #elif CORECLR
-                return client.UntagContactAsync(request).GetAwaiter().GetResult();
+                return client.DeleteCompilationJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -272,10 +219,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ContactId { get; set; }
-            public System.String InstanceId { get; set; }
-            public List<System.String> TagKey { get; set; }
-            public System.Func<Amazon.Connect.Model.UntagContactResponse, RemoveCONNContactTagCmdlet, object> Select { get; set; } =
+            public System.String CompilationJobName { get; set; }
+            public System.Func<Amazon.SageMaker.Model.DeleteCompilationJobResponse, RemoveSMCompilationJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

@@ -43,12 +43,24 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// of working with grants in several programming languages, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-grants.html">Programming
     /// grants</a>. 
     /// </para><para><b>Cross-account use</b>: You must specify a principal in your Amazon Web Services
-    /// account. However, this operation can return grants in any Amazon Web Services account.
-    /// You do not need <code>kms:ListRetirableGrants</code> permission (or any other additional
-    /// permission) in any Amazon Web Services account other than your own.
+    /// account. This operation returns a list of grants where the retiring principal specified
+    /// in the <code>ListRetirableGrants</code> request is the same retiring principal on
+    /// the grant. This can include grants on KMS keys owned by other Amazon Web Services
+    /// accounts, but you do not need <code>kms:ListRetirableGrants</code> permission (or
+    /// any other additional permission) in any Amazon Web Services account other than your
+    /// own.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListRetirableGrants</a>
     /// (IAM policy) in your Amazon Web Services account.
-    /// </para><para><b>Related operations:</b></para><ul><li><para><a>CreateGrant</a></para></li><li><para><a>ListGrants</a></para></li><li><para><a>RetireGrant</a></para></li><li><para><a>RevokeGrant</a></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para><note><para>
+    /// KMS authorizes <code>ListRetirableGrants</code> requests by evaluating the caller
+    /// account's kms:ListRetirableGrants permissions. The authorized resource in <code>ListRetirableGrants</code>
+    /// calls is the retiring principal specified in the request. KMS does not evaluate the
+    /// caller's permissions to verify their access to any KMS keys or grants that might be
+    /// returned by the <code>ListRetirableGrants</code> call.
+    /// </para></note><para><b>Related operations:</b></para><ul><li><para><a>CreateGrant</a></para></li><li><para><a>ListGrants</a></para></li><li><para><a>RetireGrant</a></para></li><li><para><a>RevokeGrant</a></para></li></ul><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
+    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS
+    /// eventual consistency</a>.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "KMSRetirableGrant")]
     [OutputType("Amazon.KeyManagementService.Model.GrantListEntry")]

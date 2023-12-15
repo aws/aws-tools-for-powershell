@@ -86,7 +86,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// Region). Include this permission primary key's key policy.
     /// </para></li><li><para><code>kms:UpdatePrimaryRegion</code> on the current replica key (in the replica key's
     /// Region). Include this permission in the replica key's key policy.
-    /// </para></li></ul><para><b>Related operations</b></para><ul><li><para><a>CreateKey</a></para></li><li><para><a>ReplicateKey</a></para></li></ul>
+    /// </para></li></ul><para><b>Related operations</b></para><ul><li><para><a>CreateKey</a></para></li><li><para><a>ReplicateKey</a></para></li></ul><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
+    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS
+    /// eventual consistency</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "KMSPrimaryRegion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

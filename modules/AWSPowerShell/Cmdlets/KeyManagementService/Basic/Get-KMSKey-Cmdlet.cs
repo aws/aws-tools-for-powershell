@@ -41,11 +41,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// different types of KMS keys. It also displays the key usage (encryption, signing,
     /// or generating and verifying MACs) and the algorithms that the KMS key supports. 
     /// </para><para>
-    /// For <a href="kms/latest/developerguide/multi-region-keys-overview.html">multi-Region
+    /// For <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">multi-Region
     /// keys</a>, <code>DescribeKey</code> displays the primary key and all related replica
-    /// keys. For KMS keys in <a href="kms/latest/developerguide/keystore-cloudhsm.html">CloudHSM
+    /// keys. For KMS keys in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-cloudhsm.html">CloudHSM
     /// key stores</a>, it includes information about the key store, such as the key store
-    /// ID and the CloudHSM cluster ID. For KMS keys in <a href="kms/latest/developerguide/keystore-external.html">external
+    /// ID and the CloudHSM cluster ID. For KMS keys in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html">external
     /// key stores</a>, it includes the custom key store ID and the ID of the external key.
     /// </para><para><code>DescribeKey</code> does not return the following information:
     /// </para><ul><li><para>
@@ -71,7 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// <code>KeyId</code> parameter.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:DescribeKey</a>
     /// (key policy)
-    /// </para><para><b>Related operations:</b></para><ul><li><para><a>GetKeyPolicy</a></para></li><li><para><a>GetKeyRotationStatus</a></para></li><li><para><a>ListAliases</a></para></li><li><para><a>ListGrants</a></para></li><li><para><a>ListKeys</a></para></li><li><para><a>ListResourceTags</a></para></li><li><para><a>ListRetirableGrants</a></para></li></ul>
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a>GetKeyPolicy</a></para></li><li><para><a>GetKeyRotationStatus</a></para></li><li><para><a>ListAliases</a></para></li><li><para><a>ListGrants</a></para></li><li><para><a>ListKeys</a></para></li><li><para><a>ListResourceTags</a></para></li><li><para><a>ListRetirableGrants</a></para></li></ul><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
+    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS
+    /// eventual consistency</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "KMSKey")]
     [OutputType("Amazon.KeyManagementService.Model.KeyMetadata")]

@@ -117,6 +117,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String ContactFlowId { get; set; }
         #endregion
         
+        #region Parameter Description
+        /// <summary>
+        /// <para>
+        /// <para>A description of the voice contact that is shown to an agent in the Contact Control
+        /// Panel (CCP).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Description { get; set; }
+        #endregion
+        
         #region Parameter DestinationPhoneNumber
         /// <summary>
         /// <para>
@@ -164,6 +175,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String InstanceId { get; set; }
         #endregion
         
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of a voice contact that is shown to an agent in the Contact Control Panel
+        /// (CCP).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Name { get; set; }
+        #endregion
+        
         #region Parameter QueueId
         /// <summary>
         /// <para>
@@ -175,6 +197,34 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String QueueId { get; set; }
+        #endregion
+        
+        #region Parameter Reference
+        /// <summary>
+        /// <para>
+        /// <para>A formatted URL that is shown to an agent in the Contact Control Panel (CCP). Contacts
+        /// can have the following reference types at the time of creation: <code>URL</code> |
+        /// <code>NUMBER</code> | <code>STRING</code> | <code>DATE</code> | <code>EMAIL</code>.
+        /// <code>ATTACHMENT</code> is not a supported reference type during voice contact creation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("References")]
+        public System.Collections.Hashtable Reference { get; set; }
+        #endregion
+        
+        #region Parameter RelatedContactId
+        /// <summary>
+        /// <para>
+        /// <para>The <code>contactId</code> that is related to this contact. Linking voice, task, or
+        /// chat by using <code>RelatedContactID</code> copies over contact attributes from the
+        /// related contact to the new contact. All updates to user-defined attributes in the
+        /// new contact are limited to the individual contact ID. There are no limits to the number
+        /// of contacts that can be linked by using <code>RelatedContactId</code>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RelatedContactId { get; set; }
         #endregion
         
         #region Parameter SourcePhoneNumber
@@ -297,6 +347,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter ContactFlowId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Description = this.Description;
             context.DestinationPhoneNumber = this.DestinationPhoneNumber;
             #if MODULAR
             if (this.DestinationPhoneNumber == null && ParameterWasBound(nameof(this.DestinationPhoneNumber)))
@@ -311,7 +362,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Name = this.Name;
             context.QueueId = this.QueueId;
+            if (this.Reference != null)
+            {
+                context.Reference = new Dictionary<System.String, Amazon.Connect.Model.Reference>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Reference.Keys)
+                {
+                    context.Reference.Add((String)hashKey, (Reference)(this.Reference[hashKey]));
+                }
+            }
+            context.RelatedContactId = this.RelatedContactId;
             context.SourcePhoneNumber = this.SourcePhoneNumber;
             context.TrafficType = this.TrafficType;
             
@@ -375,6 +436,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             {
                 request.ContactFlowId = cmdletContext.ContactFlowId;
             }
+            if (cmdletContext.Description != null)
+            {
+                request.Description = cmdletContext.Description;
+            }
             if (cmdletContext.DestinationPhoneNumber != null)
             {
                 request.DestinationPhoneNumber = cmdletContext.DestinationPhoneNumber;
@@ -383,9 +448,21 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             {
                 request.InstanceId = cmdletContext.InstanceId;
             }
+            if (cmdletContext.Name != null)
+            {
+                request.Name = cmdletContext.Name;
+            }
             if (cmdletContext.QueueId != null)
             {
                 request.QueueId = cmdletContext.QueueId;
+            }
+            if (cmdletContext.Reference != null)
+            {
+                request.References = cmdletContext.Reference;
+            }
+            if (cmdletContext.RelatedContactId != null)
+            {
+                request.RelatedContactId = cmdletContext.RelatedContactId;
             }
             if (cmdletContext.SourcePhoneNumber != null)
             {
@@ -462,9 +539,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.String CampaignId { get; set; }
             public System.String ClientToken { get; set; }
             public System.String ContactFlowId { get; set; }
+            public System.String Description { get; set; }
             public System.String DestinationPhoneNumber { get; set; }
             public System.String InstanceId { get; set; }
+            public System.String Name { get; set; }
             public System.String QueueId { get; set; }
+            public Dictionary<System.String, Amazon.Connect.Model.Reference> Reference { get; set; }
+            public System.String RelatedContactId { get; set; }
             public System.String SourcePhoneNumber { get; set; }
             public Amazon.Connect.TrafficType TrafficType { get; set; }
             public System.Func<Amazon.Connect.Model.StartOutboundVoiceContactResponse, StartCONNOutboundVoiceContactCmdlet, object> Select { get; set; } =

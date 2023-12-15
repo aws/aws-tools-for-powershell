@@ -48,7 +48,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAppImageConfig" OutputProperty="AppImageConfigArn" Verb="New" Noun="AppImageConfig" ShouldProcessTarget="AppImageConfigName" PipelineParameter="AppImageConfigName" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="JupyterLabAppImageConfig_FileSystemConfig_DefaultGid" NewName="JupyterLabAppImageConfig_FileSystemConfig_DefaultGid" />
+                <Param Name="JupyterLabAppImageConfig_FileSystemConfig_DefaultUid" NewName="JupyterLabAppImageConfig_FileSystemConfig_DefaultUid" />
+                <Param Name="JupyterLabAppImageConfig_FileSystemConfig_MountPath" NewName="JupyterLabAppImageConfig_FileSystemConfig_MountPath" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateArtifact" OutputProperty="ArtifactArn" Verb="New" Noun="Artifact" ShouldProcessTarget="Source_SourceUri" PipelineParameter="" NoPipelineParameter="true">
@@ -374,6 +378,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteCodeRepository" Verb="Remove" Noun="CodeRepository" ShouldProcessTarget="CodeRepositoryName" PipelineParameter="CodeRepositoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCompilationJob" Verb="Remove" Noun="CompilationJob" ShouldProcessTarget="CompilationJobName" PipelineParameter="CompilationJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1234,7 +1242,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAppImageConfig" OutputProperty="AppImageConfigArn" Verb="Update" Noun="AppImageConfig" ShouldProcessTarget="AppImageConfigName" PipelineParameter="AppImageConfigName" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="JupyterLabAppImageConfig_FileSystemConfig_DefaultGid" NewName="JupyterLabAppImageConfig_FileSystemConfig_DefaultGid" />
+                <Param Name="JupyterLabAppImageConfig_FileSystemConfig_DefaultUid" NewName="JupyterLabAppImageConfig_FileSystemConfig_DefaultUid" />
+                <Param Name="JupyterLabAppImageConfig_FileSystemConfig_MountPath" NewName="JupyterLabAppImageConfig_FileSystemConfig_MountPath" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateArtifact" OutputProperty="ArtifactArn" Verb="Update" Noun="Artifact" ShouldProcessTarget="ArtifactArn" PipelineParameter="ArtifactArn" NoPipelineParameter="false">

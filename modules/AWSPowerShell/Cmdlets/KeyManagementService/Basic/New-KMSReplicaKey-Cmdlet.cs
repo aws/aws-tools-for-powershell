@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para><para>
     /// If you replicate a multi-Region primary key with imported key material, the replica
     /// key is created with no key material. You must import the same key material that you
-    /// imported into the primary key. For details, see <a href="kms/latest/developerguide/multi-region-keys-import.html">Importing
+    /// imported into the primary key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-import.html">Importing
     /// key material into multi-Region keys</a> in the <i>Key Management Service Developer
     /// Guide</i>.
     /// </para><para>
@@ -101,7 +101,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para></li><li><para>
     /// To use the <code>Tags</code> parameter, <code>kms:TagResource</code> in an IAM policy
     /// in the replica Region.
-    /// </para></li></ul><para><b>Related operations</b></para><ul><li><para><a>CreateKey</a></para></li><li><para><a>UpdatePrimaryRegion</a></para></li></ul>
+    /// </para></li></ul><para><b>Related operations</b></para><ul><li><para><a>CreateKey</a></para></li><li><para><a>UpdatePrimaryRegion</a></para></li></ul><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
+    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS
+    /// eventual consistency</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "KMSReplicaKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.KeyManagementService.Model.ReplicateKeyResponse")]
@@ -120,7 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>Skips ("bypasses") the key policy lockout safety check. The default value is false.</para><important><para>Setting this value to true increases the risk that the KMS key becomes unmanageable.
         /// Do not set this value to true indiscriminately.</para><para>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default
         /// key policy</a> in the <i>Key Management Service Developer Guide</i>.</para></important><para>Use this parameter only when you intend to prevent the principal that is making the
-        /// request from making a subsequent <a>PutKeyPolicy</a> request on the KMS key.</para>
+        /// request from making a subsequent <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html">PutKeyPolicy</a>
+        /// request on the KMS key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

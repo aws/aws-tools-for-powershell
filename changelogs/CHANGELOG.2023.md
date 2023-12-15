@@ -1,4 +1,16 @@
-﻿### 4.1.476 (2023-12-14 22:08Z)
+﻿### 4.1.477 (2023-12-15 22:20Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.710.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * Added cmdlet Invoke-CONNPauseContact leveraging the PauseContact service API.
+    * Added cmdlet Invoke-CONNResumeContact leveraging the ResumeContact service API.
+    * Modified cmdlet Start-CONNOutboundVoiceContact: added parameters Description, Name, Reference and RelatedContactId.
+  * Amazon SageMaker Service
+    * Added cmdlet Remove-SMCompilationJob leveraging the DeleteCompilationJob service API.
+    * Modified cmdlet New-SMAppImageConfig: added parameters JupyterLabAppImageConfig_FileSystemConfig_DefaultGid, JupyterLabAppImageConfig_FileSystemConfig_DefaultUid and JupyterLabAppImageConfig_FileSystemConfig_MountPath.
+    * Modified cmdlet New-SMAutoMLJobV2: added parameter ModelAccessConfig_AcceptEula.
+    * Modified cmdlet Update-SMAppImageConfig: added parameters JupyterLabAppImageConfig_FileSystemConfig_DefaultGid, JupyterLabAppImageConfig_FileSystemConfig_DefaultUid and JupyterLabAppImageConfig_FileSystemConfig_MountPath.
+
+### 4.1.476 (2023-12-14 22:08Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.709.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AWSBillingConductor
     * Added cmdlet Get-ABCBillingGroupCostReport leveraging the GetBillingGroupCostReport service API.

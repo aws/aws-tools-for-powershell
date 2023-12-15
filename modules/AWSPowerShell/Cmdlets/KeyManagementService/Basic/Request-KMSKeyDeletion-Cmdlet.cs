@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     ///  <important><para>
     /// Deleting a KMS key is a destructive and potentially dangerous operation. When a KMS
     /// key is deleted, all data that was encrypted under the KMS key is unrecoverable. (The
-    /// only exception is a <a href="kms/latest/developerguide/multi-region-keys-delete.html">multi-Region
+    /// only exception is a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-delete.html">multi-Region
     /// replica key</a>, or an <a href="kms/latest/developerguide/importing-keys-managing.html#import-delete-key">asymmetric
     /// or HMAC KMS key with imported key material</a>.) To prevent the use of a KMS key without
     /// deleting it, use <a>DisableKey</a>. 
@@ -75,7 +75,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para><para><b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a
     /// different Amazon Web Services account.
     /// </para><para><b>Required permissions</b>: kms:ScheduleKeyDeletion (key policy)
-    /// </para><para><b>Related operations</b></para><ul><li><para><a>CancelKeyDeletion</a></para></li><li><para><a>DisableKey</a></para></li></ul>
+    /// </para><para><b>Related operations</b></para><ul><li><para><a>CancelKeyDeletion</a></para></li><li><para><a>DisableKey</a></para></li></ul><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
+    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS
+    /// eventual consistency</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Request", "KMSKeyDeletion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.KeyManagementService.Model.ScheduleKeyDeletionResponse")]

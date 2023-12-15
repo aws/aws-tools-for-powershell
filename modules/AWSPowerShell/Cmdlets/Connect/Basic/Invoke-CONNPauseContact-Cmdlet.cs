@@ -28,26 +28,34 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Removes the specified tags from the contact resource. For more information about this
-    /// API is used, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/granular-billing.html">Set
-    /// up granular billing for a detailed view of your Amazon Connect usage</a>.
+    /// Allows pausing an ongoing task contact.
     /// </summary>
-    [Cmdlet("Remove", "CONNContactTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Invoke", "CONNPauseContact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Connect Service UntagContact API operation.", Operation = new[] {"UntagContact"}, SelectReturnType = typeof(Amazon.Connect.Model.UntagContactResponse))]
-    [AWSCmdletOutput("None or Amazon.Connect.Model.UntagContactResponse",
+    [AWSCmdlet("Calls the Amazon Connect Service PauseContact API operation.", Operation = new[] {"PauseContact"}, SelectReturnType = typeof(Amazon.Connect.Model.PauseContactResponse))]
+    [AWSCmdletOutput("None or Amazon.Connect.Model.PauseContactResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.UntagContactResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.PauseContactResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveCONNContactTagCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class InvokeCONNPauseContactCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter ContactFlowId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the flow.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ContactFlowId { get; set; }
+        #endregion
+        
         #region Parameter ContactId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the contact in this instance of Amazon Connect. </para>
+        /// <para>The identifier of the contact.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
-        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
+        /// <para>The identifier of the Amazon Connect instance. You can find the <code>instanceId</code>
+        /// in the ARN of the instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,29 +87,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String InstanceId { get; set; }
         #endregion
         
-        #region Parameter TagKey
-        /// <summary>
-        /// <para>
-        /// <para>A list of tag keys. Existing tags on the contact whose keys are members of this list
-        /// will be removed.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("TagKeys")]
-        public System.String[] TagKey { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.UntagContactResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.PauseContactResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             base.ProcessRecord();
             
             var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CONNContactTag (UntagContact)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Invoke-CONNPauseContact (PauseContact)"))
             {
                 return;
             }
@@ -147,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.UntagContactResponse, RemoveCONNContactTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.PauseContactResponse, InvokeCONNPauseContactCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -159,6 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.Select = (response, cmdlet) => this.ContactId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ContactFlowId = this.ContactFlowId;
             context.ContactId = this.ContactId;
             #if MODULAR
             if (this.ContactId == null && ParameterWasBound(nameof(this.ContactId)))
@@ -171,16 +161,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
             {
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            if (this.TagKey != null)
-            {
-                context.TagKey = new List<System.String>(this.TagKey);
-            }
-            #if MODULAR
-            if (this.TagKey == null && ParameterWasBound(nameof(this.TagKey)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TagKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -197,8 +177,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Connect.Model.UntagContactRequest();
+            var request = new Amazon.Connect.Model.PauseContactRequest();
             
+            if (cmdletContext.ContactFlowId != null)
+            {
+                request.ContactFlowId = cmdletContext.ContactFlowId;
+            }
             if (cmdletContext.ContactId != null)
             {
                 request.ContactId = cmdletContext.ContactId;
@@ -206,10 +190,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
-            }
-            if (cmdletContext.TagKey != null)
-            {
-                request.TagKeys = cmdletContext.TagKey;
             }
             
             CmdletOutput output;
@@ -244,15 +224,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.UntagContactResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.UntagContactRequest request)
+        private Amazon.Connect.Model.PauseContactResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.PauseContactRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "UntagContact");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "PauseContact");
             try
             {
                 #if DESKTOP
-                return client.UntagContact(request);
+                return client.PauseContact(request);
                 #elif CORECLR
-                return client.UntagContactAsync(request).GetAwaiter().GetResult();
+                return client.PauseContactAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -272,10 +252,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ContactFlowId { get; set; }
             public System.String ContactId { get; set; }
             public System.String InstanceId { get; set; }
-            public List<System.String> TagKey { get; set; }
-            public System.Func<Amazon.Connect.Model.UntagContactResponse, RemoveCONNContactTagCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.Connect.Model.PauseContactResponse, InvokeCONNPauseContactCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

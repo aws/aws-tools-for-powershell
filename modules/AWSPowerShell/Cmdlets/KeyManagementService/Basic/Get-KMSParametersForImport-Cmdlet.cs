@@ -44,11 +44,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// with an <code>Origin</code> value of <code>EXTERNAL</code> to create a KMS key with
     /// no key material. You can import key material for a symmetric encryption KMS key, HMAC
     /// KMS key, asymmetric encryption KMS key, or asymmetric signing KMS key. You can also
-    /// import key material into a <a href="kms/latest/developerguide/multi-region-keys-overview.html">multi-Region
+    /// import key material into a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">multi-Region
     /// key</a> of any supported type. However, you can't import key material into a KMS key
-    /// in a <a href="kms/latest/developerguide/custom-key-store-overview.html">custom key
-    /// store</a>. You can also use <code>GetParametersForImport</code> to get a public key
-    /// and import token to <a href="kms/latest/developerguide/importing-keys.html#reimport-key-material">reimport
+    /// in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom
+    /// key store</a>. You can also use <code>GetParametersForImport</code> to get a public
+    /// key and import token to <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material">reimport
     /// the original key material</a> into a KMS key whose key material expired or was deleted.
     /// </para><para><code>GetParametersForImport</code> returns the items that you need to import your
     /// key material.
@@ -86,7 +86,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// different Amazon Web Services account.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GetParametersForImport</a>
     /// (key policy)
-    /// </para><para><b>Related operations:</b></para><ul><li><para><a>ImportKeyMaterial</a></para></li><li><para><a>DeleteImportedKeyMaterial</a></para></li></ul>
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a>ImportKeyMaterial</a></para></li><li><para><a>DeleteImportedKeyMaterial</a></para></li></ul><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
+    /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS
+    /// eventual consistency</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "KMSParametersForImport")]
     [OutputType("Amazon.KeyManagementService.Model.GetParametersForImportResponse")]
@@ -133,8 +136,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// material (private key).</para><para>You cannot use the RSAES_OAEP_SHA_256 wrapping algorithm with the RSA_2048 wrapping
         /// key spec to wrap ECC_NIST_P521 key material.</para></li><li><para><b>RSAES_OAEP_SHA_1</b> — Supported for all types of key material, except RSA key
         /// material (private key).</para><para>You cannot use the RSAES_OAEP_SHA_1 wrapping algorithm with the RSA_2048 wrapping
-        /// key spec to wrap ECC_NIST_P521 key material.</para></li><li><para><b>RSAES_PKCS1_V1_5</b> (Deprecated) — Supported only for symmetric encryption key
-        /// material (and only in legacy mode).</para></li></ul>
+        /// key spec to wrap ECC_NIST_P521 key material.</para></li><li><para><b>RSAES_PKCS1_V1_5</b> (Deprecated) — As of October 10, 2023, KMS does not support
+        /// the RSAES_PKCS1_V1_5 wrapping algorithm.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
