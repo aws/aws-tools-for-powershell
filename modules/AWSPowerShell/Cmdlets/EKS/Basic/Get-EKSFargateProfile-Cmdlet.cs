@@ -28,7 +28,7 @@ using Amazon.EKS.Model;
 namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
-    /// Returns descriptive information about an Fargate profile.
+    /// Describes an Fargate profile.
     /// </summary>
     [Cmdlet("Get", "EKSFargateProfile")]
     [OutputType("Amazon.EKS.Model.FargateProfile")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ClusterName
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon EKS cluster associated with the Fargate profile.</para>
+        /// <para>The name of your cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

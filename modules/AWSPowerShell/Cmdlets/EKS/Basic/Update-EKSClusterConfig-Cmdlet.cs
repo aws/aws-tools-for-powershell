@@ -30,14 +30,14 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// <summary>
     /// Updates an Amazon EKS cluster configuration. Your cluster continues to function during
     /// the update. The response output includes an update ID that you can use to track the
-    /// status of your cluster update with the <a>DescribeUpdate</a> API operation.
+    /// status of your cluster update with <code>DescribeUpdate</code>"/&gt;.
     /// 
     ///  
     /// <para>
     /// You can use this API operation to enable or disable exporting the Kubernetes control
     /// plane logs for your cluster to CloudWatch Logs. By default, cluster control plane
     /// logs aren't exported to CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon
-    /// EKS Cluster Control Plane Logs</a> in the <i><i>Amazon EKS User Guide</i></i>.
+    /// EKS Cluster control plane logs</a> in the <i><i>Amazon EKS User Guide</i></i>.
     /// </para><note><para>
     /// CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported
     /// control plane logs. For more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">CloudWatch
@@ -73,11 +73,22 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AccessConfig_AuthenticationMode
+        /// <summary>
+        /// <para>
+        /// <para>The desired authentication mode for the cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EKS.AuthenticationMode")]
+        public Amazon.EKS.AuthenticationMode AccessConfig_AuthenticationMode { get; set; }
+        #endregion
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request.</para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -183,6 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccessConfig_AuthenticationMode = this.AccessConfig_AuthenticationMode;
             context.ClientRequestToken = this.ClientRequestToken;
             if (this.Logging_ClusterLogging != null)
             {
@@ -212,6 +224,25 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             // create request
             var request = new Amazon.EKS.Model.UpdateClusterConfigRequest();
             
+            
+             // populate AccessConfig
+            var requestAccessConfigIsNull = true;
+            request.AccessConfig = new Amazon.EKS.Model.UpdateAccessConfigRequest();
+            Amazon.EKS.AuthenticationMode requestAccessConfig_accessConfig_AuthenticationMode = null;
+            if (cmdletContext.AccessConfig_AuthenticationMode != null)
+            {
+                requestAccessConfig_accessConfig_AuthenticationMode = cmdletContext.AccessConfig_AuthenticationMode;
+            }
+            if (requestAccessConfig_accessConfig_AuthenticationMode != null)
+            {
+                request.AccessConfig.AuthenticationMode = requestAccessConfig_accessConfig_AuthenticationMode;
+                requestAccessConfigIsNull = false;
+            }
+             // determine if request.AccessConfig should be set to null
+            if (requestAccessConfigIsNull)
+            {
+                request.AccessConfig = null;
+            }
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
@@ -304,6 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.EKS.AuthenticationMode AccessConfig_AuthenticationMode { get; set; }
             public System.String ClientRequestToken { get; set; }
             public List<Amazon.EKS.Model.LogSetup> Logging_ClusterLogging { get; set; }
             public System.String Name { get; set; }

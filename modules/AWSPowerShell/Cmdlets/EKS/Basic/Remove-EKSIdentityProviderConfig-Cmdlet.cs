@@ -28,10 +28,14 @@ using Amazon.EKS.Model;
 namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
-    /// Disassociates an identity provider configuration from a cluster. If you disassociate
-    /// an identity provider from your cluster, users included in the provider can no longer
-    /// access the cluster. However, you can still access the cluster with <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM
-    /// principals</a>.
+    /// Disassociates an identity provider configuration from a cluster.
+    /// 
+    ///  
+    /// <para>
+    /// If you disassociate an identity provider from your cluster, users included in the
+    /// provider can no longer access the cluster. However, you can still access the cluster
+    /// with IAM principals.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "EKSIdentityProviderConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EKS.Model.Update")]
@@ -59,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ClusterName
         /// <summary>
         /// <para>
-        /// <para>The name of the cluster to disassociate an identity provider from.</para>
+        /// <para>The name of your cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

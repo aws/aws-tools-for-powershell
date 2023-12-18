@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// <summary>
     /// Updates a EKS Pod Identity association. Only the IAM role can be changed; an association
     /// can't be moved between clusters, namespaces, or service accounts. If you need to edit
-    /// the namespace or service account, you need to remove the association and then create
+    /// the namespace or service account, you need to delete the association and then create
     /// a new association with your desired settings.
     /// </summary>
     [Cmdlet("Update", "EKSPodIdentityAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request.</para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

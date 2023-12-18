@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
     /// Lists the Fargate profiles associated with the specified cluster in your Amazon Web
-    /// Services account in the specified Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Services account in the specified Amazon Web Services Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EKSFargateProfileList")]
     [OutputType("System.String")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ClusterName
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon EKS cluster that you would like to list Fargate profiles in.</para>
+        /// <para>The name of your cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,13 +63,12 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of Fargate profile results returned by <code>ListFargateProfiles</code>
-        /// in paginated output. When you use this parameter, <code>ListFargateProfiles</code>
-        /// returns only <code>maxResults</code> results in a single page along with a <code>nextToken</code>
-        /// response element. You can see the remaining results of the initial request by sending
-        /// another <code>ListFargateProfiles</code> request with the returned <code>nextToken</code>
-        /// value. This value can be between 1 and 100. If you don't use this parameter, <code>ListFargateProfiles</code>
-        /// returns up to 100 results and a <code>nextToken</code> value if applicable.</para>
+        /// <para>The maximum number of results, returned in paginated output. You receive <code>maxResults</code>
+        /// in a single page, along with a <code>nextToken</code> response element. You can see
+        /// the remaining results of the initial request by sending another request with the returned
+        /// <code>nextToken</code> value. This value can be between 1 and 100. If you don't use
+        /// this parameter, 100 results and a <code>nextToken</code> value, if applicable, are
+        /// returned.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -86,10 +85,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> value returned from a previous paginated <code>ListFargateProfiles</code>
-        /// request where <code>maxResults</code> was used and the results exceeded the value
-        /// of that parameter. Pagination continues from the end of the previous results that
-        /// returned the <code>nextToken</code> value.</para>
+        /// <para>The <code>nextToken</code> value returned from a previous paginated request, where
+        /// <code>maxResults</code> was used and the results exceeded the value of that parameter.
+        /// Pagination continues from the end of the previous results that returned the <code>nextToken</code>
+        /// value. This value is null when there are no more results to return.</para><note><para>This token should be treated as an opaque identifier that is used only to retrieve
+        /// the next items in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

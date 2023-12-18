@@ -437,8 +437,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter CustomEmailSender_LambdaArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Lambda function that Amazon Cognito activates
-        /// to send email notifications to users.</para>
+        /// <para>The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda
+        /// trigger.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -449,8 +449,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter CustomSMSSender_LambdaArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Lambda function that Amazon Cognito activates
-        /// to send SMS notifications to users.</para>
+        /// <para>The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda
+        /// trigger.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -458,11 +458,25 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.String CustomSMSSender_LambdaArn { get; set; }
         #endregion
         
+        #region Parameter PreTokenGenerationConfig_LambdaArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda
+        /// trigger.</para><para>This parameter and the <code>PreTokenGeneration</code> property of <code>LambdaConfig</code>
+        /// have the same value. For new instances of pre token generation triggers, set <code>LambdaArn</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LambdaConfig_PreTokenGenerationConfig_LambdaArn")]
+        public System.String PreTokenGenerationConfig_LambdaArn { get; set; }
+        #endregion
+        
         #region Parameter CustomEmailSender_LambdaVersion
         /// <summary>
         /// <para>
-        /// <para>Signature of the "request" attribute in the "event" information Amazon Cognito passes
-        /// to your custom email Lambda function. The only supported value is <code>V1_0</code>.</para>
+        /// <para>The user pool trigger version of the request that Amazon Cognito sends to your Lambda
+        /// function. Higher-numbered versions add fields that support new features.</para><para>You must use a <code>LambdaVersion</code> of <code>V1_0</code> with a custom sender
+        /// function.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -474,14 +488,28 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter CustomSMSSender_LambdaVersion
         /// <summary>
         /// <para>
-        /// <para>Signature of the "request" attribute in the "event" information that Amazon Cognito
-        /// passes to your custom SMS Lambda function. The only supported value is <code>V1_0</code>.</para>
+        /// <para>The user pool trigger version of the request that Amazon Cognito sends to your Lambda
+        /// function. Higher-numbered versions add fields that support new features.</para><para>You must use a <code>LambdaVersion</code> of <code>V1_0</code> with a custom sender
+        /// function.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("LambdaConfig_CustomSMSSender_LambdaVersion")]
         [AWSConstantClassSource("Amazon.CognitoIdentityProvider.CustomSMSSenderLambdaVersionType")]
         public Amazon.CognitoIdentityProvider.CustomSMSSenderLambdaVersionType CustomSMSSender_LambdaVersion { get; set; }
+        #endregion
+        
+        #region Parameter PreTokenGenerationConfig_LambdaVersion
+        /// <summary>
+        /// <para>
+        /// <para>The user pool trigger version of the request that Amazon Cognito sends to your Lambda
+        /// function. Higher-numbered versions add fields that support new features.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LambdaConfig_PreTokenGenerationConfig_LambdaVersion")]
+        [AWSConstantClassSource("Amazon.CognitoIdentityProvider.PreTokenGenerationLambdaVersionType")]
+        public Amazon.CognitoIdentityProvider.PreTokenGenerationLambdaVersionType PreTokenGenerationConfig_LambdaVersion { get; set; }
         #endregion
         
         #region Parameter MfaConfiguration
@@ -567,7 +595,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter LambdaConfig_PreTokenGeneration
         /// <summary>
         /// <para>
-        /// <para>A Lambda trigger that is invoked before token generation.</para>
+        /// <para>The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda
+        /// trigger.</para><para>Set this parameter for legacy purposes. If you also set an ARN in <code>PreTokenGenerationConfig</code>,
+        /// its value must be identical to <code>PreTokenGeneration</code>. For new instances
+        /// of pre token generation triggers, set the <code>LambdaArn</code> of <code>PreTokenGenerationConfig</code>.</para><para>You can set <code /></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -748,7 +779,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>The number of days a temporary password is valid in the password policy. If the user
-        /// doesn't sign in during this time, an administrator must reset their password.</para><note><para>When you set <code>TemporaryPasswordValidityDays</code> for a user pool, you can no
+        /// doesn't sign in during this time, an administrator must reset their password. Defaults
+        /// to <code>7</code>. If you submit a value of <code>0</code>, Amazon Cognito treats
+        /// it as a null value and sets <code>TemporaryPasswordValidityDays</code> to its default
+        /// value.</para><note><para>When you set <code>TemporaryPasswordValidityDays</code> for a user pool, you can no
         /// longer set a value for the legacy <code>UnusedAccountValidityDays</code> parameter
         /// in that user pool.</para></note>
         /// </para>
@@ -764,7 +798,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>The user account expiration limit, in days, after which a new account that hasn't
         /// signed in is no longer usable. To reset the account after that time limit, you must
         /// call <code>AdminCreateUser</code> again, specifying <code>"RESEND"</code> for the
-        /// <code>MessageAction</code> parameter. The default value for this parameter is 7. </para><note><para>If you set a value for <code>TemporaryPasswordValidityDays</code> in <code>PasswordPolicy</code>,
+        /// <code>MessageAction</code> parameter. The default value for this parameter is 7.</para><note><para>If you set a value for <code>TemporaryPasswordValidityDays</code> in <code>PasswordPolicy</code>,
         /// that value will be used, and <code>UnusedAccountValidityDays</code> will be no longer
         /// be an available parameter for that user pool.</para></note>
         /// </para>
@@ -921,6 +955,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             context.LambdaConfig_PreAuthentication = this.LambdaConfig_PreAuthentication;
             context.LambdaConfig_PreSignUp = this.LambdaConfig_PreSignUp;
             context.LambdaConfig_PreTokenGeneration = this.LambdaConfig_PreTokenGeneration;
+            context.PreTokenGenerationConfig_LambdaArn = this.PreTokenGenerationConfig_LambdaArn;
+            context.PreTokenGenerationConfig_LambdaVersion = this.PreTokenGenerationConfig_LambdaVersion;
             context.LambdaConfig_UserMigration = this.LambdaConfig_UserMigration;
             context.LambdaConfig_VerifyAuthChallengeResponse = this.LambdaConfig_VerifyAuthChallengeResponse;
             context.MfaConfiguration = this.MfaConfiguration;
@@ -1371,6 +1407,41 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 request.LambdaConfig.CustomSMSSender = requestLambdaConfig_lambdaConfig_CustomSMSSender;
                 requestLambdaConfigIsNull = false;
             }
+            Amazon.CognitoIdentityProvider.Model.PreTokenGenerationVersionConfigType requestLambdaConfig_lambdaConfig_PreTokenGenerationConfig = null;
+            
+             // populate PreTokenGenerationConfig
+            var requestLambdaConfig_lambdaConfig_PreTokenGenerationConfigIsNull = true;
+            requestLambdaConfig_lambdaConfig_PreTokenGenerationConfig = new Amazon.CognitoIdentityProvider.Model.PreTokenGenerationVersionConfigType();
+            System.String requestLambdaConfig_lambdaConfig_PreTokenGenerationConfig_preTokenGenerationConfig_LambdaArn = null;
+            if (cmdletContext.PreTokenGenerationConfig_LambdaArn != null)
+            {
+                requestLambdaConfig_lambdaConfig_PreTokenGenerationConfig_preTokenGenerationConfig_LambdaArn = cmdletContext.PreTokenGenerationConfig_LambdaArn;
+            }
+            if (requestLambdaConfig_lambdaConfig_PreTokenGenerationConfig_preTokenGenerationConfig_LambdaArn != null)
+            {
+                requestLambdaConfig_lambdaConfig_PreTokenGenerationConfig.LambdaArn = requestLambdaConfig_lambdaConfig_PreTokenGenerationConfig_preTokenGenerationConfig_LambdaArn;
+                requestLambdaConfig_lambdaConfig_PreTokenGenerationConfigIsNull = false;
+            }
+            Amazon.CognitoIdentityProvider.PreTokenGenerationLambdaVersionType requestLambdaConfig_lambdaConfig_PreTokenGenerationConfig_preTokenGenerationConfig_LambdaVersion = null;
+            if (cmdletContext.PreTokenGenerationConfig_LambdaVersion != null)
+            {
+                requestLambdaConfig_lambdaConfig_PreTokenGenerationConfig_preTokenGenerationConfig_LambdaVersion = cmdletContext.PreTokenGenerationConfig_LambdaVersion;
+            }
+            if (requestLambdaConfig_lambdaConfig_PreTokenGenerationConfig_preTokenGenerationConfig_LambdaVersion != null)
+            {
+                requestLambdaConfig_lambdaConfig_PreTokenGenerationConfig.LambdaVersion = requestLambdaConfig_lambdaConfig_PreTokenGenerationConfig_preTokenGenerationConfig_LambdaVersion;
+                requestLambdaConfig_lambdaConfig_PreTokenGenerationConfigIsNull = false;
+            }
+             // determine if requestLambdaConfig_lambdaConfig_PreTokenGenerationConfig should be set to null
+            if (requestLambdaConfig_lambdaConfig_PreTokenGenerationConfigIsNull)
+            {
+                requestLambdaConfig_lambdaConfig_PreTokenGenerationConfig = null;
+            }
+            if (requestLambdaConfig_lambdaConfig_PreTokenGenerationConfig != null)
+            {
+                request.LambdaConfig.PreTokenGenerationConfig = requestLambdaConfig_lambdaConfig_PreTokenGenerationConfig;
+                requestLambdaConfigIsNull = false;
+            }
              // determine if request.LambdaConfig should be set to null
             if (requestLambdaConfigIsNull)
             {
@@ -1745,6 +1816,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public System.String LambdaConfig_PreAuthentication { get; set; }
             public System.String LambdaConfig_PreSignUp { get; set; }
             public System.String LambdaConfig_PreTokenGeneration { get; set; }
+            public System.String PreTokenGenerationConfig_LambdaArn { get; set; }
+            public Amazon.CognitoIdentityProvider.PreTokenGenerationLambdaVersionType PreTokenGenerationConfig_LambdaVersion { get; set; }
             public System.String LambdaConfig_UserMigration { get; set; }
             public System.String LambdaConfig_VerifyAuthChallengeResponse { get; set; }
             public Amazon.CognitoIdentityProvider.UserPoolMfaType MfaConfiguration { get; set; }

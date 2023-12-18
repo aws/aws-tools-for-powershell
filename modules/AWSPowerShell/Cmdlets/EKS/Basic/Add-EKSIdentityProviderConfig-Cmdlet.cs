@@ -28,16 +28,16 @@ using Amazon.EKS.Model;
 namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
-    /// Associate an identity provider configuration to a cluster.
+    /// Associates an identity provider configuration to a cluster.
     /// 
     ///  
     /// <para>
     /// If you want to authenticate identities using an identity provider, you can create
     /// an identity provider configuration and associate it to your cluster. After configuring
-    /// authentication to your cluster you can create Kubernetes <code>roles</code> and <code>clusterroles</code>
-    /// to assign permissions to the roles, and then bind the roles to the identities using
-    /// Kubernetes <code>rolebindings</code> and <code>clusterrolebindings</code>. For more
-    /// information see <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">Using
+    /// authentication to your cluster you can create Kubernetes <code>Role</code> and <code>ClusterRole</code>
+    /// objects, assign permissions to them, and then bind them to the identities using Kubernetes
+    /// <code>RoleBinding</code> and <code>ClusterRoleBinding</code> objects. For more information
+    /// see <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">Using
     /// RBAC Authorization</a> in the Kubernetes documentation.
     /// </para>
     /// </summary>
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>This is also known as <i>audience</i>. The ID for the client application that makes
-        /// authentication requests to the OpenID identity provider.</para>
+        /// authentication requests to the OIDC identity provider.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request.</para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ClusterName
         /// <summary>
         /// <para>
-        /// <para>The name of the cluster to associate the configuration to.</para>
+        /// <para>The name of your cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -140,11 +140,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter Oidc_IssuerUrl
         /// <summary>
         /// <para>
-        /// <para>The URL of the OpenID identity provider that allows the API server to discover public
+        /// <para>The URL of the OIDC identity provider that allows the API server to discover public
         /// signing keys for verifying tokens. The URL must begin with <code>https://</code> and
         /// should correspond to the <code>iss</code> claim in the provider's OIDC ID tokens.
-        /// Per the OIDC standard, path components are allowed but query parameters are not. Typically
-        /// the URL consists of only a hostname, like <code>https://server.example.org</code>
+        /// Based on the OIDC standard, path components are allowed but query parameters are not.
+        /// Typically the URL consists of only a hostname, like <code>https://server.example.org</code>
         /// or <code>https://example.com</code>. This URL should point to the level below <code>.well-known/openid-configuration</code>
         /// and must be publicly accessible over the internet.</para>
         /// </para>
@@ -177,8 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The metadata to apply to the configuration to assist with categorization and organization.
-        /// Each tag consists of a key and an optional value. You define both.</para>
+        /// <para>Metadata that assists with categorization and organization. Each tag consists of a
+        /// key and an optional value. You define both. Tags don't propagate to any other cluster
+        /// or Amazon Web Services resources.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>
         /// <para>The JSON Web Token (JWT) claim to use as the username. The default is <code>sub</code>,
         /// which is expected to be a unique identifier of the end user. You can choose other
-        /// claims, such as <code>email</code> or <code>name</code>, depending on the OpenID identity
+        /// claims, such as <code>email</code> or <code>name</code>, depending on the OIDC identity
         /// provider. Claims other than <code>email</code> are prefixed with the issuer URL to
         /// prevent naming clashes with other plug-ins.</para>
         /// </para>

@@ -32,10 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// 
     ///  
     /// <para>
-    /// When you delete a Fargate profile, any pods running on Fargate that were created with
-    /// the profile are deleted. If those pods match another Fargate profile, then they are
-    /// scheduled on Fargate with that profile. If they no longer match any Fargate profiles,
-    /// then they are not scheduled on Fargate and they may remain in a pending state.
+    /// When you delete a Fargate profile, any <code>Pod</code> running on Fargate that was
+    /// created with the profile is deleted. If the <code>Pod</code> matches another Fargate
+    /// profile, then it is scheduled on Fargate with that profile. If it no longer matches
+    /// any Fargate profiles, then it's not scheduled on Fargate and may remain in a pending
+    /// state.
     /// </para><para>
     /// Only one Fargate profile in a cluster can be in the <code>DELETING</code> status at
     /// a time. You must wait for a Fargate profile to finish deleting before you can delete
@@ -57,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ClusterName
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon EKS cluster associated with the Fargate profile to delete.</para>
+        /// <para>The name of your cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

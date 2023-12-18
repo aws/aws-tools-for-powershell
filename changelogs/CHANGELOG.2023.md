@@ -1,4 +1,25 @@
-﻿### 4.1.477 (2023-12-15 22:20Z)
+﻿### 4.1.478 (2023-12-18 21:43Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.711.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Cognito Identity Provider
+    * Modified cmdlet New-CGIPUserPool: added parameters PreTokenGenerationConfig_LambdaArn and PreTokenGenerationConfig_LambdaVersion.
+    * Modified cmdlet Update-CGIPUserPool: added parameters PreTokenGenerationConfig_LambdaArn and PreTokenGenerationConfig_LambdaVersion.
+  * Amazon Elastic Container Service for Kubernetes
+    * Added cmdlet Add-EKSAccessPolicy leveraging the AssociateAccessPolicy service API.
+    * Added cmdlet Get-EKSAccessEntry leveraging the DescribeAccessEntry service API.
+    * Added cmdlet Get-EKSAccessEntryList leveraging the ListAccessEntries service API.
+    * Added cmdlet Get-EKSAccessPolicyList leveraging the ListAccessPolicies service API.
+    * Added cmdlet Get-EKSAssociatedAccessPolicyList leveraging the ListAssociatedAccessPolicies service API.
+    * Added cmdlet New-EKSAccessEntry leveraging the CreateAccessEntry service API.
+    * Added cmdlet Remove-EKSAccessEntry leveraging the DeleteAccessEntry service API.
+    * Added cmdlet Remove-EKSAccessPolicy leveraging the DisassociateAccessPolicy service API.
+    * Added cmdlet Update-EKSAccessEntry leveraging the UpdateAccessEntry service API.
+    * Modified cmdlet New-EKSCluster: added parameters AccessConfig_AuthenticationMode and AccessConfig_BootstrapClusterCreatorAdminPermission.
+    * Modified cmdlet Update-EKSClusterConfig: added parameter AccessConfig_AuthenticationMode.
+  * Amazon Route 53 Resolver
+    * Modified cmdlet New-R53RResolverEndpoint: added parameter Protocol.
+    * Modified cmdlet Update-R53RResolverEndpoint: added parameter Protocol.
+
+### 4.1.477 (2023-12-15 22:20Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.710.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Added cmdlet Invoke-CONNPauseContact leveraging the PauseContact service API.

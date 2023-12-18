@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter AddonName
         /// <summary>
         /// <para>
-        /// <para>The name of the add-on. The name must match one of the names that <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html"><code>DescribeAddonVersions</code></a> returns.</para>
+        /// <para>The name of the add-on. The name must match one of the names returned by <code>DescribeAddonVersions</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ClusterName
         /// <summary>
         /// <para>
-        /// <para>The name of the cluster to create the add-on for.</para>
+        /// <para>The name of your cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The set of configuration values for the add-on that's created. The values that you
-        /// provide are validated against the schema in <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonConfiguration.html"><code>DescribeAddonConfiguration</code></a>.</para>
+        /// provide are validated against the schema returned by <code>DescribeAddonConfiguration</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -157,8 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The metadata to apply to the cluster to assist with categorization and organization.
-        /// Each tag consists of a key and an optional value. You define both.</para>
+        /// <para>Metadata that assists with categorization and organization. Each tag consists of a
+        /// key and an optional value. You define both. Tags don't propagate to any other cluster
+        /// or Amazon Web Services resources.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -212,6 +212,16 @@ $CGIP_Completers = {
             break
         }
 
+        # Amazon.CognitoIdentityProvider.PreTokenGenerationLambdaVersionType
+        {
+            ($_ -eq "New-CGIPUserPool/LambdaConfig_PreTokenGenerationConfig_LambdaVersion") -Or
+            ($_ -eq "Update-CGIPUserPool/LambdaConfig_PreTokenGenerationConfig_LambdaVersion")
+        }
+        {
+            $v = "V1_0","V2_0"
+            break
+        }
+
         # Amazon.CognitoIdentityProvider.PreventUserExistenceErrorTypes
         {
             ($_ -eq "New-CGIPUserPoolClient/PreventUserExistenceErrors") -Or
@@ -268,6 +278,7 @@ $CGIP_map = @{
     "FeedbackValue"=@("Update-CGIPAuthEventFeedback","Update-CGIPAuthEventFeedbackAdmin")
     "LambdaConfig_CustomEmailSender_LambdaVersion"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "LambdaConfig_CustomSMSSender_LambdaVersion"=@("New-CGIPUserPool","Update-CGIPUserPool")
+    "LambdaConfig_PreTokenGenerationConfig_LambdaVersion"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "MessageAction"=@("New-CGIPUserAdmin")
     "MfaConfiguration"=@("New-CGIPUserPool","Set-CGIPUserPoolMfaConfig","Update-CGIPUserPool")
     "PreventUserExistenceErrors"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")

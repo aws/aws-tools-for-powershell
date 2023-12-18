@@ -19,11 +19,19 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AssociateAccessPolicy" OutputProperty="*" Verb="Add" Noun="AccessPolicy" ShouldProcessTarget="PrincipalArn" PipelineParameter="PrincipalArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateEncryptionConfig" OutputProperty="Update" Verb="Add" Noun="EncryptionConfig" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AssociateIdentityProviderConfig" OutputProperty="*" Verb="Add" Noun="IdentityProviderConfig" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAccessEntry" OutputProperty="AccessEntry" Verb="New" Noun="AccessEntry" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -48,6 +56,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePodIdentityAssociation" OutputProperty="Association" Verb="New" Noun="PodIdentityAssociation" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAccessEntry" Verb="Remove" Noun="AccessEntry" ShouldProcessTarget="PrincipalArn" PipelineParameter="PrincipalArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -76,6 +88,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeregisterCluster" OutputProperty="Cluster" Verb="Unregister" Noun="Cluster" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAccessEntry" OutputProperty="AccessEntry" Verb="Get" Noun="AccessEntry" PipelineParameter="PrincipalArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -119,11 +135,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateAccessPolicy" Verb="Remove" Noun="AccessPolicy" ShouldProcessTarget="PrincipalArn" PipelineParameter="PrincipalArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateIdentityProviderConfig" OutputProperty="Update" Verb="Remove" Noun="IdentityProviderConfig" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAccessEntries" OutputProperty="AccessEntries" Verb="Get" Noun="AccessEntryList" PipelineParameter="ClusterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAccessPolicies" OutputProperty="AccessPolicies" Verb="Get" Noun="AccessPolicyList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAddons" OutputProperty="Addons" Verb="Get" Noun="AddonList" PipelineParameter="ClusterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssociatedAccessPolicies" OutputProperty="*" Verb="Get" Noun="AssociatedAccessPolicyList" PipelineParameter="PrincipalArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -168,6 +200,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAccessEntry" OutputProperty="AccessEntry" Verb="Update" Noun="AccessEntry" ShouldProcessTarget="PrincipalArn" PipelineParameter="PrincipalArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

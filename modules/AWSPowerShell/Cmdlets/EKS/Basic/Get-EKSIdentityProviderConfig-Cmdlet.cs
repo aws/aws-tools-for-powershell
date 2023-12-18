@@ -28,7 +28,7 @@ using Amazon.EKS.Model;
 namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
-    /// Returns descriptive information about an identity provider configuration.
+    /// Describes an identity provider configuration.
     /// </summary>
     [Cmdlet("Get", "EKSIdentityProviderConfig")]
     [OutputType("Amazon.EKS.Model.IdentityProviderConfigResponse")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ClusterName
         /// <summary>
         /// <para>
-        /// <para>The cluster name that the identity provider configuration is associated to.</para>
+        /// <para>The name of your cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

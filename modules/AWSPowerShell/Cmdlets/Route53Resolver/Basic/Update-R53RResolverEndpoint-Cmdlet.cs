@@ -28,7 +28,7 @@ using Amazon.Route53Resolver.Model;
 namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
-    /// Updates the name, or enpoint type for an inbound or an outbound Resolver endpoint.
+    /// Updates the name, or endpoint type for an inbound or an outbound Resolver endpoint.
     /// You can only update between IPV4 and DUALSTACK, IPV6 endpoint type can't be updated
     /// to other type.
     /// </summary>
@@ -52,6 +52,22 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter Protocol
+        /// <summary>
+        /// <para>
+        /// <para> The protocols you want to use for the endpoint. DoH-FIPS is applicable for inbound
+        /// endpoints only. </para><para>For an inbound endpoint you can apply the protocols as follows:</para><ul><li><para> Do53 and DoH in combination.</para></li><li><para>Do53 and DoH-FIPS in combination.</para></li><li><para>Do53 alone.</para></li><li><para>DoH alone.</para></li><li><para>DoH-FIPS alone.</para></li><li><para>None, which is treated as Do53.</para></li></ul><para>For an outbound endpoint you can apply the protocols as follows:</para><ul><li><para> Do53 and DoH in combination.</para></li><li><para>Do53 alone.</para></li><li><para>DoH alone.</para></li><li><para>None, which is treated as Do53.</para></li></ul><important><para> You can't change the protocol of an inbound endpoint directly from only Do53 to only
+        /// DoH, or DoH-FIPS. This is to prevent a sudden disruption to incoming traffic that
+        /// relies on Do53. To change the protocol from Do53 to DoH, or DoH-FIPS, you must first
+        /// enable both Do53 and DoH, or Do53 and DoH-FIPS, to make sure that all incoming traffic
+        /// has transferred to using the DoH protocol, or DoH-FIPS, and then remove the Do53.</para></important>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Protocols")]
+        public System.String[] Protocol { get; set; }
         #endregion
         
         #region Parameter ResolverEndpointId
@@ -159,6 +175,10 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Name = this.Name;
+            if (this.Protocol != null)
+            {
+                context.Protocol = new List<System.String>(this.Protocol);
+            }
             context.ResolverEndpointId = this.ResolverEndpointId;
             #if MODULAR
             if (this.ResolverEndpointId == null && ParameterWasBound(nameof(this.ResolverEndpointId)))
@@ -190,6 +210,10 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Protocol != null)
+            {
+                request.Protocols = cmdletContext.Protocol;
             }
             if (cmdletContext.ResolverEndpointId != null)
             {
@@ -265,6 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Name { get; set; }
+            public List<System.String> Protocol { get; set; }
             public System.String ResolverEndpointId { get; set; }
             public Amazon.Route53Resolver.ResolverEndpointType ResolverEndpointType { get; set; }
             public List<Amazon.Route53Resolver.Model.UpdateIpAddress> UpdateIpAddress { get; set; }

@@ -22,45 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CognitoIdentityProvider;
-using Amazon.CognitoIdentityProvider.Model;
+using Amazon.EKS;
+using Amazon.EKS.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CGIP
+namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
-    /// Deactivates a user and revokes all access tokens for the user. A deactivated user
-    /// can't sign in, but still appears in the responses to <code>GetUser</code> and <code>ListUsers</code>
-    /// API requests.
-    /// 
-    ///  <note><para>
-    /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
-    /// for this API operation. For this operation, you must use IAM credentials to authorize
-    /// requests, and you must grant yourself the corresponding IAM permission in a policy.
-    /// </para><para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing
-    /// Amazon Web Services API Requests</a></para></li><li><para><a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using
-    /// the Amazon Cognito user pools API and user pool endpoints</a></para></li></ul></note>
+    /// Disassociates an access policy from an access entry.
     /// </summary>
-    [Cmdlet("Disable", "CGIPUserAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "EKSAccessPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Cognito Identity Provider AdminDisableUser API operation.", Operation = new[] {"AdminDisableUser"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.AdminDisableUserResponse))]
-    [AWSCmdletOutput("None or Amazon.CognitoIdentityProvider.Model.AdminDisableUserResponse",
+    [AWSCmdlet("Calls the Amazon Elastic Container Service for Kubernetes DisassociateAccessPolicy API operation.", Operation = new[] {"DisassociateAccessPolicy"}, SelectReturnType = typeof(Amazon.EKS.Model.DisassociateAccessPolicyResponse))]
+    [AWSCmdletOutput("None or Amazon.EKS.Model.DisassociateAccessPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CognitoIdentityProvider.Model.AdminDisableUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EKS.Model.DisassociateAccessPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class DisableCGIPUserAdminCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
+    public partial class RemoveEKSAccessPolicyCmdlet : AmazonEKSClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveRequest { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Username
+        #region Parameter ClusterName
         /// <summary>
         /// <para>
-        /// <para>The username of the user that you want to query or modify. The value of this parameter
-        /// is typically your user's username, but it can be any of their alias attributes. If
-        /// <code>username</code> isn't an alias attribute in your user pool, you can also use
-        /// their <code>sub</code> in this request.</para>
+        /// <para>The name of your cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,13 +56,31 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Username { get; set; }
+        public System.String ClusterName { get; set; }
         #endregion
         
-        #region Parameter UserPoolId
+        #region Parameter PolicyArn
         /// <summary>
         /// <para>
-        /// <para>The user pool ID for the user pool where you want to disable the user.</para>
+        /// <para>The ARN of the policy to disassociate from the access entry. For a list of associated
+        /// policies ARNs, use <code>ListAssociatedAccessPolicies</code>.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String PolicyArn { get; set; }
+        #endregion
+        
+        #region Parameter PrincipalArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the IAM principal for the <code>AccessEntry</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -88,13 +91,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String UserPoolId { get; set; }
+        public System.String PrincipalArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CognitoIdentityProvider.Model.AdminDisableUserResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EKS.Model.DisassociateAccessPolicyResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,10 +106,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the UserPoolId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^UserPoolId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the PrincipalArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^PrincipalArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^UserPoolId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PrincipalArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -126,8 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.UserPoolId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Disable-CGIPUserAdmin (AdminDisableUser)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PrincipalArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-EKSAccessPolicy (DisassociateAccessPolicy)"))
             {
                 return;
             }
@@ -140,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CognitoIdentityProvider.Model.AdminDisableUserResponse, DisableCGIPUserAdminCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EKS.Model.DisassociateAccessPolicyResponse, RemoveEKSAccessPolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -149,21 +152,28 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.UserPoolId;
+                context.Select = (response, cmdlet) => this.PrincipalArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Username = this.Username;
+            context.ClusterName = this.ClusterName;
             #if MODULAR
-            if (this.Username == null && ParameterWasBound(nameof(this.Username)))
+            if (this.ClusterName == null && ParameterWasBound(nameof(this.ClusterName)))
             {
-                WriteWarning("You are passing $null as a value for parameter Username which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ClusterName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.UserPoolId = this.UserPoolId;
+            context.PolicyArn = this.PolicyArn;
             #if MODULAR
-            if (this.UserPoolId == null && ParameterWasBound(nameof(this.UserPoolId)))
+            if (this.PolicyArn == null && ParameterWasBound(nameof(this.PolicyArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter UserPoolId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter PolicyArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.PrincipalArn = this.PrincipalArn;
+            #if MODULAR
+            if (this.PrincipalArn == null && ParameterWasBound(nameof(this.PrincipalArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter PrincipalArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -180,15 +190,19 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CognitoIdentityProvider.Model.AdminDisableUserRequest();
+            var request = new Amazon.EKS.Model.DisassociateAccessPolicyRequest();
             
-            if (cmdletContext.Username != null)
+            if (cmdletContext.ClusterName != null)
             {
-                request.Username = cmdletContext.Username;
+                request.ClusterName = cmdletContext.ClusterName;
             }
-            if (cmdletContext.UserPoolId != null)
+            if (cmdletContext.PolicyArn != null)
             {
-                request.UserPoolId = cmdletContext.UserPoolId;
+                request.PolicyArn = cmdletContext.PolicyArn;
+            }
+            if (cmdletContext.PrincipalArn != null)
+            {
+                request.PrincipalArn = cmdletContext.PrincipalArn;
             }
             
             CmdletOutput output;
@@ -223,15 +237,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region AWS Service Operation Call
         
-        private Amazon.CognitoIdentityProvider.Model.AdminDisableUserResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.AdminDisableUserRequest request)
+        private Amazon.EKS.Model.DisassociateAccessPolicyResponse CallAWSServiceOperation(IAmazonEKS client, Amazon.EKS.Model.DisassociateAccessPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "AdminDisableUser");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Service for Kubernetes", "DisassociateAccessPolicy");
             try
             {
                 #if DESKTOP
-                return client.AdminDisableUser(request);
+                return client.DisassociateAccessPolicy(request);
                 #elif CORECLR
-                return client.AdminDisableUserAsync(request).GetAwaiter().GetResult();
+                return client.DisassociateAccessPolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -251,9 +265,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Username { get; set; }
-            public System.String UserPoolId { get; set; }
-            public System.Func<Amazon.CognitoIdentityProvider.Model.AdminDisableUserResponse, DisableCGIPUserAdminCmdlet, object> Select { get; set; } =
+            public System.String ClusterName { get; set; }
+            public System.String PolicyArn { get; set; }
+            public System.String PrincipalArn { get; set; }
+            public System.Func<Amazon.EKS.Model.DisassociateAccessPolicyResponse, RemoveEKSAccessPolicyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

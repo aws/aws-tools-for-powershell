@@ -80,10 +80,27 @@ $EKS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.EKS.AccessScopeType
+        "Add-EKSAccessPolicy/AccessScope_Type"
+        {
+            $v = "cluster","namespace"
+            break
+        }
+
         # Amazon.EKS.AMITypes
         "New-EKSNodegroup/AmiType"
         {
             $v = "AL2_ARM_64","AL2_x86_64","AL2_x86_64_GPU","BOTTLEROCKET_ARM_64","BOTTLEROCKET_ARM_64_NVIDIA","BOTTLEROCKET_x86_64","BOTTLEROCKET_x86_64_NVIDIA","CUSTOM","WINDOWS_CORE_2019_x86_64","WINDOWS_CORE_2022_x86_64","WINDOWS_FULL_2019_x86_64","WINDOWS_FULL_2022_x86_64"
+            break
+        }
+
+        # Amazon.EKS.AuthenticationMode
+        {
+            ($_ -eq "New-EKSCluster/AccessConfig_AuthenticationMode") -Or
+            ($_ -eq "Update-EKSClusterConfig/AccessConfig_AuthenticationMode")
+        }
+        {
+            $v = "API","API_AND_CONFIG_MAP","CONFIG_MAP"
             break
         }
 
@@ -141,6 +158,8 @@ $EKS_Completers = {
 }
 
 $EKS_map = @{
+    "AccessConfig_AuthenticationMode"=@("New-EKSCluster","Update-EKSClusterConfig")
+    "AccessScope_Type"=@("Add-EKSAccessPolicy")
     "AmiType"=@("New-EKSNodegroup")
     "CapacityType"=@("New-EKSNodegroup")
     "ConnectorConfig_Provider"=@("Register-EKSCluster")
@@ -200,14 +219,17 @@ $EKS_SelectCompleters = {
 }
 
 $EKS_SelectMap = @{
-    "Select"=@("Add-EKSEncryptionConfig",
+    "Select"=@("Add-EKSAccessPolicy",
+               "Add-EKSEncryptionConfig",
                "Add-EKSIdentityProviderConfig",
+               "New-EKSAccessEntry",
                "New-EKSAddon",
                "New-EKSCluster",
                "New-EKSEksAnywhereSubscription",
                "New-EKSFargateProfile",
                "New-EKSNodegroup",
                "New-EKSPodIdentityAssociation",
+               "Remove-EKSAccessEntry",
                "Remove-EKSAddon",
                "Remove-EKSCluster",
                "Remove-EKSEksAnywhereSubscription",
@@ -215,6 +237,7 @@ $EKS_SelectMap = @{
                "Remove-EKSNodegroup",
                "Remove-EKSPodIdentityAssociation",
                "Unregister-EKSCluster",
+               "Get-EKSAccessEntry",
                "Get-EKSAddon",
                "Get-EKSAddonConfiguration",
                "Get-EKSAddonVersion",
@@ -225,8 +248,12 @@ $EKS_SelectMap = @{
                "Get-EKSNodegroup",
                "Get-EKSPodIdentityAssociation",
                "Get-EKSUpdate",
+               "Remove-EKSAccessPolicy",
                "Remove-EKSIdentityProviderConfig",
+               "Get-EKSAccessEntryList",
+               "Get-EKSAccessPolicyList",
                "Get-EKSAddonList",
+               "Get-EKSAssociatedAccessPolicyList",
                "Get-EKSClusterList",
                "Get-EKSEksAnywhereSubscriptionList",
                "Get-EKSFargateProfileList",
@@ -238,6 +265,7 @@ $EKS_SelectMap = @{
                "Register-EKSCluster",
                "Add-EKSResourceTag",
                "Remove-EKSResourceTag",
+               "Update-EKSAccessEntry",
                "Update-EKSAddon",
                "Update-EKSClusterConfig",
                "Update-EKSClusterVersion",

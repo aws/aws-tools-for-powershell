@@ -28,7 +28,7 @@ using Amazon.Route53Resolver.Model;
 namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
-    /// Creates an Route 53 Resolver on an Outpost.
+    /// Creates a Route 53 Resolver on an Outpost.
     /// </summary>
     [Cmdlet("New", "R53ROutpostResolver", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53Resolver.Model.OutpostResolver")]

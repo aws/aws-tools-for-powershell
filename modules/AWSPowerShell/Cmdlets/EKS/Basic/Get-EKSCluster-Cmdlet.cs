@@ -28,14 +28,14 @@ using Amazon.EKS.Model;
 namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
-    /// Returns descriptive information about an Amazon EKS cluster.
+    /// Describes an Amazon EKS cluster.
     /// 
     ///  
     /// <para>
     /// The API server endpoint and certificate authority data returned by this operation
     /// are required for <code>kubelet</code> and <code>kubectl</code> to communicate with
-    /// your Kubernetes API server. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html">Create
-    /// a kubeconfig for Amazon EKS</a>.
+    /// your Kubernetes API server. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html">Creating
+    /// or updating a <code>kubeconfig</code> file for an Amazon EKS cluster</a>.
     /// </para><note><para>
     /// The API server endpoint and certificate authority data aren't available until the
     /// cluster reaches the <code>ACTIVE</code> state.
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the cluster to describe.</para>
+        /// <para>The name of your cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

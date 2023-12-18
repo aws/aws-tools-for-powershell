@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The limit of the request to list users.</para>
+        /// <para>The maximum number of users that you want to retrieve before pagination.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

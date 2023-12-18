@@ -28,7 +28,9 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Adds the specified user to the specified group.
+    /// Adds a user to a group. A user who is in a group can present a preferred-role claim
+    /// to an identity pool, and populates a <code>cognito:groups</code> claim to their access
+    /// and identity tokens.
     /// 
     ///  <note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
@@ -55,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <para>The group name.</para>
+        /// <para>The name of the group that you want to add your user to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,7 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Username
         /// <summary>
         /// <para>
-        /// <para>The username for the user.</para>
+        /// <para>The username of the user that you want to query or modify. The value of this parameter
+        /// is typically your user's username, but it can be any of their alias attributes. If
+        /// <code>username</code> isn't an alias attribute in your user pool, you can also use
+        /// their <code>sub</code> in this request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

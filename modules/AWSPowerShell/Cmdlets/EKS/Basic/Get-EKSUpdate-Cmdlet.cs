@@ -28,8 +28,7 @@ using Amazon.EKS.Model;
 namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
-    /// Returns descriptive information about an update against your Amazon EKS cluster or
-    /// associated managed node group or Amazon EKS add-on.
+    /// Describes an update to an Amazon EKS resource.
     /// 
     ///  
     /// <para>

@@ -28,12 +28,12 @@ using Amazon.EKS.Model;
 namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
-    /// Delete an Amazon EKS add-on.
+    /// Deletes an Amazon EKS add-on.
     /// 
     ///  
     /// <para>
-    /// When you remove the add-on, it will also be deleted from the cluster. You can always
-    /// manually start an add-on on the cluster using the Kubernetes API.
+    /// When you remove an add-on, it's deleted from the cluster. You can always manually
+    /// start an add-on on the cluster using the Kubernetes API.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "EKSAddon", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ClusterName
         /// <summary>
         /// <para>
-        /// <para>The name of the cluster to delete the add-on from.</para>
+        /// <para>The name of your cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

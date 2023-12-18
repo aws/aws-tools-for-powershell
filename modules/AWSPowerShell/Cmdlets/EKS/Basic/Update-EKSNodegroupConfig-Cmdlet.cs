@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter Labels_AddOrUpdateLabel
         /// <summary>
         /// <para>
-        /// <para>Kubernetes labels to be added or updated.</para>
+        /// <para>The Kubernetes <code>labels</code> to add or update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request.</para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ClusterName
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon EKS cluster that the managed node group resides in.</para>
+        /// <para>The name of your cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -99,18 +99,19 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ScalingConfig_DesiredSize
         /// <summary>
         /// <para>
-        /// <para>The current number of nodes that the managed node group should maintain.</para><important><para>If you use Cluster Autoscaler, you shouldn't change the desiredSize value directly,
+        /// <para>The current number of nodes that the managed node group should maintain.</para><important><para>If you use the Kubernetes <a href="https://github.com/kubernetes/autoscaler#kubernetes-autoscaler">Cluster
+        /// Autoscaler</a>, you shouldn't change the <code>desiredSize</code> value directly,
         /// as this can cause the Cluster Autoscaler to suddenly scale up or scale down.</para></important><para>Whenever this parameter changes, the number of worker nodes in the node group is updated
         /// to the specified size. If this parameter is given a value that is smaller than the
         /// current number of running worker nodes, the necessary number of worker nodes are terminated
         /// to match the given value. When using CloudFormation, no action occurs if you remove
-        /// this parameter from your CFN template.</para><para>This parameter can be different from minSize in some cases, such as when starting
-        /// with extra hosts for testing. This parameter can also be different when you want to
-        /// start with an estimated number of needed hosts, but let Cluster Autoscaler reduce
-        /// the number if there are too many. When Cluster Autoscaler is used, the desiredSize
-        /// parameter is altered by Cluster Autoscaler (but can be out-of-date for short periods
-        /// of time). Cluster Autoscaler doesn't scale a managed node group lower than minSize
-        /// or higher than maxSize.</para>
+        /// this parameter from your CFN template.</para><para>This parameter can be different from <code>minSize</code> in some cases, such as when
+        /// starting with extra hosts for testing. This parameter can also be different when you
+        /// want to start with an estimated number of needed hosts, but let the Cluster Autoscaler
+        /// reduce the number if there are too many. When the Cluster Autoscaler is used, the
+        /// <code>desiredSize</code> parameter is altered by the Cluster Autoscaler (but can be
+        /// out-of-date for short periods of time). the Cluster Autoscaler doesn't scale a managed
+        /// node group lower than <code>minSize</code> or higher than <code>maxSize</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,8 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter UpdateConfig_MaxUnavailable
         /// <summary>
         /// <para>
-        /// <para>The maximum number of nodes unavailable at once during a version update. Nodes will
-        /// be updated in parallel. This value or <code>maxUnavailablePercentage</code> is required
+        /// <para>The maximum number of nodes unavailable at once during a version update. Nodes are
+        /// updated in parallel. This value or <code>maxUnavailablePercentage</code> is required
         /// to have a value.The maximum number is 100.</para>
         /// </para>
         /// </summary>
@@ -145,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The maximum percentage of nodes unavailable during a version update. This percentage
-        /// of nodes will be updated in parallel, up to 100 nodes at once. This value or <code>maxUnavailable</code>
+        /// of nodes are updated in parallel, up to 100 nodes at once. This value or <code>maxUnavailable</code>
         /// is required to have a value.</para>
         /// </para>
         /// </summary>
@@ -183,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter Labels_RemoveLabel
         /// <summary>
         /// <para>
-        /// <para>Kubernetes labels to be removed.</para>
+        /// <para>The Kubernetes <code>labels</code> to remove.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

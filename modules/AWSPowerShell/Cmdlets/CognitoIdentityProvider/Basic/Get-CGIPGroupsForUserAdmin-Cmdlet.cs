@@ -28,7 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Lists the groups that the user belongs to.
+    /// Lists the groups that a user belongs to.
     /// 
     ///  <note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
@@ -55,7 +55,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Username
         /// <summary>
         /// <para>
-        /// <para>The username for the user.</para>
+        /// <para>The username of the user that you want to query or modify. The value of this parameter
+        /// is typically your user's username, but it can be any of their alias attributes. If
+        /// <code>username</code> isn't an alias attribute in your user pool, you can also use
+        /// their <code>sub</code> in this request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

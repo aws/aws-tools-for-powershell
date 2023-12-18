@@ -28,9 +28,14 @@ using Amazon.EKS.Model;
 namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
-    /// Describes the versions for an add-on. Information such as the Kubernetes versions
-    /// that you can use the add-on with, the <code>owner</code>, <code>publisher</code>,
-    /// and the <code>type</code> of the add-on are returned.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes the versions for an add-on.
+    /// 
+    ///  
+    /// <para>
+    /// Information such as the Kubernetes versions that you can use the add-on with, the
+    /// <code>owner</code>, <code>publisher</code>, and the <code>type</code> of the add-on
+    /// are returned.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EKSAddonVersion")]
     [OutputType("Amazon.EKS.Model.AddonInfo")]
@@ -103,7 +108,12 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return.</para>
+        /// <para>The maximum number of results, returned in paginated output. You receive <code>maxResults</code>
+        /// in a single page, along with a <code>nextToken</code> response element. You can see
+        /// the remaining results of the initial request by sending another request with the returned
+        /// <code>nextToken</code> value. This value can be between 1 and 100. If you don't use
+        /// this parameter, 100 results and a <code>nextToken</code> value, if applicable, are
+        /// returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,10 +124,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> value returned from a previous paginated <code>DescribeAddonVersionsRequest</code>
-        /// where <code>maxResults</code> was used and the results exceeded the value of that
-        /// parameter. Pagination continues from the end of the previous results that returned
-        /// the <code>nextToken</code> value.</para><note><para>This token should be treated as an opaque identifier that is used only to retrieve
+        /// <para>The <code>nextToken</code> value returned from a previous paginated request, where
+        /// <code>maxResults</code> was used and the results exceeded the value of that parameter.
+        /// Pagination continues from the end of the previous results that returned the <code>nextToken</code>
+        /// value. This value is null when there are no more results to return.</para><note><para>This token should be treated as an opaque identifier that is used only to retrieve
         /// the next items in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// <para>

@@ -28,7 +28,7 @@ using Amazon.EKS.Model;
 namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
-    /// Returns descriptive information about an Amazon EKS node group.
+    /// Describes a managed node group.
     /// </summary>
     [Cmdlet("Get", "EKSNodegroup")]
     [OutputType("Amazon.EKS.Model.Nodegroup")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ClusterName
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon EKS cluster associated with the node group.</para>
+        /// <para>The name of your cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

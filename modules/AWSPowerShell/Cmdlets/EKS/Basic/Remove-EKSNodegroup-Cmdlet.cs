@@ -28,7 +28,7 @@ using Amazon.EKS.Model;
 namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
-    /// Deletes an Amazon EKS node group for a cluster.
+    /// Deletes a managed node group.
     /// </summary>
     [Cmdlet("Remove", "EKSNodegroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EKS.Model.Nodegroup")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ClusterName
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon EKS cluster that is associated with your node group.</para>
+        /// <para>The name of your cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

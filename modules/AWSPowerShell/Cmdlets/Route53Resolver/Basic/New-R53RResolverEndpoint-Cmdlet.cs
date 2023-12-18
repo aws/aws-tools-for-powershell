@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <para>
         /// <para>The subnets and IP addresses in your VPC that DNS queries originate from (for outbound
         /// endpoints) or that you forward DNS queries to (for inbound endpoints). The subnet
-        /// ID uniquely identifies a VPC. </para>
+        /// ID uniquely identifies a VPC. </para><note><para>Even though the minimum is 1, Route 53 requires that you create at least two.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -139,6 +139,18 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String PreferredInstanceType { get; set; }
+        #endregion
+        
+        #region Parameter Protocol
+        /// <summary>
+        /// <para>
+        /// <para> The protocols you want to use for the endpoint. DoH-FIPS is applicable for inbound
+        /// endpoints only. </para><para>For an inbound endpoint you can apply the protocols as follows:</para><ul><li><para> Do53 and DoH in combination.</para></li><li><para>Do53 and DoH-FIPS in combination.</para></li><li><para>Do53 alone.</para></li><li><para>DoH alone.</para></li><li><para>DoH-FIPS alone.</para></li><li><para>None, which is treated as Do53.</para></li></ul><para>For an outbound endpoint you can apply the protocols as follows:</para><ul><li><para> Do53 and DoH in combination.</para></li><li><para>Do53 alone.</para></li><li><para>DoH alone.</para></li><li><para>None, which is treated as Do53.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Protocols")]
+        public System.String[] Protocol { get; set; }
         #endregion
         
         #region Parameter ResolverEndpointType
@@ -276,6 +288,10 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             context.Name = this.Name;
             context.OutpostArn = this.OutpostArn;
             context.PreferredInstanceType = this.PreferredInstanceType;
+            if (this.Protocol != null)
+            {
+                context.Protocol = new List<System.String>(this.Protocol);
+            }
             context.ResolverEndpointType = this.ResolverEndpointType;
             if (this.SecurityGroupId != null)
             {
@@ -330,6 +346,10 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             if (cmdletContext.PreferredInstanceType != null)
             {
                 request.PreferredInstanceType = cmdletContext.PreferredInstanceType;
+            }
+            if (cmdletContext.Protocol != null)
+            {
+                request.Protocols = cmdletContext.Protocol;
             }
             if (cmdletContext.ResolverEndpointType != null)
             {
@@ -410,6 +430,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             public System.String Name { get; set; }
             public System.String OutpostArn { get; set; }
             public System.String PreferredInstanceType { get; set; }
+            public List<System.String> Protocol { get; set; }
             public Amazon.Route53Resolver.ResolverEndpointType ResolverEndpointType { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
             public List<Amazon.Route53Resolver.Model.Tag> Tag { get; set; }

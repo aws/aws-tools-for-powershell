@@ -50,9 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// You cannot roll back a node group to an earlier Kubernetes version or AMI version.
     /// </para><para>
     /// When a node in a managed node group is terminated due to a scaling action or update,
-    /// the pods in that node are drained first. Amazon EKS attempts to drain the nodes gracefully
-    /// and will fail if it is unable to do so. You can <code>force</code> the update if Amazon
-    /// EKS is unable to drain the nodes as a result of a pod disruption budget issue.
+    /// every <code>Pod</code> on that node is drained first. Amazon EKS attempts to drain
+    /// the nodes gracefully and will fail if it is unable to do so. You can <code>force</code>
+    /// the update if Amazon EKS is unable to drain the nodes as a result of a <code>Pod</code>
+    /// disruption budget issue.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "EKSNodegroupVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -70,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request.</para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,8 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ClusterName
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon EKS cluster that is associated with the managed node group
-        /// to update.</para>
+        /// <para>The name of your cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -99,10 +99,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter Enforce
         /// <summary>
         /// <para>
-        /// <para>Force the update if the existing node group's pods are unable to be drained due to
-        /// a pod disruption budget issue. If an update fails because pods could not be drained,
-        /// you can force the update after it fails to terminate the old node whether or not any
-        /// pods are running on the node.</para>
+        /// <para>Force the update if any <code>Pod</code> on the existing node group can't be drained
+        /// due to a <code>Pod</code> disruption budget issue. If an update fails because all
+        /// Pods can't be drained, you can force the update after it fails to terminate the old
+        /// node whether or not any <code>Pod</code> is running on the node.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

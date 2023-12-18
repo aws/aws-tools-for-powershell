@@ -28,34 +28,33 @@ using Amazon.EKS.Model;
 namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
-    /// Creates an EKS Pod Identity association between a service account in an Amazon EKS
-    /// cluster and an IAM role with <i>EKS Pod Identity</i>. Use EKS Pod Identity to give
-    /// temporary IAM credentials to pods and the credentials are rotated automatically.
+    /// Creates an access entry.
     /// 
     ///  
     /// <para>
-    /// Amazon EKS Pod Identity associations provide the ability to manage credentials for
-    /// your applications, similar to the way that Amazon EC2 instance profiles provide credentials
-    /// to Amazon EC2 instances.
+    /// An access entry allows an IAM principal to access your cluster. Access entries can
+    /// replace the need to maintain entries in the <code>aws-auth</code><code>ConfigMap</code>
+    /// for authentication. You have the following options for authorizing an IAM principal
+    /// to access Kubernetes objects on your cluster: Kubernetes role-based access control
+    /// (RBAC), Amazon EKS, or both. Kubernetes RBAC authorization requires you to create
+    /// and manage Kubernetes <code>Role</code>, <code>ClusterRole</code>, <code>RoleBinding</code>,
+    /// and <code>ClusterRoleBinding</code> objects, in addition to managing access entries.
+    /// If you use Amazon EKS authorization exclusively, you don't need to create and manage
+    /// Kubernetes <code>Role</code>, <code>ClusterRole</code>, <code>RoleBinding</code>,
+    /// and <code>ClusterRoleBinding</code> objects.
     /// </para><para>
-    /// If a pod uses a service account that has an association, Amazon EKS sets environment
-    /// variables in the containers of the pod. The environment variables configure the Amazon
-    /// Web Services SDKs, including the Command Line Interface, to use the EKS Pod Identity
-    /// credentials.
-    /// </para><para>
-    /// Pod Identity is a simpler method than <i>IAM roles for service accounts</i>, as this
-    /// method doesn't use OIDC identity providers. Additionally, you can configure a role
-    /// for Pod Identity once, and reuse it across clusters.
+    /// For more information about access entries, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html">Access
+    /// entries</a> in the <i>Amazon EKS User Guide</i>.
     /// </para>
     /// </summary>
-    [Cmdlet("New", "EKSPodIdentityAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EKS.Model.PodIdentityAssociation")]
-    [AWSCmdlet("Calls the Amazon Elastic Container Service for Kubernetes CreatePodIdentityAssociation API operation.", Operation = new[] {"CreatePodIdentityAssociation"}, SelectReturnType = typeof(Amazon.EKS.Model.CreatePodIdentityAssociationResponse))]
-    [AWSCmdletOutput("Amazon.EKS.Model.PodIdentityAssociation or Amazon.EKS.Model.CreatePodIdentityAssociationResponse",
-        "This cmdlet returns an Amazon.EKS.Model.PodIdentityAssociation object.",
-        "The service call response (type Amazon.EKS.Model.CreatePodIdentityAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "EKSAccessEntry", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.EKS.Model.AccessEntry")]
+    [AWSCmdlet("Calls the Amazon Elastic Container Service for Kubernetes CreateAccessEntry API operation.", Operation = new[] {"CreateAccessEntry"}, SelectReturnType = typeof(Amazon.EKS.Model.CreateAccessEntryResponse))]
+    [AWSCmdletOutput("Amazon.EKS.Model.AccessEntry or Amazon.EKS.Model.CreateAccessEntryResponse",
+        "This cmdlet returns an Amazon.EKS.Model.AccessEntry object.",
+        "The service call response (type Amazon.EKS.Model.CreateAccessEntryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewEKSPodIdentityAssociationCmdlet : AmazonEKSClientCmdlet, IExecutor
+    public partial class NewEKSAccessEntryCmdlet : AmazonEKSClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -74,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ClusterName
         /// <summary>
         /// <para>
-        /// <para>The name of the cluster to create the association in.</para>
+        /// <para>The name of your cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -88,31 +87,38 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public System.String ClusterName { get; set; }
         #endregion
         
-        #region Parameter Namespace
+        #region Parameter KubernetesGroup
         /// <summary>
         /// <para>
-        /// <para>The name of the Kubernetes namespace inside the cluster to create the association
-        /// in. The service account and the pods that use the service account must be in this
-        /// namespace.</para>
+        /// <para>The value for <code>name</code> that you've specified for <code>kind: Group</code>
+        /// as a <code>subject</code> in a Kubernetes <code>RoleBinding</code> or <code>ClusterRoleBinding</code>
+        /// object. Amazon EKS doesn't confirm that the value for <code>name</code> exists in
+        /// any bindings on your cluster. You can specify one or more names.</para><para>Kubernetes authorizes the <code>principalArn</code> of the access entry to access
+        /// any cluster objects that you've specified in a Kubernetes <code>Role</code> or <code>ClusterRole</code>
+        /// object that is also specified in a binding's <code>roleRef</code>. For more information
+        /// about creating Kubernetes <code>RoleBinding</code>, <code>ClusterRoleBinding</code>,
+        /// <code>Role</code>, or <code>ClusterRole</code> objects, see <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">Using
+        /// RBAC Authorization in the Kubernetes documentation</a>.</para><para>If you want Amazon EKS to authorize the <code>principalArn</code> (instead of, or
+        /// in addition to Kubernetes authorizing the <code>principalArn</code>), you can associate
+        /// one or more access policies to the access entry using <code>AssociateAccessPolicy</code>.
+        /// If you associate any access policies, the <code>principalARN</code> has all permissions
+        /// assigned in the associated access policies and all permissions in any Kubernetes <code>Role</code>
+        /// or <code>ClusterRole</code> objects that the group names are bound to.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Namespace { get; set; }
+        [Alias("KubernetesGroups")]
+        public System.String[] KubernetesGroup { get; set; }
         #endregion
         
-        #region Parameter RoleArn
+        #region Parameter PrincipalArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the IAM role to associate with the service account.
-        /// The EKS Pod Identity agent manages credentials to assume this role for applications
-        /// in the containers in the pods that use this service account.</para>
+        /// <para>The ARN of the IAM principal for the <code>AccessEntry</code>. You can specify one
+        /// ARN for each access entry. You can't specify the same ARN in more than one access
+        /// entry. This value can't be changed after access entry creation.</para><para><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#bp-users-federation-idp">IAM
+        /// best practices</a> recommend using IAM roles with temporary credentials, rather than
+        /// IAM users with long-term credentials. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -123,25 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String RoleArn { get; set; }
-        #endregion
-        
-        #region Parameter ServiceAccount
-        /// <summary>
-        /// <para>
-        /// <para>The name of the Kubernetes service account inside the cluster to associate the IAM
-        /// credentials with.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ServiceAccount { get; set; }
+        public System.String PrincipalArn { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -149,14 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>
         /// <para>Metadata that assists with categorization and organization. Each tag consists of a
         /// key and an optional value. You define both. Tags don't propagate to any other cluster
-        /// or Amazon Web Services resources.</para><para>The following basic restrictions apply to tags:</para><ul><li><para>Maximum number of tags per resource – 50</para></li><li><para>For each resource, each tag key must be unique, and each tag key can have only one
-        /// value.</para></li><li><para>Maximum key length – 128 Unicode characters in UTF-8</para></li><li><para>Maximum value length – 256 Unicode characters in UTF-8</para></li><li><para>If your tagging schema is used across multiple services and resources, remember that
-        /// other services may have restrictions on allowed characters. Generally allowed characters
-        /// are: letters, numbers, and spaces representable in UTF-8, and the following characters:
-        /// + - = . _ : / @.</para></li><li><para>Tag keys and values are case-sensitive.</para></li><li><para>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
-        /// of such as a prefix for either keys or values as it is reserved for Amazon Web Services
-        /// use. You cannot edit or delete tag keys or values with this prefix. Tags with this
-        /// prefix do not count against your tags per resource limit.</para></li></ul>
+        /// or Amazon Web Services resources.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -164,15 +145,47 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
+        #region Parameter Type
+        /// <summary>
+        /// <para>
+        /// <para>If the <code>principalArn</code> is for an IAM role that's used for self-managed Amazon
+        /// EC2 nodes, specify <code>EC2_LINUX</code> or <code>EC2_WINDOWS</code>. Amazon EKS
+        /// grants the necessary permissions to the node for you. If the <code>principalArn</code>
+        /// is for any other purpose, specify <code>STANDARD</code>. If you don't specify a value,
+        /// Amazon EKS sets the value to <code>STANDARD</code>. It's unnecessary to create access
+        /// entries for IAM roles used with Fargate profiles or managed Amazon EC2 nodes, because
+        /// Amazon EKS creates entries in the <code>aws-auth</code><code>ConfigMap</code> for
+        /// the roles. You can't change this value once you've created the access entry.</para><para>If you set the value to <code>EC2_LINUX</code> or <code>EC2_WINDOWS</code>, you can't
+        /// specify values for <code>kubernetesGroups</code>, or associate an <code>AccessPolicy</code>
+        /// to the access entry.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Type { get; set; }
+        #endregion
+        
+        #region Parameter Username
+        /// <summary>
+        /// <para>
+        /// <para>The username to authenticate to Kubernetes with. We recommend not specifying a username
+        /// and letting Amazon EKS specify it for you. For more information about the value Amazon
+        /// EKS specifies for you, or constraints before specifying your own username, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html#creating-access-entries">Creating
+        /// access entries</a> in the <i>Amazon EKS User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Username { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Association'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EKS.Model.CreatePodIdentityAssociationResponse).
-        /// Specifying the name of a property of type Amazon.EKS.Model.CreatePodIdentityAssociationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AccessEntry'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EKS.Model.CreateAccessEntryResponse).
+        /// Specifying the name of a property of type Amazon.EKS.Model.CreateAccessEntryResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Association";
+        public string Select { get; set; } = "AccessEntry";
         #endregion
         
         #region Parameter PassThru
@@ -201,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ClusterName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-EKSPodIdentityAssociation (CreatePodIdentityAssociation)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-EKSAccessEntry (CreateAccessEntry)"))
             {
                 return;
             }
@@ -214,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EKS.Model.CreatePodIdentityAssociationResponse, NewEKSPodIdentityAssociationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EKS.Model.CreateAccessEntryResponse, NewEKSAccessEntryCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -234,25 +247,15 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 WriteWarning("You are passing $null as a value for parameter ClusterName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Namespace = this.Namespace;
-            #if MODULAR
-            if (this.Namespace == null && ParameterWasBound(nameof(this.Namespace)))
+            if (this.KubernetesGroup != null)
             {
-                WriteWarning("You are passing $null as a value for parameter Namespace which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.KubernetesGroup = new List<System.String>(this.KubernetesGroup);
             }
-            #endif
-            context.RoleArn = this.RoleArn;
+            context.PrincipalArn = this.PrincipalArn;
             #if MODULAR
-            if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
+            if (this.PrincipalArn == null && ParameterWasBound(nameof(this.PrincipalArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter RoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.ServiceAccount = this.ServiceAccount;
-            #if MODULAR
-            if (this.ServiceAccount == null && ParameterWasBound(nameof(this.ServiceAccount)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ServiceAccount which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter PrincipalArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             if (this.Tag != null)
@@ -263,6 +266,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                     context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
                 }
             }
+            context.Type = this.Type;
+            context.Username = this.Username;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -277,7 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EKS.Model.CreatePodIdentityAssociationRequest();
+            var request = new Amazon.EKS.Model.CreateAccessEntryRequest();
             
             if (cmdletContext.ClientRequestToken != null)
             {
@@ -287,21 +292,25 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             {
                 request.ClusterName = cmdletContext.ClusterName;
             }
-            if (cmdletContext.Namespace != null)
+            if (cmdletContext.KubernetesGroup != null)
             {
-                request.Namespace = cmdletContext.Namespace;
+                request.KubernetesGroups = cmdletContext.KubernetesGroup;
             }
-            if (cmdletContext.RoleArn != null)
+            if (cmdletContext.PrincipalArn != null)
             {
-                request.RoleArn = cmdletContext.RoleArn;
-            }
-            if (cmdletContext.ServiceAccount != null)
-            {
-                request.ServiceAccount = cmdletContext.ServiceAccount;
+                request.PrincipalArn = cmdletContext.PrincipalArn;
             }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.Type != null)
+            {
+                request.Type = cmdletContext.Type;
+            }
+            if (cmdletContext.Username != null)
+            {
+                request.Username = cmdletContext.Username;
             }
             
             CmdletOutput output;
@@ -336,15 +345,15 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         
         #region AWS Service Operation Call
         
-        private Amazon.EKS.Model.CreatePodIdentityAssociationResponse CallAWSServiceOperation(IAmazonEKS client, Amazon.EKS.Model.CreatePodIdentityAssociationRequest request)
+        private Amazon.EKS.Model.CreateAccessEntryResponse CallAWSServiceOperation(IAmazonEKS client, Amazon.EKS.Model.CreateAccessEntryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Service for Kubernetes", "CreatePodIdentityAssociation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Service for Kubernetes", "CreateAccessEntry");
             try
             {
                 #if DESKTOP
-                return client.CreatePodIdentityAssociation(request);
+                return client.CreateAccessEntry(request);
                 #elif CORECLR
-                return client.CreatePodIdentityAssociationAsync(request).GetAwaiter().GetResult();
+                return client.CreateAccessEntryAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -366,12 +375,13 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         {
             public System.String ClientRequestToken { get; set; }
             public System.String ClusterName { get; set; }
-            public System.String Namespace { get; set; }
-            public System.String RoleArn { get; set; }
-            public System.String ServiceAccount { get; set; }
+            public List<System.String> KubernetesGroup { get; set; }
+            public System.String PrincipalArn { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.EKS.Model.CreatePodIdentityAssociationResponse, NewEKSPodIdentityAssociationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Association;
+            public System.String Type { get; set; }
+            public System.String Username { get; set; }
+            public System.Func<Amazon.EKS.Model.CreateAccessEntryResponse, NewEKSAccessEntryCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AccessEntry;
         }
         
     }

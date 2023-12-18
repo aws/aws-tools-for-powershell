@@ -28,7 +28,7 @@ using Amazon.EKS.Model;
 namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
-    /// Deletes specified tags from a resource.
+    /// Deletes specified tags from an Amazon EKS resource.
     /// </summary>
     [Cmdlet("Remove", "EKSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource from which to delete tags. Currently,
-        /// the supported resources are Amazon EKS clusters and managed node groups.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource to delete tags from.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>The keys of the tags to be removed.</para>
+        /// <para>The keys of the tags to remove.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

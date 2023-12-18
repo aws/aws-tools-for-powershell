@@ -28,23 +28,16 @@ using Amazon.EKS.Model;
 namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
-    /// Associates an encryption configuration to an existing cluster.
-    /// 
-    ///  
-    /// <para>
-    /// Use this API to enable encryption on existing clusters that don't already have encryption
-    /// enabled. This allows you to implement a defense-in-depth security strategy without
-    /// migrating applications to new Amazon EKS clusters.
-    /// </para>
+    /// Updates an access entry.
     /// </summary>
-    [Cmdlet("Add", "EKSEncryptionConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EKS.Model.Update")]
-    [AWSCmdlet("Calls the Amazon Elastic Container Service for Kubernetes AssociateEncryptionConfig API operation.", Operation = new[] {"AssociateEncryptionConfig"}, SelectReturnType = typeof(Amazon.EKS.Model.AssociateEncryptionConfigResponse))]
-    [AWSCmdletOutput("Amazon.EKS.Model.Update or Amazon.EKS.Model.AssociateEncryptionConfigResponse",
-        "This cmdlet returns an Amazon.EKS.Model.Update object.",
-        "The service call response (type Amazon.EKS.Model.AssociateEncryptionConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "EKSAccessEntry", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.EKS.Model.AccessEntry")]
+    [AWSCmdlet("Calls the Amazon Elastic Container Service for Kubernetes UpdateAccessEntry API operation.", Operation = new[] {"UpdateAccessEntry"}, SelectReturnType = typeof(Amazon.EKS.Model.UpdateAccessEntryResponse))]
+    [AWSCmdletOutput("Amazon.EKS.Model.AccessEntry or Amazon.EKS.Model.UpdateAccessEntryResponse",
+        "This cmdlet returns an Amazon.EKS.Model.AccessEntry object.",
+        "The service call response (type Amazon.EKS.Model.UpdateAccessEntryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class AddEKSEncryptionConfigCmdlet : AmazonEKSClientCmdlet, IExecutor
+    public partial class UpdateEKSAccessEntryCmdlet : AmazonEKSClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -67,9 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -77,40 +70,77 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public System.String ClusterName { get; set; }
         #endregion
         
-        #region Parameter EncryptionConfig
+        #region Parameter KubernetesGroup
         /// <summary>
         /// <para>
-        /// <para>The configuration you are using for encryption.</para>
+        /// <para>The value for <code>name</code> that you've specified for <code>kind: Group</code>
+        /// as a <code>subject</code> in a Kubernetes <code>RoleBinding</code> or <code>ClusterRoleBinding</code>
+        /// object. Amazon EKS doesn't confirm that the value for <code>name</code> exists in
+        /// any bindings on your cluster. You can specify one or more names.</para><para>Kubernetes authorizes the <code>principalArn</code> of the access entry to access
+        /// any cluster objects that you've specified in a Kubernetes <code>Role</code> or <code>ClusterRole</code>
+        /// object that is also specified in a binding's <code>roleRef</code>. For more information
+        /// about creating Kubernetes <code>RoleBinding</code>, <code>ClusterRoleBinding</code>,
+        /// <code>Role</code>, or <code>ClusterRole</code> objects, see <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">Using
+        /// RBAC Authorization in the Kubernetes documentation</a>.</para><para>If you want Amazon EKS to authorize the <code>principalArn</code> (instead of, or
+        /// in addition to Kubernetes authorizing the <code>principalArn</code>), you can associate
+        /// one or more access policies to the access entry using <code>AssociateAccessPolicy</code>.
+        /// If you associate any access policies, the <code>principalARN</code> has all permissions
+        /// assigned in the associated access policies and all permissions in any Kubernetes <code>Role</code>
+        /// or <code>ClusterRole</code> objects that the group names are bound to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KubernetesGroups")]
+        public System.String[] KubernetesGroup { get; set; }
+        #endregion
+        
+        #region Parameter PrincipalArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the IAM principal for the <code>AccessEntry</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public Amazon.EKS.Model.EncryptionConfig[] EncryptionConfig { get; set; }
+        public System.String PrincipalArn { get; set; }
+        #endregion
+        
+        #region Parameter Username
+        /// <summary>
+        /// <para>
+        /// <para>The username to authenticate to Kubernetes with. We recommend not specifying a username
+        /// and letting Amazon EKS specify it for you. For more information about the value Amazon
+        /// EKS specifies for you, or constraints before specifying your own username, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html#creating-access-entries">Creating
+        /// access entries</a> in the <i>Amazon EKS User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Username { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Update'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EKS.Model.AssociateEncryptionConfigResponse).
-        /// Specifying the name of a property of type Amazon.EKS.Model.AssociateEncryptionConfigResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AccessEntry'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EKS.Model.UpdateAccessEntryResponse).
+        /// Specifying the name of a property of type Amazon.EKS.Model.UpdateAccessEntryResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Update";
+        public string Select { get; set; } = "AccessEntry";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ClusterName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ClusterName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the PrincipalArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^PrincipalArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ClusterName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PrincipalArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -130,8 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ClusterName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-EKSEncryptionConfig (AssociateEncryptionConfig)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PrincipalArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-EKSAccessEntry (UpdateAccessEntry)"))
             {
                 return;
             }
@@ -144,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EKS.Model.AssociateEncryptionConfigResponse, AddEKSEncryptionConfigCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EKS.Model.UpdateAccessEntryResponse, UpdateEKSAccessEntryCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -153,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ClusterName;
+                context.Select = (response, cmdlet) => this.PrincipalArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientRequestToken = this.ClientRequestToken;
@@ -164,16 +194,18 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 WriteWarning("You are passing $null as a value for parameter ClusterName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.EncryptionConfig != null)
+            if (this.KubernetesGroup != null)
             {
-                context.EncryptionConfig = new List<Amazon.EKS.Model.EncryptionConfig>(this.EncryptionConfig);
+                context.KubernetesGroup = new List<System.String>(this.KubernetesGroup);
             }
+            context.PrincipalArn = this.PrincipalArn;
             #if MODULAR
-            if (this.EncryptionConfig == null && ParameterWasBound(nameof(this.EncryptionConfig)))
+            if (this.PrincipalArn == null && ParameterWasBound(nameof(this.PrincipalArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter EncryptionConfig which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter PrincipalArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Username = this.Username;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -188,7 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EKS.Model.AssociateEncryptionConfigRequest();
+            var request = new Amazon.EKS.Model.UpdateAccessEntryRequest();
             
             if (cmdletContext.ClientRequestToken != null)
             {
@@ -198,9 +230,17 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             {
                 request.ClusterName = cmdletContext.ClusterName;
             }
-            if (cmdletContext.EncryptionConfig != null)
+            if (cmdletContext.KubernetesGroup != null)
             {
-                request.EncryptionConfig = cmdletContext.EncryptionConfig;
+                request.KubernetesGroups = cmdletContext.KubernetesGroup;
+            }
+            if (cmdletContext.PrincipalArn != null)
+            {
+                request.PrincipalArn = cmdletContext.PrincipalArn;
+            }
+            if (cmdletContext.Username != null)
+            {
+                request.Username = cmdletContext.Username;
             }
             
             CmdletOutput output;
@@ -235,15 +275,15 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         
         #region AWS Service Operation Call
         
-        private Amazon.EKS.Model.AssociateEncryptionConfigResponse CallAWSServiceOperation(IAmazonEKS client, Amazon.EKS.Model.AssociateEncryptionConfigRequest request)
+        private Amazon.EKS.Model.UpdateAccessEntryResponse CallAWSServiceOperation(IAmazonEKS client, Amazon.EKS.Model.UpdateAccessEntryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Service for Kubernetes", "AssociateEncryptionConfig");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Service for Kubernetes", "UpdateAccessEntry");
             try
             {
                 #if DESKTOP
-                return client.AssociateEncryptionConfig(request);
+                return client.UpdateAccessEntry(request);
                 #elif CORECLR
-                return client.AssociateEncryptionConfigAsync(request).GetAwaiter().GetResult();
+                return client.UpdateAccessEntryAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -265,9 +305,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         {
             public System.String ClientRequestToken { get; set; }
             public System.String ClusterName { get; set; }
-            public List<Amazon.EKS.Model.EncryptionConfig> EncryptionConfig { get; set; }
-            public System.Func<Amazon.EKS.Model.AssociateEncryptionConfigResponse, AddEKSEncryptionConfigCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Update;
+            public List<System.String> KubernetesGroup { get; set; }
+            public System.String PrincipalArn { get; set; }
+            public System.String Username { get; set; }
+            public System.Func<Amazon.EKS.Model.UpdateAccessEntryResponse, UpdateEKSAccessEntryCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AccessEntry;
         }
         
     }

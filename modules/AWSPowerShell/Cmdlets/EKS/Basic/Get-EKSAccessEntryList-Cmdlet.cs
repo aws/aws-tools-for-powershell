@@ -28,19 +28,31 @@ using Amazon.EKS.Model;
 namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
-    /// Lists the identity provider configurations for your cluster.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the access entries for your cluster.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "EKSIdentityProviderConfigList")]
-    [OutputType("Amazon.EKS.Model.IdentityProviderConfig")]
-    [AWSCmdlet("Calls the Amazon Elastic Container Service for Kubernetes ListIdentityProviderConfigs API operation.", Operation = new[] {"ListIdentityProviderConfigs"}, SelectReturnType = typeof(Amazon.EKS.Model.ListIdentityProviderConfigsResponse))]
-    [AWSCmdletOutput("Amazon.EKS.Model.IdentityProviderConfig or Amazon.EKS.Model.ListIdentityProviderConfigsResponse",
-        "This cmdlet returns a collection of Amazon.EKS.Model.IdentityProviderConfig objects.",
-        "The service call response (type Amazon.EKS.Model.ListIdentityProviderConfigsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "EKSAccessEntryList")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Amazon Elastic Container Service for Kubernetes ListAccessEntries API operation.", Operation = new[] {"ListAccessEntries"}, SelectReturnType = typeof(Amazon.EKS.Model.ListAccessEntriesResponse))]
+    [AWSCmdletOutput("System.String or Amazon.EKS.Model.ListAccessEntriesResponse",
+        "This cmdlet returns a collection of System.String objects.",
+        "The service call response (type Amazon.EKS.Model.ListAccessEntriesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetEKSIdentityProviderConfigListCmdlet : AmazonEKSClientCmdlet, IExecutor
+    public partial class GetEKSAccessEntryListCmdlet : AmazonEKSClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter AssociatedPolicyArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of an <code>AccessPolicy</code>. When you specify an access policy ARN, only
+        /// the access entries associated to that access policy are returned. For a list of available
+        /// policy ARNs, use <code>ListAccessPolicies</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AssociatedPolicyArn { get; set; }
+        #endregion
         
         #region Parameter ClusterName
         /// <summary>
@@ -95,13 +107,13 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'IdentityProviderConfigs'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EKS.Model.ListIdentityProviderConfigsResponse).
-        /// Specifying the name of a property of type Amazon.EKS.Model.ListIdentityProviderConfigsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AccessEntries'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EKS.Model.ListAccessEntriesResponse).
+        /// Specifying the name of a property of type Amazon.EKS.Model.ListAccessEntriesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "IdentityProviderConfigs";
+        public string Select { get; set; } = "AccessEntries";
         #endregion
         
         #region Parameter PassThru
@@ -137,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EKS.Model.ListIdentityProviderConfigsResponse, GetEKSIdentityProviderConfigListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EKS.Model.ListAccessEntriesResponse, GetEKSAccessEntryListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -149,6 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 context.Select = (response, cmdlet) => this.ClusterName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AssociatedPolicyArn = this.AssociatedPolicyArn;
             context.ClusterName = this.ClusterName;
             #if MODULAR
             if (this.ClusterName == null && ParameterWasBound(nameof(this.ClusterName)))
@@ -176,8 +189,12 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.EKS.Model.ListIdentityProviderConfigsRequest();
+            var request = new Amazon.EKS.Model.ListAccessEntriesRequest();
             
+            if (cmdletContext.AssociatedPolicyArn != null)
+            {
+                request.AssociatedPolicyArn = cmdletContext.AssociatedPolicyArn;
+            }
             if (cmdletContext.ClusterName != null)
             {
                 request.ClusterName = cmdletContext.ClusterName;
@@ -243,15 +260,15 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         
         #region AWS Service Operation Call
         
-        private Amazon.EKS.Model.ListIdentityProviderConfigsResponse CallAWSServiceOperation(IAmazonEKS client, Amazon.EKS.Model.ListIdentityProviderConfigsRequest request)
+        private Amazon.EKS.Model.ListAccessEntriesResponse CallAWSServiceOperation(IAmazonEKS client, Amazon.EKS.Model.ListAccessEntriesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Service for Kubernetes", "ListIdentityProviderConfigs");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Service for Kubernetes", "ListAccessEntries");
             try
             {
                 #if DESKTOP
-                return client.ListIdentityProviderConfigs(request);
+                return client.ListAccessEntries(request);
                 #elif CORECLR
-                return client.ListIdentityProviderConfigsAsync(request).GetAwaiter().GetResult();
+                return client.ListAccessEntriesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -271,11 +288,12 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AssociatedPolicyArn { get; set; }
             public System.String ClusterName { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.EKS.Model.ListIdentityProviderConfigsResponse, GetEKSIdentityProviderConfigListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.IdentityProviderConfigs;
+            public System.Func<Amazon.EKS.Model.ListAccessEntriesResponse, GetEKSAccessEntryListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AccessEntries;
         }
         
     }

@@ -28,9 +28,23 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Confirms registration of a new user.
+    /// This public API operation provides a code that Amazon Cognito sent to your user when
+    /// they signed up in your user pool via the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SignUp.html">SignUp</a>
+    /// API operation. After your user enters their code, they confirm ownership of the email
+    /// address or phone number that they provided, and their user account becomes active.
+    /// Depending on your user pool configuration, your users will receive their confirmation
+    /// code in an email or SMS message.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
+    /// Local users who signed up in your user pool are the only type of user who can confirm
+    /// sign-up with a code. Users who federate through an external identity provider (IdP)
+    /// have already been confirmed by their IdP. Administrator-created users, users created
+    /// with the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminCreateUser.html">AdminCreateUser</a>
+    /// API operation, confirm their accounts when they respond to their invitation email
+    /// message and choose a password. They do not receive a confirmation code. Instead, they
+    /// receive a temporary password.
+    /// </para><note><para>
     /// Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests
     /// for this API operation. For this operation, you can't use IAM credentials to authorize
     /// requests, and you can't grant IAM permissions in policies. For more information about
@@ -170,7 +184,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Username
         /// <summary>
         /// <para>
-        /// <para>The user name of the user whose registration you want to confirm.</para>
+        /// <para>The username of the user that you want to query or modify. The value of this parameter
+        /// is typically your user's username, but it can be any of their alias attributes. If
+        /// <code>username</code> isn't an alias attribute in your user pool, you can also use
+        /// their <code>sub</code> in this request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

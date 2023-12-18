@@ -28,7 +28,7 @@ using Amazon.EKS.Model;
 namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
-    /// Creates an Amazon EKS control plane. 
+    /// Creates an Amazon EKS control plane.
     /// 
     ///  
     /// <para>
@@ -83,11 +83,37 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AccessConfig_AuthenticationMode
+        /// <summary>
+        /// <para>
+        /// <para>The desired authentication mode for the cluster. If you create a cluster by using
+        /// the EKS API, Amazon Web Services SDKs, or CloudFormation, the default is <code>CONFIG_MAP</code>.
+        /// If you create the cluster by using the Amazon Web Services Management Console, the
+        /// default value is <code>API_AND_CONFIG_MAP</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EKS.AuthenticationMode")]
+        public Amazon.EKS.AuthenticationMode AccessConfig_AuthenticationMode { get; set; }
+        #endregion
+        
+        #region Parameter AccessConfig_BootstrapClusterCreatorAdminPermission
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether or not the cluster creator IAM principal was set as a cluster admin
+        /// access entry during cluster creation time. The default value is <code>true</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AccessConfig_BootstrapClusterCreatorAdminPermissions")]
+        public System.Boolean? AccessConfig_BootstrapClusterCreatorAdminPermission { get; set; }
+        #endregion
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request.</para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -244,8 +270,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// CIDR blocks. We recommend that you specify a block that does not overlap with resources
         /// in other networks that are peered or connected to your VPC. The block must meet the
         /// following requirements:</para><ul><li><para>Within one of the following private IP address blocks: <code>10.0.0.0/8</code>, <code>172.16.0.0/12</code>,
-        /// or <code>192.168.0.0/16</code>.</para></li><li><para>Doesn't overlap with any CIDR block assigned to the VPC that you selected for VPC.</para></li><li><para>Between /24 and /12.</para></li></ul><important><para>You can only specify a custom CIDR block when you create a cluster and can't change
-        /// this value once the cluster is created.</para></important>
+        /// or <code>192.168.0.0/16</code>.</para></li><li><para>Doesn't overlap with any CIDR block assigned to the VPC that you selected for VPC.</para></li><li><para>Between <code>/24</code> and <code>/12</code>.</para></li></ul><important><para>You can only specify a custom CIDR block when you create a cluster. You can't change
+        /// this value after the cluster is created.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -255,8 +281,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The metadata to apply to the cluster to assist with categorization and organization.
-        /// Each tag consists of a key and an optional value. You define both.</para>
+        /// <para>Metadata that assists with categorization and organization. Each tag consists of a
+        /// key and an optional value. You define both. Tags don't propagate to any other cluster
+        /// or Amazon Web Services resources.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -337,6 +364,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccessConfig_AuthenticationMode = this.AccessConfig_AuthenticationMode;
+            context.AccessConfig_BootstrapClusterCreatorAdminPermission = this.AccessConfig_BootstrapClusterCreatorAdminPermission;
             context.ClientRequestToken = this.ClientRequestToken;
             if (this.EncryptionConfig != null)
             {
@@ -400,6 +429,35 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             // create request
             var request = new Amazon.EKS.Model.CreateClusterRequest();
             
+            
+             // populate AccessConfig
+            var requestAccessConfigIsNull = true;
+            request.AccessConfig = new Amazon.EKS.Model.CreateAccessConfigRequest();
+            Amazon.EKS.AuthenticationMode requestAccessConfig_accessConfig_AuthenticationMode = null;
+            if (cmdletContext.AccessConfig_AuthenticationMode != null)
+            {
+                requestAccessConfig_accessConfig_AuthenticationMode = cmdletContext.AccessConfig_AuthenticationMode;
+            }
+            if (requestAccessConfig_accessConfig_AuthenticationMode != null)
+            {
+                request.AccessConfig.AuthenticationMode = requestAccessConfig_accessConfig_AuthenticationMode;
+                requestAccessConfigIsNull = false;
+            }
+            System.Boolean? requestAccessConfig_accessConfig_BootstrapClusterCreatorAdminPermission = null;
+            if (cmdletContext.AccessConfig_BootstrapClusterCreatorAdminPermission != null)
+            {
+                requestAccessConfig_accessConfig_BootstrapClusterCreatorAdminPermission = cmdletContext.AccessConfig_BootstrapClusterCreatorAdminPermission.Value;
+            }
+            if (requestAccessConfig_accessConfig_BootstrapClusterCreatorAdminPermission != null)
+            {
+                request.AccessConfig.BootstrapClusterCreatorAdminPermissions = requestAccessConfig_accessConfig_BootstrapClusterCreatorAdminPermission.Value;
+                requestAccessConfigIsNull = false;
+            }
+             // determine if request.AccessConfig should be set to null
+            if (requestAccessConfigIsNull)
+            {
+                request.AccessConfig = null;
+            }
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
@@ -591,6 +649,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.EKS.AuthenticationMode AccessConfig_AuthenticationMode { get; set; }
+            public System.Boolean? AccessConfig_BootstrapClusterCreatorAdminPermission { get; set; }
             public System.String ClientRequestToken { get; set; }
             public List<Amazon.EKS.Model.EncryptionConfig> EncryptionConfig { get; set; }
             public Amazon.EKS.IpFamily KubernetesNetworkConfig_IpFamily { get; set; }

@@ -184,7 +184,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Username
         /// <summary>
         /// <para>
-        /// <para>The user name of the user you want to register.</para>
+        /// <para>The username of the user that you want to sign up. The value of this parameter is
+        /// typically a username, but can be any alias attribute in your user pool.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -201,7 +202,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ValidationData
         /// <summary>
         /// <para>
-        /// <para>The validation data in the request to register a user.</para>
+        /// <para>Temporary user attributes that contribute to the outcomes of your pre sign-up Lambda
+        /// trigger. This set of key-value pairs are for custom validation of information that
+        /// you collect from your users but don't need to retain.</para><para>Your Lambda function can analyze this additional data and act on it. Your function
+        /// might perform external API operations like logging user attributes and validation
+        /// data to Amazon CloudWatch Logs. Validation data might also affect the response that
+        /// your function returns to Amazon Cognito, like automatically confirming the user if
+        /// they sign up from within your network.</para><para>For more information about the pre sign-up Lambda trigger, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html">Pre
+        /// sign-up Lambda trigger</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -45,9 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) that identifies the resource for which to list the
-        /// tags. Currently, the supported resources are Amazon EKS clusters and managed node
-        /// groups.</para>
+        /// <para>The Amazon Resource Name (ARN) that identifies the resource to list tags for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

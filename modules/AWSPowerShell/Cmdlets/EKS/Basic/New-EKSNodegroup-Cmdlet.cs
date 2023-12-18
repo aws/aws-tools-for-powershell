@@ -28,18 +28,24 @@ using Amazon.EKS.Model;
 namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
-    /// Creates a managed node group for an Amazon EKS cluster. You can only create a node
-    /// group for your cluster that is equal to the current Kubernetes version for the cluster.
+    /// Creates a managed node group for an Amazon EKS cluster.
     /// 
     ///  
     /// <para>
+    /// You can only create a node group for your cluster that is equal to the current Kubernetes
+    /// version for the cluster. All node groups are created with the latest AMI release version
+    /// for the respective minor Kubernetes version of the cluster, unless you deploy a custom
+    /// AMI using a launch template. For more information about using launch templates, see
+    /// <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
+    /// template support</a>.
+    /// </para><para>
     /// An Amazon EKS managed node group is an Amazon EC2 Auto Scaling group and associated
     /// Amazon EC2 instances that are managed by Amazon Web Services for an Amazon EKS cluster.
     /// For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html">Managed
     /// node groups</a> in the <i>Amazon EKS User Guide</i>.
     /// </para><note><para>
-    /// Windows AMI types are only supported for commercial Regions that support Windows Amazon
-    /// EKS.
+    /// Windows AMI types are only supported for commercial Amazon Web Services Regions that
+    /// support Windows on Amazon EKS.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "EKSNodegroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -85,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request.</para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ClusterName
         /// <summary>
         /// <para>
-        /// <para>The name of the cluster to create the node group in.</para>
+        /// <para>The name of your cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -113,18 +119,19 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ScalingConfig_DesiredSize
         /// <summary>
         /// <para>
-        /// <para>The current number of nodes that the managed node group should maintain.</para><important><para>If you use Cluster Autoscaler, you shouldn't change the desiredSize value directly,
+        /// <para>The current number of nodes that the managed node group should maintain.</para><important><para>If you use the Kubernetes <a href="https://github.com/kubernetes/autoscaler#kubernetes-autoscaler">Cluster
+        /// Autoscaler</a>, you shouldn't change the <code>desiredSize</code> value directly,
         /// as this can cause the Cluster Autoscaler to suddenly scale up or scale down.</para></important><para>Whenever this parameter changes, the number of worker nodes in the node group is updated
         /// to the specified size. If this parameter is given a value that is smaller than the
         /// current number of running worker nodes, the necessary number of worker nodes are terminated
         /// to match the given value. When using CloudFormation, no action occurs if you remove
-        /// this parameter from your CFN template.</para><para>This parameter can be different from minSize in some cases, such as when starting
-        /// with extra hosts for testing. This parameter can also be different when you want to
-        /// start with an estimated number of needed hosts, but let Cluster Autoscaler reduce
-        /// the number if there are too many. When Cluster Autoscaler is used, the desiredSize
-        /// parameter is altered by Cluster Autoscaler (but can be out-of-date for short periods
-        /// of time). Cluster Autoscaler doesn't scale a managed node group lower than minSize
-        /// or higher than maxSize.</para>
+        /// this parameter from your CFN template.</para><para>This parameter can be different from <code>minSize</code> in some cases, such as when
+        /// starting with extra hosts for testing. This parameter can also be different when you
+        /// want to start with an estimated number of needed hosts, but let the Cluster Autoscaler
+        /// reduce the number if there are too many. When the Cluster Autoscaler is used, the
+        /// <code>desiredSize</code> parameter is altered by the Cluster Autoscaler (but can be
+        /// out-of-date for short periods of time). the Cluster Autoscaler doesn't scale a managed
+        /// node group lower than <code>minSize</code> or higher than <code>maxSize</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -198,7 +205,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter Label
         /// <summary>
         /// <para>
-        /// <para>The Kubernetes labels to be applied to the nodes in the node group when they are created.</para>
+        /// <para>The Kubernetes <code>labels</code> to apply to the nodes in the node group when they
+        /// are created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -221,8 +229,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter UpdateConfig_MaxUnavailable
         /// <summary>
         /// <para>
-        /// <para>The maximum number of nodes unavailable at once during a version update. Nodes will
-        /// be updated in parallel. This value or <code>maxUnavailablePercentage</code> is required
+        /// <para>The maximum number of nodes unavailable at once during a version update. Nodes are
+        /// updated in parallel. This value or <code>maxUnavailablePercentage</code> is required
         /// to have a value.The maximum number is 100.</para>
         /// </para>
         /// </summary>
@@ -234,7 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The maximum percentage of nodes unavailable during a version update. This percentage
-        /// of nodes will be updated in parallel, up to 100 nodes at once. This value or <code>maxUnavailable</code>
+        /// of nodes are updated in parallel, up to 100 nodes at once. This value or <code>maxUnavailable</code>
         /// is required to have a value.</para>
         /// </para>
         /// </summary>
@@ -290,9 +298,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// them into a cluster, you must create an IAM role for those nodes to use when they
         /// are launched. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html">Amazon
         /// EKS node IAM role</a> in the <i><i>Amazon EKS User Guide</i></i>. If you specify
-        /// <code>launchTemplate</code>, then don't specify <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IamInstanceProfile.html"><code>IamInstanceProfile</code></a> in your launch template, or the node group deployment
-        /// will fail. For more information about using launch templates with Amazon EKS, see
-        /// <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
+        /// <code>launchTemplate</code>, then don't specify <code><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IamInstanceProfile.html">IamInstanceProfile</a></code> in your launch template, or the node group deployment will fail. For more
+        /// information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
         /// template support</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -346,8 +353,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The subnets to use for the Auto Scaling group that is created for your node group.
-        /// If you specify <code>launchTemplate</code>, then don't specify <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html"><code>SubnetId</code></a> in your launch template, or the node group deployment will
-        /// fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
+        /// If you specify <code>launchTemplate</code>, then don't specify <code><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html">SubnetId</a></code> in your launch template, or the node group deployment will fail. For more
+        /// information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
         /// template support</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -366,10 +373,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The metadata to apply to the node group to assist with categorization and organization.
-        /// Each tag consists of a key and an optional value. You define both. Node group tags
-        /// do not propagate to any other resources associated with the node group, such as the
-        /// Amazon EC2 instances or subnets.</para>
+        /// <para>Metadata that assists with categorization and organization. Each tag consists of a
+        /// key and an optional value. You define both. Tags don't propagate to any other cluster
+        /// or Amazon Web Services resources.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ClusterName
         /// <summary>
         /// <para>
-        /// <para>The name of the cluster.</para>
+        /// <para>The name of your cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,13 +62,12 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of add-on results returned by <code>ListAddonsRequest</code> in
-        /// paginated output. When you use this parameter, <code>ListAddonsRequest</code> returns
-        /// only <code>maxResults</code> results in a single page along with a <code>nextToken</code>
-        /// response element. You can see the remaining results of the initial request by sending
-        /// another <code>ListAddonsRequest</code> request with the returned <code>nextToken</code>
-        /// value. This value can be between 1 and 100. If you don't use this parameter, <code>ListAddonsRequest</code>
-        /// returns up to 100 results and a <code>nextToken</code> value, if applicable.</para>
+        /// <para>The maximum number of results, returned in paginated output. You receive <code>maxResults</code>
+        /// in a single page, along with a <code>nextToken</code> response element. You can see
+        /// the remaining results of the initial request by sending another request with the returned
+        /// <code>nextToken</code> value. This value can be between 1 and 100. If you don't use
+        /// this parameter, 100 results and a <code>nextToken</code> value, if applicable, are
+        /// returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,10 +78,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> value returned from a previous paginated <code>ListAddonsRequest</code>
-        /// where <code>maxResults</code> was used and the results exceeded the value of that
-        /// parameter. Pagination continues from the end of the previous results that returned
-        /// the <code>nextToken</code> value.</para><note><para>This token should be treated as an opaque identifier that is used only to retrieve
+        /// <para>The <code>nextToken</code> value returned from a previous paginated request, where
+        /// <code>maxResults</code> was used and the results exceeded the value of that parameter.
+        /// Pagination continues from the end of the previous results that returned the <code>nextToken</code>
+        /// value. This value is null when there are no more results to return.</para><note><para>This token should be treated as an opaque identifier that is used only to retrieve
         /// the next items in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// <para>
