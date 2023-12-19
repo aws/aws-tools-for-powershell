@@ -17451,6 +17451,9 @@ Set-Alias -Name Get-MASAgreementTerms -Value Get-MASAgreementTerm
 Set-Alias -Name MAS-GetAgreementTerms -Value Get-MASAgreementTerm
 Set-Alias -Name Search-MASAgreements -Value Search-MASAgreement
 Set-Alias -Name MAS-SearchAgreements -Value Search-MASAgreement
+Set-Alias -Name Batch-MCATDescribeEntities -Value Get-MCATBatchEntity
+Set-Alias -Name Batch-MCATBatchEntity -Value Get-MCATBatchEntity
+Set-Alias -Name MCAT-BatchDescribeEntities -Value Get-MCATBatchEntity
 Set-Alias -Name Cancel-MCATChangeSet -Value Stop-MCATChangeSet
 Set-Alias -Name MCAT-CancelChangeSet -Value Stop-MCATChangeSet
 Set-Alias -Name Delete-MCATResourcePolicy -Value Remove-MCATResourcePolicy
@@ -22034,6 +22037,9 @@ Set-Alias -Name RDS-DescribeDBProxyTargetGroups -Value Get-RDSDBProxyTargetGroup
 Set-Alias -Name Describe-RDSDBProxyTargets -Value Get-RDSDBProxyTarget
 Set-Alias -Name Describe-RDSDBProxyTarget -Value Get-RDSDBProxyTarget
 Set-Alias -Name RDS-DescribeDBProxyTargets -Value Get-RDSDBProxyTarget
+Set-Alias -Name Describe-RDSDBRecommendations -Value Get-RDSDBRecommendation
+Set-Alias -Name Describe-RDSDBRecommendation -Value Get-RDSDBRecommendation
+Set-Alias -Name RDS-DescribeDBRecommendations -Value Get-RDSDBRecommendation
 Set-Alias -Name Describe-RDSDBSecurityGroups -Value Get-RDSDBSecurityGroup
 Set-Alias -Name Describe-RDSDBSecurityGroup -Value Get-RDSDBSecurityGroup
 Set-Alias -Name RDS-DescribeDBSecurityGroups -Value Get-RDSDBSecurityGroup
@@ -22137,6 +22143,8 @@ Set-Alias -Name Modify-RDSDBProxyEndpoint -Value Edit-RDSDBProxyEndpoint
 Set-Alias -Name RDS-ModifyDBProxyEndpoint -Value Edit-RDSDBProxyEndpoint
 Set-Alias -Name Modify-RDSDBProxyTargetGroup -Value Edit-RDSDBProxyTargetGroup
 Set-Alias -Name RDS-ModifyDBProxyTargetGroup -Value Edit-RDSDBProxyTargetGroup
+Set-Alias -Name Modify-RDSDBRecommendation -Value Edit-RDSDBRecommendation
+Set-Alias -Name RDS-ModifyDBRecommendation -Value Edit-RDSDBRecommendation
 Set-Alias -Name Modify-RDSDBSnapshot -Value Edit-RDSDBSnapshot
 Set-Alias -Name RDS-ModifyDBSnapshot -Value Edit-RDSDBSnapshot
 Set-Alias -Name Modify-RDSDBSnapshotAttribute -Value Edit-RDSDBSnapshotAttribute

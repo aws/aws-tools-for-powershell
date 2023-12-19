@@ -220,7 +220,8 @@ $MCAT_SelectCompleters = {
 }
 
 $MCAT_SelectMap = @{
-    "Select"=@("Stop-MCATChangeSet",
+    "Select"=@("Get-MCATBatchEntity",
+               "Stop-MCATChangeSet",
                "Remove-MCATResourcePolicy",
                "Get-MCATChangeSet",
                "Get-MCATEntity",

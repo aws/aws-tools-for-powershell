@@ -88,6 +88,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String Cidr { get; set; }
         #endregion
         
+        #region Parameter NetworkBorderGroup
+        /// <summary>
+        /// <para>
+        /// <para>If you have <a href="https://docs.aws.amazon.com/local-zones/latest/ug/how-local-zones-work.html">Local
+        /// Zones</a> enabled, you can choose a network border group for Local Zones when you
+        /// provision and advertise a BYOIPv4 CIDR. Choose the network border group carefully
+        /// as the EIP and the Amazon Web Services resource it is associated with must reside
+        /// in the same network border group.</para><para>You can provision BYOIP address ranges to and advertise them in the following Local
+        /// Zone network border groups:</para><ul><li><para>us-east-1-dfw-2</para></li><li><para>us-west-2-lax-1</para></li><li><para>us-west-2-phx-2</para></li></ul><note><para>You cannot provision or advertise BYOIPv6 address ranges in Local Zones at this time.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NetworkBorderGroup { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ByoipCidr'.
@@ -158,6 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter Cidr which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.NetworkBorderGroup = this.NetworkBorderGroup;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -181,6 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Cidr != null)
             {
                 request.Cidr = cmdletContext.Cidr;
+            }
+            if (cmdletContext.NetworkBorderGroup != null)
+            {
+                request.NetworkBorderGroup = cmdletContext.NetworkBorderGroup;
             }
             
             CmdletOutput output;
@@ -245,6 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String Asn { get; set; }
             public System.String Cidr { get; set; }
+            public System.String NetworkBorderGroup { get; set; }
             public System.Func<Amazon.EC2.Model.AdvertiseByoipCidrResponse, StartEC2ByoipCidrAdvertisementCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ByoipCidr;
         }

@@ -109,6 +109,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? MultiRegion { get; set; }
         #endregion
         
+        #region Parameter NetworkBorderGroup
+        /// <summary>
+        /// <para>
+        /// <para>If you have <a href="https://docs.aws.amazon.com/local-zones/latest/ug/how-local-zones-work.html">Local
+        /// Zones</a> enabled, you can choose a network border group for Local Zones when you
+        /// provision and advertise a BYOIPv4 CIDR. Choose the network border group carefully
+        /// as the EIP and the Amazon Web Services resource it is associated with must reside
+        /// in the same network border group.</para><para>You can provision BYOIP address ranges to and advertise them in the following Local
+        /// Zone network border groups:</para><ul><li><para>us-east-1-dfw-2</para></li><li><para>us-west-2-lax-1</para></li><li><para>us-west-2-phx-2</para></li></ul><note><para>You cannot provision or advertise BYOIPv6 address ranges in Local Zones at this time.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NetworkBorderGroup { get; set; }
+        #endregion
+        
         #region Parameter PoolTagSpecification
         /// <summary>
         /// <para>
@@ -214,6 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.CidrAuthorizationContext_Signature = this.CidrAuthorizationContext_Signature;
             context.Description = this.Description;
             context.MultiRegion = this.MultiRegion;
+            context.NetworkBorderGroup = this.NetworkBorderGroup;
             if (this.PoolTagSpecification != null)
             {
                 context.PoolTagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.PoolTagSpecification);
@@ -275,6 +291,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.MultiRegion != null)
             {
                 request.MultiRegion = cmdletContext.MultiRegion.Value;
+            }
+            if (cmdletContext.NetworkBorderGroup != null)
+            {
+                request.NetworkBorderGroup = cmdletContext.NetworkBorderGroup;
             }
             if (cmdletContext.PoolTagSpecification != null)
             {
@@ -350,6 +370,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String CidrAuthorizationContext_Signature { get; set; }
             public System.String Description { get; set; }
             public System.Boolean? MultiRegion { get; set; }
+            public System.String NetworkBorderGroup { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> PoolTagSpecification { get; set; }
             public System.Boolean? PubliclyAdvertisable { get; set; }
             public System.Func<Amazon.EC2.Model.ProvisionByoipCidrResponse, RegisterEC2ByoipCidrCmdlet, object> Select { get; set; } =

@@ -40,12 +40,19 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
     /// Transcribe. For more information on each parameter and which combinations are valid,
     /// refer to the <a href="https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html">StartStreamTranscription</a>
     /// API in the <i>Amazon Transcribe Developer Guide</i>.
-    /// </para><important><para>
-    /// Amazon Chime SDK live transcription is powered by Amazon Transcribe. Use of Amazon
-    /// Transcribe is subject to the <a href="https://aws.amazon.com/service-terms/">AWS Service
-    /// Terms</a>, including the terms specific to the AWS Machine Learning and Artificial
-    /// Intelligence Services.
-    /// </para></important>
+    /// </para><note><para>
+    /// By default, Amazon Transcribe may use and store audio content processed by the service
+    /// to develop and improve Amazon Web Services AI/ML services as further described in
+    /// section 50 of the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services
+    /// Service Terms</a>. Using Amazon Transcribe may be subject to federal and state laws
+    /// or regulations regarding the recording or interception of electronic communications.
+    /// It is your and your end users’ responsibility to comply with all applicable laws regarding
+    /// the recording, including properly notifying all participants in a recorded session
+    /// or communication that the session or communication is being recorded, and obtaining
+    /// all necessary consents. You can opt out from Amazon Web Services using audio content
+    /// to develop and improve AWS AI/ML services by configuring an AI services opt out policy
+    /// using Amazon Web Services Organizations.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Start", "CHMTGMeetingTranscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -241,8 +248,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         #region Parameter EngineTranscribeMedicalSettings_Region
         /// <summary>
         /// <para>
-        /// <para>The AWS Region passed to Amazon Transcribe Medical. If you don't specify a Region,
-        /// Amazon Chime uses the meeting's Region. </para>
+        /// <para>The Amazon Web Services Region passed to Amazon Transcribe Medical. If you don't specify
+        /// a Region, Amazon Chime uses the meeting's Region. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -254,7 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         #region Parameter EngineTranscribeSettings_Region
         /// <summary>
         /// <para>
-        /// <para>The AWS Region in which to use Amazon Transcribe.</para><para>If you don't specify a Region, then the <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeeting.html">MediaRegion</a>
+        /// <para>The Amazon Web Services Region in which to use Amazon Transcribe.</para><para>If you don't specify a Region, then the <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeeting.html">MediaRegion</a>
         /// of the meeting is used. However, if Amazon Transcribe is not available in the <code>MediaRegion</code>,
         /// then a <code>TranscriptFailed</code> event is sent.</para><para>Use <code>auto</code> to use Amazon Transcribe in a Region near the meeting’s <code>MediaRegion</code>.
         /// For more information, refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/transcription-options.html#choose-region">Choosing

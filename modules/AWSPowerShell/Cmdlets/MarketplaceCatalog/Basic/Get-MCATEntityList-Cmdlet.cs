@@ -266,10 +266,10 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         #region Parameter EntityType
         /// <summary>
         /// <para>
-        /// <para>The type of entities to retrieve. Valid values are: <code>ServerProduct</code>, <code>AmiProduct</code>,
-        /// <code>ContainerProduct</code>, <code>DataProduct</code>, <code>SaaSProduct</code>,
-        /// <code>ProcurementPolicy</code>, <code>Experience</code>, <code>Audience</code>, <code>BrandingSettings</code>,
-        /// <code>Offer</code>, <code>Seller</code>, <code>ResaleAuthorization</code>.</para>
+        /// <para>The type of entities to retrieve. Valid values are: <code>AmiProduct</code>, <code>ContainerProduct</code>,
+        /// <code>DataProduct</code>, <code>SaaSProduct</code>, <code>ProcurementPolicy</code>,
+        /// <code>Experience</code>, <code>Audience</code>, <code>BrandingSettings</code>, <code>Offer</code>,
+        /// <code>Seller</code>, <code>ResaleAuthorization</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

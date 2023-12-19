@@ -631,7 +631,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// but one is required.</para><para>This field and <code>ThroughputCapacity</code> are the same for file systems with
         /// one HA pair.</para><ul><li><para>For <code>SINGLE_AZ_1</code> and <code>MULTI_AZ_1</code>, valid values are 128, 256,
         /// 512, 1024, 2048, or 4096 MBps.</para></li><li><para>For <code>SINGLE_AZ_2</code>, valid values are 3072 or 6144 MBps.</para></li></ul><para>Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:</para><ul><li><para>The value of <code>ThroughputCapacity</code> and <code>ThroughputCapacityPerHAPair</code>
-        /// are not the same value</para></li><li><para>The value of <code>ThroughputCapacityPerHAPair</code> is not a valid value.</para></li></ul>
+        /// are not the same value for file systems with one HA pair.</para></li><li><para>The value of deployment type is <code>SINGLE_AZ_2</code> and <code>ThroughputCapacity</code>
+        /// / <code>ThroughputCapacityPerHAPair</code> is a valid HA pair (a value between 2 and
+        /// 6).</para></li><li><para>The value of <code>ThroughputCapacityPerHAPair</code> is not a valid value.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

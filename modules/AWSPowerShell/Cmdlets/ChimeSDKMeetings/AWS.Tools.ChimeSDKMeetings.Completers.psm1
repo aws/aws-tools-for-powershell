@@ -80,6 +80,16 @@ $CHMTG_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ChimeSDKMeetings.ContentResolution
+        {
+            ($_ -eq "New-CHMTGMeeting/MeetingFeatures_Content_MaxResolution") -Or
+            ($_ -eq "New-CHMTGMeetingWithAttendee/MeetingFeatures_Content_MaxResolution")
+        }
+        {
+            $v = "FHD","None","UHD"
+            break
+        }
+
         # Amazon.ChimeSDKMeetings.MediaCapabilities
         {
             ($_ -eq "New-CHMTGAttendee/Capabilities_Audio") -Or
@@ -187,6 +197,16 @@ $CHMTG_Completers = {
             break
         }
 
+        # Amazon.ChimeSDKMeetings.VideoResolution
+        {
+            ($_ -eq "New-CHMTGMeeting/MeetingFeatures_Video_MaxResolution") -Or
+            ($_ -eq "New-CHMTGMeetingWithAttendee/MeetingFeatures_Video_MaxResolution")
+        }
+        {
+            $v = "FHD","HD","None"
+            break
+        }
+
 
     }
 
@@ -200,6 +220,8 @@ $CHMTG_map = @{
     "Capabilities_Content"=@("New-CHMTGAttendee","Update-CHMTGAttendeeCapability","Update-CHMTGUpdateAttendeeCapabilitiesExcept")
     "Capabilities_Video"=@("New-CHMTGAttendee","Update-CHMTGAttendeeCapability","Update-CHMTGUpdateAttendeeCapabilitiesExcept")
     "MeetingFeatures_Audio_EchoReduction"=@("New-CHMTGMeeting","New-CHMTGMeetingWithAttendee")
+    "MeetingFeatures_Content_MaxResolution"=@("New-CHMTGMeeting","New-CHMTGMeetingWithAttendee")
+    "MeetingFeatures_Video_MaxResolution"=@("New-CHMTGMeeting","New-CHMTGMeetingWithAttendee")
     "TranscriptionConfiguration_EngineTranscribeMedicalSettings_ContentIdentificationType"=@("Start-CHMTGMeetingTranscription")
     "TranscriptionConfiguration_EngineTranscribeMedicalSettings_LanguageCode"=@("Start-CHMTGMeetingTranscription")
     "TranscriptionConfiguration_EngineTranscribeMedicalSettings_Region"=@("Start-CHMTGMeetingTranscription")

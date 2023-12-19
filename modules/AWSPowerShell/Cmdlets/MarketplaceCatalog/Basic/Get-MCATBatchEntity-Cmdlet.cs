@@ -22,64 +22,47 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ChimeSDKMeetings;
-using Amazon.ChimeSDKMeetings.Model;
+using Amazon.MarketplaceCatalog;
+using Amazon.MarketplaceCatalog.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CHMTG
+namespace Amazon.PowerShell.Cmdlets.MCAT
 {
     /// <summary>
-    /// Stops transcription for the specified <code>meetingId</code>. For more information,
-    /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meeting-transcription.html">
-    /// Using Amazon Chime SDK live transcription </a> in the <i>Amazon Chime SDK Developer
-    /// Guide</i>.
-    /// 
-    ///  <important><para>
-    /// By default, Amazon Transcribe may use and store audio content processed by the service
-    /// to develop and improve Amazon Web Services AI/ML services as further described in
-    /// section 50 of the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services
-    /// Service Terms</a>. Using Amazon Transcribe may be subject to federal and state laws
-    /// or regulations regarding the recording or interception of electronic communications.
-    /// It is your and your end users’ responsibility to comply with all applicable laws regarding
-    /// the recording, including properly notifying all participants in a recorded session
-    /// or communication that the session or communication is being recorded, and obtaining
-    /// all necessary consents. You can opt out from Amazon Web Services using audio content
-    /// to develop and improve Amazon Web Services AI/ML services by configuring an AI services
-    /// opt out policy using Amazon Web Services Organizations.
-    /// </para></important>
+    /// Returns metadata and content for multiple entities.
     /// </summary>
-    [Cmdlet("Stop", "CHMTGMeetingTranscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Chime SDK Meetings StopMeetingTranscription API operation.", Operation = new[] {"StopMeetingTranscription"}, SelectReturnType = typeof(Amazon.ChimeSDKMeetings.Model.StopMeetingTranscriptionResponse))]
-    [AWSCmdletOutput("None or Amazon.ChimeSDKMeetings.Model.StopMeetingTranscriptionResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ChimeSDKMeetings.Model.StopMeetingTranscriptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "MCATBatchEntity")]
+    [OutputType("Amazon.MarketplaceCatalog.Model.BatchDescribeEntitiesResponse")]
+    [AWSCmdlet("Calls the AWS Marketplace Catalog Service BatchDescribeEntities API operation.", Operation = new[] {"BatchDescribeEntities"}, SelectReturnType = typeof(Amazon.MarketplaceCatalog.Model.BatchDescribeEntitiesResponse))]
+    [AWSCmdletOutput("Amazon.MarketplaceCatalog.Model.BatchDescribeEntitiesResponse",
+        "This cmdlet returns an Amazon.MarketplaceCatalog.Model.BatchDescribeEntitiesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class StopCHMTGMeetingTranscriptionCmdlet : AmazonChimeSDKMeetingsClientCmdlet, IExecutor
+    public partial class GetMCATBatchEntityCmdlet : AmazonMarketplaceCatalogClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter MeetingId
+        #region Parameter EntityRequestList
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the meeting for which you stop transcription.</para>
+        /// <para>List of entity IDs and the catalogs the entities are present in.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String MeetingId { get; set; }
+        public Amazon.MarketplaceCatalog.Model.EntityRequest[] EntityRequestList { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ChimeSDKMeetings.Model.StopMeetingTranscriptionResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MarketplaceCatalog.Model.BatchDescribeEntitiesResponse).
+        /// Specifying the name of a property of type Amazon.MarketplaceCatalog.Model.BatchDescribeEntitiesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,34 +71,18 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the MeetingId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^MeetingId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the EntityRequestList parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^EntityRequestList' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^MeetingId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^EntityRequestList' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.MeetingId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-CHMTGMeetingTranscription (StopMeetingTranscription)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -125,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ChimeSDKMeetings.Model.StopMeetingTranscriptionResponse, StopCHMTGMeetingTranscriptionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.MarketplaceCatalog.Model.BatchDescribeEntitiesResponse, GetMCATBatchEntityCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -134,14 +101,17 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.MeetingId;
+                context.Select = (response, cmdlet) => this.EntityRequestList;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.MeetingId = this.MeetingId;
-            #if MODULAR
-            if (this.MeetingId == null && ParameterWasBound(nameof(this.MeetingId)))
+            if (this.EntityRequestList != null)
             {
-                WriteWarning("You are passing $null as a value for parameter MeetingId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.EntityRequestList = new List<Amazon.MarketplaceCatalog.Model.EntityRequest>(this.EntityRequestList);
+            }
+            #if MODULAR
+            if (this.EntityRequestList == null && ParameterWasBound(nameof(this.EntityRequestList)))
+            {
+                WriteWarning("You are passing $null as a value for parameter EntityRequestList which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -158,11 +128,11 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ChimeSDKMeetings.Model.StopMeetingTranscriptionRequest();
+            var request = new Amazon.MarketplaceCatalog.Model.BatchDescribeEntitiesRequest();
             
-            if (cmdletContext.MeetingId != null)
+            if (cmdletContext.EntityRequestList != null)
             {
-                request.MeetingId = cmdletContext.MeetingId;
+                request.EntityRequestList = cmdletContext.EntityRequestList;
             }
             
             CmdletOutput output;
@@ -197,15 +167,15 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         
         #region AWS Service Operation Call
         
-        private Amazon.ChimeSDKMeetings.Model.StopMeetingTranscriptionResponse CallAWSServiceOperation(IAmazonChimeSDKMeetings client, Amazon.ChimeSDKMeetings.Model.StopMeetingTranscriptionRequest request)
+        private Amazon.MarketplaceCatalog.Model.BatchDescribeEntitiesResponse CallAWSServiceOperation(IAmazonMarketplaceCatalog client, Amazon.MarketplaceCatalog.Model.BatchDescribeEntitiesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Chime SDK Meetings", "StopMeetingTranscription");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Marketplace Catalog Service", "BatchDescribeEntities");
             try
             {
                 #if DESKTOP
-                return client.StopMeetingTranscription(request);
+                return client.BatchDescribeEntities(request);
                 #elif CORECLR
-                return client.StopMeetingTranscriptionAsync(request).GetAwaiter().GetResult();
+                return client.BatchDescribeEntitiesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -225,9 +195,9 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String MeetingId { get; set; }
-            public System.Func<Amazon.ChimeSDKMeetings.Model.StopMeetingTranscriptionResponse, StopCHMTGMeetingTranscriptionCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public List<Amazon.MarketplaceCatalog.Model.EntityRequest> EntityRequestList { get; set; }
+            public System.Func<Amazon.MarketplaceCatalog.Model.BatchDescribeEntitiesResponse, GetMCATBatchEntityCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

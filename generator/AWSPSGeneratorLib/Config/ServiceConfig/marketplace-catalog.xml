@@ -19,6 +19,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="BatchDescribeEntities" OutputProperty="*" Verb="Get" Noun="BatchEntity" PipelineParameter="EntityRequestList" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CancelChangeSet" OutputProperty="*" Verb="Stop" Noun="ChangeSet" ShouldProcessTarget="ChangeSetId" PipelineParameter="ChangeSetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

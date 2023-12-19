@@ -37,6 +37,16 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
     /// </para></note><para>
     /// When using capabilities, be aware of these corner cases:
     /// </para><ul><li><para>
+    /// If you specify <code>MeetingFeatures:Video:MaxResolution:None</code> when you create
+    /// a meeting, all API requests that include <code>SendReceive</code>, <code>Send</code>,
+    /// or <code>Receive</code> for <code>AttendeeCapabilities:Video</code> will be rejected
+    /// with <code>ValidationError 400</code>.
+    /// </para></li><li><para>
+    /// If you specify <code>MeetingFeatures:Content:MaxResolution:None</code> when you create
+    /// a meeting, all API requests that include <code>SendReceive</code>, <code>Send</code>,
+    /// or <code>Receive</code> for <code>AttendeeCapabilities:Content</code> will be rejected
+    /// with <code>ValidationError 400</code>.
+    /// </para></li><li><para>
     /// You can't set <code>content</code> capabilities to <code>SendReceive</code> or <code>Receive</code>
     /// unless you also set <code>video</code> capabilities to <code>SendReceive</code> or
     /// <code>Receive</code>. If you don't set the <code>video</code> capability to receive,

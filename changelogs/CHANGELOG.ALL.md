@@ -1,4 +1,23 @@
-﻿### 4.1.478 (2023-12-18 21:43Z)
+﻿### 4.1.479 (2023-12-19 21:45Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.712.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AppSync
+    * Modified cmdlet New-ASYNGraphqlApi: added parameters IntrospectionConfig, QueryDepthLimit and ResolverCountLimit.
+    * Modified cmdlet Update-ASYNGraphqlApi: added parameters IntrospectionConfig, QueryDepthLimit and ResolverCountLimit.
+  * Amazon Chime SDK Meetings
+    * Modified cmdlet New-CHMTGMeeting: added parameters Attendee_MaxCount, Content_MaxResolution and Video_MaxResolution.
+    * Modified cmdlet New-CHMTGMeetingWithAttendee: added parameters Attendee_MaxCount, Content_MaxResolution and Video_MaxResolution.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Register-EC2ByoipCidr: added parameter NetworkBorderGroup.
+    * Modified cmdlet Start-EC2ByoipCidrAdvertisement: added parameter NetworkBorderGroup.
+  * Amazon FSx
+    * Modified cmdlet Get-FSXSnapshot: added parameter IncludeShared.
+  * Amazon Marketplace Catalog Service
+    * Added cmdlet Get-MCATBatchEntity leveraging the BatchDescribeEntities service API.
+  * Amazon Relational Database Service
+    * Added cmdlet Edit-RDSDBRecommendation leveraging the ModifyDBRecommendation service API.
+    * Added cmdlet Get-RDSDBRecommendation leveraging the DescribeDBRecommendations service API.
+
+### 4.1.478 (2023-12-18 21:43Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.711.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Cognito Identity Provider
     * Modified cmdlet New-CGIPUserPool: added parameters PreTokenGenerationConfig_LambdaArn and PreTokenGenerationConfig_LambdaVersion.

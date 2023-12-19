@@ -185,6 +185,21 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         public System.String LambdaAuthorizerConfig_IdentityValidationExpression { get; set; }
         #endregion
         
+        #region Parameter IntrospectionConfig
+        /// <summary>
+        /// <para>
+        /// <para>Sets the value of the GraphQL API to enable (<code>ENABLED</code>) or disable (<code>DISABLED</code>)
+        /// introspection. If no value is provided, the introspection configuration will be set
+        /// to <code>ENABLED</code> by default. This field will produce an error if the operation
+        /// attempts to use the introspection feature while this field is disabled.</para><para>For more information about introspection, see <a href="https://graphql.org/learn/introspection/">GraphQL
+        /// introspection</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AppSync.GraphQLApiIntrospectionConfig")]
+        public Amazon.AppSync.GraphQLApiIntrospectionConfig IntrospectionConfig { get; set; }
+        #endregion
+        
         #region Parameter OpenIDConnectConfig_Issuer
         /// <summary>
         /// <para>
@@ -234,6 +249,34 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OwnerContact { get; set; }
+        #endregion
+        
+        #region Parameter QueryDepthLimit
+        /// <summary>
+        /// <para>
+        /// <para>The maximum depth a query can have in a single request. Depth refers to the amount
+        /// of nested levels allowed in the body of query. The default value is <code>0</code>
+        /// (or unspecified), which indicates there's no depth limit. If you set a limit, it can
+        /// be between <code>1</code> and <code>75</code> nested levels. This field will produce
+        /// a limit error if the operation falls out of bounds.</para><para>Note that fields can still be set to nullable or non-nullable. If a non-nullable field
+        /// produces an error, the error will be thrown upwards to the first nullable field available.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? QueryDepthLimit { get; set; }
+        #endregion
+        
+        #region Parameter ResolverCountLimit
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of resolvers that can be invoked in a single request. The default
+        /// value is <code>0</code> (or unspecified), which will set the limit to <code>10000</code>.
+        /// When specified, the limit value can be between <code>1</code> and <code>10000</code>.
+        /// This field will produce a limit error if the operation falls out of bounds.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ResolverCountLimit { get; set; }
         #endregion
         
         #region Parameter UserPoolConfig
@@ -330,6 +373,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             }
             #endif
             context.AuthenticationType = this.AuthenticationType;
+            context.IntrospectionConfig = this.IntrospectionConfig;
             context.LambdaAuthorizerConfig_AuthorizerResultTtlInSecond = this.LambdaAuthorizerConfig_AuthorizerResultTtlInSecond;
             context.LambdaAuthorizerConfig_AuthorizerUri = this.LambdaAuthorizerConfig_AuthorizerUri;
             context.LambdaAuthorizerConfig_IdentityValidationExpression = this.LambdaAuthorizerConfig_IdentityValidationExpression;
@@ -349,6 +393,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             context.OpenIDConnectConfig_IatTTL = this.OpenIDConnectConfig_IatTTL;
             context.OpenIDConnectConfig_Issuer = this.OpenIDConnectConfig_Issuer;
             context.OwnerContact = this.OwnerContact;
+            context.QueryDepthLimit = this.QueryDepthLimit;
+            context.ResolverCountLimit = this.ResolverCountLimit;
             context.UserPoolConfig = this.UserPoolConfig;
             context.XrayEnabled = this.XrayEnabled;
             
@@ -378,6 +424,10 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             if (cmdletContext.AuthenticationType != null)
             {
                 request.AuthenticationType = cmdletContext.AuthenticationType;
+            }
+            if (cmdletContext.IntrospectionConfig != null)
+            {
+                request.IntrospectionConfig = cmdletContext.IntrospectionConfig;
             }
             
              // populate LambdaAuthorizerConfig
@@ -518,6 +568,14 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             {
                 request.OwnerContact = cmdletContext.OwnerContact;
             }
+            if (cmdletContext.QueryDepthLimit != null)
+            {
+                request.QueryDepthLimit = cmdletContext.QueryDepthLimit.Value;
+            }
+            if (cmdletContext.ResolverCountLimit != null)
+            {
+                request.ResolverCountLimit = cmdletContext.ResolverCountLimit.Value;
+            }
             if (cmdletContext.UserPoolConfig != null)
             {
                 request.UserPoolConfig = cmdletContext.UserPoolConfig;
@@ -590,6 +648,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             public List<Amazon.AppSync.Model.AdditionalAuthenticationProvider> AdditionalAuthenticationProvider { get; set; }
             public System.String ApiId { get; set; }
             public Amazon.AppSync.AuthenticationType AuthenticationType { get; set; }
+            public Amazon.AppSync.GraphQLApiIntrospectionConfig IntrospectionConfig { get; set; }
             public System.Int32? LambdaAuthorizerConfig_AuthorizerResultTtlInSecond { get; set; }
             public System.String LambdaAuthorizerConfig_AuthorizerUri { get; set; }
             public System.String LambdaAuthorizerConfig_IdentityValidationExpression { get; set; }
@@ -603,6 +662,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             public System.Int64? OpenIDConnectConfig_IatTTL { get; set; }
             public System.String OpenIDConnectConfig_Issuer { get; set; }
             public System.String OwnerContact { get; set; }
+            public System.Int32? QueryDepthLimit { get; set; }
+            public System.Int32? ResolverCountLimit { get; set; }
             public Amazon.AppSync.Model.UserPoolConfig UserPoolConfig { get; set; }
             public System.Boolean? XrayEnabled { get; set; }
             public System.Func<Amazon.AppSync.Model.UpdateGraphqlApiResponse, UpdateASYNGraphqlApiCmdlet, object> Select { get; set; } =

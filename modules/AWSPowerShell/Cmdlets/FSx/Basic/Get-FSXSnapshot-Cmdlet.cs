@@ -81,6 +81,18 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public Amazon.FSx.Model.SnapshotFilter[] Filter { get; set; }
         #endregion
         
+        #region Parameter IncludeShared
+        /// <summary>
+        /// <para>
+        /// <para>Set to <code>false</code> (default) if you want to only see the snapshots in your
+        /// Amazon Web Services account. Set to <code>true</code> if you want to see the snapshots
+        /// in your account and the ones shared with you from another account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IncludeShared { get; set; }
+        #endregion
+        
         #region Parameter SnapshotId
         /// <summary>
         /// <para>
@@ -158,6 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             {
                 context.Filter = new List<Amazon.FSx.Model.SnapshotFilter>(this.Filter);
             }
+            context.IncludeShared = this.IncludeShared;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             if (this.SnapshotId != null)
@@ -185,6 +198,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (cmdletContext.Filter != null)
             {
                 request.Filters = cmdletContext.Filter;
+            }
+            if (cmdletContext.IncludeShared != null)
+            {
+                request.IncludeShared = cmdletContext.IncludeShared.Value;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -280,6 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.FSx.Model.SnapshotFilter> Filter { get; set; }
+            public System.Boolean? IncludeShared { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public List<System.String> SnapshotId { get; set; }

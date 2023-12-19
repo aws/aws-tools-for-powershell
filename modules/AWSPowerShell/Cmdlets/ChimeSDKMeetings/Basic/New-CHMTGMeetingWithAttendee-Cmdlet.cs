@@ -111,11 +111,48 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         #region Parameter NotificationsConfiguration_LambdaFunctionArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the AWS Lambda function in the notifications configuration.</para>
+        /// <para>The ARN of the Amazon Web Services Lambda function in the notifications configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String NotificationsConfiguration_LambdaFunctionArn { get; set; }
+        #endregion
+        
+        #region Parameter Attendee_MaxCount
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of attendees allowed into the meeting.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MeetingFeatures_Attendee_MaxCount")]
+        public System.Int32? Attendee_MaxCount { get; set; }
+        #endregion
+        
+        #region Parameter Content_MaxResolution
+        /// <summary>
+        /// <para>
+        /// <para>The maximum resolution for the meeting content.</para><note><para>Defaults to <code>FHD</code>. To use <code>UHD</code>, you must also provide a <code>MeetingFeatures:Attendee:MaxCount</code>
+        /// value and override the default size limit of 250 attendees.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MeetingFeatures_Content_MaxResolution")]
+        [AWSConstantClassSource("Amazon.ChimeSDKMeetings.ContentResolution")]
+        public Amazon.ChimeSDKMeetings.ContentResolution Content_MaxResolution { get; set; }
+        #endregion
+        
+        #region Parameter Video_MaxResolution
+        /// <summary>
+        /// <para>
+        /// <para>The maximum video resolution for the meeting. Applies to all attendees.</para><note><para>Defaults to <code>HD</code>. To use <code>FHD</code>, you must also provide a <code>MeetingFeatures:Attendee:MaxCount</code>
+        /// value and override the default size limit of 250 attendees.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MeetingFeatures_Video_MaxResolution")]
+        [AWSConstantClassSource("Amazon.ChimeSDKMeetings.VideoResolution")]
+        public Amazon.ChimeSDKMeetings.VideoResolution Video_MaxResolution { get; set; }
         #endregion
         
         #region Parameter MediaRegion
@@ -126,7 +163,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         /// <code>ca-central-1</code>, <code>eu-central-1</code>, <code>eu-north-1</code>, <code>eu-south-1</code>,
         /// <code>eu-west-1</code>, <code>eu-west-2</code>, <code>eu-west-3</code>, <code>sa-east-1</code>,
         /// <code>us-east-1</code>, <code>us-east-2</code>, <code>us-west-1</code>, <code>us-west-2</code>.
-        /// </para><para>Available values in AWS GovCloud (US) Regions: <code>us-gov-east-1</code>, <code>us-gov-west-1</code>.</para>
+        /// </para><para>Available values in Amazon Web Services GovCloud (US) Regions: <code>us-gov-east-1</code>,
+        /// <code>us-gov-west-1</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -290,7 +328,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
                 WriteWarning("You are passing $null as a value for parameter MediaRegion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Attendee_MaxCount = this.Attendee_MaxCount;
             context.Audio_EchoReduction = this.Audio_EchoReduction;
+            context.Content_MaxResolution = this.Content_MaxResolution;
+            context.Video_MaxResolution = this.Video_MaxResolution;
             context.MeetingHostId = this.MeetingHostId;
             context.NotificationsConfiguration_LambdaFunctionArn = this.NotificationsConfiguration_LambdaFunctionArn;
             context.NotificationsConfiguration_SnsTopicArn = this.NotificationsConfiguration_SnsTopicArn;
@@ -340,6 +381,31 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
              // populate MeetingFeatures
             var requestMeetingFeaturesIsNull = true;
             request.MeetingFeatures = new Amazon.ChimeSDKMeetings.Model.MeetingFeaturesConfiguration();
+            Amazon.ChimeSDKMeetings.Model.AttendeeFeatures requestMeetingFeatures_meetingFeatures_Attendee = null;
+            
+             // populate Attendee
+            var requestMeetingFeatures_meetingFeatures_AttendeeIsNull = true;
+            requestMeetingFeatures_meetingFeatures_Attendee = new Amazon.ChimeSDKMeetings.Model.AttendeeFeatures();
+            System.Int32? requestMeetingFeatures_meetingFeatures_Attendee_attendee_MaxCount = null;
+            if (cmdletContext.Attendee_MaxCount != null)
+            {
+                requestMeetingFeatures_meetingFeatures_Attendee_attendee_MaxCount = cmdletContext.Attendee_MaxCount.Value;
+            }
+            if (requestMeetingFeatures_meetingFeatures_Attendee_attendee_MaxCount != null)
+            {
+                requestMeetingFeatures_meetingFeatures_Attendee.MaxCount = requestMeetingFeatures_meetingFeatures_Attendee_attendee_MaxCount.Value;
+                requestMeetingFeatures_meetingFeatures_AttendeeIsNull = false;
+            }
+             // determine if requestMeetingFeatures_meetingFeatures_Attendee should be set to null
+            if (requestMeetingFeatures_meetingFeatures_AttendeeIsNull)
+            {
+                requestMeetingFeatures_meetingFeatures_Attendee = null;
+            }
+            if (requestMeetingFeatures_meetingFeatures_Attendee != null)
+            {
+                request.MeetingFeatures.Attendee = requestMeetingFeatures_meetingFeatures_Attendee;
+                requestMeetingFeaturesIsNull = false;
+            }
             Amazon.ChimeSDKMeetings.Model.AudioFeatures requestMeetingFeatures_meetingFeatures_Audio = null;
             
              // populate Audio
@@ -363,6 +429,56 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
             if (requestMeetingFeatures_meetingFeatures_Audio != null)
             {
                 request.MeetingFeatures.Audio = requestMeetingFeatures_meetingFeatures_Audio;
+                requestMeetingFeaturesIsNull = false;
+            }
+            Amazon.ChimeSDKMeetings.Model.ContentFeatures requestMeetingFeatures_meetingFeatures_Content = null;
+            
+             // populate Content
+            var requestMeetingFeatures_meetingFeatures_ContentIsNull = true;
+            requestMeetingFeatures_meetingFeatures_Content = new Amazon.ChimeSDKMeetings.Model.ContentFeatures();
+            Amazon.ChimeSDKMeetings.ContentResolution requestMeetingFeatures_meetingFeatures_Content_content_MaxResolution = null;
+            if (cmdletContext.Content_MaxResolution != null)
+            {
+                requestMeetingFeatures_meetingFeatures_Content_content_MaxResolution = cmdletContext.Content_MaxResolution;
+            }
+            if (requestMeetingFeatures_meetingFeatures_Content_content_MaxResolution != null)
+            {
+                requestMeetingFeatures_meetingFeatures_Content.MaxResolution = requestMeetingFeatures_meetingFeatures_Content_content_MaxResolution;
+                requestMeetingFeatures_meetingFeatures_ContentIsNull = false;
+            }
+             // determine if requestMeetingFeatures_meetingFeatures_Content should be set to null
+            if (requestMeetingFeatures_meetingFeatures_ContentIsNull)
+            {
+                requestMeetingFeatures_meetingFeatures_Content = null;
+            }
+            if (requestMeetingFeatures_meetingFeatures_Content != null)
+            {
+                request.MeetingFeatures.Content = requestMeetingFeatures_meetingFeatures_Content;
+                requestMeetingFeaturesIsNull = false;
+            }
+            Amazon.ChimeSDKMeetings.Model.VideoFeatures requestMeetingFeatures_meetingFeatures_Video = null;
+            
+             // populate Video
+            var requestMeetingFeatures_meetingFeatures_VideoIsNull = true;
+            requestMeetingFeatures_meetingFeatures_Video = new Amazon.ChimeSDKMeetings.Model.VideoFeatures();
+            Amazon.ChimeSDKMeetings.VideoResolution requestMeetingFeatures_meetingFeatures_Video_video_MaxResolution = null;
+            if (cmdletContext.Video_MaxResolution != null)
+            {
+                requestMeetingFeatures_meetingFeatures_Video_video_MaxResolution = cmdletContext.Video_MaxResolution;
+            }
+            if (requestMeetingFeatures_meetingFeatures_Video_video_MaxResolution != null)
+            {
+                requestMeetingFeatures_meetingFeatures_Video.MaxResolution = requestMeetingFeatures_meetingFeatures_Video_video_MaxResolution;
+                requestMeetingFeatures_meetingFeatures_VideoIsNull = false;
+            }
+             // determine if requestMeetingFeatures_meetingFeatures_Video should be set to null
+            if (requestMeetingFeatures_meetingFeatures_VideoIsNull)
+            {
+                requestMeetingFeatures_meetingFeatures_Video = null;
+            }
+            if (requestMeetingFeatures_meetingFeatures_Video != null)
+            {
+                request.MeetingFeatures.Video = requestMeetingFeatures_meetingFeatures_Video;
                 requestMeetingFeaturesIsNull = false;
             }
              // determine if request.MeetingFeatures should be set to null
@@ -490,7 +606,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
             public System.String ClientRequestToken { get; set; }
             public System.String ExternalMeetingId { get; set; }
             public System.String MediaRegion { get; set; }
+            public System.Int32? Attendee_MaxCount { get; set; }
             public Amazon.ChimeSDKMeetings.MeetingFeatureStatus Audio_EchoReduction { get; set; }
+            public Amazon.ChimeSDKMeetings.ContentResolution Content_MaxResolution { get; set; }
+            public Amazon.ChimeSDKMeetings.VideoResolution Video_MaxResolution { get; set; }
             public System.String MeetingHostId { get; set; }
             public System.String NotificationsConfiguration_LambdaFunctionArn { get; set; }
             public System.String NotificationsConfiguration_SnsTopicArn { get; set; }

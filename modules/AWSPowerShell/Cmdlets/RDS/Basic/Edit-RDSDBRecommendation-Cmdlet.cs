@@ -22,47 +22,41 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ChimeSDKMeetings;
-using Amazon.ChimeSDKMeetings.Model;
+using Amazon.RDS;
+using Amazon.RDS.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CHMTG
+namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Removes the specified tags from the specified resources. When you specify a tag key,
-    /// the action removes both that key and its associated value. The operation succeeds
-    /// even if you attempt to remove tags from a resource that were already removed. Note
-    /// the following:
-    /// 
-    ///  <ul><li><para>
-    /// To remove tags from a resource, you need the necessary permissions for the service
-    /// that the resource belongs to as well as permissions for removing tags. For more information,
-    /// see the documentation for the service whose resource you want to untag.
-    /// </para></li><li><para>
-    /// You can only tag resources that are located in the specified Amazon Web Services Region
-    /// for the calling Amazon Web Services account.
-    /// </para></li></ul><para><b>Minimum permissions</b></para><para>
-    /// In addition to the <code>tag:UntagResources</code> permission required by this operation,
-    /// you must also have the remove tags permission defined by the service that created
-    /// the resource. For example, to remove the tags from an Amazon EC2 instance using the
-    /// <code>UntagResources</code> operation, you must have both of the following permissions:
-    /// </para><para><code>tag:UntagResource</code></para><para><code>ChimeSDKMeetings:DeleteTags</code></para>
+    /// Updates the recommendation status and recommended action status for the specified
+    /// recommendation.
     /// </summary>
-    [Cmdlet("Remove", "CHMTGResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Chime SDK Meetings UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.ChimeSDKMeetings.Model.UntagResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.ChimeSDKMeetings.Model.UntagResourceResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ChimeSDKMeetings.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Edit", "RDSDBRecommendation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.RDS.Model.DBRecommendation")]
+    [AWSCmdlet("Calls the Amazon Relational Database Service ModifyDBRecommendation API operation.", Operation = new[] {"ModifyDBRecommendation"}, SelectReturnType = typeof(Amazon.RDS.Model.ModifyDBRecommendationResponse))]
+    [AWSCmdletOutput("Amazon.RDS.Model.DBRecommendation or Amazon.RDS.Model.ModifyDBRecommendationResponse",
+        "This cmdlet returns an Amazon.RDS.Model.DBRecommendation object.",
+        "The service call response (type Amazon.RDS.Model.ModifyDBRecommendationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveCHMTGResourceTagCmdlet : AmazonChimeSDKMeetingsClientCmdlet, IExecutor
+    public partial class EditRDSDBRecommendationCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ResourceARN
+        #region Parameter Locale
         /// <summary>
         /// <para>
-        /// <para>The ARN of the resource that you're removing tags from.</para>
+        /// <para>The language of the modified recommendation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Locale { get; set; }
+        #endregion
+        
+        #region Parameter RecommendationId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the recommendation to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,43 +67,48 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceARN { get; set; }
+        public System.String RecommendationId { get; set; }
         #endregion
         
-        #region Parameter TagKey
+        #region Parameter RecommendedActionUpdate
         /// <summary>
         /// <para>
-        /// <para>The tag keys being removed from the resources.</para>
+        /// <para>The list of recommended action status to update. You can update multiple recommended
+        /// actions at one time.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("TagKeys")]
-        public System.String[] TagKey { get; set; }
+        [Alias("RecommendedActionUpdates")]
+        public Amazon.RDS.Model.RecommendedActionUpdate[] RecommendedActionUpdate { get; set; }
+        #endregion
+        
+        #region Parameter Status
+        /// <summary>
+        /// <para>
+        /// <para>The recommendation status to update.</para><para>Valid values:</para><ul><li><para>active</para></li><li><para>dismissed</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Status { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ChimeSDKMeetings.Model.UntagResourceResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'DBRecommendation'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RDS.Model.ModifyDBRecommendationResponse).
+        /// Specifying the name of a property of type Amazon.RDS.Model.ModifyDBRecommendationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "DBRecommendation";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceARN parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the RecommendationId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^RecommendationId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^RecommendationId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -129,8 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceARN), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CHMTGResourceTag (UntagResource)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.RecommendationId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-RDSDBRecommendation (ModifyDBRecommendation)"))
             {
                 return;
             }
@@ -143,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ChimeSDKMeetings.Model.UntagResourceResponse, RemoveCHMTGResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.RDS.Model.ModifyDBRecommendationResponse, EditRDSDBRecommendationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -152,26 +151,22 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceARN;
+                context.Select = (response, cmdlet) => this.RecommendationId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceARN = this.ResourceARN;
+            context.Locale = this.Locale;
+            context.RecommendationId = this.RecommendationId;
             #if MODULAR
-            if (this.ResourceARN == null && ParameterWasBound(nameof(this.ResourceARN)))
+            if (this.RecommendationId == null && ParameterWasBound(nameof(this.RecommendationId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter RecommendationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.TagKey != null)
+            if (this.RecommendedActionUpdate != null)
             {
-                context.TagKey = new List<System.String>(this.TagKey);
+                context.RecommendedActionUpdate = new List<Amazon.RDS.Model.RecommendedActionUpdate>(this.RecommendedActionUpdate);
             }
-            #if MODULAR
-            if (this.TagKey == null && ParameterWasBound(nameof(this.TagKey)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TagKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.Status = this.Status;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -186,15 +181,23 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ChimeSDKMeetings.Model.UntagResourceRequest();
+            var request = new Amazon.RDS.Model.ModifyDBRecommendationRequest();
             
-            if (cmdletContext.ResourceARN != null)
+            if (cmdletContext.Locale != null)
             {
-                request.ResourceARN = cmdletContext.ResourceARN;
+                request.Locale = cmdletContext.Locale;
             }
-            if (cmdletContext.TagKey != null)
+            if (cmdletContext.RecommendationId != null)
             {
-                request.TagKeys = cmdletContext.TagKey;
+                request.RecommendationId = cmdletContext.RecommendationId;
+            }
+            if (cmdletContext.RecommendedActionUpdate != null)
+            {
+                request.RecommendedActionUpdates = cmdletContext.RecommendedActionUpdate;
+            }
+            if (cmdletContext.Status != null)
+            {
+                request.Status = cmdletContext.Status;
             }
             
             CmdletOutput output;
@@ -229,15 +232,15 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         
         #region AWS Service Operation Call
         
-        private Amazon.ChimeSDKMeetings.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonChimeSDKMeetings client, Amazon.ChimeSDKMeetings.Model.UntagResourceRequest request)
+        private Amazon.RDS.Model.ModifyDBRecommendationResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.ModifyDBRecommendationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Chime SDK Meetings", "UntagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "ModifyDBRecommendation");
             try
             {
                 #if DESKTOP
-                return client.UntagResource(request);
+                return client.ModifyDBRecommendation(request);
                 #elif CORECLR
-                return client.UntagResourceAsync(request).GetAwaiter().GetResult();
+                return client.ModifyDBRecommendationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -257,10 +260,12 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceARN { get; set; }
-            public List<System.String> TagKey { get; set; }
-            public System.Func<Amazon.ChimeSDKMeetings.Model.UntagResourceResponse, RemoveCHMTGResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String Locale { get; set; }
+            public System.String RecommendationId { get; set; }
+            public List<Amazon.RDS.Model.RecommendedActionUpdate> RecommendedActionUpdate { get; set; }
+            public System.String Status { get; set; }
+            public System.Func<Amazon.RDS.Model.ModifyDBRecommendationResponse, EditRDSDBRecommendationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.DBRecommendation;
         }
         
     }

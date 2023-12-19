@@ -350,6 +350,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDBRecommendations" OutputProperty="DBRecommendations" Verb="Get" Noun="DBRecommendation" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeDBSecurityGroups" OutputProperty="DBSecurityGroups" Verb="Get" Noun="DBSecurityGroup" PipelineParameter="DBSecurityGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -510,6 +514,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyDBProxyTargetGroup" OutputProperty="DBProxyTargetGroup" Verb="Edit" Noun="DBProxyTargetGroup" ShouldProcessTarget="TargetGroupName" PipelineParameter="TargetGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyDBRecommendation" OutputProperty="DBRecommendation" Verb="Edit" Noun="DBRecommendation" ShouldProcessTarget="RecommendationId" PipelineParameter="RecommendationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

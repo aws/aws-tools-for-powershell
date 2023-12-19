@@ -154,6 +154,16 @@ $ASYN_Completers = {
             break
         }
 
+        # Amazon.AppSync.GraphQLApiIntrospectionConfig
+        {
+            ($_ -eq "New-ASYNGraphqlApi/IntrospectionConfig") -Or
+            ($_ -eq "Update-ASYNGraphqlApi/IntrospectionConfig")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.AppSync.GraphQLApiType
         {
             ($_ -eq "Get-ASYNGraphqlApiList/ApiType") -Or
@@ -255,6 +265,7 @@ $ASYN_map = @{
     "ApiType"=@("Get-ASYNGraphqlApiList","New-ASYNGraphqlApi")
     "AuthenticationType"=@("New-ASYNGraphqlApi","Update-ASYNGraphqlApi")
     "Format"=@("Get-ASYNIntrospectionSchema","Get-ASYNType","Get-ASYNTypeList","Get-ASYNTypesByAssociationList","New-ASYNType","Update-ASYNType")
+    "IntrospectionConfig"=@("New-ASYNGraphqlApi","Update-ASYNGraphqlApi")
     "Kind"=@("New-ASYNResolver","Update-ASYNResolver")
     "LogConfig_FieldLogLevel"=@("New-ASYNGraphqlApi","Update-ASYNGraphqlApi")
     "Owner"=@("Get-ASYNGraphqlApiList")
