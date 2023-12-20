@@ -59,6 +59,19 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.String ChannelName { get; set; }
         #endregion
         
+        #region Parameter TimeShiftConfiguration_MaxTimeDelaySecond
+        /// <summary>
+        /// <para>
+        /// <para> The maximum time delay for time-shifted viewing. The minimum allowed maximum time
+        /// delay is 0 seconds, and the maximum allowed maximum time delay is 21600 seconds (6
+        /// hours). </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TimeShiftConfiguration_MaxTimeDelaySeconds")]
+        public System.Int32? TimeShiftConfiguration_MaxTimeDelaySecond { get; set; }
+        #endregion
+        
         #region Parameter Output
         /// <summary>
         /// <para>
@@ -179,6 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                 WriteWarning("You are passing $null as a value for parameter Output which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.TimeShiftConfiguration_MaxTimeDelaySecond = this.TimeShiftConfiguration_MaxTimeDelaySecond;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -231,6 +245,25 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             if (cmdletContext.Output != null)
             {
                 request.Outputs = cmdletContext.Output;
+            }
+            
+             // populate TimeShiftConfiguration
+            var requestTimeShiftConfigurationIsNull = true;
+            request.TimeShiftConfiguration = new Amazon.MediaTailor.Model.TimeShiftConfiguration();
+            System.Int32? requestTimeShiftConfiguration_timeShiftConfiguration_MaxTimeDelaySecond = null;
+            if (cmdletContext.TimeShiftConfiguration_MaxTimeDelaySecond != null)
+            {
+                requestTimeShiftConfiguration_timeShiftConfiguration_MaxTimeDelaySecond = cmdletContext.TimeShiftConfiguration_MaxTimeDelaySecond.Value;
+            }
+            if (requestTimeShiftConfiguration_timeShiftConfiguration_MaxTimeDelaySecond != null)
+            {
+                request.TimeShiftConfiguration.MaxTimeDelaySeconds = requestTimeShiftConfiguration_timeShiftConfiguration_MaxTimeDelaySecond.Value;
+                requestTimeShiftConfigurationIsNull = false;
+            }
+             // determine if request.TimeShiftConfiguration should be set to null
+            if (requestTimeShiftConfigurationIsNull)
+            {
+                request.TimeShiftConfiguration = null;
             }
             
             CmdletOutput output;
@@ -297,6 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             public System.String FillerSlate_SourceLocationName { get; set; }
             public System.String FillerSlate_VodSourceName { get; set; }
             public List<Amazon.MediaTailor.Model.RequestOutputItem> Output { get; set; }
+            public System.Int32? TimeShiftConfiguration_MaxTimeDelaySecond { get; set; }
             public System.Func<Amazon.MediaTailor.Model.UpdateChannelResponse, UpdateEMTChannelCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

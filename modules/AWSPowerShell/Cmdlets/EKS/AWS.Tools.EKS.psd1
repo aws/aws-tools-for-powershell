@@ -106,6 +106,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EKSFargateProfileList', 
         'Get-EKSIdentityProviderConfig', 
         'Get-EKSIdentityProviderConfigList', 
+        'Get-EKSInsight', 
+        'Get-EKSInsightList', 
         'Get-EKSNodegroup', 
         'Get-EKSNodegroupList', 
         'Get-EKSPodIdentityAssociation', 

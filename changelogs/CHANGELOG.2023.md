@@ -1,4 +1,15 @@
-﻿### 4.1.479 (2023-12-19 21:45Z)
+﻿### 4.1.480 (2023-12-20 21:46Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.713.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Container Service for Kubernetes
+    * Added cmdlet Get-EKSInsight leveraging the DescribeInsight service API.
+    * Added cmdlet Get-EKSInsightList leveraging the ListInsights service API.
+  * Amazon Elemental MediaTailor
+    * Modified cmdlet New-EMTChannel: added parameter TimeShiftConfiguration_MaxTimeDelaySecond.
+    * Modified cmdlet Update-EMTChannel: added parameter TimeShiftConfiguration_MaxTimeDelaySecond.
+  * Amazon GuardDuty
+    * Added cmdlet Get-GDOrganizationStatistic leveraging the GetOrganizationStatistics service API.
+
+### 4.1.479 (2023-12-19 21:45Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.712.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AppSync
     * Modified cmdlet New-ASYNGraphqlApi: added parameters IntrospectionConfig, QueryDepthLimit and ResolverCountLimit.

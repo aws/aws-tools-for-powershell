@@ -159,7 +159,7 @@ $GD_Completers = {
         # Amazon.GuardDuty.UsageStatisticType
         "Get-GDUsageStatistic/UsageStatisticType"
         {
-            $v = "SUM_BY_ACCOUNT","SUM_BY_DATA_SOURCE","SUM_BY_FEATURES","SUM_BY_RESOURCE","TOP_RESOURCES"
+            $v = "SUM_BY_ACCOUNT","SUM_BY_DATA_SOURCE","SUM_BY_FEATURES","SUM_BY_RESOURCE","TOP_ACCOUNTS_BY_FEATURE","TOP_RESOURCES"
             break
         }
 
@@ -272,6 +272,7 @@ $GD_SelectMap = @{
                "Get-GDMasterAccount",
                "Get-GDMemberDetector",
                "Get-GDMember",
+               "Get-GDOrganizationStatistic",
                "Get-GDRemainingFreeTrialDay",
                "Get-GDThreatIntelSet",
                "Get-GDUsageStatistic",

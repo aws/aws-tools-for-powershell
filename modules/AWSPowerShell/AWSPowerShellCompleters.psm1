@@ -23982,6 +23982,7 @@ $EKS_SelectMap = @{
                "Get-EKSEksAnywhereSubscription",
                "Get-EKSFargateProfile",
                "Get-EKSIdentityProviderConfig",
+               "Get-EKSInsight",
                "Get-EKSNodegroup",
                "Get-EKSPodIdentityAssociation",
                "Get-EKSUpdate",
@@ -23995,6 +23996,7 @@ $EKS_SelectMap = @{
                "Get-EKSEksAnywhereSubscriptionList",
                "Get-EKSFargateProfileList",
                "Get-EKSIdentityProviderConfigList",
+               "Get-EKSInsightList",
                "Get-EKSNodegroupList",
                "Get-EKSPodIdentityAssociationList",
                "Get-EKSResourceTag",
@@ -30458,7 +30460,7 @@ $GD_Completers = {
         # Amazon.GuardDuty.UsageStatisticType
         "Get-GDUsageStatistic/UsageStatisticType"
         {
-            $v = "SUM_BY_ACCOUNT","SUM_BY_DATA_SOURCE","SUM_BY_FEATURES","SUM_BY_RESOURCE","TOP_RESOURCES"
+            $v = "SUM_BY_ACCOUNT","SUM_BY_DATA_SOURCE","SUM_BY_FEATURES","SUM_BY_RESOURCE","TOP_ACCOUNTS_BY_FEATURE","TOP_RESOURCES"
             break
         }
 
@@ -30571,6 +30573,7 @@ $GD_SelectMap = @{
                "Get-GDMasterAccount",
                "Get-GDMemberDetector",
                "Get-GDMember",
+               "Get-GDOrganizationStatistic",
                "Get-GDRemainingFreeTrialDay",
                "Get-GDThreatIntelSet",
                "Get-GDUsageStatistic",
@@ -54591,7 +54594,7 @@ $R53_Completers = {
             ($_ -eq "New-R53HealthCheck/HealthCheckConfig_AlarmIdentifier_Region")
         }
         {
-            $v = "af-south-1","ap-east-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-south-2","ap-southeast-1","ap-southeast-2","ap-southeast-3","ap-southeast-4","ca-central-1","cn-north-1","cn-northwest-1","eu-central-1","eu-central-2","eu-north-1","eu-south-1","eu-south-2","eu-west-1","eu-west-2","eu-west-3","il-central-1","me-central-1","me-south-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-west-1","us-west-2"
+            $v = "af-south-1","ap-east-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-south-2","ap-southeast-1","ap-southeast-2","ap-southeast-3","ap-southeast-4","ca-central-1","ca-west-1","cn-north-1","cn-northwest-1","eu-central-1","eu-central-2","eu-north-1","eu-south-1","eu-south-2","eu-west-1","eu-west-2","eu-west-3","il-central-1","me-central-1","me-south-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-west-1","us-west-2"
             break
         }
 
@@ -54667,7 +54670,7 @@ $R53_Completers = {
             ($_ -eq "Get-R53HostedZonesByVPC/VPCRegion")
         }
         {
-            $v = "af-south-1","ap-east-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-south-2","ap-southeast-1","ap-southeast-2","ap-southeast-3","ap-southeast-4","ca-central-1","cn-north-1","eu-central-1","eu-central-2","eu-north-1","eu-south-1","eu-south-2","eu-west-1","eu-west-2","eu-west-3","il-central-1","me-central-1","me-south-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-west-1","us-west-2"
+            $v = "af-south-1","ap-east-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-south-2","ap-southeast-1","ap-southeast-2","ap-southeast-3","ap-southeast-4","ca-central-1","ca-west-1","cn-north-1","eu-central-1","eu-central-2","eu-north-1","eu-south-1","eu-south-2","eu-west-1","eu-west-2","eu-west-3","il-central-1","me-central-1","me-south-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-west-1","us-west-2"
             break
         }
 

@@ -123,6 +123,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInsight" OutputProperty="Insight" Verb="Get" Noun="Insight" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeNodegroup" OutputProperty="Nodegroup" Verb="Get" Noun="Nodegroup" PipelineParameter="NodegroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -172,6 +176,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListIdentityProviderConfigs" OutputProperty="IdentityProviderConfigs" Verb="Get" Noun="IdentityProviderConfigList" PipelineParameter="ClusterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListInsights" OutputProperty="Insights" Verb="Get" Noun="InsightList" PipelineParameter="ClusterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

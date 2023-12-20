@@ -9896,6 +9896,8 @@ Set-Alias -Name Describe-EKSFargateProfile -Value Get-EKSFargateProfile
 Set-Alias -Name EKS-DescribeFargateProfile -Value Get-EKSFargateProfile
 Set-Alias -Name Describe-EKSIdentityProviderConfig -Value Get-EKSIdentityProviderConfig
 Set-Alias -Name EKS-DescribeIdentityProviderConfig -Value Get-EKSIdentityProviderConfig
+Set-Alias -Name Describe-EKSInsight -Value Get-EKSInsight
+Set-Alias -Name EKS-DescribeInsight -Value Get-EKSInsight
 Set-Alias -Name Describe-EKSNodegroup -Value Get-EKSNodegroup
 Set-Alias -Name EKS-DescribeNodegroup -Value Get-EKSNodegroup
 Set-Alias -Name Describe-EKSPodIdentityAssociation -Value Get-EKSPodIdentityAssociation
@@ -9930,6 +9932,9 @@ Set-Alias -Name EKS-ListFargateProfiles -Value Get-EKSFargateProfileList
 Set-Alias -Name List-EKSIdentityProviderConfigs -Value Get-EKSIdentityProviderConfigList
 Set-Alias -Name List-EKSIdentityProviderConfigList -Value Get-EKSIdentityProviderConfigList
 Set-Alias -Name EKS-ListIdentityProviderConfigs -Value Get-EKSIdentityProviderConfigList
+Set-Alias -Name List-EKSInsights -Value Get-EKSInsightList
+Set-Alias -Name List-EKSInsightList -Value Get-EKSInsightList
+Set-Alias -Name EKS-ListInsights -Value Get-EKSInsightList
 Set-Alias -Name List-EKSNodegroups -Value Get-EKSNodegroupList
 Set-Alias -Name List-EKSNodegroupList -Value Get-EKSNodegroupList
 Set-Alias -Name EKS-ListNodegroups -Value Get-EKSNodegroupList
@@ -13070,6 +13075,8 @@ Set-Alias -Name Get-GDMemberDetectors -Value Get-GDMemberDetector
 Set-Alias -Name GD-GetMemberDetectors -Value Get-GDMemberDetector
 Set-Alias -Name Get-GDMembers -Value Get-GDMember
 Set-Alias -Name GD-GetMembers -Value Get-GDMember
+Set-Alias -Name Get-GDOrganizationStatistics -Value Get-GDOrganizationStatistic
+Set-Alias -Name GD-GetOrganizationStatistics -Value Get-GDOrganizationStatistic
 Set-Alias -Name Get-GDRemainingFreeTrialDays -Value Get-GDRemainingFreeTrialDay
 Set-Alias -Name GD-GetRemainingFreeTrialDays -Value Get-GDRemainingFreeTrialDay
 Set-Alias -Name GD-GetThreatIntelSet -Value Get-GDThreatIntelSet

@@ -114,6 +114,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-GDMemberList', 
         'Get-GDOrganizationAdminAccountList', 
         'Get-GDOrganizationConfiguration', 
+        'Get-GDOrganizationStatistic', 
         'Get-GDPublishingDestination', 
         'Get-GDPublishingDestinationList', 
         'Get-GDRemainingFreeTrialDay', 

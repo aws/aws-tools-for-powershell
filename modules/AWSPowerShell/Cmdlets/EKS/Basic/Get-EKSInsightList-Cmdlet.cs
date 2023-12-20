@@ -22,50 +22,43 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.GuardDuty;
-using Amazon.GuardDuty.Model;
+using Amazon.EKS;
+using Amazon.EKS.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GD
+namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
-    /// Lists coverage details for your GuardDuty account. If you're a GuardDuty administrator,
-    /// you can retrieve all resources associated with the active member accounts in your
-    /// organization.
-    /// 
-    ///  
-    /// <para>
-    /// Make sure the accounts have Runtime Monitoring enabled and GuardDuty agent running
-    /// on their resources.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of all insights checked for against the specified cluster. You can
+    /// filter which insights are returned by category, associated Kubernetes version, and
+    /// status.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "GDCoverageList")]
-    [OutputType("Amazon.GuardDuty.Model.CoverageResource")]
-    [AWSCmdlet("Calls the Amazon GuardDuty ListCoverage API operation.", Operation = new[] {"ListCoverage"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.ListCoverageResponse))]
-    [AWSCmdletOutput("Amazon.GuardDuty.Model.CoverageResource or Amazon.GuardDuty.Model.ListCoverageResponse",
-        "This cmdlet returns a collection of Amazon.GuardDuty.Model.CoverageResource objects.",
-        "The service call response (type Amazon.GuardDuty.Model.ListCoverageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "EKSInsightList")]
+    [OutputType("Amazon.EKS.Model.InsightSummary")]
+    [AWSCmdlet("Calls the Amazon Elastic Container Service for Kubernetes ListInsights API operation.", Operation = new[] {"ListInsights"}, SelectReturnType = typeof(Amazon.EKS.Model.ListInsightsResponse))]
+    [AWSCmdletOutput("Amazon.EKS.Model.InsightSummary or Amazon.EKS.Model.ListInsightsResponse",
+        "This cmdlet returns a collection of Amazon.EKS.Model.InsightSummary objects.",
+        "The service call response (type Amazon.EKS.Model.ListInsightsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetGDCoverageListCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
+    public partial class GetEKSInsightListCmdlet : AmazonEKSClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter SortCriteria_AttributeName
+        #region Parameter Filter_Category
         /// <summary>
         /// <para>
-        /// <para>Represents the field name used to sort the coverage details.</para><note><para>Replace the enum value <code>CLUSTER_NAME</code> with <code>EKS_CLUSTER_NAME</code>.
-        /// <code>CLUSTER_NAME</code> has been deprecated.</para></note>
+        /// <para>The categories to use to filter insights.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.GuardDuty.CoverageSortKey")]
-        public Amazon.GuardDuty.CoverageSortKey SortCriteria_AttributeName { get; set; }
+        [Alias("Filter_Categories")]
+        public System.String[] Filter_Category { get; set; }
         #endregion
         
-        #region Parameter DetectorId
+        #region Parameter ClusterName
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the detector whose coverage details you want to retrieve.</para>
+        /// <para>The name of the Amazon EKS cluster associated with the insights.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,34 +69,41 @@ namespace Amazon.PowerShell.Cmdlets.GD
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DetectorId { get; set; }
+        public System.String ClusterName { get; set; }
         #endregion
         
-        #region Parameter FilterCriteria_FilterCriterion
+        #region Parameter Filter_KubernetesVersion
         /// <summary>
         /// <para>
-        /// <para>Represents a condition that when matched will be added to the response of the operation.</para>
+        /// <para>The Kubernetes versions to use to filter the insights.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public Amazon.GuardDuty.Model.CoverageFilterCriterion[] FilterCriteria_FilterCriterion { get; set; }
+        [Alias("Filter_KubernetesVersions")]
+        public System.String[] Filter_KubernetesVersion { get; set; }
         #endregion
         
-        #region Parameter SortCriteria_OrderBy
+        #region Parameter Filter_Status
         /// <summary>
         /// <para>
-        /// <para>The order in which the sorted findings are to be displayed.</para>
+        /// <para>The statuses to use to filter the insights. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.GuardDuty.OrderBy")]
-        public Amazon.GuardDuty.OrderBy SortCriteria_OrderBy { get; set; }
+        [Alias("Filter_Statuses")]
+        public System.String[] Filter_Status { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return in the response.</para>
+        /// <para>The maximum number of identity provider configurations returned by <code>ListInsights</code>
+        /// in paginated output. When you use this parameter, <code>ListInsights</code> returns
+        /// only <code>maxResults</code> results in a single page along with a <code>nextToken</code>
+        /// response element. You can see the remaining results of the initial request by sending
+        /// another <code>ListInsights</code> request with the returned <code>nextToken</code>
+        /// value. This value can be between 1 and 100. If you don't use this parameter, <code>ListInsights</code>
+        /// returns up to 100 results and a <code>nextToken</code> value, if applicable.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,10 +114,10 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token to use for paginating results that are returned in the response. Set the value
-        /// of this parameter to null for the first request to a list action. For subsequent calls,
-        /// use the NextToken value returned from the previous request to continue listing results
-        /// after the first page.</para>
+        /// <para>The <code>nextToken</code> value returned from a previous paginated <code>ListInsights</code>
+        /// request. When the results of a <code>ListInsights</code> request exceed <code>maxResults</code>,
+        /// you can use this value to retrieve the next page of results. This value is <code>null</code>
+        /// when there are no more results to return.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -130,21 +130,21 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Resources'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GuardDuty.Model.ListCoverageResponse).
-        /// Specifying the name of a property of type Amazon.GuardDuty.Model.ListCoverageResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Insights'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EKS.Model.ListInsightsResponse).
+        /// Specifying the name of a property of type Amazon.EKS.Model.ListInsightsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Resources";
+        public string Select { get; set; } = "Insights";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DetectorId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DetectorId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ClusterName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ClusterName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DetectorId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ClusterName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -172,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GuardDuty.Model.ListCoverageResponse, GetGDCoverageListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EKS.Model.ListInsightsResponse, GetEKSInsightListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -181,24 +181,30 @@ namespace Amazon.PowerShell.Cmdlets.GD
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.DetectorId;
+                context.Select = (response, cmdlet) => this.ClusterName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DetectorId = this.DetectorId;
+            context.ClusterName = this.ClusterName;
             #if MODULAR
-            if (this.DetectorId == null && ParameterWasBound(nameof(this.DetectorId)))
+            if (this.ClusterName == null && ParameterWasBound(nameof(this.ClusterName)))
             {
-                WriteWarning("You are passing $null as a value for parameter DetectorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ClusterName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.FilterCriteria_FilterCriterion != null)
+            if (this.Filter_Category != null)
             {
-                context.FilterCriteria_FilterCriterion = new List<Amazon.GuardDuty.Model.CoverageFilterCriterion>(this.FilterCriteria_FilterCriterion);
+                context.Filter_Category = new List<System.String>(this.Filter_Category);
+            }
+            if (this.Filter_KubernetesVersion != null)
+            {
+                context.Filter_KubernetesVersion = new List<System.String>(this.Filter_KubernetesVersion);
+            }
+            if (this.Filter_Status != null)
+            {
+                context.Filter_Status = new List<System.String>(this.Filter_Status);
             }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.SortCriteria_AttributeName = this.SortCriteria_AttributeName;
-            context.SortCriteria_OrderBy = this.SortCriteria_OrderBy;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -217,63 +223,54 @@ namespace Amazon.PowerShell.Cmdlets.GD
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.GuardDuty.Model.ListCoverageRequest();
+            var request = new Amazon.EKS.Model.ListInsightsRequest();
             
-            if (cmdletContext.DetectorId != null)
+            if (cmdletContext.ClusterName != null)
             {
-                request.DetectorId = cmdletContext.DetectorId;
+                request.ClusterName = cmdletContext.ClusterName;
             }
             
-             // populate FilterCriteria
-            var requestFilterCriteriaIsNull = true;
-            request.FilterCriteria = new Amazon.GuardDuty.Model.CoverageFilterCriteria();
-            List<Amazon.GuardDuty.Model.CoverageFilterCriterion> requestFilterCriteria_filterCriteria_FilterCriterion = null;
-            if (cmdletContext.FilterCriteria_FilterCriterion != null)
+             // populate Filter
+            var requestFilterIsNull = true;
+            request.Filter = new Amazon.EKS.Model.InsightsFilter();
+            List<System.String> requestFilter_filter_Category = null;
+            if (cmdletContext.Filter_Category != null)
             {
-                requestFilterCriteria_filterCriteria_FilterCriterion = cmdletContext.FilterCriteria_FilterCriterion;
+                requestFilter_filter_Category = cmdletContext.Filter_Category;
             }
-            if (requestFilterCriteria_filterCriteria_FilterCriterion != null)
+            if (requestFilter_filter_Category != null)
             {
-                request.FilterCriteria.FilterCriterion = requestFilterCriteria_filterCriteria_FilterCriterion;
-                requestFilterCriteriaIsNull = false;
+                request.Filter.Categories = requestFilter_filter_Category;
+                requestFilterIsNull = false;
             }
-             // determine if request.FilterCriteria should be set to null
-            if (requestFilterCriteriaIsNull)
+            List<System.String> requestFilter_filter_KubernetesVersion = null;
+            if (cmdletContext.Filter_KubernetesVersion != null)
             {
-                request.FilterCriteria = null;
+                requestFilter_filter_KubernetesVersion = cmdletContext.Filter_KubernetesVersion;
+            }
+            if (requestFilter_filter_KubernetesVersion != null)
+            {
+                request.Filter.KubernetesVersions = requestFilter_filter_KubernetesVersion;
+                requestFilterIsNull = false;
+            }
+            List<System.String> requestFilter_filter_Status = null;
+            if (cmdletContext.Filter_Status != null)
+            {
+                requestFilter_filter_Status = cmdletContext.Filter_Status;
+            }
+            if (requestFilter_filter_Status != null)
+            {
+                request.Filter.Statuses = requestFilter_filter_Status;
+                requestFilterIsNull = false;
+            }
+             // determine if request.Filter should be set to null
+            if (requestFilterIsNull)
+            {
+                request.Filter = null;
             }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            
-             // populate SortCriteria
-            var requestSortCriteriaIsNull = true;
-            request.SortCriteria = new Amazon.GuardDuty.Model.CoverageSortCriteria();
-            Amazon.GuardDuty.CoverageSortKey requestSortCriteria_sortCriteria_AttributeName = null;
-            if (cmdletContext.SortCriteria_AttributeName != null)
-            {
-                requestSortCriteria_sortCriteria_AttributeName = cmdletContext.SortCriteria_AttributeName;
-            }
-            if (requestSortCriteria_sortCriteria_AttributeName != null)
-            {
-                request.SortCriteria.AttributeName = requestSortCriteria_sortCriteria_AttributeName;
-                requestSortCriteriaIsNull = false;
-            }
-            Amazon.GuardDuty.OrderBy requestSortCriteria_sortCriteria_OrderBy = null;
-            if (cmdletContext.SortCriteria_OrderBy != null)
-            {
-                requestSortCriteria_sortCriteria_OrderBy = cmdletContext.SortCriteria_OrderBy;
-            }
-            if (requestSortCriteria_sortCriteria_OrderBy != null)
-            {
-                request.SortCriteria.OrderBy = requestSortCriteria_sortCriteria_OrderBy;
-                requestSortCriteriaIsNull = false;
-            }
-             // determine if request.SortCriteria should be set to null
-            if (requestSortCriteriaIsNull)
-            {
-                request.SortCriteria = null;
             }
             
             // Initialize loop variant and commence piping
@@ -332,15 +329,15 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         #region AWS Service Operation Call
         
-        private Amazon.GuardDuty.Model.ListCoverageResponse CallAWSServiceOperation(IAmazonGuardDuty client, Amazon.GuardDuty.Model.ListCoverageRequest request)
+        private Amazon.EKS.Model.ListInsightsResponse CallAWSServiceOperation(IAmazonEKS client, Amazon.EKS.Model.ListInsightsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GuardDuty", "ListCoverage");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Service for Kubernetes", "ListInsights");
             try
             {
                 #if DESKTOP
-                return client.ListCoverage(request);
+                return client.ListInsights(request);
                 #elif CORECLR
-                return client.ListCoverageAsync(request).GetAwaiter().GetResult();
+                return client.ListInsightsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -360,14 +357,14 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DetectorId { get; set; }
-            public List<Amazon.GuardDuty.Model.CoverageFilterCriterion> FilterCriteria_FilterCriterion { get; set; }
+            public System.String ClusterName { get; set; }
+            public List<System.String> Filter_Category { get; set; }
+            public List<System.String> Filter_KubernetesVersion { get; set; }
+            public List<System.String> Filter_Status { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public Amazon.GuardDuty.CoverageSortKey SortCriteria_AttributeName { get; set; }
-            public Amazon.GuardDuty.OrderBy SortCriteria_OrderBy { get; set; }
-            public System.Func<Amazon.GuardDuty.Model.ListCoverageResponse, GetGDCoverageListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Resources;
+            public System.Func<Amazon.EKS.Model.ListInsightsResponse, GetEKSInsightListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Insights;
         }
         
     }
