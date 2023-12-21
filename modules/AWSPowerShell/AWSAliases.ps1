@@ -963,6 +963,8 @@ Set-Alias -Name Create-AISDataIntegration -Value New-AISDataIntegration
 Set-Alias -Name AIS-CreateDataIntegration -Value New-AISDataIntegration
 Set-Alias -Name Create-AISEventIntegration -Value New-AISEventIntegration
 Set-Alias -Name AIS-CreateEventIntegration -Value New-AISEventIntegration
+Set-Alias -Name Delete-AISApplication -Value Remove-AISApplication
+Set-Alias -Name AIS-DeleteApplication -Value Remove-AISApplication
 Set-Alias -Name Delete-AISDataIntegration -Value Remove-AISDataIntegration
 Set-Alias -Name AIS-DeleteDataIntegration -Value Remove-AISDataIntegration
 Set-Alias -Name Delete-AISEventIntegration -Value Remove-AISEventIntegration
@@ -970,6 +972,9 @@ Set-Alias -Name AIS-DeleteEventIntegration -Value Remove-AISEventIntegration
 Set-Alias -Name AIS-GetApplication -Value Get-AISApplication
 Set-Alias -Name AIS-GetDataIntegration -Value Get-AISDataIntegration
 Set-Alias -Name AIS-GetEventIntegration -Value Get-AISEventIntegration
+Set-Alias -Name List-AISApplicationAssociations -Value Get-AISApplicationAssociationList
+Set-Alias -Name List-AISApplicationAssociationList -Value Get-AISApplicationAssociationList
+Set-Alias -Name AIS-ListApplicationAssociations -Value Get-AISApplicationAssociationList
 Set-Alias -Name List-AISApplications -Value Get-AISApplicationList
 Set-Alias -Name List-AISApplicationList -Value Get-AISApplicationList
 Set-Alias -Name AIS-ListApplications -Value Get-AISApplicationList
@@ -4789,6 +4794,7 @@ Set-Alias -Name CC-UpdatePullRequestDescription -Value Update-CCPullRequestDescr
 Set-Alias -Name CC-UpdatePullRequestStatus -Value Update-CCPullRequestStatus
 Set-Alias -Name CC-UpdatePullRequestTitle -Value Update-CCPullRequestTitle
 Set-Alias -Name CC-UpdateRepositoryDescription -Value Update-CCRepositoryDescription
+Set-Alias -Name CC-UpdateRepositoryEncryptionKey -Value Update-CCRepositoryEncryptionKey
 Set-Alias -Name CC-UpdateRepositoryName -Value Update-CCRepositoryName
 Set-Alias -Name Add-CDTagsToOnPremisesInstances -Value Add-CDOnPremiseInstanceTag
 Set-Alias -Name CD-AddTagsToOnPremisesInstances -Value Add-CDOnPremiseInstanceTag
@@ -5922,6 +5928,9 @@ Set-Alias -Name Associate-CONNSecurityKey -Value Add-CONNSecurityKey
 Set-Alias -Name CONN-AssociateSecurityKey -Value Add-CONNSecurityKey
 Set-Alias -Name Associate-CONNTrafficDistributionGroupUser -Value Add-CONNTrafficDistributionGroupUser
 Set-Alias -Name CONN-AssociateTrafficDistributionGroupUser -Value Add-CONNTrafficDistributionGroupUser
+Set-Alias -Name Associate-CONNUserProficiencies -Value Add-CONNUserProficiency
+Set-Alias -Name Associate-CONNUserProficiency -Value Add-CONNUserProficiency
+Set-Alias -Name CONN-AssociateUserProficiencies -Value Add-CONNUserProficiency
 Set-Alias -Name Batch-CONNAssociateAnalyticsDataSet -Value Register-CONNBatchAnalyticsDataSet
 Set-Alias -Name Batch-CONNBatchAnalyticsDataSet -Value Register-CONNBatchAnalyticsDataSet
 Set-Alias -Name CONN-BatchAssociateAnalyticsDataSet -Value Register-CONNBatchAnalyticsDataSet
@@ -5954,6 +5963,8 @@ Set-Alias -Name Create-CONNParticipant -Value New-CONNParticipant
 Set-Alias -Name CONN-CreateParticipant -Value New-CONNParticipant
 Set-Alias -Name Create-CONNPersistentContactAssociation -Value New-CONNPersistentContactAssociation
 Set-Alias -Name CONN-CreatePersistentContactAssociation -Value New-CONNPersistentContactAssociation
+Set-Alias -Name Create-CONNPredefinedAttribute -Value New-CONNPredefinedAttribute
+Set-Alias -Name CONN-CreatePredefinedAttribute -Value New-CONNPredefinedAttribute
 Set-Alias -Name Create-CONNPrompt -Value New-CONNPrompt
 Set-Alias -Name CONN-CreatePrompt -Value New-CONNPrompt
 Set-Alias -Name Create-CONNQueue -Value New-CONNQueue
@@ -5998,6 +6009,8 @@ Set-Alias -Name Delete-CONNInstance -Value Remove-CONNInstance
 Set-Alias -Name CONN-DeleteInstance -Value Remove-CONNInstance
 Set-Alias -Name Delete-CONNIntegrationAssociation -Value Remove-CONNIntegrationAssociation
 Set-Alias -Name CONN-DeleteIntegrationAssociation -Value Remove-CONNIntegrationAssociation
+Set-Alias -Name Delete-CONNPredefinedAttribute -Value Remove-CONNPredefinedAttribute
+Set-Alias -Name CONN-DeletePredefinedAttribute -Value Remove-CONNPredefinedAttribute
 Set-Alias -Name Delete-CONNPrompt -Value Remove-CONNPrompt
 Set-Alias -Name CONN-DeletePrompt -Value Remove-CONNPrompt
 Set-Alias -Name Delete-CONNQueue -Value Remove-CONNQueue
@@ -6048,6 +6061,8 @@ Set-Alias -Name Describe-CONNInstanceStorageConfig -Value Get-CONNInstanceStorag
 Set-Alias -Name CONN-DescribeInstanceStorageConfig -Value Get-CONNInstanceStorageConfig
 Set-Alias -Name Describe-CONNPhoneNumber -Value Get-CONNPhoneNumber
 Set-Alias -Name CONN-DescribePhoneNumber -Value Get-CONNPhoneNumber
+Set-Alias -Name Describe-CONNPredefinedAttribute -Value Get-CONNPredefinedAttribute
+Set-Alias -Name CONN-DescribePredefinedAttribute -Value Get-CONNPredefinedAttribute
 Set-Alias -Name Describe-CONNPrompt -Value Get-CONNPrompt
 Set-Alias -Name CONN-DescribePrompt -Value Get-CONNPrompt
 Set-Alias -Name Describe-CONNQueue -Value Get-CONNQueue
@@ -6098,6 +6113,9 @@ Set-Alias -Name Disassociate-CONNSecurityKey -Value Remove-CONNSecurityKey
 Set-Alias -Name CONN-DisassociateSecurityKey -Value Remove-CONNSecurityKey
 Set-Alias -Name Disassociate-CONNTrafficDistributionGroupUser -Value Remove-CONNTrafficDistributionGroupUser
 Set-Alias -Name CONN-DisassociateTrafficDistributionGroupUser -Value Remove-CONNTrafficDistributionGroupUser
+Set-Alias -Name Disassociate-CONNUserProficiencies -Value Remove-CONNUserProficiency
+Set-Alias -Name Disassociate-CONNUserProficiency -Value Remove-CONNUserProficiency
+Set-Alias -Name CONN-DisassociateUserProficiencies -Value Remove-CONNUserProficiency
 Set-Alias -Name Dismiss-CONNUserContact -Value Write-CONNUserContact
 Set-Alias -Name CONN-DismissUserContact -Value Write-CONNUserContact
 Set-Alias -Name Get-CONNContactAttributes -Value Get-CONNContactAttribute
@@ -6175,6 +6193,9 @@ Set-Alias -Name CONN-ListPhoneNumbers -Value Get-CONNPhoneNumberList
 Set-Alias -Name List-CONNPhoneNumbersV2 -Value Get-CONNPhoneNumbersV2List
 Set-Alias -Name List-CONNPhoneNumbersV2List -Value Get-CONNPhoneNumbersV2List
 Set-Alias -Name CONN-ListPhoneNumbersV2 -Value Get-CONNPhoneNumbersV2List
+Set-Alias -Name List-CONNPredefinedAttributes -Value Get-CONNPredefinedAttributeList
+Set-Alias -Name List-CONNPredefinedAttributeList -Value Get-CONNPredefinedAttributeList
+Set-Alias -Name CONN-ListPredefinedAttributes -Value Get-CONNPredefinedAttributeList
 Set-Alias -Name List-CONNPrompts -Value Get-CONNPromptList
 Set-Alias -Name List-CONNPromptList -Value Get-CONNPromptList
 Set-Alias -Name CONN-ListPrompts -Value Get-CONNPromptList
@@ -6227,6 +6248,9 @@ Set-Alias -Name CONN-ListUseCases -Value Get-CONNUseCaseList
 Set-Alias -Name List-CONNUserHierarchyGroups -Value Get-CONNUserHierarchyGroupList
 Set-Alias -Name List-CONNUserHierarchyGroupList -Value Get-CONNUserHierarchyGroupList
 Set-Alias -Name CONN-ListUserHierarchyGroups -Value Get-CONNUserHierarchyGroupList
+Set-Alias -Name List-CONNUserProficiencies -Value Get-CONNUserProficiencyList
+Set-Alias -Name List-CONNUserProficiencyList -Value Get-CONNUserProficiencyList
+Set-Alias -Name CONN-ListUserProficiencies -Value Get-CONNUserProficiencyList
 Set-Alias -Name List-CONNUsers -Value Get-CONNUserList
 Set-Alias -Name List-CONNUserList -Value Get-CONNUserList
 Set-Alias -Name CONN-ListUsers -Value Get-CONNUserList
@@ -6254,8 +6278,12 @@ Set-Alias -Name CONN-ResumeContact -Value Invoke-CONNResumeContact
 Set-Alias -Name CONN-ResumeContactRecording -Value Resume-CONNContactRecording
 Set-Alias -Name Search-CONNAvailablePhoneNumbers -Value Search-CONNAvailablePhoneNumber
 Set-Alias -Name CONN-SearchAvailablePhoneNumbers -Value Search-CONNAvailablePhoneNumber
+Set-Alias -Name Search-CONNContacts -Value Search-CONNContact
+Set-Alias -Name CONN-SearchContacts -Value Search-CONNContact
 Set-Alias -Name Search-CONNHoursOfOperations -Value Search-CONNHoursOfOperation
 Set-Alias -Name CONN-SearchHoursOfOperations -Value Search-CONNHoursOfOperation
+Set-Alias -Name Search-CONNPredefinedAttributes -Value Search-CONNPredefinedAttribute
+Set-Alias -Name CONN-SearchPredefinedAttributes -Value Search-CONNPredefinedAttribute
 Set-Alias -Name Search-CONNPrompts -Value Search-CONNPrompt
 Set-Alias -Name CONN-SearchPrompts -Value Search-CONNPrompt
 Set-Alias -Name Search-CONNQueues -Value Search-CONNQueue
@@ -6305,6 +6333,7 @@ Set-Alias -Name CONN-UpdateContactFlowMetadata -Value Update-CONNContactFlowMeta
 Set-Alias -Name CONN-UpdateContactFlowModuleContent -Value Update-CONNContactFlowModuleContent
 Set-Alias -Name CONN-UpdateContactFlowModuleMetadata -Value Update-CONNContactFlowModuleMetadata
 Set-Alias -Name CONN-UpdateContactFlowName -Value Update-CONNContactFlowName
+Set-Alias -Name CONN-UpdateContactRoutingData -Value Update-CONNContactRoutingData
 Set-Alias -Name CONN-UpdateContactSchedule -Value Update-CONNContactSchedule
 Set-Alias -Name CONN-UpdateEvaluationForm -Value Update-CONNEvaluationForm
 Set-Alias -Name CONN-UpdateHoursOfOperation -Value Update-CONNHoursOfOperation
@@ -6313,6 +6342,7 @@ Set-Alias -Name CONN-UpdateInstanceStorageConfig -Value Update-CONNInstanceStora
 Set-Alias -Name CONN-UpdateParticipantRoleConfig -Value Update-CONNParticipantRoleConfig
 Set-Alias -Name CONN-UpdatePhoneNumber -Value Update-CONNPhoneNumber
 Set-Alias -Name CONN-UpdatePhoneNumberMetadata -Value Update-CONNPhoneNumberMetadata
+Set-Alias -Name CONN-UpdatePredefinedAttribute -Value Update-CONNPredefinedAttribute
 Set-Alias -Name CONN-UpdatePrompt -Value Update-CONNPrompt
 Set-Alias -Name CONN-UpdateQueueHoursOfOperation -Value Update-CONNQueueHoursOfOperation
 Set-Alias -Name Update-CONNQueueMaxContacts -Value Update-CONNQueueMaxContact
@@ -6337,6 +6367,8 @@ Set-Alias -Name CONN-UpdateUserHierarchyGroupName -Value Update-CONNUserHierarch
 Set-Alias -Name CONN-UpdateUserHierarchyStructure -Value Update-CONNUserHierarchyStructure
 Set-Alias -Name CONN-UpdateUserIdentityInfo -Value Update-CONNUserIdentityInfo
 Set-Alias -Name CONN-UpdateUserPhoneConfig -Value Update-CONNUserPhoneConfig
+Set-Alias -Name Update-CONNUserProficiencies -Value Update-CONNUserProficiency
+Set-Alias -Name CONN-UpdateUserProficiencies -Value Update-CONNUserProficiency
 Set-Alias -Name CONN-UpdateUserRoutingProfile -Value Update-CONNUserRoutingProfile
 Set-Alias -Name Update-CONNUserSecurityProfiles -Value Update-CONNUserSecurityProfile
 Set-Alias -Name CONN-UpdateUserSecurityProfiles -Value Update-CONNUserSecurityProfile
@@ -22113,8 +22145,10 @@ Set-Alias -Name RDS-DescribeTenantDatabases -Value Get-RDSTenantDatabasis
 Set-Alias -Name Describe-RDSValidDBInstanceModifications -Value Get-RDSValidDBInstanceModification
 Set-Alias -Name Describe-RDSValidDBInstanceModification -Value Get-RDSValidDBInstanceModification
 Set-Alias -Name RDS-DescribeValidDBInstanceModifications -Value Get-RDSValidDBInstanceModification
+Set-Alias -Name RDS-DisableHttpEndpoint -Value Disable-RDSHttpEndpoint
 Set-Alias -Name Download-RDSDBLogFilePortion -Value Get-RDSDBLogFilePortion
 Set-Alias -Name RDS-DownloadDBLogFilePortion -Value Get-RDSDBLogFilePortion
+Set-Alias -Name RDS-EnableHttpEndpoint -Value Enable-RDSHttpEndpoint
 Set-Alias -Name Failover-RDSDBCluster -Value Start-RDSDBClusterFailover
 Set-Alias -Name Failover-RDSDBClusterFailover -Value Start-RDSDBClusterFailover
 Set-Alias -Name RDS-FailoverDBCluster -Value Start-RDSDBClusterFailover

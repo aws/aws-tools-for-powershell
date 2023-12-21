@@ -75,6 +75,17 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String PineconeConfiguration_CredentialsSecretArn { get; set; }
         #endregion
         
+        #region Parameter RdsConfiguration_CredentialsSecretArn
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageConfiguration_RdsConfiguration_CredentialsSecretArn")]
+        public System.String RdsConfiguration_CredentialsSecretArn { get; set; }
+        #endregion
+        
         #region Parameter RedisEnterpriseCloudConfiguration_CredentialsSecretArn
         /// <summary>
         /// <para>
@@ -84,6 +95,17 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("StorageConfiguration_RedisEnterpriseCloudConfiguration_CredentialsSecretArn")]
         public System.String RedisEnterpriseCloudConfiguration_CredentialsSecretArn { get; set; }
+        #endregion
+        
+        #region Parameter RdsConfiguration_DatabaseName
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageConfiguration_RdsConfiguration_DatabaseName")]
+        public System.String RdsConfiguration_DatabaseName { get; set; }
         #endregion
         
         #region Parameter Description
@@ -138,6 +160,17 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String StorageConfiguration_PineconeConfiguration_FieldMapping_MetadataField { get; set; }
         #endregion
         
+        #region Parameter FieldMapping_MetadataField
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageConfiguration_RdsConfiguration_FieldMapping_MetadataField")]
+        public System.String FieldMapping_MetadataField { get; set; }
+        #endregion
+        
         #region Parameter StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_MetadataField
         /// <summary>
         /// <para>
@@ -176,6 +209,28 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String PineconeConfiguration_Namespace { get; set; }
         #endregion
         
+        #region Parameter FieldMapping_PrimaryKeyField
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageConfiguration_RdsConfiguration_FieldMapping_PrimaryKeyField")]
+        public System.String FieldMapping_PrimaryKeyField { get; set; }
+        #endregion
+        
+        #region Parameter RdsConfiguration_ResourceArn
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageConfiguration_RdsConfiguration_ResourceArn")]
+        public System.String RdsConfiguration_ResourceArn { get; set; }
+        #endregion
+        
         #region Parameter RoleArn
         /// <summary>
         /// <para>
@@ -191,6 +246,17 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter RdsConfiguration_TableName
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageConfiguration_RdsConfiguration_TableName")]
+        public System.String RdsConfiguration_TableName { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -222,6 +288,17 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String StorageConfiguration_PineconeConfiguration_FieldMapping_TextField { get; set; }
+        #endregion
+        
+        #region Parameter FieldMapping_TextField
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageConfiguration_RdsConfiguration_FieldMapping_TextField")]
+        public System.String FieldMapping_TextField { get; set; }
         #endregion
         
         #region Parameter StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_TextField
@@ -276,6 +353,17 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_VectorField { get; set; }
+        #endregion
+        
+        #region Parameter FieldMapping_VectorField
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageConfiguration_RdsConfiguration_FieldMapping_VectorField")]
+        public System.String FieldMapping_VectorField { get; set; }
         #endregion
         
         #region Parameter StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_VectorField
@@ -416,6 +504,14 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             context.StorageConfiguration_PineconeConfiguration_FieldMapping_MetadataField = this.StorageConfiguration_PineconeConfiguration_FieldMapping_MetadataField;
             context.StorageConfiguration_PineconeConfiguration_FieldMapping_TextField = this.StorageConfiguration_PineconeConfiguration_FieldMapping_TextField;
             context.PineconeConfiguration_Namespace = this.PineconeConfiguration_Namespace;
+            context.RdsConfiguration_CredentialsSecretArn = this.RdsConfiguration_CredentialsSecretArn;
+            context.RdsConfiguration_DatabaseName = this.RdsConfiguration_DatabaseName;
+            context.FieldMapping_MetadataField = this.FieldMapping_MetadataField;
+            context.FieldMapping_PrimaryKeyField = this.FieldMapping_PrimaryKeyField;
+            context.FieldMapping_TextField = this.FieldMapping_TextField;
+            context.FieldMapping_VectorField = this.FieldMapping_VectorField;
+            context.RdsConfiguration_ResourceArn = this.RdsConfiguration_ResourceArn;
+            context.RdsConfiguration_TableName = this.RdsConfiguration_TableName;
             context.RedisEnterpriseCloudConfiguration_CredentialsSecretArn = this.RedisEnterpriseCloudConfiguration_CredentialsSecretArn;
             context.RedisEnterpriseCloudConfiguration_Endpoint = this.RedisEnterpriseCloudConfiguration_Endpoint;
             context.StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_MetadataField = this.StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_MetadataField;
@@ -777,6 +873,116 @@ namespace Amazon.PowerShell.Cmdlets.AAB
                 request.StorageConfiguration.RedisEnterpriseCloudConfiguration = requestStorageConfiguration_storageConfiguration_RedisEnterpriseCloudConfiguration;
                 requestStorageConfigurationIsNull = false;
             }
+            Amazon.BedrockAgent.Model.RdsConfiguration requestStorageConfiguration_storageConfiguration_RdsConfiguration = null;
+            
+             // populate RdsConfiguration
+            var requestStorageConfiguration_storageConfiguration_RdsConfigurationIsNull = true;
+            requestStorageConfiguration_storageConfiguration_RdsConfiguration = new Amazon.BedrockAgent.Model.RdsConfiguration();
+            System.String requestStorageConfiguration_storageConfiguration_RdsConfiguration_rdsConfiguration_CredentialsSecretArn = null;
+            if (cmdletContext.RdsConfiguration_CredentialsSecretArn != null)
+            {
+                requestStorageConfiguration_storageConfiguration_RdsConfiguration_rdsConfiguration_CredentialsSecretArn = cmdletContext.RdsConfiguration_CredentialsSecretArn;
+            }
+            if (requestStorageConfiguration_storageConfiguration_RdsConfiguration_rdsConfiguration_CredentialsSecretArn != null)
+            {
+                requestStorageConfiguration_storageConfiguration_RdsConfiguration.CredentialsSecretArn = requestStorageConfiguration_storageConfiguration_RdsConfiguration_rdsConfiguration_CredentialsSecretArn;
+                requestStorageConfiguration_storageConfiguration_RdsConfigurationIsNull = false;
+            }
+            System.String requestStorageConfiguration_storageConfiguration_RdsConfiguration_rdsConfiguration_DatabaseName = null;
+            if (cmdletContext.RdsConfiguration_DatabaseName != null)
+            {
+                requestStorageConfiguration_storageConfiguration_RdsConfiguration_rdsConfiguration_DatabaseName = cmdletContext.RdsConfiguration_DatabaseName;
+            }
+            if (requestStorageConfiguration_storageConfiguration_RdsConfiguration_rdsConfiguration_DatabaseName != null)
+            {
+                requestStorageConfiguration_storageConfiguration_RdsConfiguration.DatabaseName = requestStorageConfiguration_storageConfiguration_RdsConfiguration_rdsConfiguration_DatabaseName;
+                requestStorageConfiguration_storageConfiguration_RdsConfigurationIsNull = false;
+            }
+            System.String requestStorageConfiguration_storageConfiguration_RdsConfiguration_rdsConfiguration_ResourceArn = null;
+            if (cmdletContext.RdsConfiguration_ResourceArn != null)
+            {
+                requestStorageConfiguration_storageConfiguration_RdsConfiguration_rdsConfiguration_ResourceArn = cmdletContext.RdsConfiguration_ResourceArn;
+            }
+            if (requestStorageConfiguration_storageConfiguration_RdsConfiguration_rdsConfiguration_ResourceArn != null)
+            {
+                requestStorageConfiguration_storageConfiguration_RdsConfiguration.ResourceArn = requestStorageConfiguration_storageConfiguration_RdsConfiguration_rdsConfiguration_ResourceArn;
+                requestStorageConfiguration_storageConfiguration_RdsConfigurationIsNull = false;
+            }
+            System.String requestStorageConfiguration_storageConfiguration_RdsConfiguration_rdsConfiguration_TableName = null;
+            if (cmdletContext.RdsConfiguration_TableName != null)
+            {
+                requestStorageConfiguration_storageConfiguration_RdsConfiguration_rdsConfiguration_TableName = cmdletContext.RdsConfiguration_TableName;
+            }
+            if (requestStorageConfiguration_storageConfiguration_RdsConfiguration_rdsConfiguration_TableName != null)
+            {
+                requestStorageConfiguration_storageConfiguration_RdsConfiguration.TableName = requestStorageConfiguration_storageConfiguration_RdsConfiguration_rdsConfiguration_TableName;
+                requestStorageConfiguration_storageConfiguration_RdsConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgent.Model.RdsFieldMapping requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping = null;
+            
+             // populate FieldMapping
+            var requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMappingIsNull = true;
+            requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping = new Amazon.BedrockAgent.Model.RdsFieldMapping();
+            System.String requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_fieldMapping_MetadataField = null;
+            if (cmdletContext.FieldMapping_MetadataField != null)
+            {
+                requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_fieldMapping_MetadataField = cmdletContext.FieldMapping_MetadataField;
+            }
+            if (requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_fieldMapping_MetadataField != null)
+            {
+                requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping.MetadataField = requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_fieldMapping_MetadataField;
+                requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMappingIsNull = false;
+            }
+            System.String requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_fieldMapping_PrimaryKeyField = null;
+            if (cmdletContext.FieldMapping_PrimaryKeyField != null)
+            {
+                requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_fieldMapping_PrimaryKeyField = cmdletContext.FieldMapping_PrimaryKeyField;
+            }
+            if (requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_fieldMapping_PrimaryKeyField != null)
+            {
+                requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping.PrimaryKeyField = requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_fieldMapping_PrimaryKeyField;
+                requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMappingIsNull = false;
+            }
+            System.String requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_fieldMapping_TextField = null;
+            if (cmdletContext.FieldMapping_TextField != null)
+            {
+                requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_fieldMapping_TextField = cmdletContext.FieldMapping_TextField;
+            }
+            if (requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_fieldMapping_TextField != null)
+            {
+                requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping.TextField = requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_fieldMapping_TextField;
+                requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMappingIsNull = false;
+            }
+            System.String requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_fieldMapping_VectorField = null;
+            if (cmdletContext.FieldMapping_VectorField != null)
+            {
+                requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_fieldMapping_VectorField = cmdletContext.FieldMapping_VectorField;
+            }
+            if (requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_fieldMapping_VectorField != null)
+            {
+                requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping.VectorField = requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_fieldMapping_VectorField;
+                requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMappingIsNull = false;
+            }
+             // determine if requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping should be set to null
+            if (requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMappingIsNull)
+            {
+                requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping = null;
+            }
+            if (requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping != null)
+            {
+                requestStorageConfiguration_storageConfiguration_RdsConfiguration.FieldMapping = requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping;
+                requestStorageConfiguration_storageConfiguration_RdsConfigurationIsNull = false;
+            }
+             // determine if requestStorageConfiguration_storageConfiguration_RdsConfiguration should be set to null
+            if (requestStorageConfiguration_storageConfiguration_RdsConfigurationIsNull)
+            {
+                requestStorageConfiguration_storageConfiguration_RdsConfiguration = null;
+            }
+            if (requestStorageConfiguration_storageConfiguration_RdsConfiguration != null)
+            {
+                request.StorageConfiguration.RdsConfiguration = requestStorageConfiguration_storageConfiguration_RdsConfiguration;
+                requestStorageConfigurationIsNull = false;
+            }
              // determine if request.StorageConfiguration should be set to null
             if (requestStorageConfigurationIsNull)
             {
@@ -863,6 +1069,14 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             public System.String StorageConfiguration_PineconeConfiguration_FieldMapping_MetadataField { get; set; }
             public System.String StorageConfiguration_PineconeConfiguration_FieldMapping_TextField { get; set; }
             public System.String PineconeConfiguration_Namespace { get; set; }
+            public System.String RdsConfiguration_CredentialsSecretArn { get; set; }
+            public System.String RdsConfiguration_DatabaseName { get; set; }
+            public System.String FieldMapping_MetadataField { get; set; }
+            public System.String FieldMapping_PrimaryKeyField { get; set; }
+            public System.String FieldMapping_TextField { get; set; }
+            public System.String FieldMapping_VectorField { get; set; }
+            public System.String RdsConfiguration_ResourceArn { get; set; }
+            public System.String RdsConfiguration_TableName { get; set; }
             public System.String RedisEnterpriseCloudConfiguration_CredentialsSecretArn { get; set; }
             public System.String RedisEnterpriseCloudConfiguration_Endpoint { get; set; }
             public System.String StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_MetadataField { get; set; }

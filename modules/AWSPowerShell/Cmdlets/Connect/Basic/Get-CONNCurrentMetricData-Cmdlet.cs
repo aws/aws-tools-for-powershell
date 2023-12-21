@@ -142,6 +142,18 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String[] Filters_RoutingProfile { get; set; }
         #endregion
         
+        #region Parameter Filters_RoutingStepExpression
+        /// <summary>
+        /// <para>
+        /// <para>A list of expressions as a filter, in which an expression is an object of a step in
+        /// a routing criteria.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters_RoutingStepExpressions")]
+        public System.String[] Filters_RoutingStepExpression { get; set; }
+        #endregion
+        
         #region Parameter SortCriterion
         /// <summary>
         /// <para>
@@ -263,6 +275,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             {
                 context.Filters_RoutingProfile = new List<System.String>(this.Filters_RoutingProfile);
             }
+            if (this.Filters_RoutingStepExpression != null)
+            {
+                context.Filters_RoutingStepExpression = new List<System.String>(this.Filters_RoutingStepExpression);
+            }
             if (this.Grouping != null)
             {
                 context.Grouping = new List<System.String>(this.Grouping);
@@ -337,6 +353,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestFilters_filters_RoutingProfile != null)
             {
                 request.Filters.RoutingProfiles = requestFilters_filters_RoutingProfile;
+                requestFiltersIsNull = false;
+            }
+            List<System.String> requestFilters_filters_RoutingStepExpression = null;
+            if (cmdletContext.Filters_RoutingStepExpression != null)
+            {
+                requestFilters_filters_RoutingStepExpression = cmdletContext.Filters_RoutingStepExpression;
+            }
+            if (requestFilters_filters_RoutingStepExpression != null)
+            {
+                request.Filters.RoutingStepExpressions = requestFilters_filters_RoutingStepExpression;
                 requestFiltersIsNull = false;
             }
              // determine if request.Filters should be set to null
@@ -452,6 +478,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 request.Filters.RoutingProfiles = requestFilters_filters_RoutingProfile;
                 requestFiltersIsNull = false;
             }
+            List<System.String> requestFilters_filters_RoutingStepExpression = null;
+            if (cmdletContext.Filters_RoutingStepExpression != null)
+            {
+                requestFilters_filters_RoutingStepExpression = cmdletContext.Filters_RoutingStepExpression;
+            }
+            if (requestFilters_filters_RoutingStepExpression != null)
+            {
+                request.Filters.RoutingStepExpressions = requestFilters_filters_RoutingStepExpression;
+                requestFiltersIsNull = false;
+            }
              // determine if request.Filters should be set to null
             if (requestFiltersIsNull)
             {
@@ -543,6 +579,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public List<System.String> Filters_Channel { get; set; }
             public List<System.String> Filters_Queue { get; set; }
             public List<System.String> Filters_RoutingProfile { get; set; }
+            public List<System.String> Filters_RoutingStepExpression { get; set; }
             public List<System.String> Grouping { get; set; }
             public System.String InstanceId { get; set; }
             public System.Int32? MaxResult { get; set; }

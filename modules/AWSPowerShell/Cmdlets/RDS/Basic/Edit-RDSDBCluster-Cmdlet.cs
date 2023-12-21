@@ -291,10 +291,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Specifies whether to enable the HTTP endpoint for an Aurora Serverless v1 DB cluster.
-        /// By default, the HTTP endpoint is disabled.</para><para>When enabled, the HTTP endpoint provides a connectionless web service API for running
-        /// SQL queries on the Aurora Serverless v1 DB cluster. You can also query your database
-        /// from inside the RDS console with the query editor.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using
-        /// the Data API for Aurora Serverless v1</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Valid for Cluster Type: Aurora DB clusters only</para>
+        /// By default, the HTTP endpoint isn't enabled.</para><para>When enabled, the HTTP endpoint provides a connectionless web service API (RDS Data
+        /// API) for running SQL queries on the Aurora Serverless v1 DB cluster. You can also
+        /// query your database from inside the RDS console with the RDS query editor.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using
+        /// RDS Data API</a> in the <i>Amazon Aurora User Guide</i>.</para><note><para>This parameter applies only to Aurora Serverless v1 DB clusters. To enable or disable
+        /// the HTTP endpoint for an Aurora PostgreSQL Serverless v2 or provisioned DB cluster,
+        /// use the <code>EnableHttpEndpoint</code> and <code>DisableHttpEndpoint</code> operations.</para></note><para>Valid for Cluster Type: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

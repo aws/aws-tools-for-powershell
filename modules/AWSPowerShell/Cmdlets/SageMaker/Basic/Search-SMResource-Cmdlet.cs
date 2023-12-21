@@ -160,6 +160,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.SearchExpression[] SearchExpression_SubExpression { get; set; }
         #endregion
         
+        #region Parameter VisibilityCondition
+        /// <summary>
+        /// <para>
+        /// <para> Limits the results of your search request to the resources that you can access. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VisibilityConditions")]
+        public Amazon.SageMaker.Model.VisibilityConditions[] VisibilityCondition { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -306,6 +317,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             context.SortBy = this.SortBy;
             context.SortOrder = this.SortOrder;
+            if (this.VisibilityCondition != null)
+            {
+                context.VisibilityCondition = new List<Amazon.SageMaker.Model.VisibilityConditions>(this.VisibilityCondition);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -395,6 +410,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.SortOrder != null)
             {
                 request.SortOrder = cmdletContext.SortOrder;
+            }
+            if (cmdletContext.VisibilityCondition != null)
+            {
+                request.VisibilityConditions = cmdletContext.VisibilityCondition;
             }
             
             // Initialize loop variant and commence piping
@@ -515,6 +534,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.SortOrder != null)
             {
                 request.SortOrder = cmdletContext.SortOrder;
+            }
+            if (cmdletContext.VisibilityCondition != null)
+            {
+                request.VisibilityConditions = cmdletContext.VisibilityCondition;
             }
             
             // Initialize loop variants and commence piping
@@ -649,6 +672,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public List<Amazon.SageMaker.Model.SearchExpression> SearchExpression_SubExpression { get; set; }
             public System.String SortBy { get; set; }
             public Amazon.SageMaker.SearchSortOrder SortOrder { get; set; }
+            public List<Amazon.SageMaker.Model.VisibilityConditions> VisibilityCondition { get; set; }
             public System.Func<Amazon.SageMaker.Model.SearchResponse, SearchSMResourceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Results;
         }

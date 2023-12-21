@@ -54,6 +54,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Boolean? ProfilerConfig_DisableProfiler { get; set; }
         #endregion
         
+        #region Parameter RemoteDebugConfig_EnableRemoteDebug
+        /// <summary>
+        /// <para>
+        /// <para>If set to True, enables remote debugging.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RemoteDebugConfig_EnableRemoteDebug { get; set; }
+        #endregion
+        
         #region Parameter ResourceConfig_KeepAlivePeriodInSecond
         /// <summary>
         /// <para>
@@ -212,6 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.ProfilerRuleConfiguration = new List<Amazon.SageMaker.Model.ProfilerRuleConfiguration>(this.ProfilerRuleConfiguration);
             }
+            context.RemoteDebugConfig_EnableRemoteDebug = this.RemoteDebugConfig_EnableRemoteDebug;
             context.ResourceConfig_KeepAlivePeriodInSecond = this.ResourceConfig_KeepAlivePeriodInSecond;
             context.TrainingJobName = this.TrainingJobName;
             #if MODULAR
@@ -288,6 +299,25 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.ProfilerRuleConfiguration != null)
             {
                 request.ProfilerRuleConfigurations = cmdletContext.ProfilerRuleConfiguration;
+            }
+            
+             // populate RemoteDebugConfig
+            var requestRemoteDebugConfigIsNull = true;
+            request.RemoteDebugConfig = new Amazon.SageMaker.Model.RemoteDebugConfigForUpdate();
+            System.Boolean? requestRemoteDebugConfig_remoteDebugConfig_EnableRemoteDebug = null;
+            if (cmdletContext.RemoteDebugConfig_EnableRemoteDebug != null)
+            {
+                requestRemoteDebugConfig_remoteDebugConfig_EnableRemoteDebug = cmdletContext.RemoteDebugConfig_EnableRemoteDebug.Value;
+            }
+            if (requestRemoteDebugConfig_remoteDebugConfig_EnableRemoteDebug != null)
+            {
+                request.RemoteDebugConfig.EnableRemoteDebug = requestRemoteDebugConfig_remoteDebugConfig_EnableRemoteDebug.Value;
+                requestRemoteDebugConfigIsNull = false;
+            }
+             // determine if request.RemoteDebugConfig should be set to null
+            if (requestRemoteDebugConfigIsNull)
+            {
+                request.RemoteDebugConfig = null;
             }
             
              // populate ResourceConfig
@@ -378,6 +408,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Dictionary<System.String, System.String> ProfilerConfig_ProfilingParameter { get; set; }
             public System.String ProfilerConfig_S3OutputPath { get; set; }
             public List<Amazon.SageMaker.Model.ProfilerRuleConfiguration> ProfilerRuleConfiguration { get; set; }
+            public System.Boolean? RemoteDebugConfig_EnableRemoteDebug { get; set; }
             public System.Int32? ResourceConfig_KeepAlivePeriodInSecond { get; set; }
             public System.String TrainingJobName { get; set; }
             public System.Func<Amazon.SageMaker.Model.UpdateTrainingJobResponse, UpdateSMTrainingJobCmdlet, object> Select { get; set; } =

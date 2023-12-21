@@ -22,73 +22,58 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.PrometheusService;
-using Amazon.PrometheusService.Model;
+using Amazon.RDS;
+using Amazon.RDS.Model;
 
-namespace Amazon.PowerShell.Cmdlets.PROM
+namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Creates a new AMP workspace.
+    /// Disables the HTTP endpoint for the specified DB cluster. Disabling this endpoint disables
+    /// RDS Data API.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using
+    /// RDS Data API</a> in the <i>Amazon Aurora User Guide</i>.
+    /// </para><note><para>
+    /// This operation applies only to Aurora PostgreSQL Serverless v2 and provisioned DB
+    /// clusters. To disable the HTTP endpoint for Aurora Serverless v1 DB clusters, use the
+    /// <code>EnableHttpEndpoint</code> parameter of the <code>ModifyDBCluster</code> operation.
+    /// </para></note>
     /// </summary>
-    [Cmdlet("New", "PROMWorkspace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.PrometheusService.Model.CreateWorkspaceResponse")]
-    [AWSCmdlet("Calls the Amazon Prometheus Service CreateWorkspace API operation.", Operation = new[] {"CreateWorkspace"}, SelectReturnType = typeof(Amazon.PrometheusService.Model.CreateWorkspaceResponse))]
-    [AWSCmdletOutput("Amazon.PrometheusService.Model.CreateWorkspaceResponse",
-        "This cmdlet returns an Amazon.PrometheusService.Model.CreateWorkspaceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Disable", "RDSHttpEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.RDS.Model.DisableHttpEndpointResponse")]
+    [AWSCmdlet("Calls the Amazon Relational Database Service DisableHttpEndpoint API operation.", Operation = new[] {"DisableHttpEndpoint"}, SelectReturnType = typeof(Amazon.RDS.Model.DisableHttpEndpointResponse))]
+    [AWSCmdletOutput("Amazon.RDS.Model.DisableHttpEndpointResponse",
+        "This cmdlet returns an Amazon.RDS.Model.DisableHttpEndpointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewPROMWorkspaceCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
+    public partial class DisableRDSHttpEndpointCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Alias
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>An optional user-assigned alias for this workspace. This alias is for user reference
-        /// and does not need to be unique.</para>
+        /// <para>The Amazon Resource Name (ARN) of the DB cluster.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String Alias { get; set; }
-        #endregion
-        
-        #region Parameter KmsKeyArn
-        /// <summary>
-        /// <para>
-        /// <para>Optional, customer managed KMS key used to encrypt data for this workspace</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String KmsKeyArn { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>Optional, user-provided tags for this workspace.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
-        #endregion
-        
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency
-        /// of the request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PrometheusService.Model.CreateWorkspaceResponse).
-        /// Specifying the name of a property of type Amazon.PrometheusService.Model.CreateWorkspaceResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RDS.Model.DisableHttpEndpointResponse).
+        /// Specifying the name of a property of type Amazon.RDS.Model.DisableHttpEndpointResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,10 +82,10 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Alias parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Alias' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Alias' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -120,8 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.PROM
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Alias), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-PROMWorkspace (CreateWorkspace)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Disable-RDSHttpEndpoint (DisableHttpEndpoint)"))
             {
                 return;
             }
@@ -134,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.PrometheusService.Model.CreateWorkspaceResponse, NewPROMWorkspaceCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.RDS.Model.DisableHttpEndpointResponse, DisableRDSHttpEndpointCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -143,20 +128,16 @@ namespace Amazon.PowerShell.Cmdlets.PROM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Alias;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Alias = this.Alias;
-            context.ClientToken = this.ClientToken;
-            context.KmsKeyArn = this.KmsKeyArn;
-            if (this.Tag != null)
+            context.ResourceArn = this.ResourceArn;
+            #if MODULAR
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
-                }
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -171,23 +152,11 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.PrometheusService.Model.CreateWorkspaceRequest();
+            var request = new Amazon.RDS.Model.DisableHttpEndpointRequest();
             
-            if (cmdletContext.Alias != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.Alias = cmdletContext.Alias;
-            }
-            if (cmdletContext.ClientToken != null)
-            {
-                request.ClientToken = cmdletContext.ClientToken;
-            }
-            if (cmdletContext.KmsKeyArn != null)
-            {
-                request.KmsKeyArn = cmdletContext.KmsKeyArn;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -222,15 +191,15 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         
         #region AWS Service Operation Call
         
-        private Amazon.PrometheusService.Model.CreateWorkspaceResponse CallAWSServiceOperation(IAmazonPrometheusService client, Amazon.PrometheusService.Model.CreateWorkspaceRequest request)
+        private Amazon.RDS.Model.DisableHttpEndpointResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DisableHttpEndpointRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Prometheus Service", "CreateWorkspace");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "DisableHttpEndpoint");
             try
             {
                 #if DESKTOP
-                return client.CreateWorkspace(request);
+                return client.DisableHttpEndpoint(request);
                 #elif CORECLR
-                return client.CreateWorkspaceAsync(request).GetAwaiter().GetResult();
+                return client.DisableHttpEndpointAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -250,11 +219,8 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Alias { get; set; }
-            public System.String ClientToken { get; set; }
-            public System.String KmsKeyArn { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.PrometheusService.Model.CreateWorkspaceResponse, NewPROMWorkspaceCmdlet, object> Select { get; set; } =
+            public System.String ResourceArn { get; set; }
+            public System.Func<Amazon.RDS.Model.DisableHttpEndpointResponse, DisableRDSHttpEndpointCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

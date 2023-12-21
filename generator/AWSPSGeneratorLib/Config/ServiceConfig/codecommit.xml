@@ -327,6 +327,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRepositoryEncryptionKey" OutputProperty="*" Verb="Update" Noun="RepositoryEncryptionKey" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateRepositoryName" Verb="Update" Noun="RepositoryName" ShouldProcessTarget="OldName" PipelineParameter="OldName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

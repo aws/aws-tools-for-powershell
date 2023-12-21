@@ -28,16 +28,16 @@ using Amazon.CodeCommit.Model;
 namespace Amazon.PowerShell.Cmdlets.CC
 {
     /// <summary>
-    /// Creates a new, empty repository.
+    /// Updates the Key Management Service encryption key used to encrypt and decrypt a CodeCommit
+    /// repository.
     /// </summary>
-    [Cmdlet("New", "CCRepository", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.CodeCommit.Model.RepositoryMetadata")]
-    [AWSCmdlet("Calls the AWS CodeCommit CreateRepository API operation.", Operation = new[] {"CreateRepository"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.CreateRepositoryResponse))]
-    [AWSCmdletOutput("Amazon.CodeCommit.Model.RepositoryMetadata or Amazon.CodeCommit.Model.CreateRepositoryResponse",
-        "This cmdlet returns an Amazon.CodeCommit.Model.RepositoryMetadata object.",
-        "The service call response (type Amazon.CodeCommit.Model.CreateRepositoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "CCRepositoryEncryptionKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.CodeCommit.Model.UpdateRepositoryEncryptionKeyResponse")]
+    [AWSCmdlet("Calls the AWS CodeCommit UpdateRepositoryEncryptionKey API operation.", Operation = new[] {"UpdateRepositoryEncryptionKey"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.UpdateRepositoryEncryptionKeyResponse))]
+    [AWSCmdletOutput("Amazon.CodeCommit.Model.UpdateRepositoryEncryptionKeyResponse",
+        "This cmdlet returns an Amazon.CodeCommit.Model.UpdateRepositoryEncryptionKeyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewCCRepositoryCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
+    public partial class UpdateCCRepositoryEncryptionKeyCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -47,37 +47,26 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// <para>
         /// <para>The ID of the encryption key. You can view the ID of an encryption key in the KMS
         /// console, or use the KMS APIs to programmatically retrieve a key ID. For more information
-        /// about acceptable values for kmsKeyID, see <a href="https://docs.aws.amazon.com/APIReference/API_Decrypt.html#KMS-Decrypt-request-KeyId">KeyId</a>
-        /// in the Decrypt API description in the <i>Key Management Service API Reference</i>.</para><para>If no key is specified, the default <code>aws/codecommit</code> Amazon Web Services
-        /// managed key is used.</para>
+        /// about acceptable values for keyID, see <a href="https://docs.aws.amazon.com/APIReference/API_Decrypt.html#KMS-Decrypt-request-KeyId">KeyId</a>
+        /// in the Decrypt API description in the <i>Key Management Service API Reference</i>.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String KmsKeyId { get; set; }
-        #endregion
-        
-        #region Parameter RepositoryDescription
-        /// <summary>
-        /// <para>
-        /// <para>A comment or description about the new repository.</para><note><para>The description field for a repository accepts all HTML characters and all valid Unicode
-        /// characters. Applications that do not HTML-encode the description and display it in
-        /// a webpage can expose users to potentially malicious code. Make sure that you HTML-encode
-        /// the description field in any application that uses this API to display the repository
-        /// description on a webpage.</para></note>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String RepositoryDescription { get; set; }
         #endregion
         
         #region Parameter RepositoryName
         /// <summary>
         /// <para>
-        /// <para>The name of the new repository to be created.</para><note><para>The repository name must be unique across the calling Amazon Web Services account.
-        /// Repository names are limited to 100 alphanumeric, dash, and underscore characters,
-        /// and cannot include certain characters. For more information about the limits on repository
-        /// names, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a>
-        /// in the <i>CodeCommit User Guide</i>. The suffix .git is prohibited.</para></note>
+        /// <para>The name of the repository for which you want to update the KMS encryption key used
+        /// to encrypt and decrypt the repository.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,26 +80,15 @@ namespace Amazon.PowerShell.Cmdlets.CC
         public System.String RepositoryName { get; set; }
         #endregion
         
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>One or more tag key-value pairs to use when tagging this repository.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'RepositoryMetadata'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CodeCommit.Model.CreateRepositoryResponse).
-        /// Specifying the name of a property of type Amazon.CodeCommit.Model.CreateRepositoryResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CodeCommit.Model.UpdateRepositoryEncryptionKeyResponse).
+        /// Specifying the name of a property of type Amazon.CodeCommit.Model.UpdateRepositoryEncryptionKeyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "RepositoryMetadata";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
@@ -139,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.RepositoryName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CCRepository (CreateRepository)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CCRepositoryEncryptionKey (UpdateRepositoryEncryptionKey)"))
             {
                 return;
             }
@@ -152,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CodeCommit.Model.CreateRepositoryResponse, NewCCRepositoryCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CodeCommit.Model.UpdateRepositoryEncryptionKeyResponse, UpdateCCRepositoryEncryptionKeyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -165,7 +143,12 @@ namespace Amazon.PowerShell.Cmdlets.CC
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.KmsKeyId = this.KmsKeyId;
-            context.RepositoryDescription = this.RepositoryDescription;
+            #if MODULAR
+            if (this.KmsKeyId == null && ParameterWasBound(nameof(this.KmsKeyId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter KmsKeyId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.RepositoryName = this.RepositoryName;
             #if MODULAR
             if (this.RepositoryName == null && ParameterWasBound(nameof(this.RepositoryName)))
@@ -173,14 +156,6 @@ namespace Amazon.PowerShell.Cmdlets.CC
                 WriteWarning("You are passing $null as a value for parameter RepositoryName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
-            {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
-                }
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -195,23 +170,15 @@ namespace Amazon.PowerShell.Cmdlets.CC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CodeCommit.Model.CreateRepositoryRequest();
+            var request = new Amazon.CodeCommit.Model.UpdateRepositoryEncryptionKeyRequest();
             
             if (cmdletContext.KmsKeyId != null)
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
             }
-            if (cmdletContext.RepositoryDescription != null)
-            {
-                request.RepositoryDescription = cmdletContext.RepositoryDescription;
-            }
             if (cmdletContext.RepositoryName != null)
             {
                 request.RepositoryName = cmdletContext.RepositoryName;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -246,15 +213,15 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         #region AWS Service Operation Call
         
-        private Amazon.CodeCommit.Model.CreateRepositoryResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.CreateRepositoryRequest request)
+        private Amazon.CodeCommit.Model.UpdateRepositoryEncryptionKeyResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.UpdateRepositoryEncryptionKeyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeCommit", "CreateRepository");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeCommit", "UpdateRepositoryEncryptionKey");
             try
             {
                 #if DESKTOP
-                return client.CreateRepository(request);
+                return client.UpdateRepositoryEncryptionKey(request);
                 #elif CORECLR
-                return client.CreateRepositoryAsync(request).GetAwaiter().GetResult();
+                return client.UpdateRepositoryEncryptionKeyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -275,11 +242,9 @@ namespace Amazon.PowerShell.Cmdlets.CC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String KmsKeyId { get; set; }
-            public System.String RepositoryDescription { get; set; }
             public System.String RepositoryName { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.CodeCommit.Model.CreateRepositoryResponse, NewCCRepositoryCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.RepositoryMetadata;
+            public System.Func<Amazon.CodeCommit.Model.UpdateRepositoryEncryptionKeyResponse, UpdateCCRepositoryEncryptionKeyCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

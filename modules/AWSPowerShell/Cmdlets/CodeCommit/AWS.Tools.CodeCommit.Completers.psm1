@@ -339,6 +339,7 @@ $CC_SelectMap = @{
                "Update-CCPullRequestStatus",
                "Update-CCPullRequestTitle",
                "Update-CCRepositoryDescription",
+               "Update-CCRepositoryEncryptionKey",
                "Update-CCRepositoryName")
 }
 

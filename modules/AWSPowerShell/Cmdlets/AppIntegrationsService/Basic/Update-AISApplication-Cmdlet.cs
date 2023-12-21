@@ -106,13 +106,26 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter Permission
+        /// <summary>
+        /// <para>
+        /// <para>The configuration of events or requests that the application has access to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Permissions")]
+        public System.String[] Permission { get; set; }
+        #endregion
+        
         #region Parameter Publication
         /// <summary>
         /// <para>
         /// <para>The events that the application publishes.</para>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Publications has been replaced with Permissions")]
         [Alias("Publications")]
         public Amazon.AppIntegrationsService.Model.Publication[] Publication { get; set; }
         #endregion
@@ -122,8 +135,10 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         /// <para>
         /// <para>The events that the application subscribes.</para>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Subscriptions has been replaced with Permissions")]
         [Alias("Subscriptions")]
         public Amazon.AppIntegrationsService.Model.Subscription[] Subscription { get; set; }
         #endregion
@@ -203,14 +218,22 @@ namespace Amazon.PowerShell.Cmdlets.AIS
             #endif
             context.Description = this.Description;
             context.Name = this.Name;
+            if (this.Permission != null)
+            {
+                context.Permission = new List<System.String>(this.Permission);
+            }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Publication != null)
             {
                 context.Publication = new List<Amazon.AppIntegrationsService.Model.Publication>(this.Publication);
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Subscription != null)
             {
                 context.Subscription = new List<Amazon.AppIntegrationsService.Model.Subscription>(this.Subscription);
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -283,14 +306,22 @@ namespace Amazon.PowerShell.Cmdlets.AIS
             {
                 request.Name = cmdletContext.Name;
             }
+            if (cmdletContext.Permission != null)
+            {
+                request.Permissions = cmdletContext.Permission;
+            }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Publication != null)
             {
                 request.Publications = cmdletContext.Publication;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Subscription != null)
             {
                 request.Subscriptions = cmdletContext.Subscription;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             
@@ -357,7 +388,10 @@ namespace Amazon.PowerShell.Cmdlets.AIS
             public System.String Arn { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }
+            public List<System.String> Permission { get; set; }
+            [System.ObsoleteAttribute]
             public List<Amazon.AppIntegrationsService.Model.Publication> Publication { get; set; }
+            [System.ObsoleteAttribute]
             public List<Amazon.AppIntegrationsService.Model.Subscription> Subscription { get; set; }
             public System.Func<Amazon.AppIntegrationsService.Model.UpdateApplicationResponse, UpdateAISApplicationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

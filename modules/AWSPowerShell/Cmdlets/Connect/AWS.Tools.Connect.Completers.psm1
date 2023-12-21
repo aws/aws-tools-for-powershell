@@ -328,6 +328,37 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.SearchContactsMatchType
+        {
+            ($_ -eq "Search-CONNContact/SearchCriteria_ContactAnalysis_Transcript_MatchType") -Or
+            ($_ -eq "Search-CONNContact/SearchCriteria_SearchableContactAttributes_MatchType")
+        }
+        {
+            $v = "MATCH_ALL","MATCH_ANY"
+            break
+        }
+
+        # Amazon.Connect.SearchContactsTimeRangeType
+        "Search-CONNContact/TimeRange_Type"
+        {
+            $v = "CONNECTED_TO_AGENT_TIMESTAMP","DISCONNECT_TIMESTAMP","INITIATION_TIMESTAMP","SCHEDULED_TIMESTAMP"
+            break
+        }
+
+        # Amazon.Connect.SortableFieldName
+        "Search-CONNContact/Sort_FieldName"
+        {
+            $v = "CHANNEL","CONNECTED_TO_AGENT_TIMESTAMP","DISCONNECT_TIMESTAMP","INITIATION_METHOD","INITIATION_TIMESTAMP","SCHEDULED_TIMESTAMP"
+            break
+        }
+
+        # Amazon.Connect.SortOrder
+        "Search-CONNContact/Sort_Order"
+        {
+            $v = "ASCENDING","DESCENDING"
+            break
+        }
+
         # Amazon.Connect.SourceType
         "New-CONNIntegrationAssociation/SourceType"
         {
@@ -348,6 +379,7 @@ $CONN_Completers = {
         # Amazon.Connect.StringComparisonType
         {
             ($_ -eq "Search-CONNHoursOfOperation/SearchCriteria_StringCondition_ComparisonType") -Or
+            ($_ -eq "Search-CONNPredefinedAttribute/SearchCriteria_StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNPrompt/SearchCriteria_StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNQueue/SearchCriteria_StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNQuickConnect/SearchCriteria_StringCondition_ComparisonType") -Or
@@ -473,17 +505,22 @@ $CONN_map = @{
     "ResourceType"=@("Add-CONNFlow","Add-CONNInstanceStorageConfig","Get-CONNFlowAssociation","Get-CONNFlowAssociationBatch","Get-CONNFlowAssociationList","Get-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfigList","Remove-CONNFlow","Remove-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "ScoringStrategy_Mode"=@("New-CONNEvaluationForm","Update-CONNEvaluationForm")
     "ScoringStrategy_Status"=@("New-CONNEvaluationForm","Update-CONNEvaluationForm")
+    "SearchCriteria_ContactAnalysis_Transcript_MatchType"=@("Search-CONNContact")
     "SearchCriteria_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
     "SearchCriteria_QueueTypeCondition"=@("Search-CONNQueue")
-    "SearchCriteria_StringCondition_ComparisonType"=@("Search-CONNHoursOfOperation","Search-CONNPrompt","Search-CONNQueue","Search-CONNQuickConnect","Search-CONNRoutingProfile","Search-CONNSecurityProfile","Search-CONNUser")
+    "SearchCriteria_SearchableContactAttributes_MatchType"=@("Search-CONNContact")
+    "SearchCriteria_StringCondition_ComparisonType"=@("Search-CONNHoursOfOperation","Search-CONNPredefinedAttribute","Search-CONNPrompt","Search-CONNQueue","Search-CONNQuickConnect","Search-CONNRoutingProfile","Search-CONNSecurityProfile","Search-CONNUser")
     "SearchCriteria_TagSearchCondition_TagKeyComparisonType"=@("Search-CONNResourceTag")
     "SearchCriteria_TagSearchCondition_TagValueComparisonType"=@("Search-CONNResourceTag")
+    "Sort_FieldName"=@("Search-CONNContact")
+    "Sort_Order"=@("Search-CONNContact")
     "SourceType"=@("New-CONNIntegrationAssociation")
     "State"=@("New-CONNAgentStatus","Search-CONNVocabulary","Update-CONNAgentStatus","Update-CONNContactFlowModuleMetadata")
     "Status"=@("Get-CONNTaskTemplateList","New-CONNTaskTemplate","New-CONNView","Update-CONNQueueStatus","Update-CONNTaskTemplate","Update-CONNViewContent")
     "StorageConfig_KinesisVideoStreamConfig_EncryptionConfig_EncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfig_S3Config_EncryptionConfig_EncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfig_StorageType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
+    "TimeRange_Type"=@("Search-CONNContact")
     "TrafficType"=@("Start-CONNOutboundVoiceContact")
     "TriggerEventSource_EventSourceName"=@("New-CONNRule")
     "Type"=@("Get-CONNViewList","New-CONNContactFlow")
@@ -555,6 +592,7 @@ $CONN_SelectMap = @{
                "Join-CONNRoutingProfileQueue",
                "Add-CONNSecurityKey",
                "Add-CONNTrafficDistributionGroupUser",
+               "Add-CONNUserProficiency",
                "Register-CONNBatchAnalyticsDataSet",
                "Unregister-CONNBatchAnalyticsDataSet",
                "Get-CONNFlowAssociationBatch",
@@ -569,6 +607,7 @@ $CONN_SelectMap = @{
                "New-CONNIntegrationAssociation",
                "New-CONNParticipant",
                "New-CONNPersistentContactAssociation",
+               "New-CONNPredefinedAttribute",
                "New-CONNPrompt",
                "New-CONNQueue",
                "New-CONNQuickConnect",
@@ -591,6 +630,7 @@ $CONN_SelectMap = @{
                "Remove-CONNHoursOfOperation",
                "Remove-CONNInstance",
                "Remove-CONNIntegrationAssociation",
+               "Remove-CONNPredefinedAttribute",
                "Remove-CONNPrompt",
                "Remove-CONNQueue",
                "Remove-CONNQuickConnect",
@@ -616,6 +656,7 @@ $CONN_SelectMap = @{
                "Get-CONNInstanceAttribute",
                "Get-CONNInstanceStorageConfig",
                "Get-CONNPhoneNumber",
+               "Get-CONNPredefinedAttribute",
                "Get-CONNPrompt",
                "Get-CONNQueue",
                "Get-CONNQuickConnect",
@@ -640,6 +681,7 @@ $CONN_SelectMap = @{
                "Disconnect-CONNRoutingProfileQueue",
                "Remove-CONNSecurityKey",
                "Remove-CONNTrafficDistributionGroupUser",
+               "Remove-CONNUserProficiency",
                "Write-CONNUserContact",
                "Get-CONNContactAttribute",
                "Get-CONNCurrentMetricData",
@@ -673,6 +715,7 @@ $CONN_SelectMap = @{
                "Get-CONNLexBotList",
                "Get-CONNPhoneNumberList",
                "Get-CONNPhoneNumbersV2List",
+               "Get-CONNPredefinedAttributeList",
                "Get-CONNPromptList",
                "Get-CONNQueueQuickConnectList",
                "Get-CONNQueueList",
@@ -691,6 +734,7 @@ $CONN_SelectMap = @{
                "Get-CONNTrafficDistributionGroupUserList",
                "Get-CONNUseCaseList",
                "Get-CONNUserHierarchyGroupList",
+               "Get-CONNUserProficiencyList",
                "Get-CONNUserList",
                "Get-CONNViewList",
                "Get-CONNViewVersionList",
@@ -702,7 +746,9 @@ $CONN_SelectMap = @{
                "Invoke-CONNResumeContact",
                "Resume-CONNContactRecording",
                "Search-CONNAvailablePhoneNumber",
+               "Search-CONNContact",
                "Search-CONNHoursOfOperation",
+               "Search-CONNPredefinedAttribute",
                "Search-CONNPrompt",
                "Search-CONNQueue",
                "Search-CONNQuickConnect",
@@ -738,6 +784,7 @@ $CONN_SelectMap = @{
                "Update-CONNContactFlowModuleContent",
                "Update-CONNContactFlowModuleMetadata",
                "Update-CONNContactFlowName",
+               "Update-CONNContactRoutingData",
                "Update-CONNContactSchedule",
                "Update-CONNEvaluationForm",
                "Update-CONNHoursOfOperation",
@@ -746,6 +793,7 @@ $CONN_SelectMap = @{
                "Update-CONNParticipantRoleConfig",
                "Update-CONNPhoneNumber",
                "Update-CONNPhoneNumberMetadata",
+               "Update-CONNPredefinedAttribute",
                "Update-CONNPrompt",
                "Update-CONNQueueHoursOfOperation",
                "Update-CONNQueueMaxContact",
@@ -768,6 +816,7 @@ $CONN_SelectMap = @{
                "Update-CONNUserHierarchyStructure",
                "Update-CONNUserIdentityInfo",
                "Update-CONNUserPhoneConfig",
+               "Update-CONNUserProficiency",
                "Update-CONNUserRoutingProfile",
                "Update-CONNUserSecurityProfile",
                "Update-CONNViewContent",

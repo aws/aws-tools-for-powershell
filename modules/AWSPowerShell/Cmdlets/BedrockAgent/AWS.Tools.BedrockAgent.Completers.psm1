@@ -143,7 +143,7 @@ $AAB_Completers = {
             ($_ -eq "Update-AABKnowledgeBase/StorageConfiguration_Type")
         }
         {
-            $v = "OPENSEARCH_SERVERLESS","PINECONE","REDIS_ENTERPRISE_CLOUD"
+            $v = "OPENSEARCH_SERVERLESS","PINECONE","RDS","REDIS_ENTERPRISE_CLOUD"
             break
         }
 

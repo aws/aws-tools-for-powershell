@@ -1,4 +1,44 @@
-﻿### 4.1.480 (2023-12-20 21:46Z)
+﻿### 4.1.481 (2023-12-21 21:57Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.714.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Agents for Amazon Bedrock
+    * Modified cmdlet New-AABKnowledgeBase: added parameters FieldMapping_MetadataField, FieldMapping_PrimaryKeyField, FieldMapping_TextField, FieldMapping_VectorField, RdsConfiguration_CredentialsSecretArn, RdsConfiguration_DatabaseName, RdsConfiguration_ResourceArn and RdsConfiguration_TableName.
+    * Modified cmdlet Update-AABKnowledgeBase: added parameters FieldMapping_MetadataField, FieldMapping_PrimaryKeyField, FieldMapping_TextField, FieldMapping_VectorField, RdsConfiguration_CredentialsSecretArn, RdsConfiguration_DatabaseName, RdsConfiguration_ResourceArn and RdsConfiguration_TableName.
+  * Amazon AppIntegrations Service
+    * Added cmdlet Get-AISApplicationAssociationList leveraging the ListApplicationAssociations service API.
+    * Added cmdlet Remove-AISApplication leveraging the DeleteApplication service API.
+    * Modified cmdlet New-AISApplication: added parameter Permission.
+    * Modified cmdlet Update-AISApplication: added parameter Permission.
+  * Amazon CodeCommit
+    * Added cmdlet Update-CCRepositoryEncryptionKey leveraging the UpdateRepositoryEncryptionKey service API.
+    * Modified cmdlet New-CCRepository: added parameter KmsKeyId.
+  * Amazon Connect Service
+    * Added cmdlet Add-CONNUserProficiency leveraging the AssociateUserProficiencies service API.
+    * Added cmdlet Get-CONNPredefinedAttribute leveraging the DescribePredefinedAttribute service API.
+    * Added cmdlet Get-CONNPredefinedAttributeList leveraging the ListPredefinedAttributes service API.
+    * Added cmdlet Get-CONNUserProficiencyList leveraging the ListUserProficiencies service API.
+    * Added cmdlet New-CONNPredefinedAttribute leveraging the CreatePredefinedAttribute service API.
+    * Added cmdlet Remove-CONNPredefinedAttribute leveraging the DeletePredefinedAttribute service API.
+    * Added cmdlet Remove-CONNUserProficiency leveraging the DisassociateUserProficiencies service API.
+    * Added cmdlet Search-CONNContact leveraging the SearchContacts service API.
+    * Added cmdlet Search-CONNPredefinedAttribute leveraging the SearchPredefinedAttributes service API.
+    * Added cmdlet Update-CONNContactRoutingData leveraging the UpdateContactRoutingData service API.
+    * Added cmdlet Update-CONNPredefinedAttribute leveraging the UpdatePredefinedAttribute service API.
+    * Added cmdlet Update-CONNUserProficiency leveraging the UpdateUserProficiencies service API.
+    * Modified cmdlet Get-CONNCurrentMetricData: added parameter Filters_RoutingStepExpression.
+    * Modified cmdlet Get-CONNMetricData: added parameter Filters_RoutingStepExpression.
+  * Amazon Elemental MediaLive
+    * Modified cmdlet Update-EMLInputDevice: added parameters HdDeviceSettings_AudioChannelPair and UhdDeviceSettings_AudioChannelPair.
+  * Amazon Prometheus Service
+    * Modified cmdlet New-PROMWorkspace: added parameter KmsKeyArn.
+  * Amazon Relational Database Service
+    * Added cmdlet Disable-RDSHttpEndpoint leveraging the DisableHttpEndpoint service API.
+    * Added cmdlet Enable-RDSHttpEndpoint leveraging the EnableHttpEndpoint service API.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMTrainingJob: added parameter RemoteDebugConfig_EnableRemoteDebug.
+    * Modified cmdlet Search-SMResource: added parameter VisibilityCondition.
+    * Modified cmdlet Update-SMTrainingJob: added parameter RemoteDebugConfig_EnableRemoteDebug.
+
+### 4.1.480 (2023-12-20 21:46Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.713.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Container Service for Kubernetes
     * Added cmdlet Get-EKSInsight leveraging the DescribeInsight service API.

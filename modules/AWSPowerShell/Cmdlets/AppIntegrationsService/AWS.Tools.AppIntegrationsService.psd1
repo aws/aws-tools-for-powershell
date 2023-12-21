@@ -88,6 +88,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-AISResourceTag', 
         'Get-AISApplication', 
+        'Get-AISApplicationAssociationList', 
         'Get-AISApplicationList', 
         'Get-AISDataIntegration', 
         'Get-AISDataIntegrationAssociationList', 
@@ -99,6 +100,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-AISApplication', 
         'New-AISDataIntegration', 
         'New-AISEventIntegration', 
+        'Remove-AISApplication', 
         'Remove-AISDataIntegration', 
         'Remove-AISEventIntegration', 
         'Remove-AISResourceTag', 

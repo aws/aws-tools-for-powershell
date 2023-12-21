@@ -41,6 +41,38 @@ namespace Amazon.PowerShell.Cmdlets.EML
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter HdDeviceSettings_AudioChannelPair
+        /// <summary>
+        /// <para>
+        /// An array of eight audio configurations,
+        /// one for each audio pair in the source. Set up each audio configuration either to exclude
+        /// the pair, or to format it and include it in the output from the device. This parameter
+        /// applies only to UHD devices, and only when the device is configured as the source
+        /// for a MediaConnect flow. For an HD device, you configure the audio by setting up audio
+        /// selectors in the channel configuration.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("HdDeviceSettings_AudioChannelPairs")]
+        public Amazon.MediaLive.Model.InputDeviceConfigurableAudioChannelPairConfig[] HdDeviceSettings_AudioChannelPair { get; set; }
+        #endregion
+        
+        #region Parameter UhdDeviceSettings_AudioChannelPair
+        /// <summary>
+        /// <para>
+        /// An array of eight audio configurations,
+        /// one for each audio pair in the source. Set up each audio configuration either to exclude
+        /// the pair, or to format it and include it in the output from the device. This parameter
+        /// applies only to UHD devices, and only when the device is configured as the source
+        /// for a MediaConnect flow. For an HD device, you configure the audio by setting up audio
+        /// selectors in the channel configuration.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("UhdDeviceSettings_AudioChannelPairs")]
+        public Amazon.MediaLive.Model.InputDeviceConfigurableAudioChannelPairConfig[] UhdDeviceSettings_AudioChannelPair { get; set; }
+        #endregion
+        
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
@@ -330,6 +362,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AvailabilityZone = this.AvailabilityZone;
+            if (this.HdDeviceSettings_AudioChannelPair != null)
+            {
+                context.HdDeviceSettings_AudioChannelPair = new List<Amazon.MediaLive.Model.InputDeviceConfigurableAudioChannelPairConfig>(this.HdDeviceSettings_AudioChannelPair);
+            }
             context.HdDeviceSettings_Codec = this.HdDeviceSettings_Codec;
             context.HdDeviceSettings_ConfiguredInput = this.HdDeviceSettings_ConfiguredInput;
             context.HdDeviceSettings_LatencyMs = this.HdDeviceSettings_LatencyMs;
@@ -346,6 +382,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             }
             #endif
             context.Name = this.Name;
+            if (this.UhdDeviceSettings_AudioChannelPair != null)
+            {
+                context.UhdDeviceSettings_AudioChannelPair = new List<Amazon.MediaLive.Model.InputDeviceConfigurableAudioChannelPairConfig>(this.UhdDeviceSettings_AudioChannelPair);
+            }
             context.UhdDeviceSettings_Codec = this.UhdDeviceSettings_Codec;
             context.UhdDeviceSettings_ConfiguredInput = this.UhdDeviceSettings_ConfiguredInput;
             context.UhdDeviceSettings_LatencyMs = this.UhdDeviceSettings_LatencyMs;
@@ -378,6 +418,16 @@ namespace Amazon.PowerShell.Cmdlets.EML
              // populate HdDeviceSettings
             var requestHdDeviceSettingsIsNull = true;
             request.HdDeviceSettings = new Amazon.MediaLive.Model.InputDeviceConfigurableSettings();
+            List<Amazon.MediaLive.Model.InputDeviceConfigurableAudioChannelPairConfig> requestHdDeviceSettings_hdDeviceSettings_AudioChannelPair = null;
+            if (cmdletContext.HdDeviceSettings_AudioChannelPair != null)
+            {
+                requestHdDeviceSettings_hdDeviceSettings_AudioChannelPair = cmdletContext.HdDeviceSettings_AudioChannelPair;
+            }
+            if (requestHdDeviceSettings_hdDeviceSettings_AudioChannelPair != null)
+            {
+                request.HdDeviceSettings.AudioChannelPairs = requestHdDeviceSettings_hdDeviceSettings_AudioChannelPair;
+                requestHdDeviceSettingsIsNull = false;
+            }
             Amazon.MediaLive.InputDeviceCodec requestHdDeviceSettings_hdDeviceSettings_Codec = null;
             if (cmdletContext.HdDeviceSettings_Codec != null)
             {
@@ -490,6 +540,16 @@ namespace Amazon.PowerShell.Cmdlets.EML
              // populate UhdDeviceSettings
             var requestUhdDeviceSettingsIsNull = true;
             request.UhdDeviceSettings = new Amazon.MediaLive.Model.InputDeviceConfigurableSettings();
+            List<Amazon.MediaLive.Model.InputDeviceConfigurableAudioChannelPairConfig> requestUhdDeviceSettings_uhdDeviceSettings_AudioChannelPair = null;
+            if (cmdletContext.UhdDeviceSettings_AudioChannelPair != null)
+            {
+                requestUhdDeviceSettings_uhdDeviceSettings_AudioChannelPair = cmdletContext.UhdDeviceSettings_AudioChannelPair;
+            }
+            if (requestUhdDeviceSettings_uhdDeviceSettings_AudioChannelPair != null)
+            {
+                request.UhdDeviceSettings.AudioChannelPairs = requestUhdDeviceSettings_uhdDeviceSettings_AudioChannelPair;
+                requestUhdDeviceSettingsIsNull = false;
+            }
             Amazon.MediaLive.InputDeviceCodec requestUhdDeviceSettings_uhdDeviceSettings_Codec = null;
             if (cmdletContext.UhdDeviceSettings_Codec != null)
             {
@@ -652,6 +712,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AvailabilityZone { get; set; }
+            public List<Amazon.MediaLive.Model.InputDeviceConfigurableAudioChannelPairConfig> HdDeviceSettings_AudioChannelPair { get; set; }
             public Amazon.MediaLive.InputDeviceCodec HdDeviceSettings_Codec { get; set; }
             public Amazon.MediaLive.InputDeviceConfiguredInput HdDeviceSettings_ConfiguredInput { get; set; }
             public System.Int32? HdDeviceSettings_LatencyMs { get; set; }
@@ -662,6 +723,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             public System.String HdDeviceSettings_MediaconnectSettings_SourceName { get; set; }
             public System.String InputDeviceId { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.MediaLive.Model.InputDeviceConfigurableAudioChannelPairConfig> UhdDeviceSettings_AudioChannelPair { get; set; }
             public Amazon.MediaLive.InputDeviceCodec UhdDeviceSettings_Codec { get; set; }
             public Amazon.MediaLive.InputDeviceConfiguredInput UhdDeviceSettings_ConfiguredInput { get; set; }
             public System.Int32? UhdDeviceSettings_LatencyMs { get; set; }

@@ -112,26 +112,15 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         public System.String Namespace { get; set; }
         #endregion
         
-        #region Parameter Publication
+        #region Parameter Permission
         /// <summary>
         /// <para>
-        /// <para>The events that the application publishes.</para>
+        /// <para>The configuration of events or requests that the application has access to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Publications")]
-        public Amazon.AppIntegrationsService.Model.Publication[] Publication { get; set; }
-        #endregion
-        
-        #region Parameter Subscription
-        /// <summary>
-        /// <para>
-        /// <para>The events that the application subscribes.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Subscriptions")]
-        public Amazon.AppIntegrationsService.Model.Subscription[] Subscription { get; set; }
+        [Alias("Permissions")]
+        public System.String[] Permission { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -157,6 +146,32 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ClientToken { get; set; }
+        #endregion
+        
+        #region Parameter Publication
+        /// <summary>
+        /// <para>
+        /// <para>The events that the application publishes.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Publications has been replaced with Permissions")]
+        [Alias("Publications")]
+        public Amazon.AppIntegrationsService.Model.Publication[] Publication { get; set; }
+        #endregion
+        
+        #region Parameter Subscription
+        /// <summary>
+        /// <para>
+        /// <para>The events that the application subscribes.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Subscriptions has been replaced with Permissions")]
+        [Alias("Subscriptions")]
+        public Amazon.AppIntegrationsService.Model.Subscription[] Subscription { get; set; }
         #endregion
         
         #region Parameter Select
@@ -222,14 +237,22 @@ namespace Amazon.PowerShell.Cmdlets.AIS
                 WriteWarning("You are passing $null as a value for parameter Namespace which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Permission != null)
+            {
+                context.Permission = new List<System.String>(this.Permission);
+            }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Publication != null)
             {
                 context.Publication = new List<Amazon.AppIntegrationsService.Model.Publication>(this.Publication);
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Subscription != null)
             {
                 context.Subscription = new List<Amazon.AppIntegrationsService.Model.Subscription>(this.Subscription);
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -314,14 +337,22 @@ namespace Amazon.PowerShell.Cmdlets.AIS
             {
                 request.Namespace = cmdletContext.Namespace;
             }
+            if (cmdletContext.Permission != null)
+            {
+                request.Permissions = cmdletContext.Permission;
+            }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Publication != null)
             {
                 request.Publications = cmdletContext.Publication;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Subscription != null)
             {
                 request.Subscriptions = cmdletContext.Subscription;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -393,7 +424,10 @@ namespace Amazon.PowerShell.Cmdlets.AIS
             public System.String Description { get; set; }
             public System.String Name { get; set; }
             public System.String Namespace { get; set; }
+            public List<System.String> Permission { get; set; }
+            [System.ObsoleteAttribute]
             public List<Amazon.AppIntegrationsService.Model.Publication> Publication { get; set; }
+            [System.ObsoleteAttribute]
             public List<Amazon.AppIntegrationsService.Model.Subscription> Subscription { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.AppIntegrationsService.Model.CreateApplicationResponse, NewAISApplicationCmdlet, object> Select { get; set; } =

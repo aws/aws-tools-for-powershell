@@ -447,10 +447,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisableHttpEndpoint" OutputProperty="*" Verb="Disable" Noun="HttpEndpoint" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DownloadDBLogFilePortion" OutputProperty="*" Verb="Get" Noun="DBLogFilePortion" PositionalParameters="LogFileName" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params>
                 <Param Name="NumberOfLines" AutoRename="false" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableHttpEndpoint" OutputProperty="*" Verb="Enable" Noun="HttpEndpoint" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="FailoverDBCluster" OutputProperty="DBCluster" Verb="Start" Noun="DBClusterFailover" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false">

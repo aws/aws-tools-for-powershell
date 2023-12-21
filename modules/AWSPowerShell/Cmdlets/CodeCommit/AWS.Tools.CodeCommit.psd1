@@ -161,6 +161,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-CCPullRequestStatus', 
         'Update-CCPullRequestTitle', 
         'Update-CCRepositoryDescription', 
+        'Update-CCRepositoryEncryptionKey', 
         'Update-CCRepositoryName', 
         'Write-CCCommentReaction', 
         'Write-CCFile')

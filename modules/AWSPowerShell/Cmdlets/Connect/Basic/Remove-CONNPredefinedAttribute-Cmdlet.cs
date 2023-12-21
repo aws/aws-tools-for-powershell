@@ -22,73 +22,65 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.PrometheusService;
-using Amazon.PrometheusService.Model;
+using Amazon.Connect;
+using Amazon.Connect.Model;
 
-namespace Amazon.PowerShell.Cmdlets.PROM
+namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Creates a new AMP workspace.
+    /// Deletes a predefined attribute from the specified Amazon Connect instance.
     /// </summary>
-    [Cmdlet("New", "PROMWorkspace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.PrometheusService.Model.CreateWorkspaceResponse")]
-    [AWSCmdlet("Calls the Amazon Prometheus Service CreateWorkspace API operation.", Operation = new[] {"CreateWorkspace"}, SelectReturnType = typeof(Amazon.PrometheusService.Model.CreateWorkspaceResponse))]
-    [AWSCmdletOutput("Amazon.PrometheusService.Model.CreateWorkspaceResponse",
-        "This cmdlet returns an Amazon.PrometheusService.Model.CreateWorkspaceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "CONNPredefinedAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Connect Service DeletePredefinedAttribute API operation.", Operation = new[] {"DeletePredefinedAttribute"}, SelectReturnType = typeof(Amazon.Connect.Model.DeletePredefinedAttributeResponse))]
+    [AWSCmdletOutput("None or Amazon.Connect.Model.DeletePredefinedAttributeResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.Connect.Model.DeletePredefinedAttributeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewPROMWorkspaceCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
+    public partial class RemoveCONNPredefinedAttributeCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Alias
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>An optional user-assigned alias for this workspace. This alias is for user reference
-        /// and does not need to be unique.</para>
+        /// <para> The identifier of the Amazon Connect instance. You can find the instance ID in the
+        /// Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String InstanceId { get; set; }
+        #endregion
+        
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para> The name of the predefined attribute.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String Alias { get; set; }
-        #endregion
-        
-        #region Parameter KmsKeyArn
-        /// <summary>
-        /// <para>
-        /// <para>Optional, customer managed KMS key used to encrypt data for this workspace</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String KmsKeyArn { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>Optional, user-provided tags for this workspace.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
-        #endregion
-        
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency
-        /// of the request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String Name { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PrometheusService.Model.CreateWorkspaceResponse).
-        /// Specifying the name of a property of type Amazon.PrometheusService.Model.CreateWorkspaceResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.DeletePredefinedAttributeResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,10 +89,10 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Alias parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Alias' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Alias' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -120,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.PROM
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Alias), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-PROMWorkspace (CreateWorkspace)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.InstanceId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CONNPredefinedAttribute (DeletePredefinedAttribute)"))
             {
                 return;
             }
@@ -134,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.PrometheusService.Model.CreateWorkspaceResponse, NewPROMWorkspaceCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.DeletePredefinedAttributeResponse, RemoveCONNPredefinedAttributeCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -143,20 +135,23 @@ namespace Amazon.PowerShell.Cmdlets.PROM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Alias;
+                context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Alias = this.Alias;
-            context.ClientToken = this.ClientToken;
-            context.KmsKeyArn = this.KmsKeyArn;
-            if (this.Tag != null)
+            context.InstanceId = this.InstanceId;
+            #if MODULAR
+            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
             {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
-                }
+                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
+            #endif
+            context.Name = this.Name;
+            #if MODULAR
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -171,23 +166,15 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.PrometheusService.Model.CreateWorkspaceRequest();
+            var request = new Amazon.Connect.Model.DeletePredefinedAttributeRequest();
             
-            if (cmdletContext.Alias != null)
+            if (cmdletContext.InstanceId != null)
             {
-                request.Alias = cmdletContext.Alias;
+                request.InstanceId = cmdletContext.InstanceId;
             }
-            if (cmdletContext.ClientToken != null)
+            if (cmdletContext.Name != null)
             {
-                request.ClientToken = cmdletContext.ClientToken;
-            }
-            if (cmdletContext.KmsKeyArn != null)
-            {
-                request.KmsKeyArn = cmdletContext.KmsKeyArn;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
+                request.Name = cmdletContext.Name;
             }
             
             CmdletOutput output;
@@ -222,15 +209,15 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         
         #region AWS Service Operation Call
         
-        private Amazon.PrometheusService.Model.CreateWorkspaceResponse CallAWSServiceOperation(IAmazonPrometheusService client, Amazon.PrometheusService.Model.CreateWorkspaceRequest request)
+        private Amazon.Connect.Model.DeletePredefinedAttributeResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.DeletePredefinedAttributeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Prometheus Service", "CreateWorkspace");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "DeletePredefinedAttribute");
             try
             {
                 #if DESKTOP
-                return client.CreateWorkspace(request);
+                return client.DeletePredefinedAttribute(request);
                 #elif CORECLR
-                return client.CreateWorkspaceAsync(request).GetAwaiter().GetResult();
+                return client.DeletePredefinedAttributeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -250,12 +237,10 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Alias { get; set; }
-            public System.String ClientToken { get; set; }
-            public System.String KmsKeyArn { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.PrometheusService.Model.CreateWorkspaceResponse, NewPROMWorkspaceCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String InstanceId { get; set; }
+            public System.String Name { get; set; }
+            public System.Func<Amazon.Connect.Model.DeletePredefinedAttributeResponse, RemoveCONNPredefinedAttributeCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }
