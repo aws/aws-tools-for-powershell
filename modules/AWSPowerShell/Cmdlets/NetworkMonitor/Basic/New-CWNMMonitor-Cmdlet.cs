@@ -22,63 +22,72 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Glue;
-using Amazon.Glue.Model;
+using Amazon.NetworkMonitor;
+using Amazon.NetworkMonitor.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GLUE
+namespace Amazon.PowerShell.Cmdlets.CWNM
 {
     /// <summary>
-    /// Creates a connection definition in the Data Catalog.
-    /// 
-    ///  
-    /// <para>
-    /// Connections used for creating federated resources require the IAM <code>glue:PassConnection</code>
-    /// permission.
-    /// </para>
+    /// Creates a monitor between a source subnet and destination IP address. Within a monitor
+    /// you'll create one or more probes that monitor network traffic between your source
+    /// Amazon Web Services VPC subnets and your destination IP addresses. Each probe then
+    /// aggregates and sends metrics to Amazon CloudWatch.
     /// </summary>
-    [Cmdlet("New", "GLUEConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Glue CreateConnection API operation.", Operation = new[] {"CreateConnection"}, SelectReturnType = typeof(Amazon.Glue.Model.CreateConnectionResponse))]
-    [AWSCmdletOutput("None or Amazon.Glue.Model.CreateConnectionResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Glue.Model.CreateConnectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "CWNMMonitor", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.NetworkMonitor.Model.CreateMonitorResponse")]
+    [AWSCmdlet("Calls the Amazon CloudWatch Network Monitor CreateMonitor API operation.", Operation = new[] {"CreateMonitor"}, SelectReturnType = typeof(Amazon.NetworkMonitor.Model.CreateMonitorResponse))]
+    [AWSCmdletOutput("Amazon.NetworkMonitor.Model.CreateMonitorResponse",
+        "This cmdlet returns an Amazon.NetworkMonitor.Model.CreateMonitorResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewGLUEConnectionCmdlet : AmazonGlueClientCmdlet, IExecutor
+    public partial class NewCWNMMonitorCmdlet : AmazonNetworkMonitorClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter CatalogId
+        #region Parameter AggregationPeriod
         /// <summary>
         /// <para>
-        /// <para>The ID of the Data Catalog in which to create the connection. If none is provided,
-        /// the Amazon Web Services account ID is used by default.</para>
+        /// <para>The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid
+        /// values are either <code>30</code> or <code>60</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String CatalogId { get; set; }
+        public System.Int64? AggregationPeriod { get; set; }
         #endregion
         
-        #region Parameter ConnectionInput
+        #region Parameter MonitorName
         /// <summary>
         /// <para>
-        /// <para>A <code>ConnectionInput</code> object defining the connection to create.</para>
+        /// <para>The name identifying the monitor. It can contain only letters, underscores (_), or
+        /// dashes (-), and can be up to 255 characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public Amazon.Glue.Model.ConnectionInput ConnectionInput { get; set; }
+        public System.String MonitorName { get; set; }
+        #endregion
+        
+        #region Parameter Probe
+        /// <summary>
+        /// <para>
+        /// <para>Displays a list of all of the probes created for a monitor.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Probes")]
+        public Amazon.NetworkMonitor.Model.CreateMonitorProbeInput[] Probe { get; set; }
         #endregion
         
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags you assign to the connection.</para>
+        /// <para>The list of key-value pairs created and assigned to the monitor.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,10 +95,22 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned
+        /// if a client token was provided in the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.CreateConnectionResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NetworkMonitor.Model.CreateMonitorResponse).
+        /// Specifying the name of a property of type Amazon.NetworkMonitor.Model.CreateMonitorResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,10 +119,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ConnectionInput parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ConnectionInput' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the MonitorName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^MonitorName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ConnectionInput' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^MonitorName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -121,8 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-GLUEConnection (CreateConnection)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.MonitorName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CWNMMonitor (CreateMonitor)"))
             {
                 return;
             }
@@ -135,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Glue.Model.CreateConnectionResponse, NewGLUEConnectionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.NetworkMonitor.Model.CreateMonitorResponse, NewCWNMMonitorCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -144,17 +165,22 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ConnectionInput;
+                context.Select = (response, cmdlet) => this.MonitorName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.CatalogId = this.CatalogId;
-            context.ConnectionInput = this.ConnectionInput;
+            context.AggregationPeriod = this.AggregationPeriod;
+            context.ClientToken = this.ClientToken;
+            context.MonitorName = this.MonitorName;
             #if MODULAR
-            if (this.ConnectionInput == null && ParameterWasBound(nameof(this.ConnectionInput)))
+            if (this.MonitorName == null && ParameterWasBound(nameof(this.MonitorName)))
             {
-                WriteWarning("You are passing $null as a value for parameter ConnectionInput which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter MonitorName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Probe != null)
+            {
+                context.Probe = new List<Amazon.NetworkMonitor.Model.CreateMonitorProbeInput>(this.Probe);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -177,15 +203,23 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Glue.Model.CreateConnectionRequest();
+            var request = new Amazon.NetworkMonitor.Model.CreateMonitorRequest();
             
-            if (cmdletContext.CatalogId != null)
+            if (cmdletContext.AggregationPeriod != null)
             {
-                request.CatalogId = cmdletContext.CatalogId;
+                request.AggregationPeriod = cmdletContext.AggregationPeriod.Value;
             }
-            if (cmdletContext.ConnectionInput != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.ConnectionInput = cmdletContext.ConnectionInput;
+                request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.MonitorName != null)
+            {
+                request.MonitorName = cmdletContext.MonitorName;
+            }
+            if (cmdletContext.Probe != null)
+            {
+                request.Probes = cmdletContext.Probe;
             }
             if (cmdletContext.Tag != null)
             {
@@ -224,15 +258,15 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region AWS Service Operation Call
         
-        private Amazon.Glue.Model.CreateConnectionResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.CreateConnectionRequest request)
+        private Amazon.NetworkMonitor.Model.CreateMonitorResponse CallAWSServiceOperation(IAmazonNetworkMonitor client, Amazon.NetworkMonitor.Model.CreateMonitorRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "CreateConnection");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Network Monitor", "CreateMonitor");
             try
             {
                 #if DESKTOP
-                return client.CreateConnection(request);
+                return client.CreateMonitor(request);
                 #elif CORECLR
-                return client.CreateConnectionAsync(request).GetAwaiter().GetResult();
+                return client.CreateMonitorAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -252,11 +286,13 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String CatalogId { get; set; }
-            public Amazon.Glue.Model.ConnectionInput ConnectionInput { get; set; }
+            public System.Int64? AggregationPeriod { get; set; }
+            public System.String ClientToken { get; set; }
+            public System.String MonitorName { get; set; }
+            public List<Amazon.NetworkMonitor.Model.CreateMonitorProbeInput> Probe { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.Glue.Model.CreateConnectionResponse, NewGLUEConnectionCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.Func<Amazon.NetworkMonitor.Model.CreateMonitorResponse, NewCWNMMonitorCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

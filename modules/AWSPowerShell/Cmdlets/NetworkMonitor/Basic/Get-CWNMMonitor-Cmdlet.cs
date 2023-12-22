@@ -22,32 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Omics;
-using Amazon.Omics.Model;
+using Amazon.NetworkMonitor;
+using Amazon.NetworkMonitor.Model;
 
-namespace Amazon.PowerShell.Cmdlets.OMICS
+namespace Amazon.PowerShell.Cmdlets.CWNM
 {
     /// <summary>
-    /// Lists multipart read set uploads and for in progress uploads. Once the upload is
-    /// completed, a read set is created and the upload will no longer be returned in the
-    /// respone.
+    /// Returns details about a specific monitor.
     /// </summary>
-    [Cmdlet("Get", "OMICSMultipartReadSetUploadList")]
-    [OutputType("Amazon.Omics.Model.MultipartReadSetUploadListItem")]
-    [AWSCmdlet("Calls the Amazon Omics ListMultipartReadSetUploads API operation.", Operation = new[] {"ListMultipartReadSetUploads"}, SelectReturnType = typeof(Amazon.Omics.Model.ListMultipartReadSetUploadsResponse))]
-    [AWSCmdletOutput("Amazon.Omics.Model.MultipartReadSetUploadListItem or Amazon.Omics.Model.ListMultipartReadSetUploadsResponse",
-        "This cmdlet returns a collection of Amazon.Omics.Model.MultipartReadSetUploadListItem objects.",
-        "The service call response (type Amazon.Omics.Model.ListMultipartReadSetUploadsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CWNMMonitor")]
+    [OutputType("Amazon.NetworkMonitor.Model.GetMonitorResponse")]
+    [AWSCmdlet("Calls the Amazon CloudWatch Network Monitor GetMonitor API operation.", Operation = new[] {"GetMonitor"}, SelectReturnType = typeof(Amazon.NetworkMonitor.Model.GetMonitorResponse))]
+    [AWSCmdletOutput("Amazon.NetworkMonitor.Model.GetMonitorResponse",
+        "This cmdlet returns an Amazon.NetworkMonitor.Model.GetMonitorResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetOMICSMultipartReadSetUploadListCmdlet : AmazonOmicsClientCmdlet, IExecutor
+    public partial class GetCWNMMonitorCmdlet : AmazonNetworkMonitorClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter SequenceStoreId
+        #region Parameter MonitorName
         /// <summary>
         /// <para>
-        /// <para> The Sequence Store ID used for the multipart uploads. </para>
+        /// <para>The name of the monitor that details are returned for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -58,48 +55,26 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String SequenceStoreId { get; set; }
-        #endregion
-        
-        #region Parameter MaxResult
-        /// <summary>
-        /// <para>
-        /// <para> The maximum number of multipart uploads returned in a page. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
-        #endregion
-        
-        #region Parameter NextToken
-        /// <summary>
-        /// <para>
-        /// <para> Next token returned in the response of a previous ListMultipartReadSetUploads call.
-        /// Used to get the next page of results. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NextToken { get; set; }
+        public System.String MonitorName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Uploads'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Omics.Model.ListMultipartReadSetUploadsResponse).
-        /// Specifying the name of a property of type Amazon.Omics.Model.ListMultipartReadSetUploadsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NetworkMonitor.Model.GetMonitorResponse).
+        /// Specifying the name of a property of type Amazon.NetworkMonitor.Model.GetMonitorResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Uploads";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the SequenceStoreId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^SequenceStoreId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the MonitorName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^MonitorName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SequenceStoreId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^MonitorName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -117,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Omics.Model.ListMultipartReadSetUploadsResponse, GetOMICSMultipartReadSetUploadListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.NetworkMonitor.Model.GetMonitorResponse, GetCWNMMonitorCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -126,16 +101,14 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.SequenceStoreId;
+                context.Select = (response, cmdlet) => this.MonitorName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.MaxResult = this.MaxResult;
-            context.NextToken = this.NextToken;
-            context.SequenceStoreId = this.SequenceStoreId;
+            context.MonitorName = this.MonitorName;
             #if MODULAR
-            if (this.SequenceStoreId == null && ParameterWasBound(nameof(this.SequenceStoreId)))
+            if (this.MonitorName == null && ParameterWasBound(nameof(this.MonitorName)))
             {
-                WriteWarning("You are passing $null as a value for parameter SequenceStoreId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter MonitorName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -152,19 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Omics.Model.ListMultipartReadSetUploadsRequest();
+            var request = new Amazon.NetworkMonitor.Model.GetMonitorRequest();
             
-            if (cmdletContext.MaxResult != null)
+            if (cmdletContext.MonitorName != null)
             {
-                request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.NextToken != null)
-            {
-                request.NextToken = cmdletContext.NextToken;
-            }
-            if (cmdletContext.SequenceStoreId != null)
-            {
-                request.SequenceStoreId = cmdletContext.SequenceStoreId;
+                request.MonitorName = cmdletContext.MonitorName;
             }
             
             CmdletOutput output;
@@ -199,15 +164,15 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         
         #region AWS Service Operation Call
         
-        private Amazon.Omics.Model.ListMultipartReadSetUploadsResponse CallAWSServiceOperation(IAmazonOmics client, Amazon.Omics.Model.ListMultipartReadSetUploadsRequest request)
+        private Amazon.NetworkMonitor.Model.GetMonitorResponse CallAWSServiceOperation(IAmazonNetworkMonitor client, Amazon.NetworkMonitor.Model.GetMonitorRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Omics", "ListMultipartReadSetUploads");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Network Monitor", "GetMonitor");
             try
             {
                 #if DESKTOP
-                return client.ListMultipartReadSetUploads(request);
+                return client.GetMonitor(request);
                 #elif CORECLR
-                return client.ListMultipartReadSetUploadsAsync(request).GetAwaiter().GetResult();
+                return client.GetMonitorAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -227,11 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? MaxResult { get; set; }
-            public System.String NextToken { get; set; }
-            public System.String SequenceStoreId { get; set; }
-            public System.Func<Amazon.Omics.Model.ListMultipartReadSetUploadsResponse, GetOMICSMultipartReadSetUploadListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Uploads;
+            public System.String MonitorName { get; set; }
+            public System.Func<Amazon.NetworkMonitor.Model.GetMonitorResponse, GetCWNMMonitorCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

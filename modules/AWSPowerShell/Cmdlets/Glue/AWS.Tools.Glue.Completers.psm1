@@ -332,6 +332,13 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.ViewDialect
+        "Get-GLUEUnfilteredTableMetadata/SupportedDialect_Dialect"
+        {
+            $v = "ATHENA","REDSHIFT","SPARK"
+            break
+        }
+
         # Amazon.Glue.WorkerType
         {
             ($_ -eq "New-GLUEDevEndpoint/WorkerType") -Or
@@ -381,6 +388,7 @@ $GLUE_map = @{
     "Sort_SortDirection"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "SourceControlDetails_AuthStrategy"=@("New-GLUEJob")
     "SourceControlDetails_Provider"=@("New-GLUEJob")
+    "SupportedDialect_Dialect"=@("Get-GLUEUnfilteredTableMetadata")
     "TransformEncryption_MlUserDataEncryption_MlUserDataEncryptionMode"=@("New-GLUEMLTransform")
     "Type"=@("Get-GLUETableOptimizer","Get-GLUETableOptimizerRunList","New-GLUETableOptimizer","New-GLUETrigger","Remove-GLUETableOptimizer","Update-GLUETableOptimizer")
     "WorkerType"=@("New-GLUEDevEndpoint","New-GLUEJob","New-GLUEMLTransform","New-GLUESession","Start-GLUEJobRun","Update-GLUEMLTransform")

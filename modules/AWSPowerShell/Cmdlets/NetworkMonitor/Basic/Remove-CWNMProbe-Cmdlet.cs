@@ -22,74 +22,67 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Glue;
-using Amazon.Glue.Model;
+using Amazon.NetworkMonitor;
+using Amazon.NetworkMonitor.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GLUE
+namespace Amazon.PowerShell.Cmdlets.CWNM
 {
     /// <summary>
-    /// Creates a connection definition in the Data Catalog.
-    /// 
-    ///  
-    /// <para>
-    /// Connections used for creating federated resources require the IAM <code>glue:PassConnection</code>
-    /// permission.
-    /// </para>
+    /// Deletes the specified monitor. Once a probe is deleted you'll no longer incur any
+    /// billing fees for that probe.
     /// </summary>
-    [Cmdlet("New", "GLUEConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "CWNMProbe", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Glue CreateConnection API operation.", Operation = new[] {"CreateConnection"}, SelectReturnType = typeof(Amazon.Glue.Model.CreateConnectionResponse))]
-    [AWSCmdletOutput("None or Amazon.Glue.Model.CreateConnectionResponse",
+    [AWSCmdlet("Calls the Amazon CloudWatch Network Monitor DeleteProbe API operation.", Operation = new[] {"DeleteProbe"}, SelectReturnType = typeof(Amazon.NetworkMonitor.Model.DeleteProbeResponse))]
+    [AWSCmdletOutput("None or Amazon.NetworkMonitor.Model.DeleteProbeResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Glue.Model.CreateConnectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.NetworkMonitor.Model.DeleteProbeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewGLUEConnectionCmdlet : AmazonGlueClientCmdlet, IExecutor
+    public partial class RemoveCWNMProbeCmdlet : AmazonNetworkMonitorClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter CatalogId
+        #region Parameter MonitorName
         /// <summary>
         /// <para>
-        /// <para>The ID of the Data Catalog in which to create the connection. If none is provided,
-        /// the Amazon Web Services account ID is used by default.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String CatalogId { get; set; }
-        #endregion
-        
-        #region Parameter ConnectionInput
-        /// <summary>
-        /// <para>
-        /// <para>A <code>ConnectionInput</code> object defining the connection to create.</para>
+        /// <para>The name of the monitor to delete. For a list of the available monitors, use the <code>ListMonitors</code>
+        /// action.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public Amazon.Glue.Model.ConnectionInput ConnectionInput { get; set; }
+        public System.String MonitorName { get; set; }
         #endregion
         
-        #region Parameter Tag
+        #region Parameter ProbeId
         /// <summary>
         /// <para>
-        /// <para>The tags you assign to the connection.</para>
+        /// <para>The ID of the probe to delete. Run <code>GetMonitor</code> to get a lst of all probes
+        /// and probe IDs associated with the monitor.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ProbeId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.CreateConnectionResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NetworkMonitor.Model.DeleteProbeResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,10 +91,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ConnectionInput parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ConnectionInput' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the MonitorName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^MonitorName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ConnectionInput' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^MonitorName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -121,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-GLUEConnection (CreateConnection)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.MonitorName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CWNMProbe (DeleteProbe)"))
             {
                 return;
             }
@@ -135,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Glue.Model.CreateConnectionResponse, NewGLUEConnectionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.NetworkMonitor.Model.DeleteProbeResponse, RemoveCWNMProbeCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -144,25 +137,23 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ConnectionInput;
+                context.Select = (response, cmdlet) => this.MonitorName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.CatalogId = this.CatalogId;
-            context.ConnectionInput = this.ConnectionInput;
+            context.MonitorName = this.MonitorName;
             #if MODULAR
-            if (this.ConnectionInput == null && ParameterWasBound(nameof(this.ConnectionInput)))
+            if (this.MonitorName == null && ParameterWasBound(nameof(this.MonitorName)))
             {
-                WriteWarning("You are passing $null as a value for parameter ConnectionInput which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter MonitorName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
+            context.ProbeId = this.ProbeId;
+            #if MODULAR
+            if (this.ProbeId == null && ParameterWasBound(nameof(this.ProbeId)))
             {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
-                }
+                WriteWarning("You are passing $null as a value for parameter ProbeId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -177,19 +168,15 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Glue.Model.CreateConnectionRequest();
+            var request = new Amazon.NetworkMonitor.Model.DeleteProbeRequest();
             
-            if (cmdletContext.CatalogId != null)
+            if (cmdletContext.MonitorName != null)
             {
-                request.CatalogId = cmdletContext.CatalogId;
+                request.MonitorName = cmdletContext.MonitorName;
             }
-            if (cmdletContext.ConnectionInput != null)
+            if (cmdletContext.ProbeId != null)
             {
-                request.ConnectionInput = cmdletContext.ConnectionInput;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
+                request.ProbeId = cmdletContext.ProbeId;
             }
             
             CmdletOutput output;
@@ -224,15 +211,15 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region AWS Service Operation Call
         
-        private Amazon.Glue.Model.CreateConnectionResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.CreateConnectionRequest request)
+        private Amazon.NetworkMonitor.Model.DeleteProbeResponse CallAWSServiceOperation(IAmazonNetworkMonitor client, Amazon.NetworkMonitor.Model.DeleteProbeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "CreateConnection");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Network Monitor", "DeleteProbe");
             try
             {
                 #if DESKTOP
-                return client.CreateConnection(request);
+                return client.DeleteProbe(request);
                 #elif CORECLR
-                return client.CreateConnectionAsync(request).GetAwaiter().GetResult();
+                return client.DeleteProbeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -252,10 +239,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String CatalogId { get; set; }
-            public Amazon.Glue.Model.ConnectionInput ConnectionInput { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.Glue.Model.CreateConnectionResponse, NewGLUEConnectionCmdlet, object> Select { get; set; } =
+            public System.String MonitorName { get; set; }
+            public System.String ProbeId { get; set; }
+            public System.Func<Amazon.NetworkMonitor.Model.DeleteProbeResponse, RemoveCWNMProbeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

@@ -22,74 +22,65 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Glue;
-using Amazon.Glue.Model;
+using Amazon.NetworkMonitor;
+using Amazon.NetworkMonitor.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GLUE
+namespace Amazon.PowerShell.Cmdlets.CWNM
 {
     /// <summary>
-    /// Creates a connection definition in the Data Catalog.
-    /// 
-    ///  
-    /// <para>
-    /// Connections used for creating federated resources require the IAM <code>glue:PassConnection</code>
-    /// permission.
-    /// </para>
+    /// Removes a key-value pair from a monitor or probe.
     /// </summary>
-    [Cmdlet("New", "GLUEConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "CWNMResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Glue CreateConnection API operation.", Operation = new[] {"CreateConnection"}, SelectReturnType = typeof(Amazon.Glue.Model.CreateConnectionResponse))]
-    [AWSCmdletOutput("None or Amazon.Glue.Model.CreateConnectionResponse",
+    [AWSCmdlet("Calls the Amazon CloudWatch Network Monitor UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.NetworkMonitor.Model.UntagResourceResponse))]
+    [AWSCmdletOutput("None or Amazon.NetworkMonitor.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Glue.Model.CreateConnectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.NetworkMonitor.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewGLUEConnectionCmdlet : AmazonGlueClientCmdlet, IExecutor
+    public partial class RemoveCWNMResourceTagCmdlet : AmazonNetworkMonitorClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter CatalogId
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ID of the Data Catalog in which to create the connection. If none is provided,
-        /// the Amazon Web Services account ID is used by default.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String CatalogId { get; set; }
-        #endregion
-        
-        #region Parameter ConnectionInput
-        /// <summary>
-        /// <para>
-        /// <para>A <code>ConnectionInput</code> object defining the connection to create.</para>
+        /// <para>The ARN of the monitor or probe that the tag should be removed from. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public Amazon.Glue.Model.ConnectionInput ConnectionInput { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
-        #region Parameter Tag
+        #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>The tags you assign to the connection.</para>
+        /// <para>The key-value pa</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("TagKeys")]
+        public System.String[] TagKey { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.CreateConnectionResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NetworkMonitor.Model.UntagResourceResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,10 +89,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ConnectionInput parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ConnectionInput' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ConnectionInput' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -121,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-GLUEConnection (CreateConnection)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CWNMResourceTag (UntagResource)"))
             {
                 return;
             }
@@ -135,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Glue.Model.CreateConnectionResponse, NewGLUEConnectionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.NetworkMonitor.Model.UntagResourceResponse, RemoveCWNMResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -144,25 +135,26 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ConnectionInput;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.CatalogId = this.CatalogId;
-            context.ConnectionInput = this.ConnectionInput;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.ConnectionInput == null && ParameterWasBound(nameof(this.ConnectionInput)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter ConnectionInput which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
+            if (this.TagKey != null)
             {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
-                }
+                context.TagKey = new List<System.String>(this.TagKey);
             }
+            #if MODULAR
+            if (this.TagKey == null && ParameterWasBound(nameof(this.TagKey)))
+            {
+                WriteWarning("You are passing $null as a value for parameter TagKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -177,19 +169,15 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Glue.Model.CreateConnectionRequest();
+            var request = new Amazon.NetworkMonitor.Model.UntagResourceRequest();
             
-            if (cmdletContext.CatalogId != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.CatalogId = cmdletContext.CatalogId;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
-            if (cmdletContext.ConnectionInput != null)
+            if (cmdletContext.TagKey != null)
             {
-                request.ConnectionInput = cmdletContext.ConnectionInput;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
+                request.TagKeys = cmdletContext.TagKey;
             }
             
             CmdletOutput output;
@@ -224,15 +212,15 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region AWS Service Operation Call
         
-        private Amazon.Glue.Model.CreateConnectionResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.CreateConnectionRequest request)
+        private Amazon.NetworkMonitor.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonNetworkMonitor client, Amazon.NetworkMonitor.Model.UntagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "CreateConnection");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Network Monitor", "UntagResource");
             try
             {
                 #if DESKTOP
-                return client.CreateConnection(request);
+                return client.UntagResource(request);
                 #elif CORECLR
-                return client.CreateConnectionAsync(request).GetAwaiter().GetResult();
+                return client.UntagResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -252,10 +240,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String CatalogId { get; set; }
-            public Amazon.Glue.Model.ConnectionInput ConnectionInput { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.Glue.Model.CreateConnectionResponse, NewGLUEConnectionCmdlet, object> Select { get; set; } =
+            public System.String ResourceArn { get; set; }
+            public List<System.String> TagKey { get; set; }
+            public System.Func<Amazon.NetworkMonitor.Model.UntagResourceResponse, RemoveCWNMResourceTagCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

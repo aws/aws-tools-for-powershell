@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>networkmonitor</C2jFilename>
+    <AssemblyName>NetworkMonitor</AssemblyName>
+    <ServiceNounPrefix>CWNM</ServiceNounPrefix>
+    <ServiceName>Amazon CloudWatch Network Monitor</ServiceName>
+    <ServiceClientInterface>IAmazonNetworkMonitor</ServiceClientInterface>
+    <ServiceClient>AmazonNetworkMonitorClient</ServiceClient>
+    <ServiceModuleGuid>b797341d-198c-448f-8a72-5e883a9bb1a2</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateMonitor" OutputProperty="*" Verb="New" Noun="Monitor" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProbe" OutputProperty="*" Verb="New" Noun="Probe" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMonitor" Verb="Remove" Noun="Monitor" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProbe" Verb="Remove" Noun="Probe" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMonitor" OutputProperty="*" Verb="Get" Noun="Monitor" PipelineParameter="MonitorName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProbe" OutputProperty="*" Verb="Get" Noun="Probe" PipelineParameter="MonitorName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMonitors" OutputProperty="Monitors" Verb="Get" Noun="MonitorList" PipelineParameter="State" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMonitor" OutputProperty="*" Verb="Update" Noun="Monitor" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProbe" OutputProperty="*" Verb="Update" Noun="Probe" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

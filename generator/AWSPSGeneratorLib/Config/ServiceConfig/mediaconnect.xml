@@ -86,6 +86,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFlowSourceMetadata" OutputProperty="*" Verb="Get" Noun="FlowSourceMetadata" PipelineParameter="FlowArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeGateway" OutputProperty="Gateway" Verb="Get" Noun="Gateway" PipelineParameter="GatewayArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

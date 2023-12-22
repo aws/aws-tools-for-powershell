@@ -272,6 +272,7 @@ $EMCN_SelectMap = @{
                "Remove-EMCNGatewayInstance",
                "Get-EMCNBridge",
                "Get-EMCNFlow",
+               "Get-EMCNFlowSourceMetadata",
                "Get-EMCNGateway",
                "Get-EMCNGatewayInstance",
                "Get-EMCNOffering",

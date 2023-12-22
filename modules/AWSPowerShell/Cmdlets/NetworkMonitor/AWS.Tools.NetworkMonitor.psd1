@@ -1,10 +1,10 @@
 #
-# Module manifest for module 'AWS.Tools.MediaConnect'
+# Module manifest for module 'AWS.Tools.NetworkMonitor'
 #
 
 @{
     # Script module or binary module file associated with this manifest
-    RootModule = 'AWS.Tools.MediaConnect.dll'
+    RootModule = 'AWS.Tools.NetworkMonitor.dll'
 
     # Supported PSEditions
     CompatiblePSEditions = @('Core', 'Desktop')
@@ -13,7 +13,7 @@
     ModuleVersion = '0.0.0.0'
 
     # ID used to uniquely identify this module
-    GUID = 'f244859e-3750-4b11-b823-3aa8d32a1847'
+    GUID = 'b797341d-198c-448f-8a72-5e883a9bb1a2'
 
     # Author of this module
     Author = 'Amazon.com, Inc'
@@ -25,7 +25,7 @@
     Copyright = 'Copyright 2012-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
-    Description = 'The MediaConnect module of AWS Tools for PowerShell lets developers and administrators manage AWS Elemental MediaConnect from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
+    Description = 'The NetworkMonitor module of AWS Tools for PowerShell lets developers and administrators manage Amazon CloudWatch Network Monitor from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
 The module AWS.Tools.Installer (https://www.powershellgallery.com/packages/AWS.Tools.Installer/) makes it easier to install, update and uninstall the AWS.Tools modules.
 This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5.1+ and PowerShell Core 6+ on Windows, Linux and macOS. When running on Windows PowerShell, .NET Framework 4.7.2 or newer is required. Alternative modules AWSPowerShell.NetCore and AWSPowerShell, provide support for all AWS services from a single module and also support older versions of Windows PowerShell and .NET Framework.'
 
@@ -57,7 +57,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Assemblies that must be loaded prior to importing this module.
     RequiredAssemblies = @(
-        'AWSSDK.MediaConnect.dll'
+        'AWSSDK.NetworkMonitor.dll'
     )
 
     # Script files (.ps1) that are run in the caller's environment prior to importing this module
@@ -72,13 +72,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Format files (.ps1xml) to be loaded when importing this module
     FormatsToProcess = @(
-        'AWS.Tools.MediaConnect.Format.ps1xml'
+        'AWS.Tools.NetworkMonitor.Format.ps1xml'
     )
 
     # Modules to import as nested modules of the module specified in ModuleToProcess
     NestedModules = @(
-        'AWS.Tools.MediaConnect.Completers.psm1',
-        'AWS.Tools.MediaConnect.Aliases.psm1'
+        'AWS.Tools.NetworkMonitor.Completers.psm1',
+        'AWS.Tools.NetworkMonitor.Aliases.psm1'
     )
 
     # Functions to export from this module
@@ -86,57 +86,18 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
-        'Add-EMCNBridgeOutput', 
-        'Add-EMCNBridgeSource', 
-        'Add-EMCNFlowMediaStream', 
-        'Add-EMCNFlowOutput', 
-        'Add-EMCNFlowSource', 
-        'Add-EMCNFlowVpcInterface', 
-        'Add-EMCNResourceTag', 
-        'Get-EMCNBridge', 
-        'Get-EMCNBridgeList', 
-        'Get-EMCNEntitlementList', 
-        'Get-EMCNFlow', 
-        'Get-EMCNFlowList', 
-        'Get-EMCNFlowSourceMetadata', 
-        'Get-EMCNGateway', 
-        'Get-EMCNGatewayInstance', 
-        'Get-EMCNGatewayInstanceList', 
-        'Get-EMCNGatewayList', 
-        'Get-EMCNOffering', 
-        'Get-EMCNOfferingList', 
-        'Get-EMCNReservation', 
-        'Get-EMCNReservationList', 
-        'Get-EMCNResourceTag', 
-        'Grant-EMCNFlowEntitlement', 
-        'New-EMCNBridge', 
-        'New-EMCNFlow', 
-        'New-EMCNGateway', 
-        'New-EMCNOffering', 
-        'Remove-EMCNBridge', 
-        'Remove-EMCNBridgeOutput', 
-        'Remove-EMCNBridgeSource', 
-        'Remove-EMCNFlow', 
-        'Remove-EMCNFlowMediaStream', 
-        'Remove-EMCNFlowOutput', 
-        'Remove-EMCNFlowSource', 
-        'Remove-EMCNFlowVpcInterface', 
-        'Remove-EMCNGateway', 
-        'Remove-EMCNGatewayInstance', 
-        'Remove-EMCNResourceTag', 
-        'Revoke-EMCNFlowEntitlement', 
-        'Start-EMCNFlow', 
-        'Stop-EMCNFlow', 
-        'Update-EMCNBridge', 
-        'Update-EMCNBridgeOutput', 
-        'Update-EMCNBridgeSource', 
-        'Update-EMCNBridgeState', 
-        'Update-EMCNFlow', 
-        'Update-EMCNFlowEntitlement', 
-        'Update-EMCNFlowMediaStream', 
-        'Update-EMCNFlowOutput', 
-        'Update-EMCNFlowSource', 
-        'Update-EMCNGatewayInstance')
+        'Add-CWNMResourceTag', 
+        'Get-CWNMMonitor', 
+        'Get-CWNMMonitorList', 
+        'Get-CWNMProbe', 
+        'Get-CWNMResourceTag', 
+        'New-CWNMMonitor', 
+        'New-CWNMProbe', 
+        'Remove-CWNMMonitor', 
+        'Remove-CWNMProbe', 
+        'Remove-CWNMResourceTag', 
+        'Update-CWNMMonitor', 
+        'Update-CWNMProbe')
 
     # Variables to export from this module
     VariablesToExport = '*'
@@ -149,7 +110,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # List of all files packaged with this module
     FileList = @(
-        'AWS.Tools.MediaConnect.dll-Help.xml'
+        'AWS.Tools.NetworkMonitor.dll-Help.xml'
     )
 
     # Private data to pass to the module specified in ModuleToProcess

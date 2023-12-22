@@ -1,4 +1,16 @@
-﻿### 4.1.481 (2023-12-21 21:57Z)
+﻿### 4.1.482 (2023-12-22 22:07Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.715.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch Network Monitor. Added cmdlets to support the service. Cmdlets for the service have the noun prefix CWNM and can be listed using the command 'Get-AWSCmdletName -Service CWNM'.
+  * Amazon Elemental MediaConnect
+    * Added cmdlet Get-EMCNFlowSourceMetadata leveraging the DescribeFlowSourceMetadata service API.
+  * Amazon Glue
+    * Modified cmdlet Get-GLUEUnfilteredPartitionMetadata: added parameters QuerySessionContext_AdditionalContext, QuerySessionContext_ClusterId, QuerySessionContext_QueryAuthorizationId, QuerySessionContext_QueryId, QuerySessionContext_QueryStartTime and ResourceRegion.
+    * Modified cmdlet Get-GLUEUnfilteredPartitionsMetadata: added parameters QuerySessionContext_AdditionalContext, QuerySessionContext_ClusterId, QuerySessionContext_QueryAuthorizationId, QuerySessionContext_QueryId, QuerySessionContext_QueryStartTime and ResourceRegion.
+    * Modified cmdlet Get-GLUEUnfilteredTableMetadata: added parameters Permission, QuerySessionContext_AdditionalContext, QuerySessionContext_ClusterId, QuerySessionContext_QueryAuthorizationId, QuerySessionContext_QueryId, QuerySessionContext_QueryStartTime, ResourceRegion, SupportedDialect_Dialect and SupportedDialect_DialectVersion.
+  * Amazon Lake Formation
+    * Modified cmdlet Get-LKFTemporaryGlueTableCredential: added parameters QuerySessionContext_AdditionalContext, QuerySessionContext_ClusterId, QuerySessionContext_QueryAuthorizationId, QuerySessionContext_QueryId, QuerySessionContext_QueryStartTime and S3Path.
+
+### 4.1.481 (2023-12-21 21:57Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.714.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Agents for Amazon Bedrock
     * Modified cmdlet New-AABKnowledgeBase: added parameters FieldMapping_MetadataField, FieldMapping_PrimaryKeyField, FieldMapping_TextField, FieldMapping_VectorField, RdsConfiguration_CredentialsSecretArn, RdsConfiguration_DatabaseName, RdsConfiguration_ResourceArn and RdsConfiguration_TableName.

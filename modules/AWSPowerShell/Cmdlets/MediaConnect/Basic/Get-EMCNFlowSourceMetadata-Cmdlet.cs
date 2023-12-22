@@ -22,32 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Omics;
-using Amazon.Omics.Model;
+using Amazon.MediaConnect;
+using Amazon.MediaConnect.Model;
 
-namespace Amazon.PowerShell.Cmdlets.OMICS
+namespace Amazon.PowerShell.Cmdlets.EMCN
 {
     /// <summary>
-    /// Lists multipart read set uploads and for in progress uploads. Once the upload is
-    /// completed, a read set is created and the upload will no longer be returned in the
-    /// respone.
+    /// Displays details of the flow's source stream. The response contains information about
+    /// the contents of the stream and its programs.
     /// </summary>
-    [Cmdlet("Get", "OMICSMultipartReadSetUploadList")]
-    [OutputType("Amazon.Omics.Model.MultipartReadSetUploadListItem")]
-    [AWSCmdlet("Calls the Amazon Omics ListMultipartReadSetUploads API operation.", Operation = new[] {"ListMultipartReadSetUploads"}, SelectReturnType = typeof(Amazon.Omics.Model.ListMultipartReadSetUploadsResponse))]
-    [AWSCmdletOutput("Amazon.Omics.Model.MultipartReadSetUploadListItem or Amazon.Omics.Model.ListMultipartReadSetUploadsResponse",
-        "This cmdlet returns a collection of Amazon.Omics.Model.MultipartReadSetUploadListItem objects.",
-        "The service call response (type Amazon.Omics.Model.ListMultipartReadSetUploadsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "EMCNFlowSourceMetadata")]
+    [OutputType("Amazon.MediaConnect.Model.DescribeFlowSourceMetadataResponse")]
+    [AWSCmdlet("Calls the AWS Elemental MediaConnect DescribeFlowSourceMetadata API operation.", Operation = new[] {"DescribeFlowSourceMetadata"}, SelectReturnType = typeof(Amazon.MediaConnect.Model.DescribeFlowSourceMetadataResponse))]
+    [AWSCmdletOutput("Amazon.MediaConnect.Model.DescribeFlowSourceMetadataResponse",
+        "This cmdlet returns an Amazon.MediaConnect.Model.DescribeFlowSourceMetadataResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetOMICSMultipartReadSetUploadListCmdlet : AmazonOmicsClientCmdlet, IExecutor
+    public partial class GetEMCNFlowSourceMetadataCmdlet : AmazonMediaConnectClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter SequenceStoreId
+        #region Parameter FlowArn
         /// <summary>
         /// <para>
-        /// <para> The Sequence Store ID used for the multipart uploads. </para>
+        /// The Amazon Resource Name (ARN) of the flow.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -58,48 +56,26 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String SequenceStoreId { get; set; }
-        #endregion
-        
-        #region Parameter MaxResult
-        /// <summary>
-        /// <para>
-        /// <para> The maximum number of multipart uploads returned in a page. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
-        #endregion
-        
-        #region Parameter NextToken
-        /// <summary>
-        /// <para>
-        /// <para> Next token returned in the response of a previous ListMultipartReadSetUploads call.
-        /// Used to get the next page of results. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NextToken { get; set; }
+        public System.String FlowArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Uploads'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Omics.Model.ListMultipartReadSetUploadsResponse).
-        /// Specifying the name of a property of type Amazon.Omics.Model.ListMultipartReadSetUploadsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MediaConnect.Model.DescribeFlowSourceMetadataResponse).
+        /// Specifying the name of a property of type Amazon.MediaConnect.Model.DescribeFlowSourceMetadataResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Uploads";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the SequenceStoreId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^SequenceStoreId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the FlowArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^FlowArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SequenceStoreId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^FlowArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -117,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Omics.Model.ListMultipartReadSetUploadsResponse, GetOMICSMultipartReadSetUploadListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.MediaConnect.Model.DescribeFlowSourceMetadataResponse, GetEMCNFlowSourceMetadataCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -126,16 +102,14 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.SequenceStoreId;
+                context.Select = (response, cmdlet) => this.FlowArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.MaxResult = this.MaxResult;
-            context.NextToken = this.NextToken;
-            context.SequenceStoreId = this.SequenceStoreId;
+            context.FlowArn = this.FlowArn;
             #if MODULAR
-            if (this.SequenceStoreId == null && ParameterWasBound(nameof(this.SequenceStoreId)))
+            if (this.FlowArn == null && ParameterWasBound(nameof(this.FlowArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter SequenceStoreId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter FlowArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -152,19 +126,11 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Omics.Model.ListMultipartReadSetUploadsRequest();
+            var request = new Amazon.MediaConnect.Model.DescribeFlowSourceMetadataRequest();
             
-            if (cmdletContext.MaxResult != null)
+            if (cmdletContext.FlowArn != null)
             {
-                request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.NextToken != null)
-            {
-                request.NextToken = cmdletContext.NextToken;
-            }
-            if (cmdletContext.SequenceStoreId != null)
-            {
-                request.SequenceStoreId = cmdletContext.SequenceStoreId;
+                request.FlowArn = cmdletContext.FlowArn;
             }
             
             CmdletOutput output;
@@ -199,15 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         
         #region AWS Service Operation Call
         
-        private Amazon.Omics.Model.ListMultipartReadSetUploadsResponse CallAWSServiceOperation(IAmazonOmics client, Amazon.Omics.Model.ListMultipartReadSetUploadsRequest request)
+        private Amazon.MediaConnect.Model.DescribeFlowSourceMetadataResponse CallAWSServiceOperation(IAmazonMediaConnect client, Amazon.MediaConnect.Model.DescribeFlowSourceMetadataRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Omics", "ListMultipartReadSetUploads");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental MediaConnect", "DescribeFlowSourceMetadata");
             try
             {
                 #if DESKTOP
-                return client.ListMultipartReadSetUploads(request);
+                return client.DescribeFlowSourceMetadata(request);
                 #elif CORECLR
-                return client.ListMultipartReadSetUploadsAsync(request).GetAwaiter().GetResult();
+                return client.DescribeFlowSourceMetadataAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -227,11 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? MaxResult { get; set; }
-            public System.String NextToken { get; set; }
-            public System.String SequenceStoreId { get; set; }
-            public System.Func<Amazon.Omics.Model.ListMultipartReadSetUploadsResponse, GetOMICSMultipartReadSetUploadListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Uploads;
+            public System.String FlowArn { get; set; }
+            public System.Func<Amazon.MediaConnect.Model.DescribeFlowSourceMetadataResponse, GetEMCNFlowSourceMetadataCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

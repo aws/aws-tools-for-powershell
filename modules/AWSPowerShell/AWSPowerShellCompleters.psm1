@@ -29451,6 +29451,13 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.ViewDialect
+        "Get-GLUEUnfilteredTableMetadata/SupportedDialect_Dialect"
+        {
+            $v = "ATHENA","REDSHIFT","SPARK"
+            break
+        }
+
         # Amazon.Glue.WorkerType
         {
             ($_ -eq "New-GLUEDevEndpoint/WorkerType") -Or
@@ -29500,6 +29507,7 @@ $GLUE_map = @{
     "Sort_SortDirection"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "SourceControlDetails_AuthStrategy"=@("New-GLUEJob")
     "SourceControlDetails_Provider"=@("New-GLUEJob")
+    "SupportedDialect_Dialect"=@("Get-GLUEUnfilteredTableMetadata")
     "TransformEncryption_MlUserDataEncryption_MlUserDataEncryptionMode"=@("New-GLUEMLTransform")
     "Type"=@("Get-GLUETableOptimizer","Get-GLUETableOptimizerRunList","New-GLUETableOptimizer","New-GLUETrigger","Remove-GLUETableOptimizer","Update-GLUETableOptimizer")
     "WorkerType"=@("New-GLUEDevEndpoint","New-GLUEJob","New-GLUEMLTransform","New-GLUESession","Start-GLUEJobRun","Update-GLUEMLTransform")
@@ -41517,6 +41525,7 @@ $EMCN_SelectMap = @{
                "Remove-EMCNGatewayInstance",
                "Get-EMCNBridge",
                "Get-EMCNFlow",
+               "Get-EMCNFlowSourceMetadata",
                "Get-EMCNGateway",
                "Get-EMCNGatewayInstance",
                "Get-EMCNOffering",
@@ -46156,6 +46165,110 @@ $NMGR_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $NMGR_SelectCompleters $NMGR_SelectMap
+# Argument completions for service Amazon CloudWatch Network Monitor
+
+
+$CWNM_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.NetworkMonitor.ProbeState
+        "Update-CWNMProbe/State"
+        {
+            $v = "ACTIVE","DELETED","DELETING","ERROR","INACTIVE","PENDING"
+            break
+        }
+
+        # Amazon.NetworkMonitor.Protocol
+        {
+            ($_ -eq "New-CWNMProbe/Probe_Protocol") -Or
+            ($_ -eq "Update-CWNMProbe/Protocol")
+        }
+        {
+            $v = "ICMP","TCP"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CWNM_map = @{
+    "Probe_Protocol"=@("New-CWNMProbe")
+    "Protocol"=@("Update-CWNMProbe")
+    "State"=@("Update-CWNMProbe")
+}
+
+_awsArgumentCompleterRegistration $CWNM_Completers $CWNM_map
+
+$CWNM_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.CWNM.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CWNM_SelectMap = @{
+    "Select"=@("New-CWNMMonitor",
+               "New-CWNMProbe",
+               "Remove-CWNMMonitor",
+               "Remove-CWNMProbe",
+               "Get-CWNMMonitor",
+               "Get-CWNMProbe",
+               "Get-CWNMMonitorList",
+               "Get-CWNMResourceTag",
+               "Add-CWNMResourceTag",
+               "Remove-CWNMResourceTag",
+               "Update-CWNMMonitor",
+               "Update-CWNMProbe")
+}
+
+_awsArgumentCompleterRegistration $CWNM_SelectCompleters $CWNM_SelectMap
 # Argument completions for service Amazon Nimble Studio
 
 
