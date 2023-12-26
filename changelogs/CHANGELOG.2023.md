@@ -1,4 +1,7 @@
-﻿### 4.1.482 (2023-12-22 22:07Z)
+﻿### 4.1.483 (2023-12-26 21:59Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.715.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 4.1.482 (2023-12-22 22:07Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.715.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Network Monitor. Added cmdlets to support the service. Cmdlets for the service have the noun prefix CWNM and can be listed using the command 'Get-AWSCmdletName -Service CWNM'.
   * Amazon Elemental MediaConnect
