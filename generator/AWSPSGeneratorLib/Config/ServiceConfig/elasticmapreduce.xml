@@ -228,6 +228,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SetKeepJobFlowAliveWhenNoSteps" Verb="Set" Noun="KeepJobFlowAliveWhenNoStep" ShouldProcessTarget="KeepJobFlowAliveWhenNoSteps" PipelineParameter="KeepJobFlowAliveWhenNoSteps" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SetTerminationProtection" Verb="Set" Noun="TerminationProtection" ShouldProcessTarget="JobFlowIds" PositionalParameters="TerminationProtected" PipelineParameter="JobFlowIds" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

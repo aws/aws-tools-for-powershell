@@ -25303,6 +25303,7 @@ $EMR_SelectMap = @{
                "Remove-EMRManagedScalingPolicy",
                "Remove-EMRResourceTag",
                "Start-EMRJobFlow",
+               "Set-EMRKeepJobFlowAliveWhenNoStep",
                "Set-EMRTerminationProtection",
                "Set-EMRVisibleToAllUser",
                "Start-EMRNotebookExecution",

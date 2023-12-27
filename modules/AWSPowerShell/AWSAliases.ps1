@@ -10616,6 +10616,8 @@ Set-Alias -Name Remove-EMRTags -Value Remove-EMRResourceTag
 Set-Alias -Name EMR-RemoveTags -Value Remove-EMRResourceTag
 Set-Alias -Name Run-EMRJobFlow -Value Start-EMRJobFlow
 Set-Alias -Name EMR-RunJobFlow -Value Start-EMRJobFlow
+Set-Alias -Name Set-EMRKeepJobFlowAliveWhenNoSteps -Value Set-EMRKeepJobFlowAliveWhenNoStep
+Set-Alias -Name EMR-SetKeepJobFlowAliveWhenNoSteps -Value Set-EMRKeepJobFlowAliveWhenNoStep
 Set-Alias -Name EMR-SetTerminationProtection -Value Set-EMRTerminationProtection
 Set-Alias -Name Set-EMRVisibleToAllUsers -Value Set-EMRVisibleToAllUser
 Set-Alias -Name EMR-SetVisibleToAllUsers -Value Set-EMRVisibleToAllUser

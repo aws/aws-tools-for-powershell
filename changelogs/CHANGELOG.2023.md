@@ -1,4 +1,9 @@
-﻿### 4.1.483 (2023-12-26 21:59Z)
+﻿### 4.1.484 (2023-12-27 21:58Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.716.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic MapReduce
+    * Added cmdlet Set-EMRKeepJobFlowAliveWhenNoStep leveraging the SetKeepJobFlowAliveWhenNoSteps service API.
+
+### 4.1.483 (2023-12-26 21:59Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.715.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.482 (2023-12-22 22:07Z)
