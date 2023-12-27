@@ -4,6 +4,6 @@
     <code>Remove-CCRepository -RepositoryName MyDemoRepo
 
 43ef2443-3372-4b12-9e78-65c27EXAMPLE</code>
-	<description>This example forcibly deletes the specified repository. The command will prompt for confirmation before proceeding. Add the –Force parameter to delete the repository without a prompt.</description>
+	<description>This example forcibly deletes the specified repository. The command will prompt for confirmation before proceeding. Add the -Force parameter to delete the repository without a prompt.</description>
   </example>
 </examples>

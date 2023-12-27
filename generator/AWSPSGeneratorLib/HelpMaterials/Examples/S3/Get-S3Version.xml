@@ -9,7 +9,7 @@ KeyMarker           :
 VersionIdMarker     : 
 NextKeyMarker       : 
 NextVersionIdMarker : 
-Versions            : {EC2.txt, EC2MicrosoftWindowsGuide.txt, ListDirectories.json, ListTrusts.json…}
+Versions            : {EC2.txt, EC2MicrosoftWindowsGuide.txt, ListDirectories.json, ListTrusts.json}
 Name                : s3testbucket
 Prefix              : 
 MaxKeys             : 1000

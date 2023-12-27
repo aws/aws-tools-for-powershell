@@ -2,6 +2,6 @@
 <examples>
   <example>
     <code>Remove-CDOnPremiseInstanceTag -InstanceName AssetTag12010298EX -Tag @{"Key" = "Name"; "Value" = "CodeDeployDemo-OnPrem"}</code>
-	<description>This example deletes the specified tag for the on-premises instance with the specified name. The command will prompt for confirmation before proceeding. Add the –Force parameter to delete the tag without a prompt.</description>
+	<description>This example deletes the specified tag for the on-premises instance with the specified name. The command will prompt for confirmation before proceeding. Add the -Force parameter to delete the tag without a prompt.</description>
   </example>
 </examples>
