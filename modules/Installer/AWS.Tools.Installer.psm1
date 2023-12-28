@@ -408,6 +408,11 @@ function Get-AWSToolsModuleDependenciesAndValidate {
     Install-AWSToolsModule EC2,S3 -RequiredVersion 4.0.0.0
 
     This example installs version 4.0.0.0 of AWS.Tools.EC2, AWS.Tools.S3 and their dependencies.
+
+.Example
+    Get-AWSService -Service EFS | Install-AWSToolsModule -RequiredVersion 4.1.463
+
+    This example installs version 4.1.463 of AWS.Tools.ElasticFileSystem and its dependencies.
 #>
 function Install-AWSToolsModule {
     [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'High')]
@@ -416,6 +421,7 @@ function Install-AWSToolsModule {
         ## The names can be listed either with or without the "AWS.Tools." prefix (i.e. "AWS.Tools.Common" or simply "Common").
         [Parameter(ValueFromPipelineByPropertyName, ValueFromPipeline, Mandatory, Position = 0)]
         [string[]]
+        [Alias('ModuleName')]
         $Name,
 
         ## Specifies exact version number of the module to install.
