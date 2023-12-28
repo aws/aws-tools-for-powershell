@@ -460,6 +460,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.FeatureStatus
+        {
+            ($_ -eq "New-SMDomain/DomainSettings_DockerSettings_EnableDockerAccess") -Or
+            ($_ -eq "Update-SMDomain/DomainSettingsForUpdate_DockerSettings_EnableDockerAccess")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.SageMaker.FlatInvocations
         "New-SMInferenceRecommendationsJob/StoppingConditions_FlatInvocations"
         {
@@ -1480,8 +1490,10 @@ $SM_map = @{
     "DesiredState"=@("Stop-SMInferenceExperiment")
     "DirectInternetAccess"=@("New-SMNotebookInstance")
     "Direction"=@("Find-SMLineage")
+    "DomainSettings_DockerSettings_EnableDockerAccess"=@("New-SMDomain")
     "DomainSettings_ExecutionRoleIdentityConfig"=@("New-SMDomain")
     "DomainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_InstanceType"=@("New-SMDomain")
+    "DomainSettingsForUpdate_DockerSettings_EnableDockerAccess"=@("Update-SMDomain")
     "DomainSettingsForUpdate_ExecutionRoleIdentityConfig"=@("Update-SMDomain")
     "DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_InstanceType"=@("Update-SMDomain")
     "ExplainerConfig_ClarifyExplainerConfig_ShapConfig_TextConfig_Granularity"=@("New-SMEndpointConfig")

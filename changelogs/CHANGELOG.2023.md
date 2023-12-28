@@ -1,4 +1,10 @@
-﻿### 4.1.484 (2023-12-27 21:58Z)
+﻿### 4.1.485 (2023-12-28 22:22Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.717.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMDomain: added parameters DockerSettings_EnableDockerAccess and DockerSettings_VpcOnlyTrustedAccount.
+    * Modified cmdlet Update-SMDomain: added parameters DockerSettings_EnableDockerAccess and DockerSettings_VpcOnlyTrustedAccount.
+
+### 4.1.484 (2023-12-27 21:58Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.716.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic MapReduce
     * Added cmdlet Set-EMRKeepJobFlowAliveWhenNoStep leveraging the SetKeepJobFlowAliveWhenNoSteps service API.

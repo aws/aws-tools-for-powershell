@@ -192,6 +192,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String DomainName { get; set; }
         #endregion
         
+        #region Parameter DockerSettings_EnableDockerAccess
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the domain can access Docker.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainSettings_DockerSettings_EnableDockerAccess")]
+        [AWSConstantClassSource("Amazon.SageMaker.FeatureStatus")]
+        public Amazon.SageMaker.FeatureStatus DockerSettings_EnableDockerAccess { get; set; }
+        #endregion
+        
         #region Parameter DefaultSpaceSettings_ExecutionRole
         /// <summary>
         /// <para>
@@ -511,6 +523,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String VpcId { get; set; }
         #endregion
         
+        #region Parameter DockerSettings_VpcOnlyTrustedAccount
+        /// <summary>
+        /// <para>
+        /// <para>The list of Amazon Web Services accounts that are trusted when the domain is created
+        /// in VPC-only mode.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainSettings_DockerSettings_VpcOnlyTrustedAccounts")]
+        public System.String[] DockerSettings_VpcOnlyTrustedAccount { get; set; }
+        #endregion
+        
         #region Parameter HomeEfsFileSystemKmsKeyId
         /// <summary>
         /// <para>
@@ -639,6 +663,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DockerSettings_EnableDockerAccess = this.DockerSettings_EnableDockerAccess;
+            if (this.DockerSettings_VpcOnlyTrustedAccount != null)
+            {
+                context.DockerSettings_VpcOnlyTrustedAccount = new List<System.String>(this.DockerSettings_VpcOnlyTrustedAccount);
+            }
             context.DomainSettings_ExecutionRoleIdentityConfig = this.DomainSettings_ExecutionRoleIdentityConfig;
             context.DefaultResourceSpec_InstanceType = this.DefaultResourceSpec_InstanceType;
             context.DefaultResourceSpec_LifecycleConfigArn = this.DefaultResourceSpec_LifecycleConfigArn;
@@ -966,6 +995,41 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.DomainSettings.SecurityGroupIds = requestDomainSettings_domainSettings_SecurityGroupId;
                 requestDomainSettingsIsNull = false;
             }
+            Amazon.SageMaker.Model.DockerSettings requestDomainSettings_domainSettings_DockerSettings = null;
+            
+             // populate DockerSettings
+            var requestDomainSettings_domainSettings_DockerSettingsIsNull = true;
+            requestDomainSettings_domainSettings_DockerSettings = new Amazon.SageMaker.Model.DockerSettings();
+            Amazon.SageMaker.FeatureStatus requestDomainSettings_domainSettings_DockerSettings_dockerSettings_EnableDockerAccess = null;
+            if (cmdletContext.DockerSettings_EnableDockerAccess != null)
+            {
+                requestDomainSettings_domainSettings_DockerSettings_dockerSettings_EnableDockerAccess = cmdletContext.DockerSettings_EnableDockerAccess;
+            }
+            if (requestDomainSettings_domainSettings_DockerSettings_dockerSettings_EnableDockerAccess != null)
+            {
+                requestDomainSettings_domainSettings_DockerSettings.EnableDockerAccess = requestDomainSettings_domainSettings_DockerSettings_dockerSettings_EnableDockerAccess;
+                requestDomainSettings_domainSettings_DockerSettingsIsNull = false;
+            }
+            List<System.String> requestDomainSettings_domainSettings_DockerSettings_dockerSettings_VpcOnlyTrustedAccount = null;
+            if (cmdletContext.DockerSettings_VpcOnlyTrustedAccount != null)
+            {
+                requestDomainSettings_domainSettings_DockerSettings_dockerSettings_VpcOnlyTrustedAccount = cmdletContext.DockerSettings_VpcOnlyTrustedAccount;
+            }
+            if (requestDomainSettings_domainSettings_DockerSettings_dockerSettings_VpcOnlyTrustedAccount != null)
+            {
+                requestDomainSettings_domainSettings_DockerSettings.VpcOnlyTrustedAccounts = requestDomainSettings_domainSettings_DockerSettings_dockerSettings_VpcOnlyTrustedAccount;
+                requestDomainSettings_domainSettings_DockerSettingsIsNull = false;
+            }
+             // determine if requestDomainSettings_domainSettings_DockerSettings should be set to null
+            if (requestDomainSettings_domainSettings_DockerSettingsIsNull)
+            {
+                requestDomainSettings_domainSettings_DockerSettings = null;
+            }
+            if (requestDomainSettings_domainSettings_DockerSettings != null)
+            {
+                request.DomainSettings.DockerSettings = requestDomainSettings_domainSettings_DockerSettings;
+                requestDomainSettingsIsNull = false;
+            }
             Amazon.SageMaker.Model.RStudioServerProDomainSettings requestDomainSettings_domainSettings_RStudioServerProDomainSettings = null;
             
              // populate RStudioServerProDomainSettings
@@ -1185,6 +1249,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public List<System.String> DefaultSpaceSettings_SecurityGroup { get; set; }
             public Amazon.SageMaker.Model.UserSettings DefaultUserSetting { get; set; }
             public System.String DomainName { get; set; }
+            public Amazon.SageMaker.FeatureStatus DockerSettings_EnableDockerAccess { get; set; }
+            public List<System.String> DockerSettings_VpcOnlyTrustedAccount { get; set; }
             public Amazon.SageMaker.ExecutionRoleIdentityConfig DomainSettings_ExecutionRoleIdentityConfig { get; set; }
             public Amazon.SageMaker.AppInstanceType DefaultResourceSpec_InstanceType { get; set; }
             public System.String DefaultResourceSpec_LifecycleConfigArn { get; set; }

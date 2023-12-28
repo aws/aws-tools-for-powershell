@@ -135,6 +135,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String DomainId { get; set; }
         #endregion
         
+        #region Parameter DockerSettings_EnableDockerAccess
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the domain can access Docker.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainSettingsForUpdate_DockerSettings_EnableDockerAccess")]
+        [AWSConstantClassSource("Amazon.SageMaker.FeatureStatus")]
+        public Amazon.SageMaker.FeatureStatus DockerSettings_EnableDockerAccess { get; set; }
+        #endregion
+        
         #region Parameter DefaultSpaceSettings_ExecutionRole
         /// <summary>
         /// <para>
@@ -407,6 +419,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String[] SubnetId { get; set; }
         #endregion
         
+        #region Parameter DockerSettings_VpcOnlyTrustedAccount
+        /// <summary>
+        /// <para>
+        /// <para>The list of Amazon Web Services accounts that are trusted when the domain is created
+        /// in VPC-only mode.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainSettingsForUpdate_DockerSettings_VpcOnlyTrustedAccounts")]
+        public System.String[] DockerSettings_VpcOnlyTrustedAccount { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'DomainArn'.
@@ -510,6 +534,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter DomainId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DockerSettings_EnableDockerAccess = this.DockerSettings_EnableDockerAccess;
+            if (this.DockerSettings_VpcOnlyTrustedAccount != null)
+            {
+                context.DockerSettings_VpcOnlyTrustedAccount = new List<System.String>(this.DockerSettings_VpcOnlyTrustedAccount);
+            }
             context.DomainSettingsForUpdate_ExecutionRoleIdentityConfig = this.DomainSettingsForUpdate_ExecutionRoleIdentityConfig;
             context.DefaultResourceSpec_InstanceType = this.DefaultResourceSpec_InstanceType;
             context.DefaultResourceSpec_LifecycleConfigArn = this.DefaultResourceSpec_LifecycleConfigArn;
@@ -812,6 +841,41 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.DomainSettingsForUpdate.SecurityGroupIds = requestDomainSettingsForUpdate_domainSettingsForUpdate_SecurityGroupId;
                 requestDomainSettingsForUpdateIsNull = false;
             }
+            Amazon.SageMaker.Model.DockerSettings requestDomainSettingsForUpdate_domainSettingsForUpdate_DockerSettings = null;
+            
+             // populate DockerSettings
+            var requestDomainSettingsForUpdate_domainSettingsForUpdate_DockerSettingsIsNull = true;
+            requestDomainSettingsForUpdate_domainSettingsForUpdate_DockerSettings = new Amazon.SageMaker.Model.DockerSettings();
+            Amazon.SageMaker.FeatureStatus requestDomainSettingsForUpdate_domainSettingsForUpdate_DockerSettings_dockerSettings_EnableDockerAccess = null;
+            if (cmdletContext.DockerSettings_EnableDockerAccess != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_DockerSettings_dockerSettings_EnableDockerAccess = cmdletContext.DockerSettings_EnableDockerAccess;
+            }
+            if (requestDomainSettingsForUpdate_domainSettingsForUpdate_DockerSettings_dockerSettings_EnableDockerAccess != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_DockerSettings.EnableDockerAccess = requestDomainSettingsForUpdate_domainSettingsForUpdate_DockerSettings_dockerSettings_EnableDockerAccess;
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_DockerSettingsIsNull = false;
+            }
+            List<System.String> requestDomainSettingsForUpdate_domainSettingsForUpdate_DockerSettings_dockerSettings_VpcOnlyTrustedAccount = null;
+            if (cmdletContext.DockerSettings_VpcOnlyTrustedAccount != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_DockerSettings_dockerSettings_VpcOnlyTrustedAccount = cmdletContext.DockerSettings_VpcOnlyTrustedAccount;
+            }
+            if (requestDomainSettingsForUpdate_domainSettingsForUpdate_DockerSettings_dockerSettings_VpcOnlyTrustedAccount != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_DockerSettings.VpcOnlyTrustedAccounts = requestDomainSettingsForUpdate_domainSettingsForUpdate_DockerSettings_dockerSettings_VpcOnlyTrustedAccount;
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_DockerSettingsIsNull = false;
+            }
+             // determine if requestDomainSettingsForUpdate_domainSettingsForUpdate_DockerSettings should be set to null
+            if (requestDomainSettingsForUpdate_domainSettingsForUpdate_DockerSettingsIsNull)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_DockerSettings = null;
+            }
+            if (requestDomainSettingsForUpdate_domainSettingsForUpdate_DockerSettings != null)
+            {
+                request.DomainSettingsForUpdate.DockerSettings = requestDomainSettingsForUpdate_domainSettingsForUpdate_DockerSettings;
+                requestDomainSettingsForUpdateIsNull = false;
+            }
             Amazon.SageMaker.Model.RStudioServerProDomainSettingsForUpdate requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate = null;
             
              // populate RStudioServerProDomainSettingsForUpdate
@@ -1012,6 +1076,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public List<System.String> DefaultSpaceSettings_SecurityGroup { get; set; }
             public Amazon.SageMaker.Model.UserSettings DefaultUserSetting { get; set; }
             public System.String DomainId { get; set; }
+            public Amazon.SageMaker.FeatureStatus DockerSettings_EnableDockerAccess { get; set; }
+            public List<System.String> DockerSettings_VpcOnlyTrustedAccount { get; set; }
             public Amazon.SageMaker.ExecutionRoleIdentityConfig DomainSettingsForUpdate_ExecutionRoleIdentityConfig { get; set; }
             public Amazon.SageMaker.AppInstanceType DefaultResourceSpec_InstanceType { get; set; }
             public System.String DefaultResourceSpec_LifecycleConfigArn { get; set; }
