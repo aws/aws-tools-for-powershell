@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.300.0",
-    "ProductVersion"    : "3.7.717.0",
+    "ProductVersion"    : "3.7.718.0",
     "CoreVersion"       : "3.7.300.28",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -1219,7 +1219,7 @@
             "InPreview"               : false
         },
         "QuickSight"                      : {
-            "Version" : "3.7.303.9",
+            "Version" : "3.7.304.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.300.28"
@@ -2035,7 +2035,7 @@
             "InPreview"               : false
         },
         "LocationService"                 : {
-            "Version" : "3.7.302.11",
+            "Version" : "3.7.303.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.300.28"
@@ -2147,7 +2147,7 @@
             "InPreview"               : false
         },
         "AppRunner"                       : {
-            "Version" : "3.7.300.28",
+            "Version" : "3.7.301.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.300.28"

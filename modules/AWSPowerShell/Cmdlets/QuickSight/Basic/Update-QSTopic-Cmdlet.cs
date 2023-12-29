@@ -110,6 +110,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String TopicId { get; set; }
         #endregion
         
+        #region Parameter Topic_UserExperienceVersion
+        /// <summary>
+        /// <para>
+        /// <para>The user experience version of a topic.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.TopicUserExperienceVersion")]
+        public Amazon.QuickSight.TopicUserExperienceVersion Topic_UserExperienceVersion { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -185,6 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             }
             context.Topic_Description = this.Topic_Description;
             context.Topic_Name = this.Topic_Name;
+            context.Topic_UserExperienceVersion = this.Topic_UserExperienceVersion;
             context.TopicId = this.TopicId;
             #if MODULAR
             if (this.TopicId == null && ParameterWasBound(nameof(this.TopicId)))
@@ -244,6 +256,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestTopic_topic_Name != null)
             {
                 request.Topic.Name = requestTopic_topic_Name;
+                requestTopicIsNull = false;
+            }
+            Amazon.QuickSight.TopicUserExperienceVersion requestTopic_topic_UserExperienceVersion = null;
+            if (cmdletContext.Topic_UserExperienceVersion != null)
+            {
+                requestTopic_topic_UserExperienceVersion = cmdletContext.Topic_UserExperienceVersion;
+            }
+            if (requestTopic_topic_UserExperienceVersion != null)
+            {
+                request.Topic.UserExperienceVersion = requestTopic_topic_UserExperienceVersion;
                 requestTopicIsNull = false;
             }
              // determine if request.Topic should be set to null
@@ -320,6 +342,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public List<Amazon.QuickSight.Model.DatasetMetadata> Topic_DataSet { get; set; }
             public System.String Topic_Description { get; set; }
             public System.String Topic_Name { get; set; }
+            public Amazon.QuickSight.TopicUserExperienceVersion Topic_UserExperienceVersion { get; set; }
             public System.String TopicId { get; set; }
             public System.Func<Amazon.QuickSight.Model.UpdateTopicResponse, UpdateQSTopicCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

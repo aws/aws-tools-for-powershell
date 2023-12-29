@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// in the resource-id to match multiple resources of the same type.</para></li><li><para>The resources must be in the same <code>partition</code>, <code>region</code>, and
         /// <code>account-id</code> as the key that is being created.</para></li><li><para>Other than wildcards, you must include the full ARN, including the <code>arn</code>,
         /// <code>partition</code>, <code>service</code>, <code>region</code>, <code>account-id</code>
-        /// and <code>resource-id</code>, delimited by colons (:).</para></li><li><para>No spaces allowed, even with wildcards. For example, <code>arn:aws:geo:region:<i>account-id</i>:map/ExampleMap*</code>.</para></li></ul><para>For more information about ARN format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// and <code>resource-id</code> delimited by colons (:).</para></li><li><para>No spaces allowed, even with wildcards. For example, <code>arn:aws:geo:region:<i>account-id</i>:map/ExampleMap*</code>.</para></li></ul><para>For more information about ARN format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Names (ARNs)</a>.</para>
         /// </para>
         /// </summary>

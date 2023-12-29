@@ -410,6 +410,16 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.TopicUserExperienceVersion
+        {
+            ($_ -eq "New-QSTopic/Topic_UserExperienceVersion") -Or
+            ($_ -eq "Update-QSTopic/Topic_UserExperienceVersion")
+        }
+        {
+            $v = "LEGACY","NEW_READER_EXPERIENCE"
+            break
+        }
+
         # Amazon.QuickSight.UserRole
         {
             ($_ -eq "Update-QSUser/Role") -Or
@@ -483,6 +493,7 @@ $QS_map = @{
     "Schedule_ScheduleFrequency_RefreshOnDay_DayOfWeek"=@("New-QSRefreshSchedule","Update-QSRefreshSchedule")
     "Service"=@("Remove-QSIdentityPropagationConfig","Update-QSIdentityPropagationConfig")
     "SharingModel"=@("New-QSFolder")
+    "Topic_UserExperienceVersion"=@("New-QSTopic","Update-QSTopic")
     "Type"=@("Get-QSThemeList","New-QSDataSource")
     "UserRole"=@("Register-QSUser")
     "ValidationStrategy_Mode"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")

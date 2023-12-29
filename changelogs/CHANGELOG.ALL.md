@@ -1,4 +1,12 @@
-﻿### 4.1.485 (2023-12-28 22:22Z)
+﻿### 4.1.486 (2023-12-29 21:40Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.718.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Location Service
+    * Modified cmdlet Remove-LOCKey: added parameter ForceDelete.
+  * Amazon QuickSight
+    * Modified cmdlet New-QSTopic: added parameter Topic_UserExperienceVersion.
+    * Modified cmdlet Update-QSTopic: added parameter Topic_UserExperienceVersion.
+
+### 4.1.485 (2023-12-28 22:22Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.717.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon SageMaker Service
     * Modified cmdlet New-SMDomain: added parameters DockerSettings_EnableDockerAccess and DockerSettings_VpcOnlyTrustedAccount.

@@ -43,6 +43,19 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter ForceDelete
+        /// <summary>
+        /// <para>
+        /// <para>ForceDelete bypasses an API key's expiry conditions and deletes the key. Set the parameter
+        /// <code>true</code> to delete the key or to <code>false</code> to not preemptively delete
+        /// the API key.</para><para>Valid values: <code>true</code>, or <code>false</code>.</para><para>Required: No</para><note><para>This action is irreversible. Only use ForceDelete if you are certain the key is no
+        /// longer in use.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ForceDelete { get; set; }
+        #endregion
+        
         #region Parameter KeyName
         /// <summary>
         /// <para>
@@ -121,6 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                 context.Select = (response, cmdlet) => this.KeyName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ForceDelete = this.ForceDelete;
             context.KeyName = this.KeyName;
             #if MODULAR
             if (this.KeyName == null && ParameterWasBound(nameof(this.KeyName)))
@@ -144,6 +158,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             // create request
             var request = new Amazon.LocationService.Model.DeleteKeyRequest();
             
+            if (cmdletContext.ForceDelete != null)
+            {
+                request.ForceDelete = cmdletContext.ForceDelete.Value;
+            }
             if (cmdletContext.KeyName != null)
             {
                 request.KeyName = cmdletContext.KeyName;
@@ -209,6 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? ForceDelete { get; set; }
             public System.String KeyName { get; set; }
             public System.Func<Amazon.LocationService.Model.DeleteKeyResponse, RemoveLOCKeyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

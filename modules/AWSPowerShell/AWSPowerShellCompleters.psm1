@@ -3428,7 +3428,7 @@ $AAR_Completers = {
             ($_ -eq "Update-AARService/SourceConfiguration_CodeRepository_CodeConfiguration_CodeConfigurationValues_Runtime")
         }
         {
-            $v = "CORRETTO_11","CORRETTO_8","DOTNET_6","GO_1","NODEJS_12","NODEJS_14","NODEJS_16","PHP_81","PYTHON_3","RUBY_31"
+            $v = "CORRETTO_11","CORRETTO_8","DOTNET_6","GO_1","NODEJS_12","NODEJS_14","NODEJS_16","NODEJS_18","PHP_81","PYTHON_3","PYTHON_311","RUBY_31"
             break
         }
 
@@ -52086,6 +52086,16 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.TopicUserExperienceVersion
+        {
+            ($_ -eq "New-QSTopic/Topic_UserExperienceVersion") -Or
+            ($_ -eq "Update-QSTopic/Topic_UserExperienceVersion")
+        }
+        {
+            $v = "LEGACY","NEW_READER_EXPERIENCE"
+            break
+        }
+
         # Amazon.QuickSight.UserRole
         {
             ($_ -eq "Update-QSUser/Role") -Or
@@ -52159,6 +52169,7 @@ $QS_map = @{
     "Schedule_ScheduleFrequency_RefreshOnDay_DayOfWeek"=@("New-QSRefreshSchedule","Update-QSRefreshSchedule")
     "Service"=@("Remove-QSIdentityPropagationConfig","Update-QSIdentityPropagationConfig")
     "SharingModel"=@("New-QSFolder")
+    "Topic_UserExperienceVersion"=@("New-QSTopic","Update-QSTopic")
     "Type"=@("Get-QSThemeList","New-QSDataSource")
     "UserRole"=@("Register-QSUser")
     "ValidationStrategy_Mode"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
