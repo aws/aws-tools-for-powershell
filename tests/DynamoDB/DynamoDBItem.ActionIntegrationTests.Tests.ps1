@@ -1,5 +1,11 @@
 BeforeAll {
-    $table1Name = 'Music'
+    . (Join-Path (Join-Path (Get-Location) "Include") "TestIncludes.ps1")
+    . (Join-Path (Join-Path (Get-Location) "Include") "TestHelper.ps1")
+    . (Join-Path (Join-Path (Get-Location) "Include") "ServiceTestHelper.ps1")
+    $helper = New-Object ServiceTestHelper
+    $helper.BeforeAll()
+
+    $table1Name = 'Music' + [DateTime]::Now.ToFileTime()
 
     $schema = New-DDBTableSchema
 
@@ -74,6 +80,11 @@ BeforeAll {
 
     $item2 = ConvertTo-DDBItem -InputObject $song2ItemHashTable
     $key2 = ConvertTo-DDBItem -InputObject $song2KeyHashTable
+}
+AfterAll {
+    $helper.AfterAll()
+    
+    Remove-DDBTable -TableName $table1Name -Confirm:$false
 }
 Describe -Tag "Smoke" "DynamoDBv2 PowerShell Module Integration Tests" {
     BeforeEach {
@@ -156,7 +167,7 @@ Describe -Tag "Smoke" "DynamoDBv2 PowerShell Module Integration Tests" {
         $keysAndAttributes.Keys = $list
 
         $items = Get-DDBBatchItem -RequestItem @{$table1Name = [Amazon.DynamoDBv2.Model.KeysAndAttributes]$keysAndAttributes}
-        ($items.Music | ConvertFrom-DDBItem).SongTitle | Should -Be 'My Dog Spot' -Because 'this test specifies a DynamoDB item with that song title'
+        ($items."$table1Name" | ConvertFrom-DDBItem).SongTitle | Should -Be 'My Dog Spot' -Because 'this test specifies a DynamoDB item with that song title'
     }
 
     It "Write-DDBBatchItem returns a batch of DynamoDB items." {
@@ -177,8 +188,4 @@ Describe -Tag "Smoke" "DynamoDBv2 PowerShell Module Integration Tests" {
 
         $outputItem.CriticRating | Should -Be 10 -Because 'this test specifies a DynamoDB item with that critic rating'
     }
-}
-
-AfterAll {
-    Remove-DDBTable -TableName $table1Name -Confirm:$false
 }
