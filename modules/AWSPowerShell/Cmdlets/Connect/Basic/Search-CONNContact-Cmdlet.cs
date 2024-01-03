@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter SearchCriteria_AgentId
         /// <summary>
         /// <para>
-        /// <para>The array of agent ids</para>
+        /// <para>The identifiers of agents who handled the contacts.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter SearchCriteria_Channel
         /// <summary>
         /// <para>
-        /// <para>The array of channels</para>
+        /// <para>The list of channels associated with contacts.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Transcript_Criterion
         /// <summary>
         /// <para>
-        /// <para>The array of transcript search criteria</para>
+        /// <para>The list of search criteria based on Contact Lens conversational analytics transcript.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter SearchableContactAttributes_Criterion
         /// <summary>
         /// <para>
-        /// <para>The array of searhale contact attribute criteria</para>
+        /// <para>The list of criteria based on user-defined contact attributes that are configured
+        /// for contact search.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter SearchCriteria_InitiationMethod
         /// <summary>
         /// <para>
-        /// <para>The array of initiaton methods</para>
+        /// <para>The list of initiation methods associated with contacts.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The identifier of Amazon Connect instance. You can find the instance ID in the Amazon
-        /// Resource Name (ARN) of the instance</para>
+        /// Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -201,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Transcript_MatchType
         /// <summary>
         /// <para>
-        /// <para>The match type of multiple transcript criteira</para>
+        /// <para>The match type combining search criteria using multiple transcript criteria.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -213,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter SearchableContactAttributes_MatchType
         /// <summary>
         /// <para>
-        /// <para>The match type of multiple searchable contact attributes criteria.</para>
+        /// <para>The match type combining search criteria using multiple searchable contact attributes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -236,7 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter SearchCriteria_QueueId
         /// <summary>
         /// <para>
-        /// <para>The array of queue ids.</para>
+        /// <para>The list of queue IDs associated with contacts.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -263,7 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter TimeRange_Type
         /// <summary>
         /// <para>
-        /// <para>The type of timestamp to search</para>
+        /// <para>The type of timestamp to search.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
