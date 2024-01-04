@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The domain name (e.g., <code>example.com</code>) for the certificate.</para>
+        /// <para>The domain name (<code>example.com</code>) for the certificate.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -92,9 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter SubjectAlternativeName
         /// <summary>
         /// <para>
-        /// <para>An array of strings that specify the alternate domains (e.g., <code>example2.com</code>)
-        /// and subdomains (e.g., <code>blog.example.com</code>) for the certificate.</para><para>You can specify a maximum of nine alternate domains (in addition to the primary domain
-        /// name).</para><para>Wildcard domain entries (e.g., <code>*.example.com</code>) are not supported.</para>
+        /// <para>An array of strings that specify the alternate domains (<code>example2.com</code>)
+        /// and subdomains (<code>blog.example.com</code>) for the certificate.</para><para>You can specify a maximum of nine alternate domains (in addition to the primary domain
+        /// name).</para><para>Wildcard domain entries (<code>*.example.com</code>) are not supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -84,9 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter BlueprintId
         /// <summary>
         /// <para>
-        /// <para>The ID for a virtual private server image (e.g., <code>app_wordpress_4_4</code> or
-        /// <code>app_lamp_7_0</code>). Use the <code>get blueprints</code> operation to return
-        /// a list of available images (or <i>blueprints</i>).</para><note><para>Use active blueprints when creating new instances. Inactive blueprints are listed
+        /// <para>The ID for a virtual private server image (<code>app_wordpress_4_4</code> or <code>app_lamp_7_0</code>).
+        /// Use the <code>get blueprints</code> operation to return a list of available images
+        /// (or <i>blueprints</i>).</para><note><para>Use active blueprints when creating new instances. Inactive blueprints are listed
         /// to support customers with existing instances and are not necessarily available to
         /// create new instances. Blueprints are marked inactive when they become outdated due
         /// to operating system updates or new application releases.</para></note>
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The bundle of specification information for your virtual private server (or <i>instance</i>),
-        /// including the pricing plan (e.g., <code>micro_1_0</code>).</para>
+        /// including the pricing plan (<code>micro_1_0</code>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -190,8 +190,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter CustomImageName
         /// <summary>
         /// <para>
-        /// <para>(Deprecated) The name for your custom image.</para><note><para>In releases prior to June 12, 2017, this parameter was ignored by the API. It is now
-        /// deprecated.</para></note>
+        /// <para>(Discontinued) The name for your custom image.</para><note><para>In releases prior to June 12, 2017, this parameter was ignored by the API. It is now
+        /// discontinued.</para></note>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

@@ -87,6 +87,44 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String FeatureGroupName { get; set; }
         #endregion
         
+        #region Parameter ThroughputConfig_ProvisionedReadCapacityUnit
+        /// <summary>
+        /// <para>
+        /// <para>For provisioned feature groups with online store enabled, this indicates the read
+        /// throughput you are billed for and can consume without throttling. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ThroughputConfig_ProvisionedReadCapacityUnits")]
+        public System.Int32? ThroughputConfig_ProvisionedReadCapacityUnit { get; set; }
+        #endregion
+        
+        #region Parameter ThroughputConfig_ProvisionedWriteCapacityUnit
+        /// <summary>
+        /// <para>
+        /// <para>For provisioned feature groups, this indicates the write throughput you are billed
+        /// for and can consume without throttling. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ThroughputConfig_ProvisionedWriteCapacityUnits")]
+        public System.Int32? ThroughputConfig_ProvisionedWriteCapacityUnit { get; set; }
+        #endregion
+        
+        #region Parameter ThroughputConfig_ThroughputMode
+        /// <summary>
+        /// <para>
+        /// <para>Target throughput mode of the feature group. Throughput update is an asynchronous
+        /// operation, and the outcome should be monitored by polling <code>LastUpdateStatus</code>
+        /// field in <code>DescribeFeatureGroup</code> response. You cannot update a feature group's
+        /// throughput while another update is in progress. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.ThroughputMode")]
+        public Amazon.SageMaker.ThroughputMode ThroughputConfig_ThroughputMode { get; set; }
+        #endregion
+        
         #region Parameter TtlDuration_Unit
         /// <summary>
         /// <para>
@@ -185,6 +223,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
             #endif
             context.TtlDuration_Unit = this.TtlDuration_Unit;
             context.TtlDuration_Value = this.TtlDuration_Value;
+            context.ThroughputConfig_ProvisionedReadCapacityUnit = this.ThroughputConfig_ProvisionedReadCapacityUnit;
+            context.ThroughputConfig_ProvisionedWriteCapacityUnit = this.ThroughputConfig_ProvisionedWriteCapacityUnit;
+            context.ThroughputConfig_ThroughputMode = this.ThroughputConfig_ThroughputMode;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -254,6 +295,45 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.OnlineStoreConfig = null;
             }
             
+             // populate ThroughputConfig
+            var requestThroughputConfigIsNull = true;
+            request.ThroughputConfig = new Amazon.SageMaker.Model.ThroughputConfigUpdate();
+            System.Int32? requestThroughputConfig_throughputConfig_ProvisionedReadCapacityUnit = null;
+            if (cmdletContext.ThroughputConfig_ProvisionedReadCapacityUnit != null)
+            {
+                requestThroughputConfig_throughputConfig_ProvisionedReadCapacityUnit = cmdletContext.ThroughputConfig_ProvisionedReadCapacityUnit.Value;
+            }
+            if (requestThroughputConfig_throughputConfig_ProvisionedReadCapacityUnit != null)
+            {
+                request.ThroughputConfig.ProvisionedReadCapacityUnits = requestThroughputConfig_throughputConfig_ProvisionedReadCapacityUnit.Value;
+                requestThroughputConfigIsNull = false;
+            }
+            System.Int32? requestThroughputConfig_throughputConfig_ProvisionedWriteCapacityUnit = null;
+            if (cmdletContext.ThroughputConfig_ProvisionedWriteCapacityUnit != null)
+            {
+                requestThroughputConfig_throughputConfig_ProvisionedWriteCapacityUnit = cmdletContext.ThroughputConfig_ProvisionedWriteCapacityUnit.Value;
+            }
+            if (requestThroughputConfig_throughputConfig_ProvisionedWriteCapacityUnit != null)
+            {
+                request.ThroughputConfig.ProvisionedWriteCapacityUnits = requestThroughputConfig_throughputConfig_ProvisionedWriteCapacityUnit.Value;
+                requestThroughputConfigIsNull = false;
+            }
+            Amazon.SageMaker.ThroughputMode requestThroughputConfig_throughputConfig_ThroughputMode = null;
+            if (cmdletContext.ThroughputConfig_ThroughputMode != null)
+            {
+                requestThroughputConfig_throughputConfig_ThroughputMode = cmdletContext.ThroughputConfig_ThroughputMode;
+            }
+            if (requestThroughputConfig_throughputConfig_ThroughputMode != null)
+            {
+                request.ThroughputConfig.ThroughputMode = requestThroughputConfig_throughputConfig_ThroughputMode;
+                requestThroughputConfigIsNull = false;
+            }
+             // determine if request.ThroughputConfig should be set to null
+            if (requestThroughputConfigIsNull)
+            {
+                request.ThroughputConfig = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -318,6 +398,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String FeatureGroupName { get; set; }
             public Amazon.SageMaker.TtlDurationUnit TtlDuration_Unit { get; set; }
             public System.Int32? TtlDuration_Value { get; set; }
+            public System.Int32? ThroughputConfig_ProvisionedReadCapacityUnit { get; set; }
+            public System.Int32? ThroughputConfig_ProvisionedWriteCapacityUnit { get; set; }
+            public Amazon.SageMaker.ThroughputMode ThroughputConfig_ThroughputMode { get; set; }
             public System.Func<Amazon.SageMaker.Model.UpdateFeatureGroupResponse, UpdateSMFeatureGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.FeatureGroupArn;
         }

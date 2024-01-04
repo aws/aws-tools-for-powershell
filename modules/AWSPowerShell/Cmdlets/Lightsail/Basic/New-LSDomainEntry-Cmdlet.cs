@@ -55,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The domain name (e.g., <code>example.com</code>) for which you want to create the
-        /// domain entry.</para>
+        /// <para>The domain name (<code>example.com</code>) for which you want to create the domain
+        /// entry.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DomainEntry_Target
         /// <summary>
         /// <para>
-        /// <para>The target IP address (e.g., <code>192.0.2.0</code>), or AWS name server (e.g., <code>ns-111.awsdns-22.com.</code>).</para><para>For Lightsail load balancers, the value looks like <code>ab1234c56789c6b86aba6fb203d443bc-123456789.us-east-2.elb.amazonaws.com</code>.
+        /// <para>The target IP address (<code>192.0.2.0</code>), or AWS name server (<code>ns-111.awsdns-22.com.</code>).</para><para>For Lightsail load balancers, the value looks like <code>ab1234c56789c6b86aba6fb203d443bc-123456789.us-east-2.elb.amazonaws.com</code>.
         /// For Lightsail distributions, the value looks like <code>exampled1182ne.cloudfront.net</code>.
         /// For Lightsail container services, the value looks like <code>container-service-1.example23scljs.us-west-2.cs.amazonlightsail.com</code>.
         /// Be sure to also set <code>isAlias</code> to <code>true</code> when setting up an A
@@ -134,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DomainEntry_Option
         /// <summary>
         /// <para>
-        /// <para>(Deprecated) The options for the domain entry.</para><note><para>In releases prior to November 29, 2017, this parameter was not included in the API
-        /// response. It is now deprecated.</para></note>
+        /// <para>(Discontinued) The options for the domain entry.</para><note><para>In releases prior to November 29, 2017, this parameter was not included in the API
+        /// response. It is now discontinued.</para></note>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

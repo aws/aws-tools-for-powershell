@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DiskName
         /// <summary>
         /// <para>
-        /// <para>The unique name of the disk you want to detach from your instance (e.g., <code>my-disk</code>).</para>
+        /// <para>The unique name of the disk you want to detach from your instance (<code>my-disk</code>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

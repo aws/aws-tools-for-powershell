@@ -69,6 +69,18 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public System.String Id { get; set; }
         #endregion
         
+        #region Parameter IdempotencyToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique identifier that you provide to ensure idempotency. If multiple requests from
+        /// the same Amazon Web Services account use the same idempotency token, the same response
+        /// is returned for each repeated request. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IdempotencyToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -138,6 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
                 WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IdempotencyToken = this.IdempotencyToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -161,6 +174,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
             if (cmdletContext.Id != null)
             {
                 request.Id = cmdletContext.Id;
+            }
+            if (cmdletContext.IdempotencyToken != null)
+            {
+                request.IdempotencyToken = cmdletContext.IdempotencyToken;
             }
             
             CmdletOutput output;
@@ -225,6 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         {
             public System.String AcceptLanguage { get; set; }
             public System.String Id { get; set; }
+            public System.String IdempotencyToken { get; set; }
             public System.Func<Amazon.ServiceCatalog.Model.DeleteServiceActionResponse, RemoveSCServiceActionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

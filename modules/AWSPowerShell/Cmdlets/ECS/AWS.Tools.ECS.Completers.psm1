@@ -164,6 +164,16 @@ $ECS_Completers = {
             break
         }
 
+        # Amazon.ECS.ManagedDraining
+        {
+            ($_ -eq "New-ECSCapacityProvider/AutoScalingGroupProvider_ManagedDraining") -Or
+            ($_ -eq "Update-ECSCapacityProvider/AutoScalingGroupProvider_ManagedDraining")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.ECS.ManagedScalingStatus
         {
             ($_ -eq "New-ECSCapacityProvider/AutoScalingGroupProvider_ManagedScaling_Status") -Or
@@ -293,6 +303,7 @@ $ECS_Completers = {
 }
 
 $ECS_map = @{
+    "AutoScalingGroupProvider_ManagedDraining"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "AutoScalingGroupProvider_ManagedScaling_Status"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "AutoScalingGroupProvider_ManagedTerminationProtection"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "Configuration_ExecuteCommandConfiguration_Logging"=@("New-ECSCluster","Update-ECSCluster")

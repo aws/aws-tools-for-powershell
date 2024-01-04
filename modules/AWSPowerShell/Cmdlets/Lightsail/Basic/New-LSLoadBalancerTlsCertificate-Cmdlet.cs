@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <para>
         /// <para>An array of strings listing alternative domains and subdomains for your SSL/TLS certificate.
         /// Lightsail will de-dupe the names for you. You can have a maximum of 9 alternative
-        /// names (in addition to the 1 primary domain). We do not support wildcards (e.g., <code>*.example.com</code>).</para>
+        /// names (in addition to the 1 primary domain). We do not support wildcards (<code>*.example.com</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter CertificateDomainName
         /// <summary>
         /// <para>
-        /// <para>The domain name (e.g., <code>example.com</code>) for your SSL/TLS certificate.</para>
+        /// <para>The domain name (<code>example.com</code>) for your SSL/TLS certificate.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -16635,6 +16635,7 @@ Set-Alias -Name LS-GetRelationalDatabases -Value Get-LSRelationalDatabaseList
 Set-Alias -Name LS-GetRelationalDatabaseSnapshot -Value Get-LSRelationalDatabaseSnapshot
 Set-Alias -Name Get-LSRelationalDatabaseSnapshots -Value Get-LSRelationalDatabaseSnapshotList
 Set-Alias -Name LS-GetRelationalDatabaseSnapshots -Value Get-LSRelationalDatabaseSnapshotList
+Set-Alias -Name LS-GetSetupHistory -Value Get-LSSetupHistory
 Set-Alias -Name LS-GetStaticIp -Value Get-LSStaticIp
 Set-Alias -Name Get-LSStaticIps -Value Get-LSStaticIpList
 Set-Alias -Name LS-GetStaticIps -Value Get-LSStaticIpList
@@ -16662,6 +16663,9 @@ Set-Alias -Name LS-ResetDistributionCache -Value Reset-LSDistributionCache
 Set-Alias -Name LS-SendContactMethodVerification -Value Send-LSContactMethodVerification
 Set-Alias -Name LS-SetIpAddressType -Value Set-LSIpAddressType
 Set-Alias -Name LS-SetResourceAccessForBucket -Value Set-LSResourceAccessForBucket
+Set-Alias -Name Setup-LSInstanceHttps -Value Set-LSInstanceHttp
+Set-Alias -Name Setup-LSInstanceHttp -Value Set-LSInstanceHttp
+Set-Alias -Name LS-SetupInstanceHttps -Value Set-LSInstanceHttp
 Set-Alias -Name LS-StartGUISession -Value Start-LSGUISession
 Set-Alias -Name LS-StartInstance -Value Start-LSInstance
 Set-Alias -Name LS-StartRelationalDatabase -Value Start-LSRelationalDatabase

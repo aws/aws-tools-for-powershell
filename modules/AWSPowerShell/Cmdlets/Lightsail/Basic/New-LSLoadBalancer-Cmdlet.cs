@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The optional alternative domains and subdomains to use with your SSL/TLS certificate
-        /// (e.g., <code>www.example.com</code>, <code>example.com</code>, <code>m.example.com</code>,
+        /// (<code>www.example.com</code>, <code>example.com</code>, <code>m.example.com</code>,
         /// <code>blog.example.com</code>).</para>
         /// </para>
         /// </summary>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter CertificateDomainName
         /// <summary>
         /// <para>
-        /// <para>The domain name with which your certificate is associated (e.g., <code>example.com</code>).</para><para>If you specify <code>certificateDomainName</code>, then <code>certificateName</code>
+        /// <para>The domain name with which your certificate is associated (<code>example.com</code>).</para><para>If you specify <code>certificateDomainName</code>, then <code>certificateName</code>
         /// is required (and vice-versa).</para>
         /// </para>
         /// </summary>
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The path you provided to perform the load balancer health check. If you didn't specify
-        /// a health check path, Lightsail uses the root path of your website (e.g., <code>"/"</code>).</para><para>You may want to specify a custom health check path other than the root of your application
+        /// a health check path, Lightsail uses the root path of your website (<code>"/"</code>).</para><para>You may want to specify a custom health check path other than the root of your application
         /// if your home page loads slowly or has a lot of media or scripting on it.</para>
         /// </para>
         /// </summary>

@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DiskName
         /// <summary>
         /// <para>
-        /// <para>The unique Lightsail disk name (e.g., <code>my-disk</code>).</para>
+        /// <para>The unique Lightsail disk name (<code>my-disk</code>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DiskPath
         /// <summary>
         /// <para>
-        /// <para>The disk path to expose to the instance (e.g., <code>/dev/xvdf</code>).</para>
+        /// <para>The disk path to expose to the instance (<code>/dev/xvdf</code>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

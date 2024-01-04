@@ -52,6 +52,18 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public System.String AcceptLanguage { get; set; }
         #endregion
         
+        #region Parameter IdempotencyToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique identifier that you provide to ensure idempotency. If multiple requests from
+        /// the same Amazon Web Services account use the same idempotency token, the same response
+        /// is returned for each repeated request. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IdempotencyToken { get; set; }
+        #endregion
+        
         #region Parameter ProductId
         /// <summary>
         /// <para>
@@ -165,6 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AcceptLanguage = this.AcceptLanguage;
+            context.IdempotencyToken = this.IdempotencyToken;
             context.ProductId = this.ProductId;
             #if MODULAR
             if (this.ProductId == null && ParameterWasBound(nameof(this.ProductId)))
@@ -205,6 +218,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
             if (cmdletContext.AcceptLanguage != null)
             {
                 request.AcceptLanguage = cmdletContext.AcceptLanguage;
+            }
+            if (cmdletContext.IdempotencyToken != null)
+            {
+                request.IdempotencyToken = cmdletContext.IdempotencyToken;
             }
             if (cmdletContext.ProductId != null)
             {
@@ -280,6 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AcceptLanguage { get; set; }
+            public System.String IdempotencyToken { get; set; }
             public System.String ProductId { get; set; }
             public System.String ProvisioningArtifactId { get; set; }
             public System.String ServiceActionId { get; set; }

@@ -515,6 +515,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetSetupHistory" OutputProperty="SetupHistory" Verb="Get" Noun="SetupHistory" PipelineParameter="ResourceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetStaticIp" OutputProperty="StaticIp" Verb="Get" Noun="StaticIp" PipelineParameter="StaticIpName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -576,6 +580,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SetResourceAccessForBucket" OutputProperty="Operations" Verb="Set" Noun="ResourceAccessForBucket" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetupInstanceHttps" OutputProperty="Operations" Verb="Set" Noun="InstanceHttp" ShouldProcessTarget="InstanceName" PipelineParameter="InstanceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

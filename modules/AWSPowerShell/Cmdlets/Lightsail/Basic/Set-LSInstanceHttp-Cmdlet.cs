@@ -28,46 +28,69 @@ using Amazon.Lightsail.Model;
 namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
-    /// Creates a block storage disk that can be attached to an Amazon Lightsail instance
-    /// in the same Availability Zone (<code>us-east-2a</code>).
+    /// Creates an SSL/TLS certificate that secures traffic for your website. After the certificate
+    /// is created, it is installed on the specified Lightsail instance.
     /// 
     ///  
     /// <para>
-    /// The <code>create disk</code> operation supports tag-based access control via request
-    /// tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
-    /// Lightsail Developer Guide</a>.
+    /// If you provide more than one domain name in the request, at least one name must be
+    /// less than or equal to 63 characters in length.
     /// </para>
     /// </summary>
-    [Cmdlet("New", "LSDisk", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Set", "LSInstanceHttp", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Lightsail.Model.Operation")]
-    [AWSCmdlet("Calls the Amazon Lightsail CreateDisk API operation.", Operation = new[] {"CreateDisk"}, SelectReturnType = typeof(Amazon.Lightsail.Model.CreateDiskResponse))]
-    [AWSCmdletOutput("Amazon.Lightsail.Model.Operation or Amazon.Lightsail.Model.CreateDiskResponse",
+    [AWSCmdlet("Calls the Amazon Lightsail SetupInstanceHttps API operation.", Operation = new[] {"SetupInstanceHttps"}, SelectReturnType = typeof(Amazon.Lightsail.Model.SetupInstanceHttpsResponse))]
+    [AWSCmdletOutput("Amazon.Lightsail.Model.Operation or Amazon.Lightsail.Model.SetupInstanceHttpsResponse",
         "This cmdlet returns a collection of Amazon.Lightsail.Model.Operation objects.",
-        "The service call response (type Amazon.Lightsail.Model.CreateDiskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.SetupInstanceHttpsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewLSDiskCmdlet : AmazonLightsailClientCmdlet, IExecutor
+    public partial class SetLSInstanceHttpCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveRequest { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AddOn
+        #region Parameter CertificateProvider
         /// <summary>
         /// <para>
-        /// <para>An array of objects that represent the add-ons to enable for the new disk.</para>
+        /// <para>The certificate authority that issues the SSL/TLS certificate.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("AddOns")]
-        public Amazon.Lightsail.Model.AddOnRequest[] AddOn { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.Lightsail.CertificateProvider")]
+        public Amazon.Lightsail.CertificateProvider CertificateProvider { get; set; }
         #endregion
         
-        #region Parameter AvailabilityZone
+        #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The Availability Zone where you want to create the disk (<code>us-east-2a</code>).
-        /// Use the same Availability Zone as the Lightsail instance to which you want to attach
-        /// the disk.</para><para>Use the <code>get regions</code> operation to list the Availability Zones where Lightsail
-        /// is currently available.</para>
+        /// <para>The name of the domain and subdomains that were specified for the SSL/TLS certificate.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("DomainNames")]
+        public System.String[] DomainName { get; set; }
+        #endregion
+        
+        #region Parameter EmailAddress
+        /// <summary>
+        /// <para>
+        /// <para>The contact method for SSL/TLS certificate renewal alerts. You can enter one email
+        /// address. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,13 +101,13 @@ namespace Amazon.PowerShell.Cmdlets.LS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AvailabilityZone { get; set; }
+        public System.String EmailAddress { get; set; }
         #endregion
         
-        #region Parameter DiskName
+        #region Parameter InstanceName
         /// <summary>
         /// <para>
-        /// <para>The unique Lightsail disk name (<code>my-disk</code>).</para>
+        /// <para>The name of the Lightsail instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -95,41 +118,14 @@ namespace Amazon.PowerShell.Cmdlets.LS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DiskName { get; set; }
-        #endregion
-        
-        #region Parameter SizeInGb
-        /// <summary>
-        /// <para>
-        /// <para>The size of the disk in GB (<code>32</code>).</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.Int32? SizeInGb { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>The tag keys and optional values to add to the resource during create.</para><para>Use the <code>TagResource</code> action to tag a resource after it's created.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public Amazon.Lightsail.Model.Tag[] Tag { get; set; }
+        public System.String InstanceName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Operations'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Lightsail.Model.CreateDiskResponse).
-        /// Specifying the name of a property of type Amazon.Lightsail.Model.CreateDiskResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Lightsail.Model.SetupInstanceHttpsResponse).
+        /// Specifying the name of a property of type Amazon.Lightsail.Model.SetupInstanceHttpsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,10 +134,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DiskName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DiskName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the InstanceName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^InstanceName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DiskName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InstanceName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -161,8 +157,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DiskName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-LSDisk (CreateDisk)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.InstanceName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-LSInstanceHttp (SetupInstanceHttps)"))
             {
                 return;
             }
@@ -175,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Lightsail.Model.CreateDiskResponse, NewLSDiskCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Lightsail.Model.SetupInstanceHttpsResponse, SetLSInstanceHttpCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -184,38 +180,40 @@ namespace Amazon.PowerShell.Cmdlets.LS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.DiskName;
+                context.Select = (response, cmdlet) => this.InstanceName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (this.AddOn != null)
-            {
-                context.AddOn = new List<Amazon.Lightsail.Model.AddOnRequest>(this.AddOn);
-            }
-            context.AvailabilityZone = this.AvailabilityZone;
+            context.CertificateProvider = this.CertificateProvider;
             #if MODULAR
-            if (this.AvailabilityZone == null && ParameterWasBound(nameof(this.AvailabilityZone)))
+            if (this.CertificateProvider == null && ParameterWasBound(nameof(this.CertificateProvider)))
             {
-                WriteWarning("You are passing $null as a value for parameter AvailabilityZone which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter CertificateProvider which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.DiskName = this.DiskName;
-            #if MODULAR
-            if (this.DiskName == null && ParameterWasBound(nameof(this.DiskName)))
+            if (this.DomainName != null)
             {
-                WriteWarning("You are passing $null as a value for parameter DiskName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.DomainName = new List<System.String>(this.DomainName);
+            }
+            #if MODULAR
+            if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.SizeInGb = this.SizeInGb;
+            context.EmailAddress = this.EmailAddress;
             #if MODULAR
-            if (this.SizeInGb == null && ParameterWasBound(nameof(this.SizeInGb)))
+            if (this.EmailAddress == null && ParameterWasBound(nameof(this.EmailAddress)))
             {
-                WriteWarning("You are passing $null as a value for parameter SizeInGb which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter EmailAddress which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
+            context.InstanceName = this.InstanceName;
+            #if MODULAR
+            if (this.InstanceName == null && ParameterWasBound(nameof(this.InstanceName)))
             {
-                context.Tag = new List<Amazon.Lightsail.Model.Tag>(this.Tag);
+                WriteWarning("You are passing $null as a value for parameter InstanceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -230,27 +228,23 @@ namespace Amazon.PowerShell.Cmdlets.LS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Lightsail.Model.CreateDiskRequest();
+            var request = new Amazon.Lightsail.Model.SetupInstanceHttpsRequest();
             
-            if (cmdletContext.AddOn != null)
+            if (cmdletContext.CertificateProvider != null)
             {
-                request.AddOns = cmdletContext.AddOn;
+                request.CertificateProvider = cmdletContext.CertificateProvider;
             }
-            if (cmdletContext.AvailabilityZone != null)
+            if (cmdletContext.DomainName != null)
             {
-                request.AvailabilityZone = cmdletContext.AvailabilityZone;
+                request.DomainNames = cmdletContext.DomainName;
             }
-            if (cmdletContext.DiskName != null)
+            if (cmdletContext.EmailAddress != null)
             {
-                request.DiskName = cmdletContext.DiskName;
+                request.EmailAddress = cmdletContext.EmailAddress;
             }
-            if (cmdletContext.SizeInGb != null)
+            if (cmdletContext.InstanceName != null)
             {
-                request.SizeInGb = cmdletContext.SizeInGb.Value;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
+                request.InstanceName = cmdletContext.InstanceName;
             }
             
             CmdletOutput output;
@@ -285,15 +279,15 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         #region AWS Service Operation Call
         
-        private Amazon.Lightsail.Model.CreateDiskResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.CreateDiskRequest request)
+        private Amazon.Lightsail.Model.SetupInstanceHttpsResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.SetupInstanceHttpsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lightsail", "CreateDisk");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lightsail", "SetupInstanceHttps");
             try
             {
                 #if DESKTOP
-                return client.CreateDisk(request);
+                return client.SetupInstanceHttps(request);
                 #elif CORECLR
-                return client.CreateDiskAsync(request).GetAwaiter().GetResult();
+                return client.SetupInstanceHttpsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -313,12 +307,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<Amazon.Lightsail.Model.AddOnRequest> AddOn { get; set; }
-            public System.String AvailabilityZone { get; set; }
-            public System.String DiskName { get; set; }
-            public System.Int32? SizeInGb { get; set; }
-            public List<Amazon.Lightsail.Model.Tag> Tag { get; set; }
-            public System.Func<Amazon.Lightsail.Model.CreateDiskResponse, NewLSDiskCmdlet, object> Select { get; set; } =
+            public Amazon.Lightsail.CertificateProvider CertificateProvider { get; set; }
+            public List<System.String> DomainName { get; set; }
+            public System.String EmailAddress { get; set; }
+            public System.String InstanceName { get; set; }
+            public System.Func<Amazon.Lightsail.Model.SetupInstanceHttpsResponse, SetLSInstanceHttpCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Operations;
         }
         

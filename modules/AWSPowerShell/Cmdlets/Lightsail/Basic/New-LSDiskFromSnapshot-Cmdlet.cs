@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// <summary>
     /// Creates a block storage disk from a manual or automatic snapshot of a disk. The resulting
     /// disk can be attached to an Amazon Lightsail instance in the same Availability Zone
-    /// (e.g., <code>us-east-2a</code>).
+    /// (<code>us-east-2a</code>).
     /// 
     ///  
     /// <para>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The Availability Zone where you want to create the disk (e.g., <code>us-east-2a</code>).
+        /// <para>The Availability Zone where you want to create the disk (<code>us-east-2a</code>).
         /// Choose the same Availability Zone as the Lightsail instance where you want to create
         /// the disk.</para><para>Use the GetRegions operation to list the Availability Zones where Lightsail is currently
         /// available.</para>
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DiskName
         /// <summary>
         /// <para>
-        /// <para>The unique Lightsail disk name (e.g., <code>my-disk</code>).</para>
+        /// <para>The unique Lightsail disk name (<code>my-disk</code>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -103,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DiskSnapshotName
         /// <summary>
         /// <para>
-        /// <para>The name of the disk snapshot (e.g., <code>my-snapshot</code>) from which to create
-        /// the new storage disk.</para><para>Constraint:</para><ul><li><para>This parameter cannot be defined together with the <code>source disk name</code> parameter.
+        /// <para>The name of the disk snapshot (<code>my-snapshot</code>) from which to create the
+        /// new storage disk.</para><para>Constraint:</para><ul><li><para>This parameter cannot be defined together with the <code>source disk name</code> parameter.
         /// The <code>disk snapshot name</code> and <code>source disk name</code> parameters are
         /// mutually exclusive.</para></li></ul>
         /// </para>
@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter SizeInGb
         /// <summary>
         /// <para>
-        /// <para>The size of the disk in GB (e.g., <code>32</code>).</para>
+        /// <para>The size of the disk in GB (<code>32</code>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

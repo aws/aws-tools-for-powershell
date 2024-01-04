@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DiskName
         /// <summary>
         /// <para>
-        /// <para>The unique name of the source disk (e.g., <code>Disk-Virginia-1</code>).</para><note><para>This parameter cannot be defined together with the <code>instance name</code> parameter.
+        /// <para>The unique name of the source disk (<code>Disk-Virginia-1</code>).</para><note><para>This parameter cannot be defined together with the <code>instance name</code> parameter.
         /// The <code>disk name</code> and <code>instance name</code> parameters are mutually
         /// exclusive.</para></note>
         /// </para>
@@ -84,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DiskSnapshotName
         /// <summary>
         /// <para>
-        /// <para>The name of the destination disk snapshot (e.g., <code>my-disk-snapshot</code>) based
-        /// on the source disk.</para>
+        /// <para>The name of the destination disk snapshot (<code>my-disk-snapshot</code>) based on
+        /// the source disk.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter InstanceName
         /// <summary>
         /// <para>
-        /// <para>The unique name of the source instance (e.g., <code>Amazon_Linux-512MB-Virginia-1</code>).
+        /// <para>The unique name of the source instance (<code>Amazon_Linux-512MB-Virginia-1</code>).
         /// When this is defined, a snapshot of the instance's system volume is created.</para><note><para>This parameter cannot be defined together with the <code>disk name</code> parameter.
         /// The <code>instance name</code> and <code>disk name</code> parameters are mutually
         /// exclusive.</para></note>

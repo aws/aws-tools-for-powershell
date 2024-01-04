@@ -32,6 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// uses the <code>EXTERNAL</code> deployment controller type. For more information, see
     /// <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon
     /// ECS deployment types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
+    /// 
+    ///  
+    /// <para>
+    /// You can create a maximum of 5 tasks sets for a deployment.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "ECSTaskSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECS.Model.TaskSet")]

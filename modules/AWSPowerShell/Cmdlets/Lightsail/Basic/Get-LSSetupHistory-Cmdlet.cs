@@ -28,16 +28,17 @@ using Amazon.Lightsail.Model;
 namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
-    /// Gets operations for a specific resource (an instance or a static IP).<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns detailed information for five of the most recent <code>SetupInstanceHttps</code>
+    /// requests that were ran on the target instance.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "LSOperationListForResource")]
-    [OutputType("Amazon.Lightsail.Model.Operation")]
-    [AWSCmdlet("Calls the Amazon Lightsail GetOperationsForResource API operation.", Operation = new[] {"GetOperationsForResource"}, SelectReturnType = typeof(Amazon.Lightsail.Model.GetOperationsForResourceResponse))]
-    [AWSCmdletOutput("Amazon.Lightsail.Model.Operation or Amazon.Lightsail.Model.GetOperationsForResourceResponse",
-        "This cmdlet returns a collection of Amazon.Lightsail.Model.Operation objects.",
-        "The service call response (type Amazon.Lightsail.Model.GetOperationsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "LSSetupHistory")]
+    [OutputType("Amazon.Lightsail.Model.SetupHistory")]
+    [AWSCmdlet("Calls the Amazon Lightsail GetSetupHistory API operation.", Operation = new[] {"GetSetupHistory"}, SelectReturnType = typeof(Amazon.Lightsail.Model.GetSetupHistoryResponse))]
+    [AWSCmdletOutput("Amazon.Lightsail.Model.SetupHistory or Amazon.Lightsail.Model.GetSetupHistoryResponse",
+        "This cmdlet returns a collection of Amazon.Lightsail.Model.SetupHistory objects.",
+        "The service call response (type Amazon.Lightsail.Model.GetSetupHistoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetLSOperationListForResourceCmdlet : AmazonLightsailClientCmdlet, IExecutor
+    public partial class GetLSSetupHistoryCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -62,9 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter PageToken
         /// <summary>
         /// <para>
-        /// <para>The token to advance to the next page of results from your request.</para><para>To get a page token, perform an initial <code>GetOperationsForResource</code> request.
-        /// If your results are paginated, the response will return a next page token that you
-        /// can specify as the page token in a subsequent request.</para>
+        /// <para>The token to advance to the next page of results from your request.</para><para>To get a page token, perform an initial <code>GetSetupHistory</code> request. If your
+        /// results are paginated, the response will return a next page token that you can specify
+        /// as the page token in a subsequent request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -78,13 +79,13 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Operations'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Lightsail.Model.GetOperationsForResourceResponse).
-        /// Specifying the name of a property of type Amazon.Lightsail.Model.GetOperationsForResourceResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'SetupHistory'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Lightsail.Model.GetSetupHistoryResponse).
+        /// Specifying the name of a property of type Amazon.Lightsail.Model.GetSetupHistoryResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Operations";
+        public string Select { get; set; } = "SetupHistory";
         #endregion
         
         #region Parameter PassThru
@@ -120,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Lightsail.Model.GetOperationsForResourceResponse, GetLSOperationListForResourceCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Lightsail.Model.GetSetupHistoryResponse, GetLSSetupHistoryCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -158,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.Lightsail.Model.GetOperationsForResourceRequest();
+            var request = new Amazon.Lightsail.Model.GetSetupHistoryRequest();
             
             if (cmdletContext.ResourceName != null)
             {
@@ -221,15 +222,15 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         #region AWS Service Operation Call
         
-        private Amazon.Lightsail.Model.GetOperationsForResourceResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.GetOperationsForResourceRequest request)
+        private Amazon.Lightsail.Model.GetSetupHistoryResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.GetSetupHistoryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lightsail", "GetOperationsForResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lightsail", "GetSetupHistory");
             try
             {
                 #if DESKTOP
-                return client.GetOperationsForResource(request);
+                return client.GetSetupHistory(request);
                 #elif CORECLR
-                return client.GetOperationsForResourceAsync(request).GetAwaiter().GetResult();
+                return client.GetSetupHistoryAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -251,8 +252,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         {
             public System.String PageToken { get; set; }
             public System.String ResourceName { get; set; }
-            public System.Func<Amazon.Lightsail.Model.GetOperationsForResourceResponse, GetLSOperationListForResourceCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Operations;
+            public System.Func<Amazon.Lightsail.Model.GetSetupHistoryResponse, GetLSSetupHistoryCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.SetupHistory;
         }
         
     }

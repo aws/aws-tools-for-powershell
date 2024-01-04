@@ -110,8 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter SharePrincipal
         /// <summary>
         /// <para>
-        /// <para>Enables or disables <code>Principal</code> sharing when creating the portfolio share.
-        /// If this flag is not provided, principal sharing is disabled. </para><para>When you enable Principal Name Sharing for a portfolio share, the share recipient
+        /// <para>This parameter is only supported for portfolios with an <b>OrganizationalNode</b>
+        /// Type of <code>ORGANIZATION</code> or <code>ORGANIZATIONAL_UNIT</code>. </para><para>Enables or disables <code>Principal</code> sharing when creating the portfolio share.
+        /// If you do <b>not</b> provide this flag, principal sharing is disabled. </para><para>When you enable Principal Name Sharing for a portfolio share, the share recipient
         /// account end users with a principal that matches any of the associated IAM patterns
         /// can provision products from the portfolio. Once shared, the share recipient can view
         /// associations of <code>PrincipalType</code>: <code>IAM_PATTERN</code> on their portfolio.

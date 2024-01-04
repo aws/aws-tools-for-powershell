@@ -28,7 +28,7 @@ using Amazon.Lightsail.Model;
 namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
-    /// Creates a domain resource for the specified domain (e.g., example.com).
+    /// Creates a domain resource for the specified domain (example.com).
     /// 
     ///  
     /// <para>
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The domain name to manage (e.g., <code>example.com</code>).</para>
+        /// <para>The domain name to manage (<code>example.com</code>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

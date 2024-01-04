@@ -1340,6 +1340,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.ThroughputMode
+        {
+            ($_ -eq "New-SMFeatureGroup/ThroughputConfig_ThroughputMode") -Or
+            ($_ -eq "Update-SMFeatureGroup/ThroughputConfig_ThroughputMode")
+        }
+        {
+            $v = "OnDemand","Provisioned"
+            break
+        }
+
         # Amazon.SageMaker.TrafficRoutingConfigType
         {
             ($_ -eq "New-SMEndpoint/DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_Type") -Or
@@ -1561,6 +1571,7 @@ $SM_map = @{
     "StepType"=@("Get-SMInferenceRecommendationsJobStepList")
     "StoppingConditions_FlatInvocations"=@("New-SMInferenceRecommendationsJob")
     "StudioLifecycleConfigAppType"=@("New-SMStudioLifecycleConfig")
+    "ThroughputConfig_ThroughputMode"=@("New-SMFeatureGroup","Update-SMFeatureGroup")
     "TrainingJobDefinition_AlgorithmSpecification_TrainingInputMode"=@("New-SMHyperParameterTuningJob")
     "TrainingJobDefinition_HyperParameterTuningResourceConfig_AllocationStrategy"=@("New-SMHyperParameterTuningJob")
     "TrainingJobDefinition_HyperParameterTuningResourceConfig_InstanceType"=@("New-SMHyperParameterTuningJob")

@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter LoadBalancerName
         /// <summary>
         /// <para>
-        /// <para>The name of the load balancer that you want to modify (e.g., <code>my-load-balancer</code>.</para>
+        /// <para>The name of the load balancer that you want to modify (<code>my-load-balancer</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>A Boolean value indicating whether to also include Availability Zones in your get
-        /// regions request. Availability Zones are indicated with a letter: e.g., <code>us-east-2a</code>.</para>
+        /// regions request. Availability Zones are indicated with a letter: <code>us-east-2a</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,8 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>A Boolean value indicating whether to also include Availability Zones for databases
-        /// in your get regions request. Availability Zones are indicated with a letter (e.g.,
-        /// <code>us-east-2a</code>).</para>
+        /// in your get regions request. Availability Zones are indicated with a letter (<code>us-east-2a</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

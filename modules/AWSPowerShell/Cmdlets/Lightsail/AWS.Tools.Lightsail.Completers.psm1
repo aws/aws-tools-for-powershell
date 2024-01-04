@@ -131,6 +131,13 @@ $LS_Completers = {
             break
         }
 
+        # Amazon.Lightsail.CertificateProvider
+        "Set-LSInstanceHttp/CertificateProvider"
+        {
+            $v = "LetsEncrypt"
+            break
+        }
+
         # Amazon.Lightsail.ComparisonOperator
         "Add-LSAlarm/ComparisonOperator"
         {
@@ -356,6 +363,7 @@ $LS_map = @{
     "AttributeName"=@("Update-LSLoadBalancerAttribute")
     "CacheBehaviorSettings_ForwardedCookies_Option"=@("New-LSDistribution","Update-LSDistribution")
     "CacheBehaviorSettings_ForwardedHeaders_Option"=@("New-LSDistribution","Update-LSDistribution")
+    "CertificateProvider"=@("Set-LSInstanceHttp")
     "ComparisonOperator"=@("Add-LSAlarm")
     "DefaultCacheBehavior_Behavior"=@("New-LSDistribution","Update-LSDistribution")
     "HttpEndpoint"=@("Update-LSInstanceMetadataOption")
@@ -549,6 +557,7 @@ $LS_SelectMap = @{
                "Get-LSRelationalDatabaseList",
                "Get-LSRelationalDatabaseSnapshot",
                "Get-LSRelationalDatabaseSnapshotList",
+               "Get-LSSetupHistory",
                "Get-LSStaticIp",
                "Get-LSStaticIpList",
                "Import-LSKeyPair",
@@ -565,6 +574,7 @@ $LS_SelectMap = @{
                "Send-LSContactMethodVerification",
                "Set-LSIpAddressType",
                "Set-LSResourceAccessForBucket",
+               "Set-LSInstanceHttp",
                "Start-LSGUISession",
                "Start-LSInstance",
                "Start-LSRelationalDatabase",

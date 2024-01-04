@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The resource type.</para><para>The possible values are <code>Distribution</code>, <code>Instance</code>, and <code>LoadBalancer</code>.</para><note><para>Distribution-related APIs are available only in the N. Virginia (<code>us-east-1</code>)
+        /// <para>The resource type.</para><para>The resource values are <code>Distribution</code>, <code>Instance</code>, and <code>LoadBalancer</code>.</para><note><para>Distribution-related APIs are available only in the N. Virginia (<code>us-east-1</code>)
         /// Amazon Web Services Region. Set your Amazon Web Services Region configuration to <code>us-east-1</code>
         /// to create, view, or edit distributions.</para></note>
         /// </para>

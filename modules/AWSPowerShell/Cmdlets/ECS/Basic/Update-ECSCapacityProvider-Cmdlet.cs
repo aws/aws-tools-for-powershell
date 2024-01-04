@@ -55,6 +55,19 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.Int32? ManagedScaling_InstanceWarmupPeriod { get; set; }
         #endregion
         
+        #region Parameter AutoScalingGroupProvider_ManagedDraining
+        /// <summary>
+        /// <para>
+        /// <para>The managed draining option for the Auto Scaling group capacity provider. When you
+        /// enable this, Amazon ECS manages and gracefully drains the EC2 container instances
+        /// that are in the Auto Scaling group capacity provider.</para><para>The default is <code>ENABLED</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ECS.ManagedDraining")]
+        public Amazon.ECS.ManagedDraining AutoScalingGroupProvider_ManagedDraining { get; set; }
+        #endregion
+        
         #region Parameter AutoScalingGroupProvider_ManagedTerminationProtection
         /// <summary>
         /// <para>
@@ -210,6 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AutoScalingGroupProvider_ManagedDraining = this.AutoScalingGroupProvider_ManagedDraining;
             context.ManagedScaling_InstanceWarmupPeriod = this.ManagedScaling_InstanceWarmupPeriod;
             context.ManagedScaling_MaximumScalingStepSize = this.ManagedScaling_MaximumScalingStepSize;
             context.ManagedScaling_MinimumScalingStepSize = this.ManagedScaling_MinimumScalingStepSize;
@@ -243,6 +257,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
              // populate AutoScalingGroupProvider
             var requestAutoScalingGroupProviderIsNull = true;
             request.AutoScalingGroupProvider = new Amazon.ECS.Model.AutoScalingGroupProviderUpdate();
+            Amazon.ECS.ManagedDraining requestAutoScalingGroupProvider_autoScalingGroupProvider_ManagedDraining = null;
+            if (cmdletContext.AutoScalingGroupProvider_ManagedDraining != null)
+            {
+                requestAutoScalingGroupProvider_autoScalingGroupProvider_ManagedDraining = cmdletContext.AutoScalingGroupProvider_ManagedDraining;
+            }
+            if (requestAutoScalingGroupProvider_autoScalingGroupProvider_ManagedDraining != null)
+            {
+                request.AutoScalingGroupProvider.ManagedDraining = requestAutoScalingGroupProvider_autoScalingGroupProvider_ManagedDraining;
+                requestAutoScalingGroupProviderIsNull = false;
+            }
             Amazon.ECS.ManagedTerminationProtection requestAutoScalingGroupProvider_autoScalingGroupProvider_ManagedTerminationProtection = null;
             if (cmdletContext.AutoScalingGroupProvider_ManagedTerminationProtection != null)
             {
@@ -388,6 +412,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.ECS.ManagedDraining AutoScalingGroupProvider_ManagedDraining { get; set; }
             public System.Int32? ManagedScaling_InstanceWarmupPeriod { get; set; }
             public System.Int32? ManagedScaling_MaximumScalingStepSize { get; set; }
             public System.Int32? ManagedScaling_MinimumScalingStepSize { get; set; }

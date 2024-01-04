@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The bundle of specification information for your virtual private server (or <i>instance</i>),
-        /// including the pricing plan (e.g., <code>micro_1_0</code>).</para>
+        /// including the pricing plan (<code>micro_1_0</code>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

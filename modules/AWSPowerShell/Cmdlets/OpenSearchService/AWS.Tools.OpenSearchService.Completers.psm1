@@ -205,7 +205,7 @@ $OS_Completers = {
             ($_ -eq "Update-OSDomainConfig/DomainEndpointOptions_TLSSecurityPolicy")
         }
         {
-            $v = "Policy-Min-TLS-1-0-2019-07","Policy-Min-TLS-1-2-2019-07"
+            $v = "Policy-Min-TLS-1-0-2019-07","Policy-Min-TLS-1-2-2019-07","Policy-Min-TLS-1-2-PFS-2023-10"
             break
         }
 

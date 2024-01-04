@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DiskSnapshotName
         /// <summary>
         /// <para>
-        /// <para>The name of the disk snapshot you want to delete (e.g., <code>my-disk-snapshot</code>).</para>
+        /// <para>The name of the disk snapshot you want to delete (<code>my-disk-snapshot</code>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
