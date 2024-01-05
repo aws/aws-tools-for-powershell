@@ -75,6 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     public partial class StartCONNTaskContactCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter Attribute

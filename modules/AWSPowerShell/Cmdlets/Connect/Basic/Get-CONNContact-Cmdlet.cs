@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     public partial class GetCONNContactCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter ContactId

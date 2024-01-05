@@ -248,7 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// are not permitted.</para><para><b>Uniqueness requirements: </b></para><ul><li><para>The combined <code>XksProxyUriEndpoint</code> and <code>XksProxyUriPath</code> values
         /// must be unique in the Amazon Web Services account and Region.</para></li><li><para>An external key store with <code>PUBLIC_ENDPOINT</code> connectivity cannot use the
         /// same <code>XksProxyUriEndpoint</code> value as an external key store with <code>VPC_ENDPOINT_SERVICE</code>
-        /// connectivity in the same Amazon Web Services Region.</para></li><li><para>Each external key store with <code>VPC_ENDPOINT_SERVICE</code> connectivity must have
+        /// connectivity in this Amazon Web Services Region.</para></li><li><para>Each external key store with <code>VPC_ENDPOINT_SERVICE</code> connectivity must have
         /// its own private DNS name. The <code>XksProxyUriEndpoint</code> value for external
         /// key stores with <code>VPC_ENDPOINT_SERVICE</code> connectivity (private DNS name)
         /// must be unique in the Amazon Web Services account and Region.</para></li></ul>
