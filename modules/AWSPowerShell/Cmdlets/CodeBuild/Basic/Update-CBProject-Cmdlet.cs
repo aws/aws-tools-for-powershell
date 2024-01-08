@@ -144,6 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para>Information about the compute resources the build project uses. Available values include:</para><ul><li><para><code>BUILD_GENERAL1_SMALL</code>: Use up to 3 GB memory and 2 vCPUs for builds.</para></li><li><para><code>BUILD_GENERAL1_MEDIUM</code>: Use up to 7 GB memory and 4 vCPUs for builds.</para></li><li><para><code>BUILD_GENERAL1_LARGE</code>: Use up to 16 GB memory and 8 vCPUs for builds,
+        /// depending on your environment type.</para></li><li><para><code>BUILD_GENERAL1_XLARGE</code>: Use up to 70 GB memory and 36 vCPUs for builds,
         /// depending on your environment type.</para></li><li><para><code>BUILD_GENERAL1_2XLARGE</code>: Use up to 145 GB memory, 72 vCPUs, and 824 GB
         /// of SSD storage for builds. This compute type supports Docker images up to 100 GB uncompressed.</para></li><li><para><code>BUILD_LAMBDA_1GB</code>: Use up to 1 GB memory for builds. Only available for
         /// environment type <code>LINUX_LAMBDA_CONTAINER</code> and <code>ARM_LAMBDA_CONTAINER</code>.</para></li><li><para><code>BUILD_LAMBDA_2GB</code>: Use up to 2 GB memory for builds. Only available for

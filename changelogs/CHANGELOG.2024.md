@@ -1,4 +1,11 @@
-﻿### 4.1.489 (2024-01-05 21:49Z)
+﻿### 4.1.490 (2024-01-08 21:46Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.722.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Route 53 Resolver
+    * Modified cmdlet Edit-R53RFirewallRule: added parameter Qtype.
+    * Modified cmdlet New-R53RFirewallRule: added parameter Qtype.
+    * Modified cmdlet Remove-R53RFirewallRule: added parameter Qtype.
+
+### 4.1.489 (2024-01-05 21:49Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.721.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.488 (2024-01-04 22:38Z)

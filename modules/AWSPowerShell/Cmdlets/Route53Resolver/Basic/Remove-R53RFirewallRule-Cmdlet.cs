@@ -77,6 +77,17 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         public System.String FirewallRuleGroupId { get; set; }
         #endregion
         
+        #region Parameter Qtype
+        /// <summary>
+        /// <para>
+        /// <para> The DNS query type that the rule you are deleting evaluates. Allowed values are;
+        /// </para><ul><li><para> A: Returns an IPv4 address.</para></li><li><para>AAAA: Returns an Ipv6 address.</para></li><li><para>CAA: Restricts CAs that can create SSL/TLS certifications for the domain.</para></li><li><para>CNAME: Returns another domain name.</para></li><li><para>DS: Record that identifies the DNSSEC signing key of a delegated zone.</para></li><li><para>MX: Specifies mail servers.</para></li><li><para>NAPTR: Regular-expression-based rewriting of domain names.</para></li><li><para>NS: Authoritative name servers.</para></li><li><para>PTR: Maps an IP address to a domain name.</para></li><li><para>SOA: Start of authority record for the zone.</para></li><li><para>SPF: Lists the servers authorized to send emails from a domain.</para></li><li><para>SRV: Application specific values that identify servers.</para></li><li><para>TXT: Verifies email senders and application-specific values.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Qtype { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'FirewallRule'.
@@ -133,6 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
                 WriteWarning("You are passing $null as a value for parameter FirewallRuleGroupId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Qtype = this.Qtype;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -156,6 +168,10 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             if (cmdletContext.FirewallRuleGroupId != null)
             {
                 request.FirewallRuleGroupId = cmdletContext.FirewallRuleGroupId;
+            }
+            if (cmdletContext.Qtype != null)
+            {
+                request.Qtype = cmdletContext.Qtype;
             }
             
             CmdletOutput output;
@@ -220,6 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         {
             public System.String FirewallDomainListId { get; set; }
             public System.String FirewallRuleGroupId { get; set; }
+            public System.String Qtype { get; set; }
             public System.Func<Amazon.Route53Resolver.Model.DeleteFirewallRuleResponse, RemoveR53RFirewallRuleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.FirewallRule;
         }
